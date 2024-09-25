@@ -1,0 +1,115 @@
+/* Estilos da página Login e Sign Up */
+
+:root {
+    --vermelho_primario: #D90429;
+    --vermelho_secundario: #EF233C;
+    --background_conteudo: #EDF2F4;
+    --cor_texto: #2B2D42;
+
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url(../font/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter";
+    color: var(--cor_texto);
+}
+
+main {
+    width: 100vw;
+    display: flex;
+}
+
+.background {
+    background-image: url(../img/bg1_s.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 65%;
+    height: 100vh;
+}
+
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+    padding-left: 45px;
+    padding-right: 45px;
+    background-color: var(--background_conteudo);
+    box-shadow: -10px -3px 25.1px 0 rgba(0, 0, 0, 0.22);
+}
+
+p {
+    text-align: center;
+    font-size: 0.75em;
+    margin-top: 2px;
+}
+
+h1 {
+    color: var(--vermelho_primario);
+    font-size: 1.75em;
+    text-align: center;
+    margin: 0px;    
+}
+
+a {
+    display: block;
+    color: var(--vermelho_secundario);
+    width: 100%;
+    text-align: center;
+    font-size: 0.75em;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="password"] {
+    text-align: center;
+    width: 85%;
+    padding: 10px 15px;
+    font-size: 0.75em;
+    color: #8D99AE; 
+    background-color: transparent; ;
+    border: 1px solid #8D99AE;
+    border-radius: 8px; 
+    box-sizing: border-box; /* importante */
+    margin-bottom: 8px;
+}
+
+input[type="text"]::placeholder, input[type="password"]::placeholder {
+    color: #8D99AE; 
+}
+
+input[type="text"]:focus {
+    border-color: #8D99AE; 
+}
+
+input[type="submit"] {
+    font-weight: bold;
+    font-size: 1.05em;
+    border-radius: 8px;
+    color: white;
+    width: 85%;
+    padding: 5px 10px;
+    border: none;
+    background-color: var(--vermelho_secundario);
+    cursor: pointer;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+input[type="submit"]:hover {
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: var(--vermelho_primario);
+}
+
+
