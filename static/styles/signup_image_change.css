@@ -1,0 +1,7 @@
+.background {
+    background-image: url(../img/bg2_s.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 58vw;
+    height: 100vh;
+}
