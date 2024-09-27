@@ -1,26 +1,4 @@
-/* Estilos da página Login e Sign Up */
 
-:root {
-    --vermelho_primario: #D90429;
-    --vermelho_secundario: #EF233C;
-    --background_conteudo: #EDF2F4;
-    --cor_texto: #2B2D42;
-
-}
-
-@font-face {
-    font-family: "Inter";
-    src: url(../font/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
-}
-
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Inter";
-    color: var(--cor_texto);
-    background-color: var(--background_conteudo);
-}
 
 main {
     width: 100vw;
