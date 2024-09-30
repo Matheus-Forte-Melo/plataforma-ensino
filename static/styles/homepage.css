@@ -5,6 +5,22 @@ body {
     background-image: url(../img/background.jpg);
 }
 
+#homepage-a {
+    color: var(--vermelho_primario);
+}
+
+/* barrinha vermelha   */ 
+#homepage-a::before {
+    content: '';
+    position: absolute; /* Usa como base o container se pa */
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95px;
+    height: 4px;
+    background-color: var(--vermelho_primario);
+    cursor: auto;
+}
 
 
 main {

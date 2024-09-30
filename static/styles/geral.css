@@ -13,6 +13,9 @@
     src: url(../font/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
 }
 
+.first_a {
+    margin-left: 50px;
+}
 
 body {
     margin: 0;
@@ -70,24 +73,6 @@ nav a {
     position: relative;
     font-weight: 600;
     transition: color 0.3s;
-}
-
-#homepage-a {
-    color: var(--vermelho_primario);
-    margin-left: 50px;
-}
-
-/* barrinha vermelha   */ 
-#homepage-a::before {
-    content: '';
-    position: absolute; /* Usa como base o container se pa */
-    top: -28px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95px;
-    height: 4px;
-    background-color: var(--vermelho_primario);
-    cursor: auto;
 }
 
 nav a:hover {

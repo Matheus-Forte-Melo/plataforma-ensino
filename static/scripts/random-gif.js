@@ -8,7 +8,6 @@ const gifs = [
     '../static/img/avatar6.gif',
     '../static/img/avatar7.gif',
     '../static/img/avatar8.gif',
-    '../static/img/avatar9.gif'
 ];
 
 // Função para iescolher um GIF aleatório
