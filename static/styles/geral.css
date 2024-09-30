@@ -21,3 +21,94 @@ body {
     color: var(--cor_texto);
     background-color: var(--background_conteudo);
 }
+
+header {
+    padding: 25px 0px 0px 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    background-image: url(../img/logo2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    width: 125px;
+    height: 100px;
+    border-radius: 50px;
+    margin-left: 83px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 85px;
+    padding: 15px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;    
+    height: 55px;
+    background-color: white;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.259);
+}
+
+/* Ícones e alinhamento */
+.icons-container {
+    display: flex;
+    gap: 15px;
+    width: 165px;
+}
+
+/* Links de navegação */
+nav a {
+    letter-spacing: 3px;
+    display: block;
+    font-size: 1.65em;
+    color: #808080;
+    text-decoration: none;
+    position: relative;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+#homepage-a {
+    color: var(--vermelho_primario);
+    margin-left: 50px;
+}
+
+/* barrinha vermelha   */ 
+#homepage-a::before {
+    content: '';
+    position: absolute; /* Usa como base o container se pa */
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95px;
+    height: 4px;
+    background-color: var(--vermelho_primario);
+    cursor: auto;
+}
+
+nav a:hover {
+    color: var(--vermelho_primario);
+}
+
+
+#user-icon {
+    fill: #808080; /* Cor inicial do ícone */
+    transition: fill 0.3s ease; /* Transição aplicada na cor de preenchimento */
+}
+
+#user-icon:hover {
+    fill: var(--vermelho_primario); /* Cor no estado de hover */
+}
+
+#config-icon {
+    fill: #808080;
+    transition: fill 0.3s ease;
+}
+
+#config-icon:hover {
+    fill: var(--vermelho_primario);
+}
