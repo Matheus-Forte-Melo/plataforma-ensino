@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto extensionista</title>
+    <link rel="stylesheet" href="{% static 'styles/geral.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/login_signup.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/signup_image_change.css' %}">
+
+</head>
+<body>
+    <main>
+        <section class="background">
+
+        </section>
+
+        <section class="conteudo">
+            <div class="container-conteudo">
+                <h1>Faça Login!</h1>
+                <p>Precisamos que você entre na sua conta para resgatarmos seu progresso no curso.</p>
+                <form action="" method="">
+
+                    <label for="usuario">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#8d99ae" viewBox="0 0 256 256"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path></svg>
+                        <input placeholder="Insira seu nome de usuário" type="text" id="usuario">
+                    </label>
+
+                    <label for="senha">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#8d99ae" viewBox="0 0 256 256"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-68-56a12,12,0,1,1-12-12A12,12,0,0,1,140,152Z"></path></svg>
+                        <input placeholder="Insira sua senha" type="password" id="senha">
+                    </label>
+
+                    <input type="submit" value="CRIAR">
+
+                </form>
+                <a href="{% url 'signup' %}">Não possui uma conta? Cadestre-se.</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
