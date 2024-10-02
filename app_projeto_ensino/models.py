@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class CustomUser(AbstractUser):
-    #email = models.EmailField(null=False, unique=True, blank=False) 
+    email = models.EmailField(null=False, unique=True, blank=False) 
     # blank so serve se for usar model form para setar como required
     pontuacao = models.IntegerField(default=0)
     first_name = None

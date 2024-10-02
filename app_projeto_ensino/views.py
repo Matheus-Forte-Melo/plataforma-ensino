@@ -13,7 +13,7 @@ def signup(request):
         password_confirm = request.POST.get('confirma_senha')
 
         if password == password_confirm:
-            user = models.CustomUser.objects.create_user(username, email, password)
+            user = models.CustomUser.objects.create_user(username, email, password) # Usar try, se chamar erro, identificar ele, usando aquela parada de error message que tem no django
             user.save()
         else:
             print("Senhas não coincidem")
