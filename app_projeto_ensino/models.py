@@ -7,10 +7,9 @@ from django.contrib.auth.models import AbstractUser
 class CustomUser(AbstractUser):
     email = models.EmailField(null=False, unique=True, blank=False) 
     # blank so serve se for usar model form para setar como required
-    pontuacao = models.IntegerField(default=0)
+    pontuacao = models.IntegerField(default=0, blank=True, null=True)
     first_name = None
     last_name = None
-    # setar email como unique
 
     REQUIRED_FIELDS = ['email']
 

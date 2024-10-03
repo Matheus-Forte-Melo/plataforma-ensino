@@ -1,31 +1,41 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
 from . import models
+from . import utils
 
 # Create your views here.
 def signup(request):
-
+    
     if request.method == "POST": 
+        try: 
+            email, username, password, password_confirm = utils.extrair_dados_form(request) 
+
+            if password != password_confirm:
+                raise ValueError("As senhas não coincidem")
         
+            user = models.CustomUser.objects.create_user(username, email, password) 
+            user = authenticate(request, username=username, password=password)
+           
+            if user is not None:
+                # Salva o usuario e faz na conta criada
+                user.save()
+                login(request, user)
+                return redirect('home')  # Redireciona para a página principal
+            else:
+                raise ValueError("Erro na autenticação do usuario.")           
 
-        email = request.POST.get('email')
-        username = request.POST.get('usuario')
-        password = request.POST.get('senha')
-        password_confirm = request.POST.get('confirma_senha')
-
-        if password == password_confirm:
-            user = models.CustomUser.objects.create_user(username, email, password) # Usar try, se chamar erro, identificar ele, usando aquela parada de error message que tem no django
-            user.save()
-        else:
-            print("Senhas não coincidem")
-
-
-
-
-        print(request.POST.get('email'))
-        print(request.POST.get('usuario'))
-        print(request.POST.get('senha'))
-        print(request.POST.get('confirma_senha'))
-
+        except Exception as erro:
+            if "UNIQUE constraint" in str(erro) and "email" in str(erro):
+                print(f"O email {email} já esta sendo utilizado outro usuário.")
+                messages.add_message(request, messages.ERROR, f"O email {email} já esta sendo por utilizado outro usuário.")
+            elif "UNIQUE constraint" in str(erro) and "username" in str(erro):
+                print(f"O nome de usuário {username} já esta sendo utilizado outro usuário.")
+                messages.add_message(request, messages.ERROR, f"O nome de usuário {username} já esta sendo utilizado outro usuário.")
+            else:
+                messages.add_message(request, messages.ERROR, str(erro))
+                print(erro) 
+    
     return render(request, 'signup.html')
 
 def signin(request):
