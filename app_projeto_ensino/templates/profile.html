@@ -14,7 +14,7 @@
         <header>
             <div class="logo"></div>
             <nav>
-                <a class="first_a" href="#">HOME</a>
+                <a class="first_a" href="{% url 'home' %}">HOME</a>
                 <a href="#">CONTEÚDO</a>
                 <a href="#">ROADMAP</a>
                 <a href="#" id="last">SOBRE NÓS</a>
@@ -35,7 +35,14 @@
     
     </div>
 
-    <div class="white-section"></div>
+    <div class="white-section">
+        {{ user.username }}
+        {{ user.email }}
+        {{ user.mundo }}
+        {{ user.fase }}
+        {{ user.pontuacao }}
+        
+    </div>
 
     <div class="circle-container">
         <div class="circle">
@@ -43,7 +50,7 @@
         </div>
     </div>
     
-      <!-- Script para trocar o GIF dinamicamente -->
+      <!-- script temporario para alternar entre gifs de perfil temporarios. -->
       <script src="{% static 'scripts/random-gif.js' %}"></script>
 
 </body>

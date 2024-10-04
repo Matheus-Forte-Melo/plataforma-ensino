@@ -1,7 +1,13 @@
 import re
 
+def extrair_dados_form_signin(request):
+    return (
+        request.POST.get('usuario').strip(),
+        verificar_senha(request.POST.get('senha').strip())
+    )
+
 # Também da display em mensagens de erro.
-def extrair_dados_form(request):
+def extrair_dados_form_signup(request):
     return (
         verificar_email(request.POST.get('email').lower().strip()),
         request.POST.get('usuario').strip(), 
