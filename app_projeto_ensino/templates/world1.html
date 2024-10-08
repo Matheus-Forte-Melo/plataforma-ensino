@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Fases</title>
+    <link rel="stylesheet" href="{% static 'styles/map_style.css' %}">
+</head>
+<body>
+
+    <div class="mapa-container" id="mapaContainer">
+        <!-- Mapa de Fases -->
+        <div class="mapa" id="mapa">
+            <div class="fase" id="um" data-fase="1">1</div>
+            <div class="fase" id="dois" data-fase="2">2</div>
+            <div class="fase" id="tres" data-fase="3">3</div>
+        </div>
+    </div>
+
+    <!-- Aba Lateral -->
+    <div class="aba-lateral" id="abaLateral">
+
+        <div class="conteudo" id="conteudo1">
+            <div class="fechar" onclick="retornarAba()"></div>
+            <div class="maximizar" onclick="maximizarAba()"></div> 
+            <br>    
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto autem placeat delectus deleniti magni! Fuga consequatur vel ratione nisi corporis illo autem, porro voluptate sapiente cumque eum, delectus, fugiat odio voluptates debitis. Doloremque, aliquid ex, et saepe consequuntur culpa commodi quam sunt ipsum voluptas incidunt tempora distinctio ad fugit consequatur minima molestiae nam accusamus, minus dolorum nostrum officiis laborum velit vero. Nihil, mollitia! At ducimus laboriosam, earum quaerat possimus autem iure ex neque fugit quo maiores, ut, dolore eaque ea. Veniam maxime doloribus illum sunt eum praesentium voluptates aliquam est, facere, earum velit cumque quae dolorum. Iusto qui excepturi et provident unde ipsam quibusdam inventore quam obcaecati, nesciunt quo blanditiis saepe ipsa libero, iure sunt molestiae? Quia fugiat optio minima nam quae vitae iusto id quos, ipsam tenetur voluptas eaque repellendus quam. In accusantium unde culpa adipisci dolore distinctio tempora saepe voluptate voluptatum quibusdam placeat magni, doloribus nobis. Eaque ut non qui esse, cupiditate nisi cumque odit, iure velit ipsam in expedita nulla sit aliquam? Nostrum, nesciunt, eius ut harum nulla, necessitatibus architecto eveniet quia repudiandae similique temporibus? Mollitia excepturi ab totam ipsa dolorem molestias unde at similique, iste omnis modi sit delectus pariatur adipisci, nobis perspiciatis accusamus asperiores. Ad?
+            </p>
+
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto autem placeat delectus deleniti magni! Fuga consequatur vel ratione nisi corporis illo autem, porro voluptate sapiente cumque eum, delectus, fugiat odio voluptates debitis. Doloremque, aliquid ex, et saepe consequuntur culpa commodi quam sunt ipsum voluptas incidunt tempor
+            </p>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtZFoQNEUuXM4-2kQNKquCStLLqjkzjjrwNA&s" alt="">
+
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto autem placeat delectus deleniti magni! Fuga consequatur vel ratione nisi corporis illo autem, porro voluptate sapiente cumque eum, delectus, fugiat odio voluptates debitis. Doloremque, aliquid ex, et saepe consequuntur culpa commodi quam sunt ipsum voluptas incidunt tempora distinctio ad fugit consequatur minima molestiae nam accusamus, minus dolorum nostrum officiis laborum velit vero. Architecto, aspernatur deleniti ex aut odit magnam tenetur a repellendus ullam libero cumque iste delectus beatae corporis neque quasi, aliquid minus quod commodi eveniet labore laudantium modi facere? Sit 
+            
+            {% if request.user.fase == 0 %}
+            <button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>
+            {% else %}
+            <p>Você já desbloqueou a próxima fase!</p>
+            {% endif %}
+        </div>
+
+        <div class="conteudo" id="conteudo2">
+            <div class="fechar" onclick="retornarAba()"></div>
+            <div class="maximizar" onclick="maximizarAba()"></div> 
+            <br> <!-- Isso pode ser facilmente componentizado -->
+            
+            {% if request.user.fase == 1 %}
+            <button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>
+            {% else %}
+            <p>Você já desbloqueou a próxima fase!</p>
+            {% endif %}
+        
+        </div>
+
+        <div class="conteudo" id="conteudo3">
+            <div class="fechar" onclick="retornarAba()"></div>
+            <div class="maximizar" onclick="maximizarAba()"></div> 
+            <br>
+
+            {% if request.user.fase == 2 %}
+            <button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>
+            {% else %}
+            <p>Você já desbloqueou a próxima fase!</p>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <script src="{% static 'scripts/map_script.js' %}"> // A lógica de exibição
+    </script>
+
+    <script src="{% static 'scripts/logica_conteudo.js' %}"> // A lógica por tras de requests e restricoes
+    </script>
+
+</body>
+</html>

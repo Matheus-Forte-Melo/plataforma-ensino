@@ -1,9 +1,12 @@
+from django.http import JsonResponse, HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from . import models
 from . import utils
+
 
 # Create your views here.
 def signup(request):
@@ -67,6 +70,25 @@ def profile(request, pk):
 
     context = {'user': user}
     return render(request, 'profile.html', context)
+
+@login_required(login_url="signin") # Usar parada de permission e acesso do django para restringir acesso aos niveis superiores
+def world1(request):
+    print(request.user, request.user.fase)
+    return render(request, 'world1.html')
+
+@require_POST
+def incrementar_fase(request):
+    user = request.user
+    user.fase = user.fase + 1
+    
+    user.save()
+    user.refresh_from_db()
+
+    print(user)
+    print(user.fase)    
+    
+    return JsonResponse({'fase_atual': user.fase})
+
 
 
 

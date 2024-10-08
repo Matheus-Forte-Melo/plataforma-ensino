@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#um {
+    position: absolute;
+    left: 1260px;
+    top: 650px;
+}
+
+#dois {
+    position: absolute;
+    left: 1660px;
+    top: 950px;
+}
+
+#tres {
+    position: absolute;
+    left: 2100px;
+    top: 1050px;
+}
+
+/* Contêiner do mapa que vai controlar o scroll */
+.mapa-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Esconde o overflow e vamos controlar com JS */
+    position: relative;
+}
+
+/* Mapa que é maior que o contêiner para permitir o arraste */
+.mapa {
+    width: 200%; /* Exemplo, faça maior que a tela */
+    height: 200%; /* Exemplo, faça maior que a tela */
+    background-color: #f0f0f0;
+    display: flex;
+    position: relative;
+    cursor: grab; /* Cursor de arraste */
+}
+
+/* Botões das fases */
+.fase {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 10px;
+}
+
+
+/* Aba lateral */
+.aba-lateral {
+    width: 47%;
+    height: 100vh;
+    background-color: #fff;
+    position: fixed; /* Isso aqui é o que permite essa gororoba toda ficar certinha. Está sempre no mesmo lugar da tela e nao se auto ajusta, foda. */
+    right: -50%;
+    top: 0;
+    padding: 20px;
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    z-index: 100;
+    overflow: scroll;
+}
+
+.aba-lateral.ativa {
+    transform: translateX(-100%);
+}
+
+.conteudo {
+    display: none;
+}
+
+.conteudo.ativo {
+    display: block;
+    text-align: justify;
+
+}
+
+.maximizado {
+    width: 100%; 
+    height: 100vh; 
+    right: -104%; /* Alterar esse valor com media queries */
+}
+
+/* Controles Conteudo */
+
+.fechar, .maximizar {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.fechar {
+    background-color: red;
+}
+
+.maximizar {
+    background-color: rgb(64, 255, 0);
+}
