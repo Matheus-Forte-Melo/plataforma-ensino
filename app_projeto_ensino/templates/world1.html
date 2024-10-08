@@ -38,8 +38,10 @@
             
             {% if request.user.fase == 0 %}
             <button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>
+            {% elif request.user.fase < 0 %}
+            <p>Fase bloqueada!</p>
             {% else %}
-            <p>Você já desbloqueou a próxima fase!</p>
+            <p>A proxima fase já foi desbloqueda.</p>
             {% endif %}
         </div>
 
@@ -50,8 +52,10 @@
             
             {% if request.user.fase == 1 %}
             <button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>
+            {% elif request.user.fase < 1 %}
+            <p>Fase bloqueada!</p>
             {% else %}
-            <p>Você já desbloqueou a próxima fase!</p>
+            <p>A proxima fase já foi desbloqueda.</p>
             {% endif %}
         
         </div>
@@ -63,8 +67,10 @@
 
             {% if request.user.fase == 2 %}
             <button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>
+            {% elif request.user.fase < 2 %}
+            <p>Fase bloqueada!</p>
             {% else %}
-            <p>Você já desbloqueou a próxima fase!</p>
+            <p>A proxima fase já foi desbloqueda.</p>
             {% endif %}
 
         </div>
