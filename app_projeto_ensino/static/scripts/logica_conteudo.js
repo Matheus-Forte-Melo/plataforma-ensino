@@ -28,5 +28,5 @@ function incrementarFase(botao) {
         console.log(fase)
     })
     location.reload() 
-    // Por enquanto estou usando essa solucao, ele recarrega, para que os IF's da template do django entrem em ação e façam o display correto das paginas bloqueadas/desbloqueadas
+    // Por enquanto estou usando essa solucao, ele recarrega, para que os IF's da template do django entrem em ação e façam o display correto das paginas bloqueadas/desbloqueadas. Se nao der de resolver isso de uma forma boa, apenas dar reload mesmo, mas dar um jeito de salvar a posicao atual da tela e resumir nela, tal qual o estado atual da aba.
 }
