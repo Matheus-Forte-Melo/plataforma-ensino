@@ -9,8 +9,6 @@ body {
     padding: 0;
 }
 
-
-
 /* Contêiner do mapa que vai controlar o scroll */
 .mapa-container {
     width: 100%;
@@ -80,6 +78,7 @@ body {
     background-color: #C02666;
     outline: 3px solid #C02666;
     border-radius: 0px;
+
 }
 
 .prova-icon {
@@ -106,6 +105,10 @@ body {
     width: 62px;
     height: 59px;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); /* Mesma forma */
+}
+
+.prova-icon.bloqueado::after {
+    background-color: gray; 
 }
 
 /* Aba lateral */
