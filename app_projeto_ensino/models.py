@@ -8,7 +8,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(null=False, unique=True, blank=False) 
     # blank so serve se for usar model form para setar como required
     pontuacao = models.IntegerField(default=0, blank=True, null=True)
-    fase = models.IntegerField(default=0, blank=True, null=True)
+    fase = models.IntegerField(default=1, blank=True, null=True)
     mundo = models.IntegerField(default=0, blank=True, null=True)
     first_name = None
     last_name = None

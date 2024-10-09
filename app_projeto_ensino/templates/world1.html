@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="{% static 'styles/map_style.css' %}">
 </head>
 <body>
+    <div id="info-fase" data-inicio="{{ request.user.fase }}"></div>
 
     <div class="mapa-container" id="mapaContainer">
+        
         <!-- Mapa de Fases -->
         <div class="mapa" id="mapa">
             <div class="fase" id="um" data-fase="1">1</div>
@@ -21,7 +23,7 @@
 
     <!-- Aba Lateral -->
     <div class="aba-lateral" id="abaLateral">
-
+    
         <div class="conteudo" id="conteudo1">
             <div class="fechar" onclick="retornarAba()"></div>
             <div class="maximizar" onclick="maximizarAba()"></div> 
@@ -35,45 +37,31 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtZFoQNEUuXM4-2kQNKquCStLLqjkzjjrwNA&s" alt="">
 
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto autem placeat delectus deleniti magni! Fuga consequatur vel ratione nisi corporis illo autem, porro voluptate sapiente cumque eum, delectus, fugiat odio voluptates debitis. Doloremque, aliquid ex, et saepe consequuntur culpa commodi quam sunt ipsum voluptas incidunt tempora distinctio ad fugit consequatur minima molestiae nam accusamus, minus dolorum nostrum officiis laborum velit vero. Architecto, aspernatur deleniti ex aut odit magnam tenetur a repellendus ullam libero cumque iste delectus beatae corporis neque quasi, aliquid minus quod commodi eveniet labore laudantium modi facere? Sit 
-            
-            {% if request.user.fase == 0 %}
-            <button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>
-            {% elif request.user.fase < 0 %}
-            <p>Fase bloqueada!</p>
-            {% else %}
-            <p>A proxima fase já foi desbloqueda.</p>
-            {% endif %}
+            <br>
         </div>
 
         <div class="conteudo" id="conteudo2">
-            <div class="fechar" onclick="retornarAba()"></div>
-            <div class="maximizar" onclick="maximizarAba()"></div> 
-            <br> <!-- Isso pode ser facilmente componentizado -->
-            
-            {% if request.user.fase == 1 %}
-            <button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>
-            {% elif request.user.fase < 1 %}
-            <p>Fase bloqueada!</p>
-            {% else %}
-            <p>A proxima fase já foi desbloqueda.</p>
-            {% endif %}
+                <div class="fechar" onclick="retornarAba()"></div>
+                <div class="maximizar" onclick="maximizarAba()"></div> 
+                <br>
+
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, aliquam, minus molestias libero quisquam nihil ut ea magnam quam commodi in deserunt debitis sapiente repudiandae obcaecati?</p>
+
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, aliquam, minus molestias libero quisquam nihil ut ea magnam quam commodi in deserunt debitis sapiente repudiandae obcaecati?</p>
+
+        </div>
+    
         
-        </div>
-
         <div class="conteudo" id="conteudo3">
-            <div class="fechar" onclick="retornarAba()"></div>
-            <div class="maximizar" onclick="maximizarAba()"></div> 
-            <br>
+                <div class="fechar" onclick="retornarAba()"></div>
+                <div class="maximizar" onclick="maximizarAba()"></div> 
+                <br>
 
-            {% if request.user.fase == 2 %}
-            <button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>
-            {% elif request.user.fase < 2 %}
-            <p>Fase bloqueada!</p>
-            {% else %}
-            <p>A proxima fase já foi desbloqueda.</p>
-            {% endif %}
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, aliquam, minus molestias libero quisquam nihil ut ea magnam quam commodi in deserunt debitis sapiente repudiandae obcaecati?</p>
+
 
         </div>
+
 
     </div>
 

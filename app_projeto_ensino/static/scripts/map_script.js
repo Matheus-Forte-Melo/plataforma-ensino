@@ -66,9 +66,10 @@ window.onload = function() {
         // Obtém o elemento do mapa
         const mapaContainer = document.getElementById('mapaContainer');
         
-        // Calcula o centro do mapa
+        // Calcula o centro do mapa, porém o mais interessante seria calcular o centro do viewport
         const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2;
         const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2;
+       
         
         // Define a posição de rolagem para o centro
         mapaContainer.scrollTo(scrollX, scrollY);
