@@ -1,26 +1,15 @@
+@font-face {
+    font-family: "Inter";
+    src: url(../font/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Inter", Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-#um {
-    position: absolute;
-    left: 1260px;
-    top: 650px;
-}
 
-#dois {
-    position: absolute;
-    left: 1660px;
-    top: 950px;
-}
-
-#tres {
-    position: absolute;
-    left: 2100px;
-    top: 1050px;
-}
 
 /* Contêiner do mapa que vai controlar o scroll */
 .mapa-container {
@@ -42,10 +31,11 @@ body {
 
 /* Botões das fases */
 .fase {
+    outline-offset: 3px;
+    position: absolute;
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #4CAF50;
     color: white;
     display: flex;
     align-items: center;
@@ -54,6 +44,69 @@ body {
     margin: 10px;
 }
 
+#um {
+    left: 1260px;
+    top: 650px;
+}
+
+#dois {
+    left: 1660px;
+    top: 950px;
+}
+
+#tres {
+    left: 2100px;
+    top: 1050px;
+}
+
+#quatro {
+    left: 2500px;
+    top: 1250px;
+}
+
+.conteudo-icon {
+    background-color: #84D260;
+    outline: 3px solid #84D260;
+}
+
+.desafio-icon {
+    background-color: #ECA72C;
+    outline: 3px solid #ECA72C;
+    border-radius: 0px;
+    transform: rotate(45deg);
+}
+
+.exercicio-icon {
+    background-color: #C02666;
+    outline: 3px solid #C02666;
+    border-radius: 0px;
+}
+
+.prova-icon {
+    background-color: #EE5622; /* Outline */
+    width: 78px;
+    height: 71px;
+    border-radius: 0px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.prova-icon::before {
+    content: '';
+    position: absolute;
+    background-color: #f0f0f0; /* Offset */
+    width: 68px;
+    height: 65px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); /* Mesma forma */
+}
+
+.prova-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #EE5622; /* Body */
+    width: 62px;
+    height: 59px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); /* Mesma forma */
+}
 
 /* Aba lateral */
 .aba-lateral {
@@ -92,18 +145,7 @@ body {
 
 /* Controles Conteudo */
 
-.fechar, .maximizar {
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
+.ui-icon {
     cursor: pointer;
     display: inline-block;
-}
-
-.fechar {
-    background-color: red;
-}
-
-.maximizar {
-    background-color: rgb(64, 255, 0);
 }

@@ -22,13 +22,13 @@ function atualizarFases() {
         }
 
         if (estadoFase == "Desbloqueada") {
-            fase.style.backgroundColor = "teal"
+            //fase.style.backgroundColor = "teal"
             conteudoFase.innerHTML += '<br> Você concluiu essa fase!'
         } else if (estadoFase == "Atual") {
-            fase.style.backgroundColor = "blue"
+            //fase.style.backgroundColor = "blue"
             conteudoFase.innerHTML += '<button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>'
         } else if (estadoFase == "Bloqueada") {
-            fase.style.backgroundColor = "red"
+            //fase.style.backgroundColor = "red"
         }
             
     });
