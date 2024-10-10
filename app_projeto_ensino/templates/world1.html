@@ -6,14 +6,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa de Fases</title>
+    <link rel="stylesheet" href="{% static 'styles/geral.css' %}">
     <link rel="stylesheet" href="{% static 'styles/map_style.css' %}">
 </head>
 <body>
     <div id="info-fase" data-inicio="{{ request.user.fase }}"></div>
 
     <div class="mapa-container" id="mapaContainer">
-        
         <!-- Mapa de Fases -->
+        <header>
+            <nav>
+                <a href="#" class="first_a" id="homepage-a">HOME</a>
+                <a href="#">CONTEÚDO</a>
+                <a href="#">ROADMAP</a>
+                <a href="#" id="last">SOBRE NÓS</a>
+                
+                <div class="icons-container">
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'profile' pk=request.user.pk %}">
+                        {% else %}
+                            <a href="{% url 'signin' %}">
+                        {% endif %}
+                        
+                        <svg id="config-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#808080" viewBox="0 0 256 256"><path d="M172,120a44,44,0,1,1-44-44A44.05,44.05,0,0,1,172,120Zm60,8A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88.09,88.09,0,0,0-91.47-87.93C77.43,41.89,39.87,81.12,40,128.25a87.65,87.65,0,0,0,22.24,58.16A79.71,79.71,0,0,1,84,165.1a4,4,0,0,1,4.83.32,59.83,59.83,0,0,0,78.28,0,4,4,0,0,1,4.83-.32,79.71,79.71,0,0,1,21.79,21.31A87.62,87.62,0,0,0,216,128Z"></path></svg>
+                    </a>
+                    <a href="#">
+                        <svg id="user-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#808080" viewBox="0 0 256 256"><path d="M237.94,107.21a8,8,0,0,0-3.89-5.4l-29.83-17-.12-33.62a8,8,0,0,0-2.83-6.08,111.91,111.91,0,0,0-36.72-20.67,8,8,0,0,0-6.46.59L128,41.85,97.88,25a8,8,0,0,0-6.47-.6A111.92,111.92,0,0,0,54.73,45.15a8,8,0,0,0-2.83,6.07l-.15,33.65-29.83,17a8,8,0,0,0-3.89,5.4,106.47,106.47,0,0,0,0,41.56,8,8,0,0,0,3.89,5.4l29.83,17,.12,33.63a8,8,0,0,0,2.83,6.08,111.91,111.91,0,0,0,36.72,20.67,8,8,0,0,0,6.46-.59L128,214.15,158.12,231a7.91,7.91,0,0,0,3.9,1,8.09,8.09,0,0,0,2.57-.42,112.1,112.1,0,0,0,36.68-20.73,8,8,0,0,0,2.83-6.07l.15-33.65,29.83-17a8,8,0,0,0,3.89-5.4A106.47,106.47,0,0,0,237.94,107.21ZM128,168a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z"></path></svg>
+                    </a>
+                </div>
+            </nav>
+        </header>
         <div class="mapa" id="mapa">
             <div class="fase conteudo-icon" id="um" data-fase="1"></div>
             <div class="fase desafio-icon" id="dois" data-fase="2"></div>
@@ -24,21 +46,15 @@
     
     <!-- Aba Lateral -->
     <div class="aba-lateral" id="abaLateral">
-    
         <div class="conteudo" id="conteudo1">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
-            <br>    
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto autem placeat delectus deleniti magni! Fuga consequatur vel ratione nisi corporis illo autem, porro voluptate sapiente cumque eum, delectus, fugiat odio voluptates debitis. Doloremque, aliquid ex, et saepe consequuntur culpa commodi quam sunt ipsum voluptas incidunt tempora distinctio ad fugit consequatur minima molestiae nam accusamus, minus dolorum nostrum officiis laborum velit vero. Nihil, mollitia! At ducimus laboriosam, earum quaerat possimus autem iure ex neque fugit quo maiores, ut, dolore eaque ea. Veniam maxime doloribus illum sunt eum praesentium voluptates aliquam est, facere, earum velit cumque quae dolorum. Iusto qui excepturi et provident unde ipsam quibusdam inventore quam obcaecati, nesciunt quo blanditiis saepe ipsa libero, iure sunt molestiae? Quia fugiat optio minima nam quae vitae iusto id quos, ipsam tenetur voluptas eaque repellendus quam. In accusantium unde culpa adipisci dolore distinctio tempora saepe voluptate voluptatum quibusdam placeat magni, doloribus nobis. Eaque ut non qui esse, cupiditate nisi cumque odit, iure velit ipsam in expedita nulla sit aliquam? Nostrum, nesciunt, eius ut harum nulla, necessitatibus architecto eveniet quia repudiandae similique temporibus? Mollitia excepturi ab totam ipsa dolorem molestias unde at similique, iste omnis modi sit delectus pariatur adipisci, nobis perspiciatis accusamus asperiores. Ad?
-            </p>
-
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto autem placeat delectus deleniti magni! Fuga consequatur vel ratione nisi corporis illo autem, porro voluptate sapiente cumque eum, delectus, fugiat odio voluptates debitis. Doloremque, aliquid ex, et saepe consequuntur culpa commodi quam sunt ipsum voluptas incidunt tempor
-            </p>
-
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtZFoQNEUuXM4-2kQNKquCStLLqjkzjjrwNA&s" alt="">
-
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto autem placeat delectus deleniti magni! Fuga consequatur vel ratione nisi corporis illo autem, porro voluptate sapiente cumque eum, delectus, fugiat odio voluptates debitis. Doloremque, aliquid ex, et saepe consequuntur culpa commodi quam sunt ipsum voluptas incidunt tempora distinctio ad fugit consequatur minima molestiae nam accusamus, minus dolorum nostrum officiis laborum velit vero. Architecto, aspernatur deleniti ex aut odit magnam tenetur a repellendus ullam libero cumque iste delectus beatae corporis neque quasi, aliquid minus quod commodi eveniet labore laudantium modi facere? Sit 
-            <br>
+            <h1>Seja bem vindo!</h1>
+            <p>Aqui, introduziremos você a nosso sistema de leveis, pontuação e como navegar por aqui.</p>
+            <h2>Subtitulo</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus facilis ut sunt! Voluptatem itaque doloremque qui nesciunt tempore voluptatum esse, cum dolorem. Fuga quidem eum commodi. Dolores assumenda dolore non ipsa ullam minima excepturi reprehenderit, animi eveniet id cum earum cumque quaerat, quia mollitia cupiditate ut sed corporis tempore, ducimus esse sit pariatur soluta itaque! Dolore fugiat architecto modi libero quam eaque dignissimos voluptas placeat asperiores ab saepe nihil non voluptate ipsam eum, accusantium totam minus iusto ipsum voluptatem amet vitae odio! Ipsum earum expedita similique suscipit praesentium est ipsam aliquam veniam dolores consequuntur ipsa, sed non ab maiores impedit placeat quis eum saepe enim aliquid voluptate molestias assumenda dolor iusto! Ab, exercitationem incidunt ipsum eos facilis assumenda ullam alias voluptatem quo.
+            <img style="width: 50%;" src="https://external-preview.redd.it/wfD_VOvJX5pYLOdH4-Ej2X628j1tcgDkEOOo7H1CQx4.png?width=1080&crop=smart&auto=webp&s=38f9b35cef6642be0f136eae9f547dba6049254f" alt="">
+            <h3>Subtitulo do subtitulo</h3>
         </div>
         <div class="conteudo" id="conteudo2">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">

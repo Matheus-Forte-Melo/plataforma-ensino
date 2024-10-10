@@ -1,4 +1,16 @@
+let header = document.getElementsByTagName('header')[0]
+console.log(header)
 
+
+function sumirHeader() {
+    header.classList.add('header-shift-out')
+    console.log("Funcionou")
+}
+
+function surgirHeader() {
+    header.classList.remove('header-shift-out')
+    header.style.display = 'flex'
+}
 
 function abrirAba(fase) {
     document.getElementById('abaLateral').classList.add('ativa');
@@ -6,10 +18,13 @@ function abrirAba(fase) {
     // Exibe o conteúdo correspondente
     document.querySelectorAll('.conteudo').forEach(el => el.classList.remove('ativo'));
     document.getElementById('conteudo' + fase).classList.add('ativo');
+
+    sumirHeader()
 }
 
 function retornarAba() {
     document.getElementById('abaLateral').classList.remove('ativa')
+    surgirHeader()
 }
 
 function maximizarAba() {

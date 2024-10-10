@@ -89,6 +89,8 @@ def incrementar_fase(request):
     
     return JsonResponse({'fase_atual': user.fase})
 
+def settings(request):
+    return render(request, 'settings.html')
 
 
 

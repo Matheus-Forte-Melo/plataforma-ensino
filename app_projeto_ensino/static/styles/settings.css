@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+body.dark {
+    background-color: #232c35;
+}
+
+main {
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    justify-content: flex-end !important;
+}
+
+#homepage-a {
+    color: var(--vermelho_primario);
+}
+
+/* barrinha vermelha   */ 
+#settings-a::before {
+    content: '';
+    position: absolute; /* Usa como base o container se pa */
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95px;
+    height: 4px;
+    background-color: var(--vermelho_primario);
+    cursor: auto;
+}
+
+#settings-a > svg {
+    fill: var(--vermelho_primario);
+}
+
+header > nav {
+    height: 75px;
+}
+
+
+#caixa {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    z-index: 0;
+}
+
+#títlo{
+    color: black;
+    margin-bottom: 20px;
+}
+
+#tema{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+    display: flex;
+     
+}
+
+.label {
+    margin-top: 10px;
+    margin-left: 10px;
+
+    background-color: black;
+    border-radius: 50px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 5px;
+    position: relative;
+    height: 26px;
+    width: 50px;
+
+    transform: scale(1.5);
+}
+
+.label .ball {
+    background-color: #fff;
+    border-radius: 50%; /* Corrigido para ser um círculo */
+    position: absolute;
+    top: 2px;
+    left: 2px;
+
+    height: 22px;
+    width: 22px;
+
+    transform: translate(0px);
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+    transform: translateX(24px);
+}
+
+.fa-moon {
+    color: #f1c40f;
+}
+
+.fa-sun {
+    color: #f39c12;
+}
+
+.setting-item {
+    margin: 15px 0;
+  }
+  
+  .setting-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+.logout-btn, .save-btn, .cancel-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.save-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #6c757d;
+    color: white;
+    margin-top: 10px;
+}
