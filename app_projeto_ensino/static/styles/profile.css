@@ -56,3 +56,53 @@ body {
     object-fit: cover; /*Garante que a imagem cubra todo o círculo circular redondo */
     border-radius: 50%; /* Mantém a imagem redondinha papai  */
 }
+
+.edit {
+    display: flex;
+    align-items: center;
+}
+
+a {
+    padding: 5px;
+    margin: 0;
+    font-size: 1.35em;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: #EF233C;
+}
+
+a:hover > svg {
+    fill: #EF233C;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-top: 85px;
+    text-align: center;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 125px;
+}
+
+.details {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--cor_texto);
+    color: white;
+    width: 250px;
+    /* height: 100px; */
+}
+
+.details > p {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 15px;
+}
