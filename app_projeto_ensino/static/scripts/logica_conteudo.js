@@ -3,7 +3,29 @@ console.log(fase_inicial);
 let fase_atual = fase_inicial;
 fases = document.getElementsByClassName("fase")
 
-atualizarFases() // Ja atualiza no começo, depois atualiza quando clicamos para passar. Tudo usa como base o django o valor no tempalte do django, então uma dessincronizaçao é improvavel
+atualizarFases()
+
+function pegarInfoFormulario(form) {
+    const formData = new FormData(form); // Cria um objeto FormData com os dados do formulário
+    const formEntries = {}; // Objeto para armazenar as respostas
+
+    // Converte os dados em um objeto de chave-valor
+    formData.forEach((value, key) => {
+      // Verifica se a chave já existe (para campos com múltiplos valores, como checkboxes)
+      if (formEntries[key]) {
+        if (Array.isArray(formEntries[key])) {
+          formEntries[key].push(value); // Adiciona o valor em um array se já houver múltiplos valores
+        } else {
+          formEntries[key] = [formEntries[key], value]; // Converte para array se já houver um valor
+        }
+      } else {
+        formEntries[key] = value; // Adiciona o valor normalmente
+      }
+    });
+  
+    console.log(formEntries); // Mostra as respostas no console
+  }
+  
 
 function atualizarFases() {
     Array.from(fases).forEach(fase => {

@@ -1,10 +1,8 @@
 let header = document.getElementsByTagName('header')[0]
-console.log(header)
 
 
 function sumirHeader() {
     header.classList.add('header-shift-out')
-    console.log("Funcionou")
 }
 
 function surgirHeader() {
@@ -88,6 +86,5 @@ window.onload = function() {
         
         // Define a posição de rolagem para o centro
         mapaContainer.scrollTo(scrollX, scrollY);
-        console.log("Scrolei para o centro do mapa");
     }, 25); // Espera 10 milissegundos antes de centralizar
 };

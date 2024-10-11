@@ -186,3 +186,8 @@ header > nav {
     margin: auto;
 }
 
+form > input {
+    display: block;
+}
+
+

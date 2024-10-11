@@ -56,25 +56,63 @@
             <img style="width: 50%;" src="https://external-preview.redd.it/wfD_VOvJX5pYLOdH4-Ej2X628j1tcgDkEOOo7H1CQx4.png?width=1080&crop=smart&auto=webp&s=38f9b35cef6642be0f136eae9f547dba6049254f" alt="">
             <h3>Subtitulo do subtitulo</h3>
         </div>
+        
         <div class="conteudo" id="conteudo2">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
-                <br>
 
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, aliquam, minus molestias libero quisquam nihil ut ea magnam quam commodi in deserunt debitis sapiente repudiandae obcaecati?</p>
+            <form id="formulario_fase_2" action="">
+                <div class="questao-container">
+                    <p>O que é iteratividade</p>
+                    <input type="radio" name="" id=""> É o processo de repetição de um bloco de instruções várias vezes até que uma condição seja atendida <br>
+                    <input type="radio" name="" id=""> É quando o programa entra em um loop infinito sem nunca terminar <br>
+                    <input type="radio" name="" id=""> É é o ato de iterar uma única vez, sem repetição <br>
+                    <input type="radio" name="" id=""> É a capacidade de um programa de realizar múltiplas tarefas ao mesmo tempo <br>
+                    <input type="radio" name="" id=""> É o processo de chamar funções recursivas indefinidamente <br>
+                </div>
+                
+                <div class="questao-container">
+                    <p>Qual é a principal função do scanf() na biblioteca padrão do C (stdio)? Assinale as opções <strong>corretas</strong>: </p>
+                    <input type="checkbox" name="" id=""> Imprimir dados formatados na saída padrão <br>
+                    <input type="checkbox" name="" id=""> Ler um arquivo e armazenar seu conteúdo em uma string <br>
+                    <input type="checkbox" name="" id=""> Ler dados da entrada padrão e armazená-los em variáveis <br>
+                    <input type="checkbox" name="" id=""> Ler dados da entrada padrão de acordo com um formato especificado <br>
+                </div>
+                
+                <div class="questao-container">
+                    <p>Um desenvolvedor quer guardar na variável "idade", de tipo inteiro, uma idade. Para tal, como deve ser escrito o comando para que UM único número precise ser digito no CLI para que isso seja possível?</p>
+                    <input type="text" name="" id="">
+                </div>
+                
+                <input type="button" value="Entregar" onclick="pegarInfoFormulario(formulario_fase_2)">
 
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, aliquam, minus molestias libero quisquam nihil ut ea magnam quam commodi in deserunt debitis sapiente repudiandae obcaecati?</p>
+            </form>
 
         </div>
-        <div class="conteudo" id="conteudo3">
+
+        <div class="conteudo" id="conteudo3"> 
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()"> 
-                <br>
+            
+            <form id="formulario_fase3">
+                <p>teste</p>
+                <input type="text" name="name" placeholder="Your Name" />
+                <input type="checkbox" name="checkboxopt1">
+                <input type="checkbox" name="checkboxopt2">
+                <input type="email" name="email" placeholder="Your Email" />
+                <input type="number" name="age" placeholder="Your Age" />
+                <textarea name="message" placeholder="Your Message"></textarea>
+                <select name="gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+                <input type="checkbox" name="subscribe" value="yes" /> Subscribe to newsletter
+              </form>
 
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, aliquam, minus molestias libero quisquam nihil ut ea magnam quam commodi in deserunt debitis sapiente repudiandae obcaecati?</p>
-
+              <button id="submitButton" onclick="pegarInfoFormulario(formulario_fase3)">Submit</button>
 
         </div>
+
         <div class="conteudo" id="conteudo4">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
