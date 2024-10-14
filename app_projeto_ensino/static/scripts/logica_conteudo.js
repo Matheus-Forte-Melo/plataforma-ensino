@@ -5,7 +5,7 @@ fases = document.getElementsByClassName("fase")
 
 atualizarFases()
 
-function pegarInfoFormulario(form) {
+function pegarInfoFormulario(form, botao) {
     const formData = new FormData(form); // Cria um objeto FormData com os dados do formulário
     const formEntries = {}; // Objeto para armazenar as respostas
 
@@ -24,7 +24,7 @@ function pegarInfoFormulario(form) {
     });
     
     console.log(formEntries, pegarRespostasCorretas(form))
-    corrigirEnvioFormulario(formEntries, pegarRespostasCorretas(form), form)
+    corrigirEnvioFormulario(formEntries, pegarRespostasCorretas(form), botao)
   }
 
 
@@ -48,15 +48,14 @@ function pegarRespostasCorretas(form) {
 
 }
         
-
 // Pega as respostas enviadas + as respostas corretas e as compara, passando o usuario de nível se estiverem corretas
-function corrigirEnvioFormulario(respostas, respostas_corretas, form) {
+function corrigirEnvioFormulario(respostas, respostas_corretas, botao) {
     respostas = JSON.stringify(respostas);
     respostas_corretas = JSON.stringify(respostas_corretas);
 
     if (respostas === respostas_corretas) {
         console.log("Respostas corretas")
-        incrementarFase(botao=form.querySelector('[value="Entregar"]'))
+        incrementarFase(botao)
     }
     else {
         console.log("Respostas incorretas")
@@ -76,8 +75,14 @@ function atualizarFases() {
             atualizarCor(fase)
             conteudoFase.innerHTML += '<br> Você concluiu essa fase!'
         } else if (estadoFase == "Atual") { // Adicionar algo para diferenciar fases com resposta e fases com conteudo
+            const tipoFase = conteudoFase.classList[1];  
             atualizarCor(fase)
-            conteudoFase.innerHTML += '<button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>'
+            if (tipoFase == "desafio" || tipoFase == "atividade" || tipoFase == "prova")  {
+                conteudoFase.innerHTML += `<input type="button" value="Entregar" onclick="pegarInfoFormulario(${"formulario_fase_" + fase_atual}, this)"></input>`;
+            }
+            else {
+                conteudoFase.innerHTML += '<button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>'
+            }   
         } else if (estadoFase == "Bloqueada") {
             fase.style.backgroundColor = "grey"
             fase.style.outlineColor = "grey"
