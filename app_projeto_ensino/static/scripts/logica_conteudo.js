@@ -22,9 +22,46 @@ function pegarInfoFormulario(form) {
         formEntries[key] = value; // Adiciona o valor normalmente
       }
     });
-  
-    console.log(formEntries); // Mostra as respostas no console
+    
+    console.log(formEntries, pegarRespostasCorretas(form))
+    corrigirEnvioFormulario(formEntries, pegarRespostasCorretas(form), form)
   }
+
+
+// Pega as respostas corretas de um formulario e as transforma em um objeto para comparação.
+function pegarRespostasCorretas(form) {
+    const respostas_corretas = form.getElementsByClassName("c");
+    const respostas_corretas_formatadas = {};
+    
+    for (let index = 0; index < respostas_corretas.length; index++) {
+        const input = respostas_corretas[index]
+        
+        if (input.getAttribute("type") != "text") {
+            respostas_corretas_formatadas[input.name] = input.value
+        } else {
+            respostas_corretas_formatadas[input.name] = input.getAttribute('data-c')
+        }
+        
+    }
+
+    return respostas_corretas_formatadas;
+
+}
+        
+
+// Pega as respostas enviadas + as respostas corretas e as compara, passando o usuario de nível se estiverem corretas
+function corrigirEnvioFormulario(respostas, respostas_corretas, form) {
+    respostas = JSON.stringify(respostas);
+    respostas_corretas = JSON.stringify(respostas_corretas);
+
+    if (respostas === respostas_corretas) {
+        console.log("Respostas corretas")
+        incrementarFase(botao=form.querySelector('[value="Entregar"]'))
+    }
+    else {
+        console.log("Respostas incorretas")
+    }
+}
   
 
 function atualizarFases() {
@@ -38,7 +75,7 @@ function atualizarFases() {
         if (estadoFase == "Desbloqueada") {
             atualizarCor(fase)
             conteudoFase.innerHTML += '<br> Você concluiu essa fase!'
-        } else if (estadoFase == "Atual") {
+        } else if (estadoFase == "Atual") { // Adicionar algo para diferenciar fases com resposta e fases com conteudo
             atualizarCor(fase)
             conteudoFase.innerHTML += '<button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>'
         } else if (estadoFase == "Bloqueada") {
