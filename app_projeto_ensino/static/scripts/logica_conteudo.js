@@ -61,7 +61,6 @@ function corrigirEnvioFormulario(respostas, respostas_corretas, botao) {
         console.log("Respostas incorretas")
     }
 }
-  
 
 function atualizarFases() {
     Array.from(fases).forEach(fase => {
@@ -71,9 +70,14 @@ function atualizarFases() {
         conteudoFase = document.getElementById("conteudo" + num_fase)
         let estadoFase = pegarEstadoFase(num_fase, fase_atual);
 
-        if (estadoFase == "Desbloqueada") {
+        if (estadoFase == "Desbloqueada") { 
+            // Ou precisa ser executado uma vez por fase ou precisa substituir invez de adicionar o atual.
             atualizarCor(fase)
-            conteudoFase.innerHTML += '<br> Você concluiu essa fase!'
+            console.log('O conteudo ' + num_fase + " foi atualizado." )
+            if (!conteudoFase.innerHTML.includes('Você concluiu essa fase!')) {
+                conteudoFase.innerHTML += '<br> Você concluiu essa fase!'
+            }
+        
         } else if (estadoFase == "Atual") { // Adicionar algo para diferenciar fases com resposta e fases com conteudo
             const tipoFase = conteudoFase.classList[1];  
             atualizarCor(fase)
@@ -84,8 +88,8 @@ function atualizarFases() {
                 conteudoFase.innerHTML += '<button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>'
             }   
         } else if (estadoFase == "Bloqueada") {
-            fase.style.backgroundColor = "grey"
-            fase.style.outlineColor = "grey"
+            fase.style.backgroundColor = "var(--nao-selecionado)"
+            fase.style.outlineColor = "var(--nao-selecionado)"
             document.querySelector('.prova-icon').classList.add('bloqueado'); // Workaround fudido
         }
             
@@ -157,3 +161,19 @@ function incrementarFase(botao) {
         atualizarFases()
     })
 }
+
+
+// Prevenção de comportamentos default de formulários
+
+document.querySelectorAll('input[type="text"]').forEach(form => {
+    form.addEventListener('keypress', function(e) {
+        try {
+            if (e.keycode == 13) {
+                e.preventDefault ? e.preventDefault() : (e.returnValue = false)
+            }
+        }
+        catch(err) {
+            console.log(err.message)
+        }
+    })
+})

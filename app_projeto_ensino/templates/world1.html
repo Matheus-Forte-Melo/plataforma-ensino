@@ -16,10 +16,10 @@
         <!-- Mapa de Fases -->
         <header>
             <nav>
-                <a href="#" class="first_a" id="homepage-a">HOME</a>
-                <a href="#">CONTEÚDO</a>
-                <a href="#">ROADMAP</a>
-                <a href="#" id="last">SOBRE NÓS</a>
+                <a href="{% url 'home' %}" class="first_a" id="homepage-a">HOME</a>
+                <a href="{% url 'world1' %}">CONTEÚDO</a>
+                <a href="{% url 'world1' %}">ROADMAP</a>
+                <a href="{% url 'world1' %}" id="last">SOBRE NÓS</a>
                 
                 <div class="icons-container">
                         {% if request.user.is_authenticated %}
@@ -30,7 +30,7 @@
                         
                         <svg id="config-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#808080" viewBox="0 0 256 256"><path d="M172,120a44,44,0,1,1-44-44A44.05,44.05,0,0,1,172,120Zm60,8A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88.09,88.09,0,0,0-91.47-87.93C77.43,41.89,39.87,81.12,40,128.25a87.65,87.65,0,0,0,22.24,58.16A79.71,79.71,0,0,1,84,165.1a4,4,0,0,1,4.83.32,59.83,59.83,0,0,0,78.28,0,4,4,0,0,1,4.83-.32,79.71,79.71,0,0,1,21.79,21.31A87.62,87.62,0,0,0,216,128Z"></path></svg>
                     </a>
-                    <a href="#">
+                    <a href="{% url 'settings' %}">
                         <svg id="user-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#808080" viewBox="0 0 256 256"><path d="M237.94,107.21a8,8,0,0,0-3.89-5.4l-29.83-17-.12-33.62a8,8,0,0,0-2.83-6.08,111.91,111.91,0,0,0-36.72-20.67,8,8,0,0,0-6.46.59L128,41.85,97.88,25a8,8,0,0,0-6.47-.6A111.92,111.92,0,0,0,54.73,45.15a8,8,0,0,0-2.83,6.07l-.15,33.65-29.83,17a8,8,0,0,0-3.89,5.4,106.47,106.47,0,0,0,0,41.56,8,8,0,0,0,3.89,5.4l29.83,17,.12,33.63a8,8,0,0,0,2.83,6.08,111.91,111.91,0,0,0,36.72,20.67,8,8,0,0,0,6.46-.59L128,214.15,158.12,231a7.91,7.91,0,0,0,3.9,1,8.09,8.09,0,0,0,2.57-.42,112.1,112.1,0,0,0,36.68-20.73,8,8,0,0,0,2.83-6.07l.15-33.65,29.83-17a8,8,0,0,0,3.89-5.4A106.47,106.47,0,0,0,237.94,107.21ZM128,168a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z"></path></svg>
                     </a>
                 </div>
@@ -65,10 +65,10 @@
                 <div class="questao-container">
                     <p>O que é iteratividade</p>
                     <input type="radio" name="1" class="c"> É o processo de repetição de um bloco de instruções várias vezes até que uma condição seja atendida <br>
-                    <input type="radio" name="2"> É quando o programa entra em um loop infinito sem nunca terminar <br>
-                    <input type="radio" name="3"> É é o ato de iterar uma única vez, sem repetição <br>
-                    <input type="radio" name="4"> É a capacidade de um programa de realizar múltiplas tarefas ao mesmo tempo <br>
-                    <input type="radio" name="5"> É o processo de chamar funções recursivas indefinidamente <br>
+                    <input type="radio" name="1"> É quando o programa entra em um loop infinito sem nunca terminar <br>
+                    <input type="radio" name="1"> É é o ato de iterar uma única vez, sem repetição <br>
+                    <input type="radio" name="1"> É a capacidade de um programa de realizar múltiplas tarefas ao mesmo tempo <br>
+                    <input type="radio" name="1"> É o processo de chamar funções recursivas indefinidamente <br>
                 </div>
                 
                 <div class="questao-container">
@@ -81,7 +81,7 @@
                 
                 <div class="questao-container">
                     <p>Um desenvolvedor quer guardar na variável "idade", de tipo inteiro, uma idade. Para tal, como deve ser escrito o comando para que UM único número precise ser digito no CLI para que isso seja possível?</p>
-                    <input type="text" name="10" data-c="123123" class="c">>
+                    <input type="text" name="10" data-c="123123" class="c">
                 </div>
 
             </form>
@@ -128,10 +128,9 @@
         </div>
     </div>
 
-    <script src="{% static 'scripts/map_script.js' %}"> // A lógica de exibição
-    </script>
-    <script src="{% static 'scripts/logica_conteudo.js' %}"> // A lógica por tras de requests e restricoes
-    </script>
+    <script src="{% static 'scripts/map_script.js' %}"></script> <!-- A lógica de exibição -->
+    <script src="{% static 'scripts/logica_conteudo.js' %}"> </script> <!-- A lógica por tras de requests e restricoes --> 
+    <script src="{% static 'scripts/modo_escuro_toggle.js' %}"></script>
 
 </body>
 </html>

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'styles/settings.css' %}">
     <link rel="stylesheet" href="{% static 'styles/geral.css' %}">
 </head>
-<body>
+<body onload=>
     <header>
         <nav>
             <a href="{% url 'home' %}" class="first_a">HOME</a>
@@ -39,25 +39,32 @@
         <div id="caixa">
             <h1 id="título">Configurações</h1>
             <h3 id="tema">Tema</h3>
-            <div>
+            <form action="{% url 'settings' %}" method="POST">
+                {% csrf_token  %}
                 <input type="checkbox" class="checkbox" id="chk"/>
 
                 <label class="label" for="chk">
-                    <i class="fas fa-moon"></i>
-                    <div class="ball"></div>
                     <i class="fas fa-sun"></i>
+                        <div class="ball"></div>
+                    <i class="fas fa-moon"></i>
                 </label>
+
+                <div class="setting-item">
+                    <label for="password">Alterar Senha:</label>
+                    <input type="password" id="senha" placeholder="Nova senha">
+                  </div>
+
+                <div class="action-buttons">
+                    <button id="save-btn" class="save-btn" onclick="salvarAlteracoes()">Salvar Alterações</button>
+                </div>
+
             </div>
-            <div class="setting-item">
-                <label for="password">Alterar Senha:</label>
-                <input type="password" id="senha" placeholder="Nova senha">
-              </div>
-            <div class="action-buttons">
-                <button class="save-btn">Salvar Alterações</button>
-            </div>
+            
         </div>
     </main>
 
+    <script src="{% static 'scripts/settings.js' %}"></script>
+    <script src="{% static 'scripts/modo_escuro_toggle.js' %}"></script>
     <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
 </body>
 </html>

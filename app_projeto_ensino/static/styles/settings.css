@@ -9,10 +9,6 @@ body {
     height: 100vh;
 }
 
-body.dark {
-    background-color: #232c35;
-}
-
 main {
     height: 85%;
     display: flex;
@@ -22,6 +18,11 @@ main {
 
 header {
     justify-content: flex-end !important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
 }
 
 #homepage-a {
@@ -51,7 +52,7 @@ header > nav {
 
 
 #caixa {
-    background: white;
+    background: var(--background_geral);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -83,8 +84,8 @@ header > nav {
 .label {
     margin-top: 10px;
     margin-left: 10px;
-
-    background-color: black;
+    border: solid 1px var(--background_conteudo);
+    background-image: linear-gradient(to right, rgb(59, 180, 216), rgb(8, 16, 41));
     border-radius: 50px;
     cursor: pointer;
 
@@ -94,10 +95,10 @@ header > nav {
 
     padding: 5px;
     position: relative;
-    height: 26px;
-    width: 50px;
+    height: 28px;
+    width: 75px;
 
-    transform: scale(1.5);
+    transform: scale(1.35);
 }
 
 .label .ball {
@@ -115,7 +116,7 @@ header > nav {
 }
 
 .checkbox:checked + .label .ball {
-    transform: translateX(24px);
+    transform: translateX(48px);
 }
 
 .fa-moon {
@@ -123,7 +124,7 @@ header > nav {
 }
 
 .fa-sun {
-    color: #f39c12;
+    color: #fd9002;
 }
 
 .setting-item {
@@ -151,18 +152,7 @@ input[type="password"] {
     cursor: pointer;
 }
 
-.logout-btn {
-    background-color: #dc3545;
-    color: white;
-}
-
 .save-btn {
     background-color: #28a745;
     color: white;
-}
-
-.cancel-btn {
-    background-color: #6c757d;
-    color: white;
-    margin-top: 10px;
 }

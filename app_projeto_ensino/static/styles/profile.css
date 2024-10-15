@@ -1,6 +1,6 @@
 body {
     background-image: none;
-    background-color: white;
+    background-color: var(--background_conteudo);
     height: 100vh;
 }
         
@@ -12,13 +12,17 @@ body {
 #user-a::before {
     content: '';
     position: absolute; /* Usa como base o container se pa */
-    top: -10px;
+    top: -5px;
     left: 50%;
     transform: translateX(-50%);
     width: 95px;
     height: 4px;
     background-color: var(--vermelho_primario);
     cursor: auto;
+}
+
+header {
+    justify-content: flex-end;
 }
 
 .red-section {
@@ -28,7 +32,7 @@ body {
 
 .white-section {
     height: 580px;
-    background-color: white;
+    background-color: var(--background_conteudo);
 }
 
 /* Para botar o redondo no meio */
@@ -43,7 +47,7 @@ body {
 }
 
 .circle {
-    background-color: white;
+    background-color: var(--background_geral);
     border: solid 2px black;
     border-radius: 50%;
     width: 200px;
@@ -60,6 +64,11 @@ body {
 .edit {
     display: flex;
     align-items: center;
+    width: 5%;
+}
+
+#edit-icon {
+    fill: var(--cor_texto);
 }
 
 a {
@@ -67,14 +76,14 @@ a {
     margin: 0;
     font-size: 1.35em;
     text-decoration: none;
-    color: black;
+    color: var(--cor_texto);
 }
 
 a:hover {
     color: #EF233C;
 }
 
-a:hover > svg {
+a:hover > svg#edit-icon {
     fill: #EF233C;
 }
 
@@ -94,8 +103,8 @@ section {
 .details {
     text-align: center;
     padding: 20px;
-    background-color: var(--cor_texto);
-    color: white;
+    background-color: var(--background_geral);
+    color: var(--cor_texto);
     width: 250px;
     /* height: 100px; */
 }
