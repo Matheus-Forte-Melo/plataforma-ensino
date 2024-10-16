@@ -81,7 +81,7 @@ function atualizarFases() {
         } else if (estadoFase == "Atual") { // Adicionar algo para diferenciar fases com resposta e fases com conteudo
             const tipoFase = conteudoFase.classList[1];  
             atualizarCor(fase)
-            if (tipoFase == "desafio" || tipoFase == "atividade" || tipoFase == "prova")  {
+            if (tipoFase == "desafio" || tipoFase == "exercicio" || tipoFase == "prova")  {
                 conteudoFase.innerHTML += `<div><input type="button" value="Entregar" onclick="pegarInfoFormulario(${"formulario_fase_" + fase_atual}, this)"></input></div>`;
             }
             else {

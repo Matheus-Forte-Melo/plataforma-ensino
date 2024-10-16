@@ -68,7 +68,7 @@
             <p>Você irá conseguir alocar um lugar no ranking e além disso ganhará costumizações para seu perfil.</p>
         </div>
         
-        <div class="conteudo desafio" id="conteudo2">
+        <div class="conteudo exercicio" id="conteudo2">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
 
@@ -105,56 +105,119 @@
                 </div>
 
             </form>
-
         </div>
 
-        <div class="conteudo atividade" id="conteudo3"> 
+        <div class="conteudo" id="conteudo3"> 
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()"> 
-            
-            <form id="formulario_fase_3" action="">
-                <div class="questao-container">
-                    <p>O que é iteratividade</p>
-                    <input type="radio" name="1"> Nao correta <br>
-                    <input type="radio" name="1"> Nao correta <br>
-                    <input type="radio" name="1" value="c" class="c"> Correta <br>
-                    <input type="radio" name="1"> Nao correta <br>
-                    <input type="radio" name="1"> Nao correta <br>
-                </div>
-                
-                <div class="questao-container">
-                    <p>Qual é a principal função do scanf() na biblioteca padrão do C (stdio)? Assinale as opções <strong>corretas</strong>: </p>
-                    <input type="checkbox" name="6" class="c"> Esta e a correta <br>
-                    <input type="checkbox" name="7"> Nao correta <br>
-                    <input type="checkbox" name="8"> Nao correta <br>
-                    <input type="checkbox" name="9" class="c"> Esta e a correta <br>
-                </div>
-                
-                <div class="questao-container">
-                    <p>Um desenvolvedor quer guardar na variável "idade", de tipo inteiro, uma idade. Para tal, como deve ser escrito o comando para que UM único número precise ser digito no CLI para que isso seja possível?</p>
-                    <input type="text" name="10" data-c="321321" class="c">>
-                </div>
 
-            </form>
+            <h1>Atente-se gafanhoto.</h1>
+            <p><i>shhhhhhh</i>, a proxima fase é um desafio, decida-se, se você quiser ganhar pontos extras, faça-a, se não se importar com isso, clique no botão de pular. Mas saiba, uma vez pulado, não há como voltar. Não chore pelo leite.derramado</p>
+
+            <h2>Introdução à Linguagem C</h2>
+            <p>A linguagem C é uma das mais antigas e populares linguagens de programação, utilizada em uma ampla variedade de sistemas, desde sistemas operacionais até softwares embarcados. Um dos motivos de sua popularidade é a sua eficiência, permitindo um controle direto sobre os recursos de hardware.</p>
+            
+            <p>Em C, um programa é composto por funções. A função <code>main()</code> é o ponto de entrada, onde a execução começa. Variáveis podem ser declaradas em diferentes escopos, como globais (acessíveis por todo o programa) e locais (restritas a uma função).</p>
+            
+            <p>A leitura de dados pode ser feita com a função <code>scanf()</code>, que coleta valores digitados pelo usuário e os armazena em variáveis. Arrays, como <code>int arr[5]</code>, são utilizados para armazenar múltiplos valores de um mesmo tipo.</p>
+        
+            <p>O <code>return</code> é uma instrução usada para encerrar a execução de uma função e, opcionalmente, retornar um valor ao chamador da função.</p>
+        
+            <p>Entender como o compilador transforma o código-fonte em código executável é essencial para otimizar o desempenho e o uso eficiente de recursos no C.</p>
+            
+            
 
         </div>
 
-        <div class="conteudo prova" id="conteudo4">
+        <div class="conteudo desafio" id="conteudo4">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
-                <br>
-
-                <p>Sou o conteúdo 4</p>
+            
+            <form id="formulario_fase_4" action="">
+                <div class="questao-container">
+                    <p>Qual é a função de um compilador?</p>
+                    <input type="radio" name="1"> Transforma o código em linguagem de máquina <br>
+                    <input type="radio" name="1" value="c" class="c"> Tradução de código-fonte para código executável <br>
+                    <input type="radio" name="1"> Executa o código diretamente <br>
+                    <input type="radio" name="1"> Otimiza o código em tempo de execução <br>
+                </div>
+                
+                <div class="questao-container">
+                    <p>Qual é a diferença entre variáveis locais e globais? Assinale as opções <strong>corretas</strong>:</p>
+                    <input type="checkbox" name="2" class="c"> Variáveis locais são acessíveis apenas dentro de funções <br>
+                    <input type="checkbox" name="3"> Variáveis globais são sempre mais eficientes <br>
+                    <input type="checkbox" name="4" class="c"> Variáveis globais são acessíveis em todo o programa <br>
+                    <input type="checkbox" name="5"> Variáveis locais podem ser usadas fora da função <br>
+                </div>
+                
+                <div class="questao-container">
+                    <p>Como você inicializa um array de inteiros em C com 5 elementos com valores de 1 a 5?</p>
+                    <input type="text" name="6" data-c="int arr[5] = {1, 2, 3, 4, 5};" class="c">
+                </div>
+            
+                <div class="questao-container">
+                    <p>Qual é a função do comando `return` em C?</p>
+                    <input type="radio" name="7"> Aumentar a performance do código <br>
+                    <input type="radio" name="7" class="c"> Retornar um valor de uma função <br>
+                    <input type="radio" name="7"> Interromper o fluxo de um programa <br>
+                    <input type="radio" name="7"> Declarar variáveis temporárias <br>
+                </div>
+            </form>
+            
         </div>
 
         <div class="conteudo" id="conteudo5">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
+
+            
+            <h1>Ponteiros, Alocação Dinâmica e Structs em C</h1>
+            <p>Em C, ponteiros são variáveis que armazenam o endereço de memória de outras variáveis. Eles são úteis para manipular diretamente a memória, permitindo acesso eficiente e flexível aos dados. O operador <code>&</code> obtém o endereço de uma variável, e o operador <code>*</code> é utilizado para acessar o valor armazenado nesse endereço.</p>
+        
+            <p>A alocação dinâmica de memória, com as funções <code>malloc()</code> e <code>free()</code>, permite que o programa aloque memória durante sua execução, o que é útil quando o tamanho dos dados não é conhecido em tempo de compilação.</p>
+        
+            <p>As <code>structs</code> permitem agrupar variáveis de diferentes tipos sob um mesmo nome, criando estruturas de dados mais complexas. Isso é útil, por exemplo, para modelar objetos do mundo real, como um registro de informações de um aluno que possui nome, idade e notas, tudo em um único tipo de dado.</p>
+        
+            <p>Compreender e utilizar essas três ferramentas — ponteiros, alocação dinâmica e structs — é essencial para escrever programas eficientes e organizados em C.</p>
+            
+            
         </div>
 
         <div class="conteudo prova" id="conteudo6">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
+
+            <form id="formulario_fase_6" action="">
+                <div class="questao-container">
+                    <p>O que faz o operador <code>&</code> em C?</p>
+                    <input type="radio" name="1"> Multiplica dois valores <br>
+                    <input type="radio" name="1"> Cria uma referência circular <br>
+                    <input type="radio" name="1" class="c"> Obtém o endereço de uma variável <br>
+                    <input type="radio" name="1"> Interrompe o fluxo de execução <br>
+                </div>
+            
+                <div class="questao-container">
+                    <p>Assinale as opções <strong>corretas</strong> sobre a função <code>malloc()</code>:</p>
+                    <input type="checkbox" name="2"> Retorna um ponteiro para a área de memória alocada <br>
+                    <input type="checkbox" name="3" class="c"> A memória alocada deve ser liberada com <code>free()</code> <br>
+                    <input type="checkbox" name="4"> Sempre inicializa a memória com zeros <br>
+                    <input type="checkbox" name="5" class="c"> É usada para alocar memória dinamicamente em tempo de execução <br>
+                </div>
+            
+                <div class="questao-container">
+                    <p>Como você acessa o valor da variável <code>idade</code> em um ponteiro <code>p</code> que armazena o endereço de <code>idade</code>?</p>
+                    <input type="text" name="6" data-c="*p" class="c">
+                </div>
+            
+                <div class="questao-container">
+                    <p>Qual das alternativas abaixo descreve corretamente uma <code>struct</code>?</p>
+                    <input type="radio" name="7"> Um tipo de dado primitivo <br>
+                    <input type="radio" name="7"> Um tipo de dado que armazena uma única variável <br>
+                    <input type="radio" name="7"> Um bloco de código que executa uma função <br>
+                    <input type="radio" name="7" class="c"> Uma coleção de variáveis agrupadas sob um único nome <br>
+                </div>
+            </form>
+            
         </div>
     </div>
 
