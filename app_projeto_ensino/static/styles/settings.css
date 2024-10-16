@@ -25,18 +25,14 @@ form {
     flex-direction: column;
 }
 
-#homepage-a {
-    color: var(--vermelho_primario);
-}
-
 /* barrinha vermelha   */ 
 #settings-a::before {
     content: '';
     position: absolute; /* Usa como base o container se pa */
-    top: -5px;
+    top: -8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 95px;
+    width: 75px;
     height: 4px;
     background-color: var(--vermelho_primario);
     cursor: auto;
@@ -47,9 +43,8 @@ form {
 }
 
 header > nav {
-    height: 75px;
+    height: 85px;
 }
-
 
 #caixa {
     background: var(--background_geral);

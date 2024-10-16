@@ -24,6 +24,7 @@ body {
 
 
 main {
+    margin-top: 22px;
     display: flex;
 }
 

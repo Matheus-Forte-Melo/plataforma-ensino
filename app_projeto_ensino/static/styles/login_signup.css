@@ -72,6 +72,7 @@ label {
 svg {
     position: absolute;
     padding: 10px;
+    fill: var(--nao-selecionado); ;
 }
 
 input[type="text"], input[type="password"] {
@@ -80,20 +81,20 @@ input[type="text"], input[type="password"] {
     height: 50px;
 
     font-size: 1em;
-    color: #8D99AE; 
+    color: var(--nao-selecionado); 
     background-color: transparent; ;
-    border: 2pt solid #8D99AE;
+    border: 2pt solid  var(--nao-selecionado); ;
     border-radius: 9.5px; 
     box-sizing: border-box; /* importante */
     margin-bottom: 16px;
 }
 
 input[type="text"]::placeholder, input[type="password"]::placeholder {
-    color: #8D99AE;
+    color: var(--nao-selecionado); 
 }
 
 input[type="text"]:focus {
-    border-color: #8D99AE; 
+    color: var(--nao-selecionado); 
 }
 
 input[type="submit"] {

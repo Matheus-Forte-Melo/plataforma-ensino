@@ -75,17 +75,17 @@ function atualizarFases() {
             atualizarCor(fase)
             console.log('O conteudo ' + num_fase + " foi atualizado." )
             if (!conteudoFase.innerHTML.includes('Você concluiu essa fase!')) {
-                conteudoFase.innerHTML += '<br> Você concluiu essa fase!'
+                conteudoFase.innerHTML += '<p>Você concluiu essa fase!</p> <br>'
             }
         
         } else if (estadoFase == "Atual") { // Adicionar algo para diferenciar fases com resposta e fases com conteudo
             const tipoFase = conteudoFase.classList[1];  
             atualizarCor(fase)
             if (tipoFase == "desafio" || tipoFase == "atividade" || tipoFase == "prova")  {
-                conteudoFase.innerHTML += `<input type="button" value="Entregar" onclick="pegarInfoFormulario(${"formulario_fase_" + fase_atual}, this)"></input>`;
+                conteudoFase.innerHTML += `<div><input type="button" value="Entregar" onclick="pegarInfoFormulario(${"formulario_fase_" + fase_atual}, this)"></input></div>`;
             }
             else {
-                conteudoFase.innerHTML += '<button onclick="incrementarFase(this)">Desbloquear proxima fase.</button>'
+                conteudoFase.innerHTML += '<div><button onclick="incrementarFase(this)">Desbloquear proxima fase.</button></div>'
             }   
         } else if (estadoFase == "Bloqueada") {
             fase.style.backgroundColor = "var(--nao-selecionado)"

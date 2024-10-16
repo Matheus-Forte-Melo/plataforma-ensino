@@ -12,21 +12,17 @@ body {
 #user-a::before {
     content: '';
     position: absolute; /* Usa como base o container se pa */
-    top: -5px;
+    top: -8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 95px;
+    width: 75px;
     height: 4px;
     background-color: var(--vermelho_primario);
     cursor: auto;
 }
 
-header {
-    justify-content: flex-end;
-}
-
 .red-section {
-    height: 325px; /* Ocupa 35% da altura da janela de visualização */
+    height: 325px; 
     background-color: #EF233C; /* cor do amor */
 }
 
@@ -71,7 +67,7 @@ header {
     fill: var(--cor_texto);
 }
 
-a {
+.edit {
     padding: 5px;
     margin: 0;
     font-size: 1.35em;
