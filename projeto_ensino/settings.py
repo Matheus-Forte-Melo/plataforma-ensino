@@ -120,7 +120,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'app_projeto_ensino/static/'
 
 # Diretório onde o Django coletará os arquivos estáticos para o deploy
 STATIC_ROOT = BASE_DIR / 'staticfiles'
