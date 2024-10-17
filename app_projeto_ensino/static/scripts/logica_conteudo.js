@@ -1,111 +1,82 @@
 const fase_inicial = Number(document.getElementById("info-fase").getAttribute('data-inicio'));
 console.log(fase_inicial);
 let fase_atual = fase_inicial;
-fases = document.getElementsByClassName("fase")
+fases = document.getElementsByClassName("fase");
 
-atualizarFases()
+atualizarFases();
 
 function pegarInfoFormulario(form, botao) {
-    const formData = new FormData(form); // Cria um objeto FormData com os dados do formulário
-    const formEntries = {}; // Objeto para armazenar as respostas
+    const formData = new FormData(form);
+    const formEntries = {};
 
-    // Converte os dados em um objeto de chave-valor
     formData.forEach((value, key) => {
-      // Verifica se a chave já existe (para campos com múltiplos valores, como checkboxes)
-      if (formEntries[key]) {
-        if (Array.isArray(formEntries[key])) {
-          formEntries[key].push(value); // Adiciona o valor em um array se já houver múltiplos valores
+        if (formEntries[key]) {
+            formEntries[key] = Array.isArray(formEntries[key]) ? [...formEntries[key], value] : [formEntries[key], value];
         } else {
-          formEntries[key] = [formEntries[key], value]; // Converte para array se já houver um valor
+            formEntries[key] = value;
         }
-      } else {
-        formEntries[key] = value; // Adiciona o valor normalmente
-      }
     });
     
-    console.log(formEntries, pegarRespostasCorretas(form))
-    corrigirEnvioFormulario(formEntries, pegarRespostasCorretas(form), botao, form)
-  }
+    console.log(formEntries, pegarRespostasCorretas(form));
+    corrigirEnvioFormulario(formEntries, pegarRespostasCorretas(form), botao, form);
+}
 
-
-// Pega as respostas corretas de um formulario e as transforma em um objeto para comparação.
 function pegarRespostasCorretas(form) {
     const respostas_corretas = form.getElementsByClassName("c");
     const respostas_corretas_formatadas = {};
-    
-    for (let index = 0; index < respostas_corretas.length; index++) {
-        const input = respostas_corretas[index]
-        
-        if (input.getAttribute("type") != "text") {
-            respostas_corretas_formatadas[input.name] = input.value
-        } else {
-            respostas_corretas_formatadas[input.name] = input.getAttribute('data-c')
-        }
-        
-    }
+
+    Array.from(respostas_corretas).forEach(input => {
+        respostas_corretas_formatadas[input.name] = input.getAttribute("type") !== "text" ? input.value : input.getAttribute('data-c');
+    });
 
     return respostas_corretas_formatadas;
-
 }
-        
-// Pega as respostas enviadas + as respostas corretas e as compara, passando o usuario de nível se estiverem corretas
+
 function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
     respostas = JSON.stringify(respostas);
     respostas_corretas = JSON.stringify(respostas_corretas);
-    let feedback = form.getElementsByClassName('feedback')[0]
+    let feedback = form.getElementsByClassName('feedback')[0];
 
     if (respostas === respostas_corretas) {
-        console.log("Respostas corretas")
-        feedback.innerHTML = "Parabéns, você acertou todas as questões!"
-        form.parentElement.parentElement.querySelectorAll(`button`).forEach(btn => btn.style.display=`none`); // gambiarra absurda 
-        incrementarFase(botao)
-    }
-    else {
-        feedback.innerHTML = "Ops, uma ou mais questões estão incorretas e/ou não foram preenchidas, tente novamente. "
-        console.log("Respostas incorretas")
+        feedback.innerHTML = "Parabéns, você acertou todas as questões!";
+        form.parentElement.parentElement.querySelectorAll('button').forEach(btn => btn.style.display = 'none');
+        incrementarFase(botao);
+    } else {
+        feedback.innerHTML = "Ops, uma ou mais questões estão incorretas e/ou não foram preenchidas, tente novamente.";
     }
 }
 
 function atualizarFases() {
     Array.from(fases).forEach(fase => {
-        // fase é o DOM inteiro da fase
-        // node_fase contém o número da fase
-        num_fase = Number(fase.getAttribute('data-fase'))
-        conteudoFase = document.getElementById("conteudo" + num_fase)
+        let num_fase = Number(fase.getAttribute('data-fase'));
+        let conteudoFase = document.getElementById("conteudo" + num_fase);
         let estadoFase = pegarEstadoFase(num_fase, fase_atual);
 
-        if (estadoFase == "Desbloqueada") { 
-            // Ou precisa ser executado uma vez por fase ou precisa substituir invez de adicionar o atual.
-            atualizarCor(fase)
-            console.log('O conteudo ' + num_fase + " foi atualizado." )
+        if (estadoFase === "Desbloqueada") {
+            atualizarCor(fase);
             if (!conteudoFase.innerHTML.includes('Você concluiu essa fase!')) {
-                conteudoFase.innerHTML += '<p>Você concluiu essa fase!</p> <br>'
+                conteudoFase.innerHTML += '<p>Você concluiu essa fase!</p><br>';
             }
-        
-        } else if (estadoFase == "Atual") { 
-            const tipoFase = conteudoFase.classList[1];  
-            conteudoFase.querySelector('main').classList.remove(`conteudo-bloqueado`)
-            conteudoFase.querySelectorAll('div')[0].classList.remove("feedback-estado")
-            atualizarCor(fase)
+        } else if (estadoFase === "Atual") {
+            const tipoFase = conteudoFase.classList[1];
+            conteudoFase.querySelector('main').classList.remove('conteudo-bloqueado');
+            conteudoFase.querySelector('div').classList.remove("feedback-estado");
+            atualizarCor(fase);
 
-            if (tipoFase == "exercicio" || tipoFase == "prova")  {
-                conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(${"formulario_fase_" + fase_atual}, this)">Entregar</button></div>`;
-            } else if (tipoFase == "desafio") {
-                conteudoFase.innerHTML += `<div class="btn-container"> <button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button> <button onclick="this.parentElement.querySelectorAll('button').forEach(btn => btn.style.display='none'); incrementarFase(this)">Pular</button></div>`;
-
-                // O certo seria criar uma funcao chamada pular e chamar ela invez dessa gambiarra SINISTRA aqui em cima; então se alguem estiver lendo isso, sinceramente desculpas por essa atrocidade.
+            if (["exercicio", "prova"].includes(tipoFase)) {
+                conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button></div>`;
+            } else if (tipoFase === "desafio") {
+                conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button><button ondblclick="this.parentElement.querySelectorAll('button').forEach(btn => btn.style.display='none'); incrementarFase(this)">Pular</button></div>`;
             } else {
-                conteudoFase.innerHTML += '<div class="btn-container"><button onclick="incrementarFase(this)">Desbloquear proxima fase</button></div>'
-            }   
-        } else if (estadoFase == "Bloqueada") {
-            fase.style.backgroundColor = "var(--nao-selecionado)"
-            fase.style.outlineColor = "var(--nao-selecionado)"
-            document.querySelector('.prova-icon').classList.add('bloqueado'); // Workaround fudido
-
-            conteudoFase.querySelectorAll('div')[0].classList.add("feedback-estado")
-            conteudoFase.querySelector('main').classList.add(`conteudo-bloqueado`)
+                conteudoFase.innerHTML += '<div class="btn-container"><button onclick="incrementarFase(this)">Desbloquear próxima fase</button></div>';
+            }
+        } else if (estadoFase === "Bloqueada") {
+            fase.style.backgroundColor = "var(--nao-selecionado)";
+            fase.style.outlineColor = "var(--nao-selecionado)";
+            document.querySelector('.prova-icon').classList.add('bloqueado');
+            conteudoFase.querySelector('div').classList.add("feedback-estado");
+            conteudoFase.querySelector('main').classList.add('conteudo-bloqueado');
         }
-            
     });
 }
 
@@ -118,75 +89,56 @@ function pegarEstadoFase(num_fase, fase_atual) {
         return 'Bloqueada';
     }
 }
-
 function atualizarCor(fase) {
-    if (fase.classList[1] == "conteudo-icon") {
-        fase.style.backgroundColor = "#84D260"
-        fase.style.outlineColor = "#84D260"
-    } 
-    
-    if (fase.classList[1] == "desafio-icon") {
-        fase.style.backgroundColor = "#ECA72C"
-        fase.style.outlineColor = "#ECA72C"
-    } 
-    
-    if (fase.classList[1] == "exercicio-icon") {
-        fase.style.backgroundColor = "#C02666"
-        fase.style.outlineColor = "#C02666"
-    } 
-    
-    if (fase.classList[1] == "prova-icon") {
-        fase.classList.remove('bloqueado')
-        fase.style.backgroundColor = "#EE5622"
-        fase.style.outlineColor = "#EE5622"
+    const cores = {
+        "conteudo-icon": "#84D260",
+        "desafio-icon": "#ECA72C",
+        "exercicio-icon": "#C02666",
+        "prova-icon": "#EE5622"
+    };
+
+    const cor = cores[fase.classList[1]];
+    if (cor) {
+        fase.style.backgroundColor = cor;
+        fase.style.outlineColor = cor;
+        if (fase.classList[1] === "prova-icon") {
+            fase.classList.remove('bloqueado');
+        }
     }
 }
 
-// Função que serve para pegar o cookie com o token csrf, porque o django é cu doce
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        document.cookie.split(';').forEach(cookie => {
+            cookie = cookie.trim();
+            if (cookie.startsWith(name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
             }
-        }
+        });
     }
     return cookieValue;
 }
 
 function incrementarFase(botao) {
-   // Desabilita o botão para que o usuario nao possa ficar espamando essa porra
-   botao.disabled = 'true';
-   botao.style.display = 'none';
-
+    botao.disabled = true;
+    botao.style.display = 'none';
 
     fetch('incrementar_fase', {
         method: 'POST',
         headers: { 'X-CSRFToken': getCookie('csrftoken') }
-    } )
+    })
     .then(response => response.json())
     .then(data => {
-        fase_atual = data.fase_atual // Atualiza a fase atual setada anteriormente com o valor incrementado
-        console.log(fase_atual)
-        atualizarFases()
-    })
+        fase_atual = data.fase_atual;
+        atualizarFases();
+    });
 }
-
-// Prevenção de comportamentos default de formulários
 
 document.querySelectorAll('input[type="text"]').forEach(form => {
     form.addEventListener('keypress', function(e) {
-        try {
-            if (e.keycode == 13) {
-                e.preventDefault ? e.preventDefault() : (e.returnValue = false)
-            }
+        if (e.keycode == 13) {
+            e.preventDefault();
         }
-        catch(err) {
-            console.log(err.message)
-        }
-    })
-})
+    });
+});
