@@ -24,7 +24,7 @@ function pegarInfoFormulario(form, botao) {
     });
     
     console.log(formEntries, pegarRespostasCorretas(form))
-    corrigirEnvioFormulario(formEntries, pegarRespostasCorretas(form), botao)
+    corrigirEnvioFormulario(formEntries, pegarRespostasCorretas(form), botao, form)
   }
 
 
@@ -49,15 +49,20 @@ function pegarRespostasCorretas(form) {
 }
         
 // Pega as respostas enviadas + as respostas corretas e as compara, passando o usuario de nível se estiverem corretas
-function corrigirEnvioFormulario(respostas, respostas_corretas, botao) {
+function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
     respostas = JSON.stringify(respostas);
     respostas_corretas = JSON.stringify(respostas_corretas);
+    let feedback = form.getElementsByClassName('feedback')[0]
+    console.log(feedback)
 
     if (respostas === respostas_corretas) {
         console.log("Respostas corretas")
+        feedback.innerHTML = "Parabéns, você acertou todas as questões!"
+        form.parentElement.querySelectorAll('button').forEach(btn => btn.style.display='none'); // gambiarra absurda 
         incrementarFase(botao)
     }
     else {
+        feedback.innerHTML = "Ops, uma ou mais questões estão incorretas e/ou não foram preenchidas, tente novamente. "
         console.log("Respostas incorretas")
     }
 }
@@ -78,19 +83,28 @@ function atualizarFases() {
                 conteudoFase.innerHTML += '<p>Você concluiu essa fase!</p> <br>'
             }
         
-        } else if (estadoFase == "Atual") { // Adicionar algo para diferenciar fases com resposta e fases com conteudo
+        } else if (estadoFase == "Atual") { 
             const tipoFase = conteudoFase.classList[1];  
+            conteudoFase.querySelector('main').classList.remove(`conteudo-bloqueado`)
+            conteudoFase.querySelectorAll('div')[0].classList.remove("feedback-estado")
             atualizarCor(fase)
-            if (tipoFase == "desafio" || tipoFase == "exercicio" || tipoFase == "prova")  {
-                conteudoFase.innerHTML += `<div><input type="button" value="Entregar" onclick="pegarInfoFormulario(${"formulario_fase_" + fase_atual}, this)"></input></div>`;
-            }
-            else {
-                conteudoFase.innerHTML += '<div><button onclick="incrementarFase(this)">Desbloquear proxima fase.</button></div>'
+
+            if (tipoFase == "exercicio" || tipoFase == "prova")  {
+                conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(${"formulario_fase_" + fase_atual}, this)">Entregar</button></div>`;
+            } else if (tipoFase == "desafio") {
+                conteudoFase.innerHTML += `<div class="btn-container"> <button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button> <button onclick="this.parentElement.querySelectorAll('button').forEach(btn => btn.style.display='none'); incrementarFase(this)">Pular</button> </div>`;
+
+                // O certo seria criar uma funcao chamada pular e chamar ela invez dessa gambiarra SINISTRA aqui em cima; então se alguem estiver lendo isso, sinceramente desculpas por essa atrocidade.
+            } else {
+                conteudoFase.innerHTML += '<div class="btn-container"><button onclick="incrementarFase(this)">Desbloquear proxima fase</button></div>'
             }   
         } else if (estadoFase == "Bloqueada") {
             fase.style.backgroundColor = "var(--nao-selecionado)"
             fase.style.outlineColor = "var(--nao-selecionado)"
             document.querySelector('.prova-icon').classList.add('bloqueado'); // Workaround fudido
+
+            conteudoFase.querySelectorAll('div')[0].classList.add("feedback-estado")
+            conteudoFase.querySelector('main').classList.add(`conteudo-bloqueado`)
         }
             
     });
@@ -150,6 +164,7 @@ function incrementarFase(botao) {
    botao.disabled = 'true';
    botao.style.display = 'none';
 
+
     fetch('incrementar_fase', {
         method: 'POST',
         headers: { 'X-CSRFToken': getCookie('csrftoken') }
@@ -161,7 +176,6 @@ function incrementarFase(botao) {
         atualizarFases()
     })
 }
-
 
 // Prevenção de comportamentos default de formulários
 

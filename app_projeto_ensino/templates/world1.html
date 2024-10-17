@@ -51,172 +51,176 @@
         <div class="conteudo" id="conteudo1">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
-            <h1>Seja bem vindo!</h1>
-            <p>Aqui, introduziremos você a nosso sistema de níveis e pontuação.</p>
-            <h2>Fases</h2>
-            <ul>
-                <li><b>Conteúdo</b>: Esta fase é uma fase de conteúdo! Aqui, apresentaremos a parte mais teórica do assunto. No mapa, é representado por circulo verde.</li>
-                <li><b>Exercicio</b>: São fases que possuem um exercício com n numeros de questões. Você precisa acertar tudo para avançar, pois, precisamos ter certeza de que você realmente aprendeu tudo que tinha para aprender para que você consiga prosseguir. No mapa, é representado por um quadrado vermelho.</li>
-                <li><b>Desafio</b>: São fases opcionais, que são geralmente mais desafiadoras, exigem um pensamento fora da caixa, porém, são totalmente realizáveis com o conhecimento que você já adquiriu até o determinado momento que você decide clicar na fase. "Tá, se são opcionais, porque devo fazé-las? posso simplesmente pular nerrr". Escute aqui meu jovem gafanhoto, essas fases além de te darem pontos extras (que lhe dão o poder de costumizar seu perfil) também fazem você evoluir como desenvolvedor, já que pensar fora da caixa é comum nesse trabalho; lembre-se, estamos te preparando para o futuro. Essas fases são representadas por losangos amarelos.</li>
-                <li><b>Prova</b>: São o "Boss Final" do mundo. Aqui, você precisará responder e acertar, sem consulta, todas as questões. Mas não se preocupe, você pode ficar tentando até conseguir acertar, mas até lá, não te falaremos o que você fez de errado. Representados por hexagonos laranjas.</li>
-            </ul>
-            <img class="conteudo-img" src="{% static 'img/world1/exemplo_niveis.png' %}" alt="">
-            <h2>Pontuação</h2>
-            <h3>Formas de ganhar pontos</h3>
-            <p>Não revelaremos como o sistema de pontuação funciona; porém, saiba que, quanto mais complecionista, veloz e certeiro você for, com mais pontos você será recompensado.</p>
-            <h3>O que fazer com seus pontos</h3>
-            <p>Você irá conseguir alocar um lugar no ranking e além disso ganhará costumizações para seu perfil.</p>
+            <div></div>
+            <main>  
+                <h1>Seja bem vindo!</h1>
+                <p>Aqui, introduziremos você a nosso sistema de níveis e pontuação.</p>
+                <h2>Fases</h2>
+                <ul>
+                    <li><b>Conteúdo</b>: Esta fase é uma fase de conteúdo! Aqui, apresentaremos a parte mais teórica do assunto. No mapa, é representado por circulo verde.</li>
+                    <li><b>Exercicio</b>: São fases que possuem um exercício com n numeros de questões. Você precisa acertar tudo para avançar, pois, precisamos ter certeza de que você realmente aprendeu tudo que tinha para aprender para que você consiga prosseguir. No mapa, é representado por um quadrado vermelho.</li>
+                    <li><b>Desafio</b>: São fases opcionais, que são geralmente mais desafiadoras, exigem um pensamento fora da caixa, porém, são totalmente realizáveis com o conhecimento que você já adquiriu até o determinado momento que você decide clicar na fase. "Tá, se são opcionais, porque devo fazé-las? posso simplesmente pular nerrr". Escute aqui meu jovem gafanhoto, essas fases além de te darem pontos extras (que lhe dão o poder de costumizar seu perfil) também fazem você evoluir como desenvolvedor, já que pensar fora da caixa é comum nesse trabalho; lembre-se, estamos te preparando para o futuro. Essas fases são representadas por losangos amarelos.</li>
+                    <li><b>Prova</b>: São o "Boss Final" do mundo. Aqui, você precisará responder e acertar, sem consulta, todas as questões. Mas não se preocupe, você pode ficar tentando até conseguir acertar, mas até lá, não te falaremos o que você fez de errado. Representados por hexagonos laranjas.</li>
+                </ul>
+                <img class="conteudo-img" src="{% static 'img/world1/exemplo_niveis.png' %}" alt="">
+                <h2>Pontuação</h2>
+                <h3>Formas de ganhar pontos</h3>
+                <p>Não revelaremos como o sistema de pontuação funciona; porém, saiba que, quanto mais complecionista, veloz e certeiro você for, com mais pontos você será recompensado.</p>
+                <h3>O que fazer com seus pontos</h3>
+                <p>Você irá conseguir alocar um lugar no ranking e além disso ganhará costumizações para seu perfil.</p>
+            </main>
+
         </div>
         
         <div class="conteudo exercicio" id="conteudo2">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
-
-            <form id="formulario_fase_2" action="">
-                <div class="questao-container">
-                    <p>A fase do tipo <b>conteúdo</b> é representado pela forma e cor, respectivamente:</p>
-                    <input type="radio" name="1"> Losango e verde <br>
-                    <input type="radio" name="1"> Hexagono e vermelho <br>
-                    <input type="radio" name="1"> Quadrado e amarelo <br>
-                    <input type="radio" name="1" value="c" class="c"> Circulo e verde <br>
-                    <input type="radio" name="1"> Quadrado e verde <br>
-                </div>
-
-                <div class="questao-container">
-                    <p>A fase do tipo <b>prova</b> é representado pela forma e cor, respectivamente:</p>
-                    <input type="radio" name="2"> Losango e verde <br>
-                    <input type="radio" name="2" value="c" class="c"> Hexagono e laranja <br>
-                    <input type="radio" name="2"> Quadrado e amarelo <br>
-                    <input type="radio" name="2"> Hexagono e vermelho <br>
-                    <input type="radio" name="2"> Quadrado e laranja <br>
-                </div>
+            <div></div>
+            <main>
+                <form id="formulario_fase_2" action="">
+                    <div class="questao-container">
+                        <p>A fase do tipo <b>conteúdo</b> é representado pela forma e cor, respectivamente:</p>
+                        <input type="radio" name="1"> Losango e verde <br>
+                        <input type="radio" name="1"> Hexagono e vermelho <br>
+                        <input type="radio" name="1"> Quadrado e amarelo <br>
+                        <input type="radio" name="1" value="c" class="c"> Circulo e verde <br>
+                        <input type="radio" name="1"> Quadrado e verde <br>
+                    </div>
+                    <div class="questao-container">
+                        <p>A fase do tipo <b>prova</b> é representado pela forma e cor, respectivamente:</p>
+                        <input type="radio" name="2"> Losango e verde <br>
+                        <input type="radio" name="2" value="c" class="c"> Hexagono e laranja <br>
+                        <input type="radio" name="2"> Quadrado e amarelo <br>
+                        <input type="radio" name="2"> Hexagono e vermelho <br>
+                        <input type="radio" name="2"> Quadrado e laranja <br>
+                    </div>
                 
-                <div class="questao-container">
-                    <p>Marque as alternativas corretas sobre o sistema de pontuação:</p>
-                    <input type="checkbox" name="3" class="c"> Serve para personalizar seu perfil <br>
-                    <input type="checkbox" name="4" class="c"> Serve para lhe garantir uma posição no ranking <br>
-                    <input type="checkbox" name="5"> Serve para trocar por dinheiro real <br>
-                    <input type="checkbox" name="6"> Serve para matar quem tiver a menor pontuação <br>
-                </div>
+                    <div class="questao-container">
+                        <p>Marque as alternativas corretas sobre o sistema de pontuação:</p>
+                        <input type="checkbox" name="3" class="c"> Serve para personalizar seu perfil <br>
+                        <input type="checkbox" name="4" class="c"> Serve para lhe garantir uma posição no ranking <br>
+                        <input type="checkbox" name="5"> Serve para trocar por dinheiro real <br>
+                        <input type="checkbox" name="6"> Serve para matar quem tiver a menor pontuação <br>
+                    </div>
                 
-                <div class="questao-container">
-                    <p>Digite "123123" e clique no botão ENTREGAR para enviar essa questão.</p>
-                    <input type="text" name="10" data-c="123123" class="c">
-                </div>
-
-            </form>
+                    <div class="questao-container">
+                        <p>Digite "123123" e clique no botão ENTREGAR para enviar essa questão.</p>
+                        <input type="text" name="10" data-c="123123" class="c">
+                    </div>
+                    <p class="feedback"></p>
+                </form>
+            </main>
         </div>
 
         <div class="conteudo" id="conteudo3"> 
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()"> 
-
-            <h1>Atente-se gafanhoto.</h1>
-            <p><i>shhhhhhh</i>, a proxima fase é um desafio, decida-se, se você quiser ganhar pontos extras, faça-a, se não se importar com isso, clique no botão de pular. Mas saiba, uma vez pulado, não há como voltar. Não chore pelo leite.derramado</p>
-
-            <h2>Introdução à Linguagem C</h2>
-            <p>A linguagem C é uma das mais antigas e populares linguagens de programação, utilizada em uma ampla variedade de sistemas, desde sistemas operacionais até softwares embarcados. Um dos motivos de sua popularidade é a sua eficiência, permitindo um controle direto sobre os recursos de hardware.</p>
-            
-            <p>Em C, um programa é composto por funções. A função <code>main()</code> é o ponto de entrada, onde a execução começa. Variáveis podem ser declaradas em diferentes escopos, como globais (acessíveis por todo o programa) e locais (restritas a uma função).</p>
-            
-            <p>A leitura de dados pode ser feita com a função <code>scanf()</code>, que coleta valores digitados pelo usuário e os armazena em variáveis. Arrays, como <code>int arr[5]</code>, são utilizados para armazenar múltiplos valores de um mesmo tipo.</p>
-        
-            <p>O <code>return</code> é uma instrução usada para encerrar a execução de uma função e, opcionalmente, retornar um valor ao chamador da função.</p>
-        
-            <p>Entender como o compilador transforma o código-fonte em código executável é essencial para otimizar o desempenho e o uso eficiente de recursos no C.</p>
-            
-            
-
+            <div></div>
+            <main>
+                <h1>Atente-se gafanhoto.</h1>
+                <p><i>shhhhhhh</i>, a proxima fase é um desafio, decida-se, se você quiser ganhar pontos extras, faça-a, se não se importar com isso, clique no botão de pular. Mas saiba, uma vez pulado, não há como voltar. Não chore pelo leite.derramado</p>
+                <h2>Introdução à Linguagem C</h2>
+                <p>A linguagem C é uma das mais antigas e populares linguagens de programação, utilizada em uma ampla variedade de sistemas, desde sistemas operacionais até softwares embarcados. Um dos motivos de sua popularidade é a sua eficiência, permitindo um controle direto sobre os recursos de hardware.</p>
+                
+                <p>Em C, um programa é composto por funções. A função <code>main()</code> é o ponto de entrada, onde a execução começa. Variáveis podem ser declaradas em diferentes escopos, como globais (acessíveis por todo o programa) e locais (restritas a uma função).</p>
+                
+                <p>A leitura de dados pode ser feita com a função <code>scanf()</code>, que coleta valores digitados pelo usuário e os armazena em variáveis. Arrays, como <code>int arr[5]</code>, são utilizados para armazenar múltiplos valores de um mesmo tipo.</p>
+                <p>O <code>return</code> é uma instrução usada para encerrar a execução de uma função e, opcionalmente, retornar um valor ao chamador da função.</p>
+                <p>Entender como o compilador transforma o código-fonte em código executável é essencial para otimizar o desempenho e o uso eficiente de recursos no C.</p>
+            </main>
         </div>
 
         <div class="conteudo desafio" id="conteudo4">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
-            
-            <form id="formulario_fase_4" action="">
-                <div class="questao-container">
-                    <p>Qual é a função de um compilador?</p>
-                    <input type="radio" name="1"> Transforma o código em linguagem de máquina <br>
-                    <input type="radio" name="1" value="c" class="c"> Tradução de código-fonte para código executável <br>
-                    <input type="radio" name="1"> Executa o código diretamente <br>
-                    <input type="radio" name="1"> Otimiza o código em tempo de execução <br>
-                </div>
+            <div class="feedback-estado"></div>
+            <main>
+                <form id="formulario_fase_4" action="">
+                    <div>
+                        <p>Qual é a função de um compilador?</p>
+                        <input type="radio" name="1"> Transforma o código em linguagem de máquina <br>
+                        <input type="radio" name="1" value="c" class="c"> Tradução de código-fonte para código executável <br>
+                        <input type="radio" name="1"> Executa o código diretamente <br>
+                        <input type="radio" name="1"> Otimiza o código em tempo de execução <br>
+                    </div>
                 
-                <div class="questao-container">
-                    <p>Qual é a diferença entre variáveis locais e globais? Assinale as opções <strong>corretas</strong>:</p>
-                    <input type="checkbox" name="2" class="c"> Variáveis locais são acessíveis apenas dentro de funções <br>
-                    <input type="checkbox" name="3"> Variáveis globais são sempre mais eficientes <br>
-                    <input type="checkbox" name="4" class="c"> Variáveis globais são acessíveis em todo o programa <br>
-                    <input type="checkbox" name="5"> Variáveis locais podem ser usadas fora da função <br>
-                </div>
+                    <div class="questao-container">
+                        <p>Qual é a diferença entre variáveis locais e globais? Assinale as opções <strong>corretas</strong>:</p>
+                        <input type="checkbox" name="2" class="c"> Variáveis locais são acessíveis apenas dentro de funções <br>
+                        <input type="checkbox" name="3"> Variáveis globais são sempre mais eficientes <br>
+                        <input type="checkbox" name="4" class="c"> Variáveis globais são acessíveis em todo o programa <br>
+                        <input type="checkbox" name="5"> Variáveis locais podem ser usadas fora da função <br>
+                    </div>
                 
-                <div class="questao-container">
-                    <p>Como você inicializa um array de inteiros em C com 5 elementos com valores de 1 a 5?</p>
-                    <input type="text" name="6" data-c="int arr[5] = {1, 2, 3, 4, 5};" class="c">
-                </div>
-            
-                <div class="questao-container">
-                    <p>Qual é a função do comando `return` em C?</p>
-                    <input type="radio" name="7"> Aumentar a performance do código <br>
-                    <input type="radio" name="7" class="c"> Retornar um valor de uma função <br>
-                    <input type="radio" name="7"> Interromper o fluxo de um programa <br>
-                    <input type="radio" name="7"> Declarar variáveis temporárias <br>
-                </div>
-            </form>
+                    <div class="questao-container">
+                        <p>Como você inicializa um array de inteiros em C com 5 elementos com valores de 1 a 5?</p>
+                        <input type="text" name="6" data-c="int arr[5] = {1, 2, 3, 4, 5};" class="c">
+                    </div>
+                
+                    <div class="questao-container">
+                        <p>Qual é a função do comando `return` em C?</p>
+                        <input type="radio" name="7"> Aumentar a performance do código <br>
+                        <input type="radio" name="7" class="c"> Retornar um valor de uma função <br>
+                        <input type="radio" name="7"> Interromper o fluxo de um programa <br>
+                        <input type="radio" name="7"> Declarar variáveis temporárias <br>
+                    </div>
+                    <p class="feedback"></p>
+                </form>
+            </main>
             
         </div>
 
         <div class="conteudo" id="conteudo5">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
+            <div></div>
+            <main>
+                <h1>Ponteiros, Alocação Dinâmica e Structs em C</h1>
+                <p>Em C, ponteiros são variáveis que armazenam o endereço de memória de outras variáveis. Eles são úteis para manipular diretamente a memória, permitindo acesso eficiente e flexível aos dados. O operador <code>&</code> obtém o endereço de uma variável, e o operador <code>*</code> é utilizado para acessar o valor armazenado nesse endereço.</p>
+                <p>A alocação dinâmica de memória, com as funções <code>malloc()</code> e <code>free()</code>, permite que o programa aloque memória durante sua execução, o que é útil quando o tamanho dos dados não é conhecido em tempo de compilação.</p>
+                <p>As <code>structs</code> permitem agrupar variáveis de diferentes tipos sob um mesmo nome, criando estruturas de dados mais complexas. Isso é útil, por exemplo, para modelar objetos do mundo real, como um registro de informações de um aluno que possui nome, idade e notas, tudo em um único tipo de dado.</p>
+                <p>Compreender e utilizar essas três ferramentas — ponteiros, alocação dinâmica e structs — é essencial para escrever programas eficientes e organizados em C.</p>
+            </main>
 
-            
-            <h1>Ponteiros, Alocação Dinâmica e Structs em C</h1>
-            <p>Em C, ponteiros são variáveis que armazenam o endereço de memória de outras variáveis. Eles são úteis para manipular diretamente a memória, permitindo acesso eficiente e flexível aos dados. O operador <code>&</code> obtém o endereço de uma variável, e o operador <code>*</code> é utilizado para acessar o valor armazenado nesse endereço.</p>
-        
-            <p>A alocação dinâmica de memória, com as funções <code>malloc()</code> e <code>free()</code>, permite que o programa aloque memória durante sua execução, o que é útil quando o tamanho dos dados não é conhecido em tempo de compilação.</p>
-        
-            <p>As <code>structs</code> permitem agrupar variáveis de diferentes tipos sob um mesmo nome, criando estruturas de dados mais complexas. Isso é útil, por exemplo, para modelar objetos do mundo real, como um registro de informações de um aluno que possui nome, idade e notas, tudo em um único tipo de dado.</p>
-        
-            <p>Compreender e utilizar essas três ferramentas — ponteiros, alocação dinâmica e structs — é essencial para escrever programas eficientes e organizados em C.</p>
-            
-            
         </div>
 
         <div class="conteudo prova" id="conteudo6">
             <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
-
-            <form id="formulario_fase_6" action="">
-                <div class="questao-container">
-                    <p>O que faz o operador <code>&</code> em C?</p>
-                    <input type="radio" name="1"> Multiplica dois valores <br>
-                    <input type="radio" name="1"> Cria uma referência circular <br>
-                    <input type="radio" name="1" class="c"> Obtém o endereço de uma variável <br>
-                    <input type="radio" name="1"> Interrompe o fluxo de execução <br>
-                </div>
-            
-                <div class="questao-container">
-                    <p>Assinale as opções <strong>corretas</strong> sobre a função <code>malloc()</code>:</p>
-                    <input type="checkbox" name="2"> Retorna um ponteiro para a área de memória alocada <br>
-                    <input type="checkbox" name="3" class="c"> A memória alocada deve ser liberada com <code>free()</code> <br>
-                    <input type="checkbox" name="4"> Sempre inicializa a memória com zeros <br>
-                    <input type="checkbox" name="5" class="c"> É usada para alocar memória dinamicamente em tempo de execução <br>
-                </div>
-            
-                <div class="questao-container">
-                    <p>Como você acessa o valor da variável <code>idade</code> em um ponteiro <code>p</code> que armazena o endereço de <code>idade</code>?</p>
-                    <input type="text" name="6" data-c="*p" class="c">
-                </div>
-            
-                <div class="questao-container">
-                    <p>Qual das alternativas abaixo descreve corretamente uma <code>struct</code>?</p>
-                    <input type="radio" name="7"> Um tipo de dado primitivo <br>
-                    <input type="radio" name="7"> Um tipo de dado que armazena uma única variável <br>
-                    <input type="radio" name="7"> Um bloco de código que executa uma função <br>
-                    <input type="radio" name="7" class="c"> Uma coleção de variáveis agrupadas sob um único nome <br>
-                </div>
-            </form>
+            <div></div>
+            <main>
+                <form id="formulario_fase_6" action="">
+                    <div class="questao-container">
+                        <p>O que faz o operador <code>&</code> em C?</p>
+                        <input type="radio" name="1"> Multiplica dois valores <br>
+                        <input type="radio" name="1"> Cria uma referência circular <br>
+                        <input type="radio" name="1" class="c"> Obtém o endereço de uma variável <br>
+                        <input type="radio" name="1"> Interrompe o fluxo de execução <br>
+                    </div>
+                
+                    <div class="questao-container">
+                        <p>Assinale as opções <strong>corretas</strong> sobre a função <code>malloc()</code>:</p>
+                        <input type="checkbox" name="2"> Retorna um ponteiro para a área de memória alocada <br>
+                        <input type="checkbox" name="3" class="c"> A memória alocada deve ser liberada com <code>free()</code> <br>
+                        <input type="checkbox" name="4"> Sempre inicializa a memória com zeros <br>
+                        <input type="checkbox" name="5" class="c"> É usada para alocar memória dinamicamente em tempo de execução <br>
+                    </div>
+                
+                    <div class="questao-container">
+                        <p>Como você acessa o valor da variável <code>idade</code> em um ponteiro <code>p</code> que armazena o endereço de <code>idade</code>?</p>
+                        <input type="text" name="6" data-c="*p" class="c">
+                    </div>
+                
+                    <div class="questao-container">
+                        <p>Qual das alternativas abaixo descreve corretamente uma <code>struct</code>?</p>
+                        <input type="radio" name="7"> Um tipo de dado primitivo <br>
+                        <input type="radio" name="7"> Um tipo de dado que armazena uma única variável <br>
+                        <input type="radio" name="7"> Um bloco de código que executa uma função <br>
+                        <input type="radio" name="7" class="c"> Uma coleção de variáveis agrupadas sob um único nome <br>
+                    </div>
+                    <p class="feedback"></p>
+                </form>
+            </main>
             
         </div>
     </div>

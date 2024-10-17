@@ -189,6 +189,17 @@ header > nav {
 
 }
 
+.conteudo-bloqueado {
+    display: none !important;
+}
+
+.feedback-estado::after {
+    content: 'Essa fase está bloqueada.';
+    display: block; /* ou inline, dependendo do layout desejado */
+    color: red; /* estilo opcional */
+    margin-top: 5px; /* espaço opcional */
+}
+
 .maximizado {
     transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
     width: 100%; 
@@ -222,8 +233,27 @@ form > input {
     display: block;
 }
 
-button {
-    margin-bottom: 20px;
+form {
+    accent-color: var(--vermelho_primario);
 }
 
-        
+button {
+    color: white;
+    background-color: var(--vermelho_primario);
+    width: 115px;
+    height: 35px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 2px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: var(--vermelho_secundario);
+}
+
+.btn-container {
+    width: 50%;
+    margin: 20px 20px 10px 5px;
+}
