@@ -53,12 +53,11 @@ function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
     respostas = JSON.stringify(respostas);
     respostas_corretas = JSON.stringify(respostas_corretas);
     let feedback = form.getElementsByClassName('feedback')[0]
-    console.log(feedback)
 
     if (respostas === respostas_corretas) {
         console.log("Respostas corretas")
         feedback.innerHTML = "Parabéns, você acertou todas as questões!"
-        form.parentElement.querySelectorAll('button').forEach(btn => btn.style.display='none'); // gambiarra absurda 
+        form.parentElement.parentElement.querySelectorAll(`button`).forEach(btn => btn.style.display=`none`); // gambiarra absurda 
         incrementarFase(botao)
     }
     else {
@@ -92,7 +91,7 @@ function atualizarFases() {
             if (tipoFase == "exercicio" || tipoFase == "prova")  {
                 conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(${"formulario_fase_" + fase_atual}, this)">Entregar</button></div>`;
             } else if (tipoFase == "desafio") {
-                conteudoFase.innerHTML += `<div class="btn-container"> <button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button> <button onclick="this.parentElement.querySelectorAll('button').forEach(btn => btn.style.display='none'); incrementarFase(this)">Pular</button> </div>`;
+                conteudoFase.innerHTML += `<div class="btn-container"> <button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button> <button onclick="this.parentElement.querySelectorAll('button').forEach(btn => btn.style.display='none'); incrementarFase(this)">Pular</button></div>`;
 
                 // O certo seria criar uma funcao chamada pular e chamar ela invez dessa gambiarra SINISTRA aqui em cima; então se alguem estiver lendo isso, sinceramente desculpas por essa atrocidade.
             } else {
