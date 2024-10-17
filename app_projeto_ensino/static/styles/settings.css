@@ -77,8 +77,7 @@ header > nav {
 }
 
 .label {
-    margin-top: 10px;
-    margin-left: 10px;
+    margin: auto;
     border: solid 1px var(--background_conteudo);
     background-image: linear-gradient(to right, rgb(59, 180, 216), rgb(8, 16, 41));
     border-radius: 50px;
@@ -150,4 +149,13 @@ input[type="password"] {
 .save-btn {
     background-color: #28a745;
     color: white;
+}
+
+h3 {
+    margin-top: 15px;
+    margin-bottom: 15px; 
+}
+
+a {
+    color: var(--vermelho_primario);
 }

@@ -3,10 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from . import models
 from . import utils
-
 
 # Create your views here.
 def signup(request):
@@ -52,7 +51,7 @@ def signin(request):
                 login(request, user)
                 return redirect('profile', pk=user.pk) # Redireciona para o perfil por enquanto.
             else:
-                raise ValueError("Ocorreu um erro na autenticação, tente novamente.")
+                raise ValueError("Username ou senha inválidos, tente novamente.")
             
         except Exception as erro:
             messages.add_message(request, messages.ERROR, str(erro))
@@ -92,5 +91,8 @@ def incrementar_fase(request):
 def settings(request):
     return render(request, 'settings.html')
 
-
+@login_required(login_url="signin")
+def user_logout(request):
+    logout(request)
+    return redirect('signin')
 
