@@ -105,122 +105,147 @@ canvas:hover {
     box-shadow: -6px 0px 5px rgba(0, 0, 0, 0.235);
 }
 
+.profile-banner {
+    width: 100%;
+    height: 40%;
+    background-color: red;
+}
+
+.profile-selected-avatar {
+    background-color: gray;
+    transform: translateY(-100px);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border: solid 1px black;
+}
+
+.profile-body {
+    width: 100%;
+    height: 60%;
+}
+
 /* Definições de avatar */ 
 
 .avatar {
     background-size: cover;
 }
 
+.profile-selected-avatar {
+  background-size: cover;
+}
+
   /* Backgrounds específicos para cada ID */
-  #avt_1 {
-    background-image: url('../img/avatar/avt1.jpg');
+  #avt1 {
+    background-image: url('../img/avatar/avt1.jpeg');
   }
   
-  #avt_2 {
-    background-image: url('../img/avatar/avt2.png');
+  #avt2 {
+    background-image: url('../img/avatar/avt2.jpeg');
   }
   
-  #avt_3 {
-    background-image: url('../img/avatar/avt3.jpg');
+  #avt3 {
+    background-image: url('../img/avatar/avt3.jpeg');
   }
   
-  #avt_4 {
+  #avt4 {
     background-image: url('../img/avatar/avt4.jpeg');
   }
   
-  #avt_5 {
+  #avt5 {
     background-image: url('../img/avatar/avt5.jpeg');
   }
   
-  #avt_6 {
+  #avt6 {
     background-image: url('../img/avatar/avt6.jpeg');
   }
   
-  #avt_7 {
+  #avt7 {
     background-image: url('../img/avatar/avt7.jpeg');
   }
   
-  #avt_8 {
+  #avt8 {
     background-image: url('../img/avatar/avt8.jpeg');
   }
   
-  #avt_9 {
+  #avt9 {
     background-image: url('../img/avatar/avt9.jpeg');
   }
   
-  #avt_10 {
+  #avt10 {
     background-image: url('../img/avatar/avt10.jpeg');
   }
   
-  #avt_11 {
+  #avt11 {
     background-image: url('../img/avatar/avt11.jpeg');
   }
   
-  #avt_12 {
+  #avt12 {
     background-image: url('../img/avatar/avt12.jpeg');
   }
   
-  #avt_13 {
+  #avt13 {
     background-image: url('../img/avatar/avt13.jpeg');
   }
   
-  #avt_14 {
+  #avt14 {
     background-image: url('../img/avatar/avt14.jpeg');
   }
   
-  #avt_15 {
+  #avt15 {
     background-image: url('../img/avatar/avt15.jpeg');
   }
   
-  #avt_16 {
+  #avt16 {
     background-image: url('../img/avatar/avt16.jpeg');
   }
   
-  #avt_17 {
+  #avt17 {
     background-image: url('../img/avatar/avt17.jpeg');
   }
   
-  #avt_18 {
+  #avt18 {
     background-image: url('../img/avatar/avt18.jpeg');
   }
   
-  #avt_19 {
+  #avt19 {
     background-image: url('../img/avatar/avt19.jpeg');
   }
   
-  #avt_20 {
+  #avt20 {
     background-image: url('../img/avatar/avt20.jpeg');
   }
   
-  #avt_21 {
+  #avt21 {
     background-image: url('../img/avatar/avt21.jpeg');
   }
   
-  #avt_22 {
+  #avt22 {
     background-image: url('../img/avatar/avt22.jpeg');
   }
   
-  #avt_23 {
+  #avt23 {
     background-image: url('../img/avatar/avt23.jpeg');
   }
   
-  #avt_24 {
+  #avt24 {
     background-image: url('../img/avatar/avt24.jpeg');
   }
   
-  #avt_25 {
+  #avt25 {
     background-image: url('../img/avatar/avt25.jpeg');
   }
   
-  #avt_26 {
+  #avt26 {
     background-image: url('../img/avatar/avt26.jpeg');
   }
   
-  #avt_27 {
+  #avt27 {
     background-image: url('../img/avatar/avt27.jpeg');
   }
   
-  #avt_28 {
+  #avt28 {
     background-image: url('../img/avatar/avt28.jfif');
   }
   

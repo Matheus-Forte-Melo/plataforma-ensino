@@ -10,6 +10,8 @@ class CustomUser(AbstractUser):
     pontuacao = models.IntegerField(default=0, blank=True, null=True)
     fase = models.IntegerField(default=1, blank=True, null=True)
     mundo = models.IntegerField(default=0, blank=True, null=True)
+    cor_perfil = models.TextField(default="rgba(255, 0, 0, 0)", blank=True, null=True)
+    avatar = models.TextField(default="avt22", blank=True, null=True)
     first_name = None
     last_name = None
 

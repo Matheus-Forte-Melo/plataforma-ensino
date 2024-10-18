@@ -1,3 +1,19 @@
+let opcoes_avatar = document.getElementsByClassName('avatar');
+let avatar_preview = document.getElementById('profile-selected-avatar');
+let banner_preview = document.getElementById('profile-banner');
+let selectedAvatarInput = document.getElementById('selected_avatar');
+let rgbaColorInput = document.getElementById('rgba_color');
+
+Array.from(opcoes_avatar).forEach(avt_op => {
+  avt_op.addEventListener('click', function() {
+    let selected_avatar = avt_op.id;
+    avatar_preview.setAttribute('id', selected_avatar);
+    selectedAvatarInput.value = selected_avatar; // campo oculto
+  });
+});
+
+/* Lógica da selecao de cor */
+
 var colorBlock = document.getElementById('color-block');
 var ctx1 = colorBlock.getContext('2d');
 var width1 = colorBlock.width;
@@ -76,6 +92,10 @@ function changeColor(e) {
   var imageData = ctx1.getImageData(x, y, 1, 1).data;
   rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)';
   colorLabel.style.backgroundColor = rgbaColor;
+  banner_preview.style.backgroundColor = rgbaColor;
+  banner_preview.setAttribute("data-cor_banner", rgbaColor);
+  
+  rgbaColorInput.value = rgbaColor; // campo oculto com a cor RGBA
 }
 
 colorStrip.addEventListener("click", click, false);
@@ -83,3 +103,4 @@ colorStrip.addEventListener("click", click, false);
 colorBlock.addEventListener("mousedown", mousedown, false);
 colorBlock.addEventListener("mouseup", mouseup, false);
 colorBlock.addEventListener("mousemove", mousemove, false);
+

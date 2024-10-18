@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/styles/geral.css">
-    <link rel="stylesheet" href="../static/styles/profile-edit.css">
+    <title>Edit</title>
+    <link rel="stylesheet" href="{% static 'styles/geral.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/profile-edit.css' %} ">
 </head>
 <body>
     <section class="profile-edit">
@@ -13,6 +14,10 @@
             <h1>Editor de perfil</h1>
             <p>Seja bem-vindo ao editor de perfil! Faça as alterações desejadas abaixo e as veja no preview à direita. Não se esqueça de clicar em <b>"APLICAR"</b> no final para aplicar suas alterações. Caso queira cancelar, clique no botão <b>"CANCELAR E VOLTAR"</b></p>
             <form action="" method="POST">
+                {% csrf_token %}
+
+                <input type="hidden" name="selected_avatar" id="selected_avatar" value="">
+                <input type="hidden" name="rgba_color" id="rgba_color" value="">
 
                 <h2>Alterar cor do banner</h2>
                 <label for="color-input" id="color-label" style="background-color: red"></label>
@@ -25,43 +30,46 @@
 
                 <h2>Alterar avatar</h2>
                 <div class="avatar-container">
-                    <div class="avatar" id="avt_1"></div>
-                        <div class="avatar" id="avt_2"></div>
-                        <div class="avatar" id="avt_3"></div>
-                        <div class="avatar" id="avt_4"></div>
-                        <div class="avatar" id="avt_5"></div>
-                        <div class="avatar" id="avt_6"></div>
-                        <div class="avatar" id="avt_7"></div>
-                        <div class="avatar" id="avt_8"></div>
-                        <div class="avatar" id="avt_9"></div>
-                        <div class="avatar" id="avt_10"></div>
-                        <div class="avatar" id="avt_11"></div>
-                        <div class="avatar" id="avt_12"></div>
-                        <div class="avatar" id="avt_13"></div>
-                        <div class="avatar" id="avt_14"></div>
-                        <div class="avatar" id="avt_15"></div>
-                        <div class="avatar" id="avt_16"></div>
-                        <div class="avatar" id="avt_17"></div>
-                        <div class="avatar" id="avt_18"></div>
-                        <div class="avatar" id="avt_19"></div>
-                        <div class="avatar" id="avt_20"></div>
-                        <div class="avatar" id="avt_21"></div>
-                        <div class="avatar" id="avt_22"></div>
-                        <div class="avatar" id="avt_23"></div>
-                        <div class="avatar" id="avt_24"></div>
-                        <div class="avatar" id="avt_25"></div>
-                        <div class="avatar" id="avt_26"></div>
-                        <div class="avatar" id="avt_27"></div>
-                        <div class="avatar" id="avt_28"></div>
+                    <div class="avatar" id="avt1"></div>
+                    <div class="avatar" id="avt2"></div>
+                    <div class="avatar" id="avt3"></div>
+                    <div class="avatar" id="avt4"></div>
+                    <div class="avatar" id="avt5"></div>
+                    <div class="avatar" id="avt6"></div>
+                    <div class="avatar" id="avt7"></div>
+                    <div class="avatar" id="avt8"></div>
+                    <div class="avatar" id="avt9"></div>
+                    <div class="avatar" id="avt10"></div>
+                    <div class="avatar" id="avt11"></div>
+                    <div class="avatar" id="avt12"></div>
+                    <div class="avatar" id="avt13"></div>
+                    <div class="avatar" id="avt14"></div>
+                    <div class="avatar" id="avt15"></div>
+                    <div class="avatar" id="avt16"></div>
+                    <div class="avatar" id="avt17"></div>
+                    <div class="avatar" id="avt18"></div>
+                    <div class="avatar" id="avt19"></div>
+                    <div class="avatar" id="avt20"></div>
+                    <div class="avatar" id="avt21"></div>
+                    <div class="avatar" id="avt22"></div>
+                    <div class="avatar" id="avt23"></div>
+                    <div class="avatar" id="avt24"></div>
+                    <div class="avatar" id="avt25"></div>
+                    <div class="avatar" id="avt26"></div>
+                    <div class="avatar" id="avt27"></div>
+                    <div class="avatar" id="avt28"></div>
                 </div>
                 <input type="submit" value="Aplicar">
-                <button>Cancelar e voltar</button>
-
             </form>
+            <a href="{% url 'profile' user.pk %}"><button>Cancelar e voltar</button></a>
+
 
         </div>
     </section>
-    <section class="profile-preview"></section>
-    <script src="../static/scripts/profile-edit.js"></script>
+    <section class="profile-preview" >
+        <div class="profile-banner" id="profile-banner"></div>
+        <div class="profile-selected-avatar" id="profile-selected-avatar"></div>
+    </section>
+    <script src="{% static 'scripts/profile-edit.js' %}"></script>
 </body>
 </html>

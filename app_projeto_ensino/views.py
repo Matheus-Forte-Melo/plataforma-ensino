@@ -4,6 +4,7 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
 from . import models
 from . import utils
 
@@ -65,10 +66,23 @@ def home(request):
 @login_required(login_url="signin")
 def profile(request, pk): 
     user = models.CustomUser.objects.get(pk=pk)
-    print(user.username, user.pontuacao, user.mundo, user.fase)
+    print(user.username, user.pontuacao, user.mundo, user.fase, user.avatar, user.cor_perfil)
 
     context = {'user': user}
     return render(request, 'profile.html', context)
+
+@login_required
+def profileEdit(request, pk):
+
+    if request.method == 'POST':
+        user = models.CustomUser.objects.get(pk=pk)
+        user.avatar = request.POST.get('selected_avatar')
+        user.cor_perfil = request.POST.get('rgba_color')
+        user.save()
+
+        return redirect(reverse('profile', kwargs={'pk': user.pk}))
+
+    return render(request, 'profile_edit.html')
 
 @login_required(login_url="signin") # Usar parada de permission e acesso do django para restringir acesso aos niveis superiores
 def world1(request):
@@ -95,4 +109,6 @@ def settings(request):
 def user_logout(request):
     logout(request)
     return redirect('signin')
+
+
 
