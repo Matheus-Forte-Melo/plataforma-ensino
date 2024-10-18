@@ -30,3 +30,4 @@ Em seguida, siga o link exibido no terminal para acessar a plataforma localmente
 Melhorando a Velocidade:
 
 
+
