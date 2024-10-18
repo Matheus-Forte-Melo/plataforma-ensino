@@ -1,0 +1,88 @@
+body {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../img/background.jpg);
+}
+
+#homepage-a {
+    color: var(--vermelho_primario);
+}
+
+/* barrinha vermelha   */ 
+#homepage-a::before {
+    content: '';
+    position: absolute; /* Usa como base o container se pa */
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95px;
+    height: 4px;
+    background-color: var(--vermelho_primario);
+    cursor: auto;
+}
+
+
+main {
+    margin-top: 22px;
+    display: flex;
+}
+
+section {
+    width: 50%;;
+}
+
+.content {
+    padding: 0px 0px 20px 110px;
+    margin-top: 75px;
+}
+
+h1, h2 {
+    margin: 0px;
+    color: var(--cor_texto);
+}
+
+.title1 {
+    font-size: 4.5em;
+    height: 70px;
+}
+
+.title2 {
+    font-size: 7em;
+    height: 120px;
+}
+
+.sub-title {
+    font-size: 3.60em;
+    color: var(--vermelho_primario);
+}
+
+p {
+    margin-top: 35px;
+    font-size: 1.35em;
+    width: 78%;
+}
+
+button {
+    font-weight: bold;
+    margin-top: 20px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 200px;
+    height: 50px;
+    background-color: var(--vermelho_secundario);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--vermelho_primario);
+}
+
+.bg {   
+    width: 60%;
+    background-size: contain;
+    background-image: url(../img/bg3_s.png);
+    background-repeat: no-repeat;
+    height: 795px;
+}

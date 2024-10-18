@@ -1,0 +1,118 @@
+
+
+main {
+    width: 100vw;
+    display: flex;
+}
+
+.background {
+    background-image: url(../img/bg1_s.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 58vw;
+    height: 100vh;
+}
+
+
+.conteudo {
+    position: absolute;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    width: 40%;
+    height: 100vh;
+
+    padding-left: 75px;
+    padding-right: 75px;
+
+
+    background-color: var(--background_conteudo);
+    box-shadow: -10px -3px 25.1px 0 rgba(0, 0, 0, 0.22);
+}
+
+p {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 2px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 85%;
+}
+
+
+h1 {
+    color: var(--vermelho_secundario);
+    font-size: 3.95em;
+    text-align: center;
+    margin: 0px;    
+}
+
+a {
+    display: block;
+    color: var(--vermelho_secundario);
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 1.2em;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+}
+
+svg {
+    position: absolute;
+    padding: 10px;
+    fill: var(--nao-selecionado); ;
+}
+
+input[type="text"], input[type="password"] {
+    text-align: center;
+    width: 78%;
+    height: 50px;
+
+    font-size: 1em;
+    color: var(--nao-selecionado); 
+    background-color: transparent; ;
+    border: 2pt solid  var(--nao-selecionado); ;
+    border-radius: 9.5px; 
+    box-sizing: border-box; /* importante */
+    margin-bottom: 16px;
+}
+
+input[type="text"]::placeholder, input[type="password"]::placeholder {
+    color: var(--nao-selecionado); 
+}
+
+input[type="text"]:focus {
+    color: var(--nao-selecionado); 
+}
+
+input[type="submit"] {
+    font-weight: bold;
+    font-size: 1.75em;
+    border-radius: 9.5px;
+    color: white;
+    width: 78%;
+    height: 55px;
+    border: none;
+    background-color: var(--vermelho_secundario);
+    cursor: pointer;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+input[type="submit"]:hover {
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: var(--vermelho_primario);
+}
+
+

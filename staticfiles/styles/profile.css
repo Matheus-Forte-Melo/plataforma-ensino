@@ -1,0 +1,113 @@
+body {
+    background-image: none;
+    background-color: var(--background_conteudo);
+    height: 100vh;
+}
+        
+#user-a > svg {
+    fill: var(--vermelho_primario);
+}
+
+/* barrinha vermelha   */ 
+#user-a::before {
+    content: '';
+    position: absolute; /* Usa como base o container se pa */
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 4px;
+    background-color: var(--vermelho_primario);
+    cursor: auto;
+}
+
+.red-section {
+    height: 325px; 
+    background-color: #EF233C; /* cor do amor */
+}
+
+.white-section {
+    height: 580px;
+    background-color: var(--background_conteudo);
+}
+
+/* Para botar o redondo no meio */
+.circle-container {
+    position: absolute;
+    top: 17.5vh; /* Centralizado verticalmente entre vermelho e branco */
+    left: 50%;
+    transform: translate(-50%, 50px);
+    width: 200px;
+    height: 200px;    
+    /* Certifique-se de que o círculo esteja acima das seções */
+}
+
+.circle {
+    background-color: var(--background_geral);
+    border: solid 2px black;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0px 4px 10px rgba(85, 16, 16, 0.507);
+}
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*Garante que a imagem cubra todo o círculo circular redondo */
+    border-radius: 50%; /* Mantém a imagem redondinha papai  */
+}
+
+.edit {
+    display: flex;
+    align-items: center;
+    width: 5%;
+}
+
+#edit-icon {
+    fill: var(--cor_texto);
+}
+
+.edit {
+    padding: 5px;
+    margin: 0;
+    font-size: 1.35em;
+    text-decoration: none;
+    color: var(--cor_texto);
+}
+
+a:hover {
+    color: #EF233C;
+}
+
+a:hover > svg#edit-icon {
+    fill: #EF233C;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-top: 85px;
+    text-align: center;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 125px;
+}
+
+.details {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--background_geral);
+    color: var(--cor_texto);
+    width: 250px;
+    /* height: 100px; */
+}
+
+.details > p {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 15px;
+}

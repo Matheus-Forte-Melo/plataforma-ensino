@@ -1,0 +1,16 @@
+{
+    "builds": [
+      {
+        "src": "projeto_ensino/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.12.6" }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "projeto_ensino/wsgi.py"
+      }
+    ]
+  }
+  
