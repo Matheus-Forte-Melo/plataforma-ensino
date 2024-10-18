@@ -1,33 +1,39 @@
-# Plataforma de Ensino ainda sem nome
-Plataforma educional para o ensino da matéria "Introdução a Programação" 
+Plataforma de Ensino - Introdução à Programação
+Descrição do Projeto:
+Esta é uma plataforma educacional dedicada ao ensino da matéria "Introdução à Programação". O projeto ainda está em desenvolvimento e será atualizado com mais conteúdo ao longo do tempo.
 
-O projeto ainda está incompleto, mas será atualizado ao decorrer do tempo e mais conteúdo será adicionado com o tempo:
+Acesso à Plataforma:
 
-Você pode acessar o site de duas formas: 
+Você pode acessar a plataforma de duas maneiras:
 
-Aqui: https://plataforma-ensino-v1.vercel.app
-Tenha em mente que o projeto está hospedado em um plano gratuito, assim como o banco de dados postgres railway, então, não espere muita velocidade.
+Online:
+Acesse aqui: Plataforma de Ensino
+Observação: O projeto está hospedado em um plano gratuito, assim como o banco de dados PostgreSQL na Railway. Portanto, a velocidade pode ser limitada.
 
-Ou localmente:
+Localmente:
+Para rodar a plataforma em sua máquina, siga os passos abaixo:
 
-1. Baixe/clone o repositório. 
-2. Extraia se necessário.
-3. Abra a pasta do projeto com o terminal do VSCODE ou com o terminal do windows
-4. Tenha PYTHON 13.12.6 ou acima instalado
-5. Inicie o ambiente virtual digitando no terminal "venv/scripts/activate"
-6. Digite "python manage.py runserver" e siga o link que o terminal mostrar.
+Baixe ou clone o repositório do projeto.
+Extraia o arquivo, se necessário.
+Abra a pasta do projeto usando o terminal do VS Code ou o terminal do Windows.
+Certifique-se de que você tem o Python 3.12.6 ou superior instalado em sua máquina.
+Inicie o ambiente virtual:
+No terminal, digite:
+bash
+Copiar código
+venv/scripts/activate
+Inicie o servidor:
+Digite o seguinte comando no terminal:
+bash
+Copiar código
+python manage.py runserver
+Em seguida, siga o link exibido no terminal para acessar a plataforma localmente.
+Melhorando a Velocidade:
 
-Se você deseja experienciar mais velocidade; vá em "projeto_ensino/settings.py" e descomente:
+Para melhorar a performance do projeto, você pode alterar algumas configurações no arquivo projeto_ensino/settings.py:
 
-![image](https://github.com/user-attachments/assets/b18215dc-5010-4241-9eb4-fb590e8b07d9)
+Descomente o bloco:
 
-E depois comente:
+Comente este bloco:
 
-![image](https://github.com/user-attachments/assets/d50882e5-2ddc-421f-a9ac-6d874d8700fe)
-
-(Sim a senha do banco esta a mostra, o plano é gratuito e tenho o backup)
-
-
-
-
- 
+Observação: A senha do banco de dados está visível, mas isso é aceitável para o plano gratuito e há um backup disponível.
