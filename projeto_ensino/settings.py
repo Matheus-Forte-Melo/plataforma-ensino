@@ -78,9 +78,6 @@ WSGI_APPLICATION = 'projeto_ensino.wsgi.application'
 #     }
 # }
 
-
-# Seria interessante esconder essas variaveis com o enviroment variables
-# banco de dados gratuito e foda, lento pra caralho, tentar usar sentry pra identificar se é isso mesmo
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -91,8 +88,6 @@ DATABASES = {
         'PORT': '36949',
     }
 }
-
-
 
 
 # Password validation
