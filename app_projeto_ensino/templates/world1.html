@@ -389,14 +389,120 @@
             <main>
                 <h1>Atente-se gafanhoto.</h1>
                 <p><i>shhhhhhh</i>, a proxima fase é um desafio, decida-se, se você quiser ganhar pontos extras, faça-a, se não se importar com isso, clique no botão de pular. Mas saiba, uma vez pulado, não há como voltar. Não chore pelo leite.derramado</p>
-                <h2>Introdução à Linguagem C</h2>
-                <p>A linguagem C é uma das mais antigas e populares linguagens de programação, utilizada em uma ampla variedade de sistemas, desde sistemas operacionais até softwares embarcados. Um dos motivos de sua popularidade é a sua eficiência, permitindo um controle direto sobre os recursos de hardware.</p>
+                Declaração de variáveis  
+
+                <h1>Declaração de Variáveis</h1>
+                <p>
+                    Imagine uma caixa que você pode armazenar coisas dentro dela, você tem a caixa e quer guardar algo dentro dela, como um brinquedo. 
+                    Essa caixa pode ter um rótulo, assim você sabe o que tem lá dentro. Na programação, uma variável é como essa caixa: você pode 
+                    guardar informações dentro dela e dar um nome para saber o que está lá.
+                </p>
                 
-                <p>Em C, um programa é composto por funções. A função <code>main()</code> é o ponto de entrada, onde a execução começa. Variáveis podem ser declaradas em diferentes escopos, como globais (acessíveis por todo o programa) e locais (restritas a uma função).</p>
+                <h2>Como funciona?</h2>
+                <ul>
+                    <li><strong>Nome da variável:</strong> É como o rótulo da caixa. Você escolhe um nome que faz sentido. Por exemplo, se você vai 
+                    guardar a idade de uma pessoa, pode chamar a variável de idade.</li>
+                    <li><strong>Valor da variável:</strong> É o que você coloca dentro da caixa. Continuando com o exemplo, se a pessoa tem 25 anos, 
+                    você coloca o número 25 na variável idade.</li>
+                    <li><strong>Declaração:</strong> Para criar a variável, você usa uma instrução que informa ao computador que está criando essa 
+                    "caixa". Por exemplo, em muitas linguagens de programação, você escreveria algo como: <code>idade = 25</code> (idade é o nome da 
+                    variável e 25 é o valor que estamos guardando).</li>
+                </ul>
+
+                <p><strong>Resumindo:</strong></p>
+                <ul>
+                    <li><strong>Variável:</strong> Caixa para armazenar informações.</li>
+                    <li><strong>Nome:</strong> Rótulo da caixa.</li>
+                    <li><strong>Valor:</strong> O que está dentro da caixa.</li>
+                    <li><strong>Declaração:</strong> Ação de criar a caixa.</li>
+                </ul>
+
+                <p>
+                    Assim, quando você precisa usar essa informação depois, basta referenciar a variável pelo nome. Se você quiser saber a idade, 
+                    pode simplesmente usar <code>idade</code> e o computador vai lembrar que é 25.
+                </p>
+
+                <h1>Comandos de Entrada e Saída</h1>
+                <h2>Entrada</h2>
+                <p>
+                    É quando você quer que o computador receba informações do usuário. Por exemplo, você pode querer saber o nome ou a idade de 
+                    alguém.
+                </p>
                 
-                <p>A leitura de dados pode ser feita com a função <code>scanf()</code>, que coleta valores digitados pelo usuário e os armazena em variáveis. Arrays, como <code>int arr[5]</code>, são utilizados para armazenar múltiplos valores de um mesmo tipo.</p>
-                <p>O <code>return</code> é uma instrução usada para encerrar a execução de uma função e, opcionalmente, retornar um valor ao chamador da função.</p>
-                <p>Entender como o compilador transforma o código-fonte em código executável é essencial para otimizar o desempenho e o uso eficiente de recursos no C.</p>
+                <h2>Saída</h2>
+                <p>
+                    É quando o computador mostra informações para o usuário. Por exemplo, pode mostrar uma mensagem de saudação ou a idade que foi 
+                    informada.
+                </p>
+                
+                <h2>Como isso funciona em C?</h2>
+                <h3>Saída com printf</h3>
+                <p>
+                    <code>printf</code> é um comando usado para mostrar informações na tela. Imagine que você quer cumprimentar alguém. Você pode 
+                    escrever:
+                </p>
+                
+                <pre><code>printf("Olá, mundo!\n");</code></pre>
+
+                <p>
+                    Aqui, o computador vai mostrar na tela "Olá, mundo!". O <code>\n</code> é uma maneira de dizer ao computador para pular para a linha 
+                    de baixo depois de mostrar a mensagem.
+                </p>
+
+                <h3>Entrada com scanf</h3>
+                <p>
+                    <code>scanf</code> é um comando usado para receber informações do usuário. Por exemplo, se você quer saber a idade de alguém, pode 
+                    fazer assim:
+                </p>
+                
+                <pre><code>int idade;
+
+            printf("Digite sua idade: ");
+            scanf("%d", &idade);</code></pre>
+
+                <p>
+                    Aqui, o que acontece é:
+                </p>
+                
+                <ul>
+                    <li><code>printf</code> mostra a mensagem "Digite sua idade:" na tela.</li>
+                    <li><code>scanf</code> espera que o usuário digite um número. O <code>%d</code> indica que estamos esperando um número inteiro, e 
+                    o <code>&idade</code> diz ao computador onde guardar esse número (na variável <code>idade</code>).</li>
+                </ul>
+
+                <h3>Resumindo</h3>
+                <ul>
+                    <li><strong>Entrada:</strong> Use <code>scanf</code> para receber (ler) informações do usuário.</li>
+                    <li><strong>Saída:</strong> Use <code>printf</code> para mostrar informações na tela.</li>
+                </ul>
+
+                <h2>Exemplo Completo</h2>
+                <p>
+                    Aqui está um pequeno exemplo que combina tudo isso:
+                </p>
+                
+                <pre><code>#include &lt;stdio.h&gt;
+
+            int main() {
+                int idade;
+                
+                printf("Digite sua idade: ");      // Saída
+                scanf("%d", &idade);               // Entrada
+                
+                printf("Você tem %d anos.\n", idade); // Saída
+                return 0;
+            }</code></pre>
+
+                <p>
+                    Nesse exemplo:
+                </p>
+                
+                <ul>
+                    <li>O programa pede a idade do usuário.</li>
+                    <li>O usuário digita a idade.</li>
+                    <li>O programa mostra quantos anos a pessoa tem.</li>
+                </ul>
+
             </main>
         </div>
 
@@ -407,32 +513,19 @@
             <main>
                 <form id="formulario_fase_8" action="">
                     <div>
-                        <p>Qual é a função de um compilador?</p>
-                        <input type="radio" name="1"> Transforma o código em linguagem de máquina <br>
-                        <input type="radio" name="1" value="c" class="c"> Tradução de código-fonte para código executável <br>
-                        <input type="radio" name="1"> Executa o código diretamente <br>
-                        <input type="radio" name="1"> Otimiza o código em tempo de execução <br>
+                        <p>O que é uma variável em programação?</p>
+                        <input type="radio" name="1"> Um número aleatório escolhido pelo computador <br>
+                        <input type="radio" name="1" value="c" class="c"> Um espaço na memória para armazenar dados <br>
+                        <input type="radio" name="1"> Uma operação matemática <br>
+                        <input type="radio" name="1"> Um comando que imprime texto na tela <br>
                     </div>
                 
                     <div class="questao-container">
-                        <p>Qual é a diferença entre variáveis locais e globais? Assinale as opções <strong>corretas</strong>:</p>
-                        <input type="checkbox" name="2" class="c"> Variáveis locais são acessíveis apenas dentro de funções <br>
-                        <input type="checkbox" name="3"> Variáveis globais são sempre mais eficientes <br>
-                        <input type="checkbox" name="4" class="c"> Variáveis globais são acessíveis em todo o programa <br>
-                        <input type="checkbox" name="5"> Variáveis locais podem ser usadas fora da função <br>
-                    </div>
-                
-                    <div class="questao-container">
-                        <p>Como você inicializa um array de inteiros em C com 5 elementos com valores de 1 a 5?</p>
-                        <input type="text" name="6" data-c="int arr[5] = {1, 2, 3, 4, 5};" class="c">
-                    </div>
-                
-                    <div class="questao-container">
-                        <p>Qual é a função do comando `return` em C?</p>
-                        <input type="radio" name="7"> Aumentar a performance do código <br>
-                        <input type="radio" name="7" class="c"> Retornar um valor de uma função <br>
-                        <input type="radio" name="7"> Interromper o fluxo de um programa <br>
-                        <input type="radio" name="7"> Declarar variáveis temporárias <br>
+                        <p>Qual dos itens abaixo são comandos de saída em C? Assinale as opções <strong>corretas</strong>:</p>
+                        <input type="checkbox" name="2" class="c"> printf <br>
+                        <input type="checkbox" name="3"> scanf <br>
+                        <input type="checkbox" name="4" class="c"> puts <br>
+                        <input type="checkbox" name="5"> return <br>
                     </div>
                     <p class="feedback"></p>
                 </form>
@@ -445,10 +538,179 @@
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
             <div></div>
             <main>
-                <h1>Ponteiros, Alocação Dinâmica e Structs em C</h1>
-                <p>Em C, ponteiros são variáveis que armazenam o endereço de memória de outras variáveis. Eles são úteis para manipular diretamente a memória, permitindo acesso eficiente e flexível aos dados. O operador <code>&</code> obtém o endereço de uma variável, e o operador <code>*</code> é utilizado para acessar o valor armazenado nesse endereço.</p>
-                <p>A alocação dinâmica de memória, com as funções <code>malloc()</code> e <code>free()</code>, permite que o programa aloque memória durante sua execução, o que é útil quando o tamanho dos dados não é conhecido em tempo de compilação.</p>
-                <p>As <code>structs</code> permitem agrupar variáveis de diferentes tipos sob um mesmo nome, criando estruturas de dados mais complexas. Isso é útil, por exemplo, para modelar objetos do mundo real, como um registro de informações de um aluno que possui nome, idade e notas, tudo em um único tipo de dado.</p>
+                <h1>Estruturas de Controle</h1>
+
+                <h2>Condicionais</h2>
+                <p>Permitem que o programa tome decisões com base em condições. Exemplo: <code>if</code>, <code>else</code>, <code>switch</code>.</p>
+                
+                <h3>If (Se)</h3>
+                <p>A estrutura <code>if</code> é usada para executar um bloco de código apenas se uma condição especificada for verdadeira.</p>
+
+                <pre><code>
+            if (condição) {
+                // código a ser executado se a condição for verdadeira
+            }
+                </code></pre>
+
+                <h4>Exemplo em C:</h4>
+                <pre><code>
+            int idade = 18;
+
+            if (idade >= 18) {
+                printf("Você é maior de idade.\n");
+            }
+                </code></pre>
+
+                <h3>Else (Senão)</h3>
+                <p>A estrutura <code>else</code> é usada em conjunto com <code>if</code> para executar um bloco de código quando a condição do <code>if</code> não é verdadeira.</p>
+
+                <pre><code>
+            if (condição) {
+                // código se a condição for verdadeira
+            } else {
+                // código se a condição for falsa
+            }
+                </code></pre>
+
+                <h4>Exemplo em C:</h4>
+                <pre><code>
+            int idade = 16;
+
+            if (idade >= 18) {
+                printf("Você é maior de idade.\n");
+            } else {
+                printf("Você é menor de idade.\n");
+            }
+                </code></pre>
+
+                <h3>Else if (Senão se)</h3>
+                <p>Usado quando você tem várias condições diferentes de respostas. Ele permite testar várias condições de respostas em sequência.</p>
+
+                <pre><code>
+            if (condição1) {
+                // código se a condição1 for verdadeira
+            } else if (condição2) {
+                // código se a condição2 for verdadeira
+            } else {
+                // código se nenhuma das condições anteriores for verdadeira
+            }
+                </code></pre>
+
+                <h4>Exemplo em C:</h4>
+                <pre><code>
+            int nota = 85;
+
+            if (nota >= 90) {
+                printf("Nota excelente.\n");
+            } else if (nota >= 70) {
+                printf("Nota boa.\n");
+            } else {
+                printf("Nota insuficiente.\n");
+            }
+                </code></pre>
+
+                <h3>Switch</h3>
+                <p>A estrutura <code>switch</code> é usada para selecionar um bloco de código a ser executado com base no valor de uma expressão. É uma alternativa ao uso de múltiplos <code>if</code> e <code>else</code> quando há várias condições baseadas em um único valor.</p>
+
+                <pre><code>
+            switch (variável) {
+                case valor1:
+                    // Código a ser executado se variável == valor1
+                    break;
+                case valor2:
+                    // Código a ser executado se variável == valor2
+                    break;
+                // Mais casos...
+                default:
+                    // Código a ser executado se nenhum dos valores corresponder
+            }
+                </code></pre>
+
+                <h4>Componentes do switch:</h4>
+                <ul>
+                    <li><strong>switch (variável):</strong> Avalia o valor da variável.</li>
+                    <li><strong>case valor:</strong> Define um valor que, se corresponder ao valor da variável, o código associado será executado.</li>
+                    <li><strong>break:</strong> Encerra o bloco do case.</li>
+                    <li><strong>default:</strong> Executado se nenhum dos valores <code>case</code> corresponder ao valor da variável.</li>
+                </ul>
+
+                <h4>Exemplo Prático:</h4>
+                <pre><code>
+            #include &lt;stdio.h&gt;
+
+            int main() {
+                int dia = 3; // suponha que o valor 3 representa Quarta-feira
+
+                switch (dia) {
+                    case 1:
+                        printf("Segunda-feira\n");
+                        break;
+                    case 2:
+                        printf("Terça-feira\n");
+                        break;
+                    case 3:
+                        printf("Quarta-feira\n");
+                        break;
+                    case 4:
+                        printf("Quinta-feira\n");
+                        break;
+                    case 5:
+                        printf("Sexta-feira\n");
+                        break;
+                    case 6:
+                        printf("Sábado\n");
+                        break;
+                    case 7:
+                        printf("Domingo\n");
+                        break;
+                    default:
+                        printf("Número do dia inválido\n");
+                        break;
+                }
+
+                return 0;
+            }
+                </code></pre>
+
+                <h4>O Que Está Acontecendo?</h4>
+                <ul>
+                    <li><strong>switch (dia):</strong> O valor de <code>dia</code> (3) será comparado com cada <code>case</code>.</li>
+                    <li><strong>case 1:</strong> até <strong>case 7:</strong> Cada caso verifica se o valor da variável corresponde ao número associado.</li>
+                    <li><strong>case 3:</strong> Quando <code>dia</code> é 3, este bloco de código é executado e imprime "Quarta-feira".</li>
+                    <li><strong>break:</strong> Após imprimir "Quarta-feira", o <code>break</code> faz com que o programa saia do <code>switch</code>.</li>
+                    <li><strong>default:</strong> Se <code>dia</code> não corresponder a nenhum valor entre 1 e 7, o <code>default</code> será executado e imprimirá "Número do dia inválido".</li>
+                </ul>
+
+                <h2>Operadores Lógicos</h2>
+                <p>Muitas vezes, você precisará combinar várias condições usando operadores lógicos como: <code>&&</code> (E), <code>||</code> (OU) e <code>!</code> (NÃO).</p>
+
+                <h4>Exemplo:</h4>
+                <pre><code>
+                    if (condição1 && condição2) {
+                        // código se ambas as condições forem verdadeiras
+                    }
+                </code></pre>
+
+                <h4>Exemplo em C:</h4>
+                <pre><code>
+                    int idade = 20;
+                    int carteira = 1; // 1 significa que tem carteira de motorista
+
+                    if (idade >= 18 && carteira == 1) {
+                        printf("Você pode dirigir.\n");
+                    } else {
+                        printf("Você não pode dirigir.\n");
+                    }
+                </code></pre>
+
+                <h2>Resumindo</h2>
+                <ul>
+                    <li>Condicionais permitem que o programa escolha entre diferentes ações com base em condições.</li>
+                    <li><strong>if:</strong> Executa código se a condição for verdadeira.</li>
+                    <li><strong>else:</strong> Executa código se a condição do <code>if</code> for falsa.</li>
+                    <li><strong>else if:</strong> Permite testar várias condições.</li>
+                    <li><strong>Operadores lógicos:</strong> Combinam várias condições para testes mais complexos.</li>
+                </ul>
                 <p>Compreender e utilizar essas três ferramentas — ponteiros, alocação dinâmica e structs — é essencial para escrever programas eficientes e organizados em C.</p>
             </main>
 
@@ -460,34 +722,87 @@
             <div></div>
             <main>
                 <form id="formulario_fase_10" action="">
-                    <div class="questao-container">
-                        <p>O que faz o operador <code>&</code> em C?</p>
-                        <input type="radio" name="1"> Multiplica dois valores <br>
-                        <input type="radio" name="1"> Cria uma referência circular <br>
-                        <input type="radio" name="1" class="c"> Obtém o endereço de uma variável <br>
-                        <input type="radio" name="1"> Interrompe o fluxo de execução <br>
-                    </div>
+                    <form id="formulario_fase_estruturas_controle" action="">
+        
+                        <!-- Questão 1 -->
+                        <div class="questao-container">
+                            <p>1. Qual das seguintes opções melhor descreve a função de uma estrutura <code>if</code>?</p>
+                            <input type="radio" name="q1"> Executa código repetidamente até que a condição seja falsa <br>
+                            <input type="radio" name="q1" class="c"> Executa código se a condição for verdadeira <br>
+                            <input type="radio" name="q1"> Executa código com base no valor de uma variável <br>
+                            <input type="radio" name="q1"> Interrompe o fluxo do programa <br>
+                        </div>
                 
-                    <div class="questao-container">
-                        <p>Assinale as opções <strong>corretas</strong> sobre a função <code>malloc()</code>:</p>
-                        <input type="checkbox" name="2"> Retorna um ponteiro para a área de memória alocada <br>
-                        <input type="checkbox" name="3" class="c"> A memória alocada deve ser liberada com <code>free()</code> <br>
-                        <input type="checkbox" name="4"> Sempre inicializa a memória com zeros <br>
-                        <input type="checkbox" name="5" class="c"> É usada para alocar memória dinamicamente em tempo de execução <br>
-                    </div>
+                        <!-- Questão 2 -->
+                        <div class="questao-container">
+                            <p>2. Considere o seguinte código em C:</p>
+                            <pre><code>
+                int idade = 20;
                 
-                    <div class="questao-container">
-                        <p>Como você acessa o valor da variável <code>idade</code> em um ponteiro <code>p</code> que armazena o endereço de <code>idade</code>?</p>
-                        <input type="text" name="6" data-c="*p" class="c">
-                    </div>
+                if (idade >= 18) {
+                    printf("Você é maior de idade.\n");
+                } else {
+                    printf("Você é menor de idade.\n");
+                }
+                            </code></pre>
+                            <p>Qual será a saída desse programa?</p>
+                            <input type="radio" name="q2"> Você é menor de idade. <br>
+                            <input type="radio" name="q2" class="c"> Você é maior de idade. <br>
+                            <input type="radio" name="q2"> Nenhuma das opções <br>
+                        </div>
                 
-                    <div class="questao-container">
-                        <p>Qual das alternativas abaixo descreve corretamente uma <code>struct</code>?</p>
-                        <input type="radio" name="7"> Um tipo de dado primitivo <br>
-                        <input type="radio" name="7"> Um tipo de dado que armazena uma única variável <br>
-                        <input type="radio" name="7"> Um bloco de código que executa uma função <br>
-                        <input type="radio" name="7" class="c"> Uma coleção de variáveis agrupadas sob um único nome <br>
-                    </div>
+                        <!-- Questão 3 -->
+                        <div class="questao-container">
+                            <p>3. O que o comando <code>else if</code> permite que o programador faça?</p>
+                            <input type="radio" name="q3"> Repetir código até que uma condição seja verdadeira <br>
+                            <input type="radio" name="q3" class="c"> Verificar múltiplas condições em sequência <br>
+                            <input type="radio" name="q3"> Interromper a execução de um programa <br>
+                            <input type="radio" name="q3"> Alterar o valor de uma variável automaticamente <br>
+                        </div>
+                
+                        <!-- Questão 4 -->
+                        <div class="questao-container">
+                            <p>4. Qual das seguintes sentenças sobre a estrutura <code>switch</code> é <strong>correta</strong>?</p>
+                            <input type="radio" name="q4" class="c"> <code>switch</code> é usado para selecionar um bloco de código com base no valor de uma expressão <br>
+                            <input type="radio" name="q4"> <code>switch</code> permite testar múltiplas condições lógicas <br>
+                            <input type="radio" name="q4"> <code>switch</code> é sempre mais eficiente que <code>if</code> <br>
+                            <input type="radio" name="q4"> <code>switch</code> deve ser usado apenas para comparar strings <br>
+                        </div>
+                
+                        <!-- Questão 5 -->
+                        <div class="questao-container">
+                            <p>5. Qual é a função do comando <code>break</code> dentro de um <code>switch</code>?</p>
+                            <input type="radio" name="q5" class="c"> Encerra a execução do bloco de código <br>
+                            <input type="radio" name="q5"> Continua executando o próximo bloco <br>
+                            <input type="radio" name="q5"> Interrompe o programa inteiro <br>
+                            <input type="radio" name="q5"> Apenas altera o valor da variável usada no <code>switch</code> <br>
+                        </div>
+                
+                        <!-- Questão 7 -->
+                        <div class="questao-container">
+                            <p>7. Em um teste condicional, qual operador lógico deve ser usado para verificar se duas condições são verdadeiras ao mesmo tempo?</p>
+                            <input type="radio" name="q7"> <code>||</code> (OU) <br>
+                            <input type="radio" name="q7"> <code>!</code> (NÃO) <br>
+                            <input type="radio" name="q7" class="c"> <code>&&</code> (E) <br>
+                            <input type="radio" name="q7"> Nenhuma das opções <br>
+                        </div>
+                
+                        <!-- Questão 8 -->
+                        <div class="questao-container">
+                            <p>8. Considere o código abaixo. Qual será a saída se <code>idade</code> for igual a 17 e <code>carteira</code> for 0?</p>
+                            <pre><code>
+                                int idade = 17;
+                                int carteira = 0;
+                                
+                                if (idade >= 18 && carteira == 1) {
+                                    printf("Você pode dirigir.\n");
+                                } else {
+                                    printf("Você não pode dirigir.\n");
+                                }
+                            </code></pre>
+                            <input type="radio" name="q8"> Você pode dirigir. <br>
+                            <input type="radio" name="q8" class="c"> Você não pode dirigir. <br>
+                        </div>
                     <p class="feedback"></p>
                 </form>
             </main>
