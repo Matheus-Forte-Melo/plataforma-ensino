@@ -32,7 +32,7 @@ Em seguida, siga o link exibido no terminal para acessar a plataforma localmente
 
 Descomente o bloco de cima e comente o de baixo. Localizado em 'projeto-ensino/settings.py'; assim você trocará o banco de dados na nuvem para um banco de dados local.
 
-![image](https://github.com/user-attachments/assets/6f7dee88-3d62-456f-840e-4e79a1c9cd14)
+![image](https://github.com/user-attachments/assets/24d64873-eb21-48fd-bc70-d07efcc4136e)
 
 
 
