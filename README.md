@@ -1,16 +1,17 @@
-Plataforma de Ensino - Introdução à Programação
+<h1>Plataforma de Ensino - Introdução à Programação</h1>
+
 Descrição do Projeto:
 Esta é uma plataforma educacional dedicada ao ensino da matéria "Introdução à Programação". O projeto ainda está em desenvolvimento e será atualizado com mais conteúdo ao longo do tempo.
 
-Acesso à Plataforma:
+<hr>
 
 Você pode acessar a plataforma de duas maneiras:
 
-Online:
+<b>Online:</b>
 Acesse aqui: Plataforma de Ensino
 Observação: O projeto está hospedado em um plano gratuito, assim como o banco de dados PostgreSQL na Railway. Portanto, a velocidade pode ser limitada.
 
-Localmente:
+<b>Localmente:</b>
 Para rodar a plataforma em sua máquina, siga os passos abaixo:
 
 Baixe ou clone o repositório do projeto.
