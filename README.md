@@ -8,7 +8,7 @@ Esta é uma plataforma educacional dedicada ao ensino da matéria "Introdução 
 Você pode acessar a plataforma de duas maneiras:
 
 <b>Online:</b>
-Acesse aqui: Plataforma de Ensino
+Acesse aqui: https://plataforma-ensino-v1.vercel.app
 Observação: O projeto está hospedado em um plano gratuito, assim como o banco de dados PostgreSQL na Railway. Portanto, a velocidade pode ser limitada.
 
 <b>Localmente:</b>
