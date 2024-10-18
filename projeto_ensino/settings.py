@@ -69,12 +69,30 @@ WSGI_APPLICATION = 'projeto_ensino.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
+# ====================== DATABASE LOCAL
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+# Seria interessante esconder essas variaveis com o enviroment variables
+# banco de dados gratuito e foda, lento pra caralho, tentar usar sentry pra identificar se é isso mesmo
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'lHlcxdfcJOGxwTIYzYMkpkUJnrGEHGhk',
+        'HOST': 'junction.proxy.rlwy.net',
+        'PORT': '36949',
     }
 }
+
+
 
 
 # Password validation
