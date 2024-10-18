@@ -1,0 +1,226 @@
+body {
+    height: 100vh;
+    display: flex;
+}
+
+#color-input {
+  display: none;
+}
+
+#color-label {
+  margin-left: 15px;
+  position: absolute;
+  height: 30px;
+  width: 50px;
+} 
+#color-input:checked ~ #color-picker {
+  opacity: 1;
+}
+#color-picker {
+  margin-left: 70px;
+  background-color: white;
+  height: 150px;
+  width: 185px;
+  border: solid 1px #ccc;
+  opacity: 0;
+  padding: 5px;
+}
+canvas:hover {
+  cursor: crosshair;
+}
+
+.profile-edit {
+    display: flex;
+    background-color: var(--vermelho_secundario);
+    
+    width: 55%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+.avatar-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: none;
+
+    padding: 5px;
+    border: 2px solid white;
+    background-color: white;
+    height: 285px;
+    overflow: scroll;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.avatar { /* Tem 20 itens aqui dentro */
+    background-color: black;
+    width: 125px;
+    height: 125px;
+    cursor: pointer;
+
+    opacity: 90%;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.avatar:hover {
+    opacity: 80%;
+}
+
+
+
+.controls {
+    background-color: var(--background_conteudo);
+    
+    width: 75%;
+    height: 85%;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: -4px 3px 5px rgba(0, 0, 0, 0.281);
+}
+
+.controls h1 {
+    font-size: 2.40em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+
+.control h2 {
+    font-size: 2.15em;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 10px;
+  }
+
+.profile-preview {
+    background-color: var(--background_geral);
+    width: 45%;
+    height: 100%;
+
+    box-shadow: -6px 0px 5px rgba(0, 0, 0, 0.235);
+}
+
+/* Definições de avatar */ 
+
+.avatar {
+    background-size: cover;
+}
+
+  /* Backgrounds específicos para cada ID */
+  #avt_1 {
+    background-image: url('../img/avatar/avt1.jpg');
+  }
+  
+  #avt_2 {
+    background-image: url('../img/avatar/avt2.png');
+  }
+  
+  #avt_3 {
+    background-image: url('../img/avatar/avt3.jpg');
+  }
+  
+  #avt_4 {
+    background-image: url('../img/avatar/avt4.jpeg');
+  }
+  
+  #avt_5 {
+    background-image: url('../img/avatar/avt5.jpeg');
+  }
+  
+  #avt_6 {
+    background-image: url('../img/avatar/avt6.jpeg');
+  }
+  
+  #avt_7 {
+    background-image: url('../img/avatar/avt7.jpeg');
+  }
+  
+  #avt_8 {
+    background-image: url('../img/avatar/avt8.jpeg');
+  }
+  
+  #avt_9 {
+    background-image: url('../img/avatar/avt9.jpeg');
+  }
+  
+  #avt_10 {
+    background-image: url('../img/avatar/avt10.jpeg');
+  }
+  
+  #avt_11 {
+    background-image: url('../img/avatar/avt11.jpeg');
+  }
+  
+  #avt_12 {
+    background-image: url('../img/avatar/avt12.jpeg');
+  }
+  
+  #avt_13 {
+    background-image: url('../img/avatar/avt13.jpeg');
+  }
+  
+  #avt_14 {
+    background-image: url('../img/avatar/avt14.jpeg');
+  }
+  
+  #avt_15 {
+    background-image: url('../img/avatar/avt15.jpeg');
+  }
+  
+  #avt_16 {
+    background-image: url('../img/avatar/avt16.jpeg');
+  }
+  
+  #avt_17 {
+    background-image: url('../img/avatar/avt17.jpeg');
+  }
+  
+  #avt_18 {
+    background-image: url('../img/avatar/avt18.jpeg');
+  }
+  
+  #avt_19 {
+    background-image: url('../img/avatar/avt19.jpeg');
+  }
+  
+  #avt_20 {
+    background-image: url('../img/avatar/avt20.jpeg');
+  }
+  
+  #avt_21 {
+    background-image: url('../img/avatar/avt21.jpeg');
+  }
+  
+  #avt_22 {
+    background-image: url('../img/avatar/avt22.jpeg');
+  }
+  
+  #avt_23 {
+    background-image: url('../img/avatar/avt23.jpeg');
+  }
+  
+  #avt_24 {
+    background-image: url('../img/avatar/avt24.jpeg');
+  }
+  
+  #avt_25 {
+    background-image: url('../img/avatar/avt25.jpeg');
+  }
+  
+  #avt_26 {
+    background-image: url('../img/avatar/avt26.jpeg');
+  }
+  
+  #avt_27 {
+    background-image: url('../img/avatar/avt27.jpeg');
+  }
+  
+  #avt_28 {
+    background-image: url('../img/avatar/avt28.jfif');
+  }
+  
