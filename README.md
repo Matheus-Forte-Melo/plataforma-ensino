@@ -25,6 +25,8 @@ E depois comente:
 
 ![image](https://github.com/user-attachments/assets/d50882e5-2ddc-421f-a9ac-6d874d8700fe)
 
+(Sim a senha do banco esta a mostra, o plano é gratuito e tenho o backup)
+
 
 
 
