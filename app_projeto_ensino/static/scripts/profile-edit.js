@@ -4,6 +4,8 @@ let banner_preview = document.getElementById('profile-banner');
 let selectedAvatarInput = document.getElementById('selected_avatar');
 let rgbaColorInput = document.getElementById('rgba_color');
 
+avatar_preview.id = img_atual
+
 Array.from(opcoes_avatar).forEach(avt_op => {
   avt_op.addEventListener('click', function() {
     let selected_avatar = avt_op.id;

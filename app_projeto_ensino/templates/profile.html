@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'styles/profile.css' %}">
 </head>
 <body onload="toggleTema()">
-    <div class="red-section" id="banner" style="background-color: {{ user.cor_perfil }};">
+    <div class="red-section" id="banner" style='background-color: {{ user.cor_perfil }};'>
         <header>
             <nav>
                 <a class="first_a" href="{% url 'home' %}">HOME</a>

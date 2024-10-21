@@ -53,10 +53,12 @@ mapaContainer.addEventListener('mousedown', (e) => {
 });
 
 // Parar o arraste
-mapaContainer.addEventListener('mouseup', () => {
+const stopDragging = () => {
     isDragging = false;
     mapaContainer.style.cursor = 'grab';
-});
+};
+mapaContainer.addEventListener('mouseup', stopDragging);
+mapaContainer.addEventListener('mouseleave', stopDragging); // Corrige o bug
 
 // Continuar o arraste enquanto o mouse se move
 mapaContainer.addEventListener('mousemove', (e) => {
@@ -64,8 +66,8 @@ mapaContainer.addEventListener('mousemove', (e) => {
     e.preventDefault();
     const x = e.pageX - mapaContainer.offsetLeft;
     const y = e.pageY - mapaContainer.offsetTop;
-    const walkX = (x - startX) * 1; // Multiplicador para ajustar a velocidade
-    const walkY = (y - startY) * 1;
+    const walkX = x - startX;
+    const walkY = y - startY;
     mapaContainer.scrollLeft = scrollLeft - walkX;
     mapaContainer.scrollTop = scrollTop - walkY;
 });
@@ -73,18 +75,11 @@ mapaContainer.addEventListener('mousemove', (e) => {
 // Cursor inicial
 mapaContainer.style.cursor = 'grab';
 
-window.onload = function() {
-    // Adiciona um pequeno atraso para garantir que o conteúdo esteja totalmente carregado
+// Centralizar o mapa no carregamento da página
+window.onload = () => {
     setTimeout(() => {
-        // Obtém o elemento do mapa
-        const mapaContainer = document.getElementById('mapaContainer');
-        
-        // Calcula o centro do mapa, porém o mais interessante seria calcular o centro do viewport
-        const scrollX = ((mapaContainer.scrollWidth - window.innerWidth) / 2) + 140; // Ajuste temporario
-        const scrollY = ((mapaContainer.scrollHeight - window.innerHeight) / 2); // Ajuste temporario
-       
-        
-        // Define a posição de rolagem para o centro
+        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 + 140; // Ajuste temporário
+        const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2;
         mapaContainer.scrollTo(scrollX, scrollY);
-    }, 25); // Espera 10 milissegundos antes de centralizar
+    }, 25); // Pequeno atraso para garantir que o conteúdo esteja carregado
 };

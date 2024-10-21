@@ -57,6 +57,17 @@ function atualizarFases() {
             if (!conteudoFase.innerHTML.includes('Você concluiu essa fase!')) {
                 conteudoFase.innerHTML += '<p>Você concluiu essa fase!</p><br>';
             }
+
+            // Se houver um formulario na fase anteriormente desbloqueada, desativa todos os inputs.
+            if (conteudoFase.innerHTML.includes('/form')) {
+                console.log("A fase desbloqueada: " + num_fase + " - Possui um formulario")
+                let formulario = document.getElementById("formulario_fase_" + num_fase) // Pega o formulario da fase
+                let inputs = formulario.querySelectorAll("input") // Pega os inputs de dentro do formulario
+                inputs.forEach(input => 
+                    input.disabled = true // Itera sobre a lsita "inputs" e atribui a cada input da iteração atual de input; depois disso, desativa-os 
+                )
+            }
+
         } else if (estadoFase === "Atual") {
             const tipoFase = conteudoFase.classList[1];
             conteudoFase.querySelector('main').classList.remove('conteudo-bloqueado');

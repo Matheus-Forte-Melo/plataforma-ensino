@@ -73,16 +73,17 @@ def profile(request, pk):
 
 @login_required
 def profileEdit(request, pk):
+    user = models.CustomUser.objects.get(pk=pk)
 
     if request.method == 'POST':
-        user = models.CustomUser.objects.get(pk=pk)
         user.avatar = request.POST.get('selected_avatar')
         user.cor_perfil = request.POST.get('rgba_color')
         user.save()
 
         return redirect(reverse('profile', kwargs={'pk': user.pk}))
 
-    return render(request, 'profile_edit.html')
+    context = {'user': user}
+    return render(request, 'profile_edit.html', context)
 
 @login_required(login_url="signin") # Usar parada de permission e acesso do django para restringir acesso aos niveis superiores
 def world1(request):

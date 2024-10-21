@@ -20,7 +20,7 @@
                 <input type="hidden" name="rgba_color" id="rgba_color" value="">
 
                 <h2>Alterar cor do banner</h2>
-                <label for="color-input" id="color-label" style="background-color: red"></label>
+                <label for="color-input" id="color-label" style="background-color: {{ user.cor_perfil }}"></label>
                 <input type="checkbox" id="color-input" checked></input>
 
                 <div id="color-picker">
@@ -59,17 +59,25 @@
                     <div class="avatar" id="avt27"></div>
                     <div class="avatar" id="avt28"></div>
                 </div>
-                <input type="submit" value="Aplicar">
+
+                <div class="buttons">
+                    <input type="submit" value="Aplicar">
+                    <a href="{% url 'profile' user.pk %}"><button type="button">Cancelar e voltar</button></a>
+                </div>
             </form>
-            <a href="{% url 'profile' user.pk %}"><button>Cancelar e voltar</button></a>
+            
 
 
         </div>
     </section>
     <section class="profile-preview" >
-        <div class="profile-banner" id="profile-banner"></div>
+        <div class="profile-banner" style="background-color: {{ user.cor_perfil }};" id="profile-banner"></div>
         <div class="profile-selected-avatar" id="profile-selected-avatar"></div>
     </section>
+    <script>
+        var img_atual = "{{ user.avatar }}";
+    </script>
     <script src="{% static 'scripts/profile-edit.js' %}"></script>
+    <script src="{% static 'scripts/modo_escuro_toggle.js' %}"></script>
 </body>
 </html>
