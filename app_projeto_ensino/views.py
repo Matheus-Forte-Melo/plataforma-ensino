@@ -111,5 +111,8 @@ def user_logout(request):
     logout(request)
     return redirect('signin')
 
+def about_us(request):
+    return render(request, "about_us.html")
+
 
 

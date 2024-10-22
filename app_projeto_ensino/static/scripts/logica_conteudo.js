@@ -5,7 +5,7 @@ fases = document.getElementsByClassName("fase");
 
 atualizarFases();
 
-function pegarInfoFormulario(form, botao) {
+function pegarInfoFormulario(form, botao, is_prova) {
     const formData = new FormData(form);
     const formEntries = {};
 
@@ -17,11 +17,17 @@ function pegarInfoFormulario(form, botao) {
         }
     });
     
-    console.log(formEntries, pegarRespostasCorretas(form));
-    corrigirEnvioFormulario(formEntries, pegarRespostasCorretas(form), botao, form);
+    if (is_prova === undefined) {
+        console.log(formEntries, pegarRespostasCorretas(form));
+        corrigirEnvioFormulario(formEntries, pegarRespostasCorretas(form), botao, form);
+    }   
+    else {
+        console.log(formEntries, pegarRespostasCorretas(form));
+        corrigirEnvioFormularioProva(formEntries, pegarRespostasCorretas(form), botao, form)
+    }
 }
 
-function pegarRespostasCorretas(form) {
+function pegarRespostasCorretas(form) { // retorna objeto
     const respostas_corretas = form.getElementsByClassName("c");
     const respostas_corretas_formatadas = {};
 
@@ -32,8 +38,23 @@ function pegarRespostasCorretas(form) {
     return respostas_corretas_formatadas;
 }
 
+function corrigirEnvioFormularioProva(respostas, respostas_corretas, botao, form) {
+    const qnt_respostas_form = Object.keys(respostas_corretas).length;
+    const qnt_respostas_enviadas = Object.keys(respostas).length;
+    // pacoca == true : faz isso ? senao isso
+
+    if (qnt_respostas_enviadas != qnt_respostas_form) { 
+        // usando esse metodo de verificacao de (complitude?) questoes com checkboxes dariam erros
+        console.log(`Você respondeu ${qnt_respostas_enviadas} de ${qnt_respostas_form}`);
+    } 
+
+    // preciso fazer um algoritimo que itere sobre cada elemento das opcoes corretas comparando-os com as opcoes enviadas pelo usuario e ir incrementando um valor de respostas corretas, depois fazer a media para calcular a nota
+
+
+}
+
 function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
-    respostas = JSON.stringify(respostas);
+    respostas = JSON.stringify(respostas); 
     respostas_corretas = JSON.stringify(respostas_corretas);
     let feedback = form.getElementsByClassName('feedback')[0];
 
@@ -51,6 +72,8 @@ function atualizarFases() {
         let num_fase = Number(fase.getAttribute('data-fase'));
         let conteudoFase = document.getElementById("conteudo" + num_fase);
         let estadoFase = pegarEstadoFase(num_fase, fase_atual);
+        let conteudo_fase_main = conteudoFase.querySelector('main')
+        let conteudo_fase_feedback = conteudoFase.querySelector('div')
 
         if (estadoFase === "Desbloqueada") {
             atualizarCor(fase);
@@ -70,12 +93,18 @@ function atualizarFases() {
 
         } else if (estadoFase === "Atual") {
             const tipoFase = conteudoFase.classList[1];
-            conteudoFase.querySelector('main').classList.remove('conteudo-bloqueado');
-            conteudoFase.querySelector('div').classList.remove("feedback-estado");
+            conteudo_fase_main.classList.remove('conteudo-bloqueado');
+            conteudo_fase_feedback.classList.remove("feedback-estado")
+            
+            
             atualizarCor(fase);
 
-            if (["exercicio", "prova"].includes(tipoFase)) {
+            if (tipoFase == "exercicio") {
                 conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button></div>`;
+            } else if (tipoFase == "prova") {
+                conteudoFase.querySelector('main').classList.add('conteudo-bloqueado')
+                conteudoFase.querySelector('div').innerHTML = `<p><b>ATENÇÃO:</b> Este nível é uma prova, assim que você clicar em iniciar, você terá um determinado tempo para responder todas as questões corretamente. A aba irá se maximizar e não poderá ser minimizada nem fechada, a unica forma de sair dessa tela é entregando. Além disso, você consegue entregar apenas uma vez antes de obter sua nota. Você precisa de pelo menos SETE para passar adiante. Você pode repetir a prova quantas vezes quiser. Fechar a prova/página/aba no meio de sua execução cancelará sua tentativa e não irá salvar seus resultados, ou seja, terá que tentar novamente. </p> <button type="button" onclick="setarProva(this)">Começar prova</button> <hr>`
+                
             } else if (tipoFase === "desafio") {
                 conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button><button ondblclick="this.parentElement.querySelectorAll('button').forEach(btn => btn.style.display='none'); incrementarFase(this)">Pular</button></div>`;
             } else {
@@ -90,6 +119,47 @@ function atualizarFases() {
         }
     });
 }
+
+function pegarElementosProva(botao) {
+    let conteudoFase = botao.parentElement.parentElement
+    let conteudo_fase_main = conteudoFase.querySelector('main')
+    let icones = conteudoFase.getElementsByClassName('ui-icon')
+
+    return [conteudoFase, conteudo_fase_main, icones]
+}
+
+function setarProva(botao) {
+    let [conteudoFase, conteudo_fase_main, icones] = pegarElementosProva(botao) // Igual python, interessante
+    // se fosse desempactor como argumentos usario funcao(...pegarElementos(botao))
+    
+    Array.from(icones).forEach(icon => {
+        icon.setAttribute('style', 'display: none !important;');
+    })
+    
+    if (!aba_lateral.classList.contains('maximizado')) { // contains é a funcao certa, nao includes
+        aba_lateral.classList.toggle('maximizado'); 
+    }
+    
+    botao.disabled = 'true'
+    botao.style.display = 'none'
+    conteudo_fase_main.classList.remove("conteudo-bloqueado")
+
+    conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this, true), unsetarAmbienteProva(this)">Entregar</button></div>`; // True para os dados do form serem tratados diferentemente na funcao
+}
+
+
+function unsetarAmbienteProva(botao) {
+    let [conteudoFase, conteudo_fase_main, icones] = pegarElementosProva(botao)
+
+    Array.from(icones).forEach(icon => {
+        icon.setAttribute('style', 'display: inline !important;');
+    })
+    
+    aba_lateral.classList.toggle('maximizado'); 
+    conteudo_fase_main.classList.remove("conteudo-bloqueado")
+    
+}
+
 
 function pegarEstadoFase(num_fase, fase_atual) {
     if (num_fase < fase_atual) {

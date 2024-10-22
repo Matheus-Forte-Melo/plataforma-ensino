@@ -1,21 +1,46 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quem Somos - Projeto</title>
+    <link rel="stylesheet" href="../static/styles/geral.css">
     <link rel="stylesheet" href="../static/styles/about_us.css">
 </head>
 <body>
     <header>
-        <div class="header-bar"></div>
+        <nav>
+            <a href="{% url 'home' %}" class="first_a" id="homepage-a">HOME</a>
+            <a href="{% url 'world1' %}">CONTEÚDO</a>
+            <a href="">RANKING</a>
+            <a href="{% url 'about-us' %}" id="about_us-a" id="last">SOBRE NÓS</a>
+            
+            <div class="icons-container">
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'profile' pk=request.user.pk %}">
+                    {% else %}
+                        <a href="{% url 'signin' %}">
+                    {% endif %}
+                    
+                    <svg id="config-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#808080" viewBox="0 0 256 256"><path d="M172,120a44,44,0,1,1-44-44A44.05,44.05,0,0,1,172,120Zm60,8A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88.09,88.09,0,0,0-91.47-87.93C77.43,41.89,39.87,81.12,40,128.25a87.65,87.65,0,0,0,22.24,58.16A79.71,79.71,0,0,1,84,165.1a4,4,0,0,1,4.83.32,59.83,59.83,0,0,0,78.28,0,4,4,0,0,1,4.83-.32,79.71,79.71,0,0,1,21.79,21.31A87.62,87.62,0,0,0,216,128Z"></path></svg>
+                </a>
+                {% if request.user.is_authenticated %}
+                    <a id="settings-a" href="{% url 'settings' %}">
+                {% else %}
+                    <a id="settings-a" href="{% url 'signin' %}">
+                {% endif %}
+                <svg id="config-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#D90429" viewBox="0 0 256 256"><path d="M237.94,107.21a8,8,0,0,0-3.89-5.4l-29.83-17-.12-33.62a8,8,0,0,0-2.83-6.08,111.91,111.91,0,0,0-36.72-20.67,8,8,0,0,0-6.46.59L128,41.85,97.88,25a8,8,0,0,0-6.47-.6A111.92,111.92,0,0,0,54.73,45.15a8,8,0,0,0-2.83,6.07l-.15,33.65-29.83,17a8,8,0,0,0-3.89,5.4,106.47,106.47,0,0,0,0,41.56,8,8,0,0,0,3.89,5.4l29.83,17,.12,33.63a8,8,0,0,0,2.83,6.08,111.91,111.91,0,0,0,36.72,20.67,8,8,0,0,0,6.46-.59L128,214.15,158.12,231a7.91,7.91,0,0,0,3.9,1,8.09,8.09,0,0,0,2.57-.42,112.1,112.1,0,0,0,36.68-20.73,8,8,0,0,0,2.83-6.07l.15-33.65,29.83-17a8,8,0,0,0,3.89-5.4A106.47,106.47,0,0,0,237.94,107.21ZM128,168a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z"></path></svg>
+                </a>
+            </div>
+        </nav>
     </header>
     
     <main>
         <section class="sobre">
             <h1>QUEM SOMOS?</h1>
             <p>
-                Somos estudantes, recém ingressados na universidade <strong>Católica</strong> em Jaraguá do Sul. Estamos fazendo esse projeto a fim de completar as horas de extensão obrigatórias definidas pelo MEC, ou seja, esse projeto é obrigatório para a conclusão do primeiro semestre do curso de engenharia de software.
+                Somos estudantes, recém ingressados na universidade <strong><a aria-label="Link para o site da instituição católica SC" href="https://www.catolicasc.org.br">Católica</a></strong> em Jaraguá do Sul. Estamos fazendo esse projeto a fim de completar as horas de extensão obrigatórias definidas pelo MEC, ou seja, esse projeto é obrigatório para a conclusão do primeiro semestre do <a aria-label="Link para o curso de engenharia de software" href="https://www.catolicasc.org.br/cursos/graduacao/engenharia-de-software/?unidade=jaragua-do-sul">curso de engenharia de software</a>.
             </p>
             <p>Os principais autores desse projeto são:</p>
             <ul>
@@ -24,18 +49,19 @@
                 <li><strong>Matheus Kuchenbecker</strong> → Conteúdo e atividades + HTML/CSS de algumas páginas</li>
                 <li><strong>Wiliam Carlos Busch</strong> → Conteúdo e atividades + HTML/CSS de algumas páginas</li>
             </ul>
-            <p>E por fim, menção honrosa à professora Tassiana pelo feedback e assistência durante o desenvolvimento do website.</p>
+            <p>E por fim, menção honrosa à professora Tassiana pelo feedback e assistência durante o desenvolvimento do website</p>
         </section>
 
         <section class="contato">
-            <h2>CONTATO</h2>
-            <p>Precisa de ajuda? Reportar algum bug ou vulnerabilidade do website?</p>
+            <h1>CONTATO</h1>
+            <p>Precisa de ajuda? Reportar algum bug ou vulnerabilidade do website? Envie-nos um email!</p>
+            <p>Envie para Tassiana se o assunto for sobre: O programa de extensão; Assuntos instuticionais; Ou sobre qualquer coisa que não seja relacionada aos aspectos tecnicos do website. </p>
+            <p>Envie para Matheus se o assunto for sobre o website.</p>
             <p>→ <a href="mailto:tassiana.kautzmann@catolicasc.org.br">tassiana.kautzmann@catolicasc.org.br</a></p>
             <p>→ <a href="mailto:matheus.melo@catolicasc.edu.br">matheus.melo@catolicasc.edu.br</a></p>
-            <div class="mapa">
-                <img src="https://via.placeholder.com/500x300.png?text=Mapa" alt="Localização no mapa">
-            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.6503375545763!2d-49.11778118819601!3d-26.466997774633636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94de940dbec22f4d%3A0xf2864ccc867a7dc1!2sCentro%20Universit%C3%A1rio%20-%20Cat%C3%B3lica%20de%20Santa%20Catarina%20em%20Jaragu%C3%A1%20do%20Sul!5e0!3m2!1spt-BR!2sbr!4v1729620641129!5m2!1spt-BR!2sbr" width="750" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
     </main>
+    <footer></footer>
 </body>
 </html>

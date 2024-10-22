@@ -19,7 +19,7 @@
                 <a href="{% url 'home' %}" class="first_a">HOME</a>
                 <a id="conteudo-a" href="{% url 'world1' %}">CONTEÚDO</a>
                 <a href="{% url 'world1' %}">RANKING</a>
-                <a href="{% url 'world1' %}" id="last">SOBRE NÓS</a>
+                <a href="{% url 'about-us' %}" id="last">SOBRE NÓS</a>
                 
                 <div class="icons-container">
                         {% if request.user.is_authenticated %}
@@ -722,9 +722,7 @@
             <div></div>
             <main>
                 <form id="formulario_fase_10" action="">
-                    <form id="formulario_fase_estruturas_controle" action="">
-        
-                        <!-- Questão 1 -->
+
                         <div class="questao-container">
                             <p>1. Qual das seguintes opções melhor descreve a função de uma estrutura <code>if</code>?</p>
                             <input type="radio" name="q1"> Executa código repetidamente até que a condição seja falsa <br>
@@ -733,17 +731,17 @@
                             <input type="radio" name="q1"> Interrompe o fluxo do programa <br>
                         </div>
                 
-                        <!-- Questão 2 -->
+
                         <div class="questao-container">
                             <p>2. Considere o seguinte código em C:</p>
                             <pre><code>
-                int idade = 20;
-                
-                if (idade >= 18) {
-                    printf("Você é maior de idade.\n");
-                } else {
-                    printf("Você é menor de idade.\n");
-                }
+                                int idade = 20;
+                                
+                                if (idade >= 18) {
+                                    printf("Você é maior de idade.\n");
+                                } else {
+                                    printf("Você é menor de idade.\n");
+                                }
                             </code></pre>
                             <p>Qual será a saída desse programa?</p>
                             <input type="radio" name="q2"> Você é menor de idade. <br>
@@ -751,7 +749,7 @@
                             <input type="radio" name="q2"> Nenhuma das opções <br>
                         </div>
                 
-                        <!-- Questão 3 -->
+
                         <div class="questao-container">
                             <p>3. O que o comando <code>else if</code> permite que o programador faça?</p>
                             <input type="radio" name="q3"> Repetir código até que uma condição seja verdadeira <br>
@@ -760,7 +758,7 @@
                             <input type="radio" name="q3"> Alterar o valor de uma variável automaticamente <br>
                         </div>
                 
-                        <!-- Questão 4 -->
+
                         <div class="questao-container">
                             <p>4. Qual das seguintes sentenças sobre a estrutura <code>switch</code> é <strong>correta</strong>?</p>
                             <input type="radio" name="q4" class="c"> <code>switch</code> é usado para selecionar um bloco de código com base no valor de uma expressão <br>
@@ -769,7 +767,7 @@
                             <input type="radio" name="q4"> <code>switch</code> deve ser usado apenas para comparar strings <br>
                         </div>
                 
-                        <!-- Questão 5 -->
+
                         <div class="questao-container">
                             <p>5. Qual é a função do comando <code>break</code> dentro de um <code>switch</code>?</p>
                             <input type="radio" name="q5" class="c"> Encerra a execução do bloco de código <br>
@@ -778,18 +776,18 @@
                             <input type="radio" name="q5"> Apenas altera o valor da variável usada no <code>switch</code> <br>
                         </div>
                 
-                        <!-- Questão 7 -->
+
                         <div class="questao-container">
-                            <p>7. Em um teste condicional, qual operador lógico deve ser usado para verificar se duas condições são verdadeiras ao mesmo tempo?</p>
+                            <p>6. Em um teste condicional, qual operador lógico deve ser usado para verificar se duas condições são verdadeiras ao mesmo tempo?</p>
                             <input type="radio" name="q7"> <code>||</code> (OU) <br>
                             <input type="radio" name="q7"> <code>!</code> (NÃO) <br>
                             <input type="radio" name="q7" class="c"> <code>&&</code> (E) <br>
                             <input type="radio" name="q7"> Nenhuma das opções <br>
                         </div>
                 
-                        <!-- Questão 8 -->
+
                         <div class="questao-container">
-                            <p>8. Considere o código abaixo. Qual será a saída se <code>idade</code> for igual a 17 e <code>carteira</code> for 0?</p>
+                            <p>7. Considere o código abaixo. Qual será a saída se <code>idade</code> for igual a 17 e <code>carteira</code> for 0?</p>
                             <pre><code>
                                 int idade = 17;
                                 int carteira = 0;

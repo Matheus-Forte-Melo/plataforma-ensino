@@ -11,6 +11,7 @@ urlpatterns = [
     path("profile/<int:pk>/edit", views.profileEdit, name='profile-edit'),
     path("settings/", views.settings, name='settings'),
     path("logout/", views.user_logout, name='logout'),
+    path("about_us/", views.about_us, name="about-us"),
 
     path("worlds/1", views.world1, name='world1'),
 

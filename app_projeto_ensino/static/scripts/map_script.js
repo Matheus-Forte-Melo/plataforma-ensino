@@ -1,5 +1,5 @@
 let header = document.getElementsByTagName('header')[0]
-
+let aba_lateral = document.getElementById('abaLateral')
 
 function sumirHeader() {
     header.classList.add('header-shift-out')
@@ -11,7 +11,7 @@ function surgirHeader() {
 }
 
 function abrirAba(fase) {
-    document.getElementById('abaLateral').classList.add('ativa');
+    aba_lateral.classList.add('ativa');
     
     // Exibe o conteúdo correspondente
     document.querySelectorAll('.conteudo').forEach(el => el.classList.remove('ativo'));
@@ -21,12 +21,12 @@ function abrirAba(fase) {
 }
 
 function retornarAba() {
-    document.getElementById('abaLateral').classList.remove('ativa')
+    aba_lateral.classList.remove('ativa')
     surgirHeader()
 }
 
 function maximizarAba() {
-    document.getElementById('abaLateral').classList.toggle('maximizado'); 
+    aba_lateral.classList.toggle('maximizado'); 
 }
 
 // Adiciona queryselectors aos botoes de fase, que quando clicados, chamam a funcao de abrir aba com o conteudo correspondente.
