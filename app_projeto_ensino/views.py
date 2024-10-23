@@ -66,7 +66,6 @@ def home(request):
 @login_required(login_url="signin")
 def profile(request, pk): 
     user = models.CustomUser.objects.get(pk=pk)
-    print(user.username, user.pontuacao, user.mundo, user.fase, user.avatar, user.cor_perfil)
 
     context = {'user': user}
     return render(request, 'profile.html', context)

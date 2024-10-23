@@ -78,8 +78,8 @@ mapaContainer.style.cursor = 'grab';
 // Centralizar o mapa no carregamento da página
 window.onload = () => {
     setTimeout(() => {
-        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 + 140; // Ajuste temporário
-        const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2;
+        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 350; // Ajuste temporário
+        const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
         mapaContainer.scrollTo(scrollX, scrollY);
     }, 25); // Pequeno atraso para garantir que o conteúdo esteja carregado
 };

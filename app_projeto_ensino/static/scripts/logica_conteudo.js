@@ -18,11 +18,9 @@ function pegarInfoFormulario(form, botao, is_prova) {
     });
     
     if (is_prova === undefined) {
-        console.log(formEntries, pegarRespostasCorretas(form));
         corrigirEnvioFormulario(formEntries, pegarRespostasCorretas(form), botao, form);
     }   
     else {
-        console.log(formEntries, pegarRespostasCorretas(form));
         corrigirEnvioFormularioProva(formEntries, pegarRespostasCorretas(form), botao, form)
     }
 }
@@ -41,15 +39,47 @@ function pegarRespostasCorretas(form) { // retorna objeto
 function corrigirEnvioFormularioProva(respostas, respostas_corretas, botao, form) {
     const qnt_respostas_form = Object.keys(respostas_corretas).length;
     const qnt_respostas_enviadas = Object.keys(respostas).length;
+    let nota; let pontos = 0; let valor_ponto = 10 / qnt_respostas_form;
     // pacoca == true : faz isso ? senao isso
 
-    if (qnt_respostas_enviadas != qnt_respostas_form) { 
-        // usando esse metodo de verificacao de (complitude?) questoes com checkboxes dariam erros
-        console.log(`Você respondeu ${qnt_respostas_enviadas} de ${qnt_respostas_form}`);
-    } 
+    console.log(respostas_corretas)
+    console.log(respostas)
 
-    // preciso fazer um algoritimo que itere sobre cada elemento das opcoes corretas comparando-os com as opcoes enviadas pelo usuario e ir incrementando um valor de respostas corretas, depois fazer a media para calcular a nota
+    for (let chave in respostas_corretas) {
+        if (respostas[chave] === undefined) {
+            console.log("Resposta inexistente");
+        } else if (respostas[chave] !== respostas_corretas[chave]) {
+            console.log("Resposta incorreta");
+        } else {
+            console.log("Resposta correta");
+            pontos++;
+        }
+    }
+    
+    nota = pontos * valor_ponto;
+    nota >= 7 ? aprovar(form, nota, botao) : reprovar(form, pontos, nota, botao);
+}
 
+
+function aprovar(form, nota, botao) {
+    let feedback = form.getElementsByClassName('feedback')[0];
+    
+    form.classList.add('mostrar-corretas')
+
+    feedback.innerHTML = `Parabéns! <b>foste aprovado com nota: ${nota.toFixed(1)}</b>. Destacamos as questões que você acertou. Clique no botão abaixo para concluir e avançar.`
+
+    botao.innerHTML = "Concluir"
+    botao.setAttribute('onclick', 'incrementarFase(this)')
+}
+
+function reprovar(form, pontos, nota, botao) {
+    form.innerHTML = "<p class='feedback'></p>"
+    let feedback = form.getElementsByClassName('feedback')[0];
+
+    botao.innerHTML = "Voltar"
+    botao.setAttribute('onclick', 'location.reload()')
+
+    feedback.innerHTML = `Infelizmente sua tentativa foi anulada, pois, <b>foste reprovado com nota: ${nota.toFixed(1)}</b>. Mas não se preocupe! Você pode tentar novamente. Estude um pouco os níveis anteriores, depois tente novamente aqui. <br><br> <b>Você acertou ${pontos} questões!</b>`
 
 }
 
@@ -71,28 +101,36 @@ function atualizarFases() {
     Array.from(fases).forEach(fase => {
         let num_fase = Number(fase.getAttribute('data-fase'));
         let conteudoFase = document.getElementById("conteudo" + num_fase);
+        const tipoFase = conteudoFase.classList[1]; // Mudei isso de lugar, ele tava no "Ativo" antes
         let estadoFase = pegarEstadoFase(num_fase, fase_atual);
         let conteudo_fase_main = conteudoFase.querySelector('main')
         let conteudo_fase_feedback = conteudoFase.querySelector('div')
 
         if (estadoFase === "Desbloqueada") {
             atualizarCor(fase);
-            if (!conteudoFase.innerHTML.includes('Você concluiu essa fase!')) {
-                conteudoFase.innerHTML += '<p>Você concluiu essa fase!</p><br>';
-            }
 
-            // Se houver um formulario na fase anteriormente desbloqueada, desativa todos os inputs.
+            if (!conteudoFase.innerHTML.includes('Você concluiu essa fase!') && (tipoFase == 'desafio' || tipoFase == 'exercicio' || tipoFase == 'prova')) {
+                conteudoFase.innerHTML += '<p>Você concluiu essa fase! Mostrando resultados corretos.</p><br>';
+            } else {
+                conteudoFase.innerHTML += '<p>Você concluiu essa fase!</p><br>';
+            }            
+
             if (conteudoFase.innerHTML.includes('/form')) {
-                console.log("A fase desbloqueada: " + num_fase + " - Possui um formulario")
-                let formulario = document.getElementById("formulario_fase_" + num_fase) // Pega o formulario da fase
-                let inputs = formulario.querySelectorAll("input") // Pega os inputs de dentro do formulario
-                inputs.forEach(input => 
-                    input.disabled = true // Itera sobre a lsita "inputs" e atribui a cada input da iteração atual de input; depois disso, desativa-os 
-                )
+                let formulario = document.getElementById("formulario_fase_" + num_fase); // Pega o formulario 
+                let inputs = formulario.querySelectorAll("input"); // Pega os inputs de dentro do formulario
+            
+                inputs.forEach(input => {
+                    if (input.classList[0] == 'c') {
+                        input.style.accentColor = "green"
+                        input.checked = 'true';
+                        
+                        input.type == 'text' ? input.value = input.value = input.getAttribute('data-c') : ""
+                    }
+                });
             }
 
         } else if (estadoFase === "Atual") {
-            const tipoFase = conteudoFase.classList[1];
+            // const tipoFAse
             conteudo_fase_main.classList.remove('conteudo-bloqueado');
             conteudo_fase_feedback.classList.remove("feedback-estado")
             
@@ -151,13 +189,11 @@ function setarProva(botao) {
 function unsetarAmbienteProva(botao) {
     let [conteudoFase, conteudo_fase_main, icones] = pegarElementosProva(botao)
 
-    Array.from(icones).forEach(icon => {
-        icon.setAttribute('style', 'display: inline !important;');
-    })
-    
-    aba_lateral.classList.toggle('maximizado'); 
+    // Array.from(icones).forEach(icon => {
+    //     icon.setAttribute('style', 'display: inline !important;');
+    // })
+
     conteudo_fase_main.classList.remove("conteudo-bloqueado")
-    
 }
 
 
@@ -204,6 +240,8 @@ function getCookie(name) {
 function incrementarFase(botao) {
     botao.disabled = true;
     botao.style.display = 'none';
+
+    setTimeout(retornarAba, 1000)
 
     fetch('incrementar_fase', {
         method: 'POST',
