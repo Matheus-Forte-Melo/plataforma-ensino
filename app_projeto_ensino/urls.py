@@ -15,5 +15,5 @@ urlpatterns = [
 
     path("worlds/1", views.world1, name='world1'),
 
-    path('worlds/incrementar_fase', views.incrementar_fase , name='incrementarfase')
+    path('worlds/atualizar_fase_e_pontuacao', views.atualizar_fase_e_pontuacao , name='atualizar_fase_e_pontuacao'),
 ]

@@ -6,8 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa de Fases</title>
+    
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'styles/geral.css' %}">
     <link rel="stylesheet" href="{% static 'styles/map_style.css' %}">
+    
 </head>
 <body>
     <div id="info-fase" data-inicio="{{ request.user.fase }}"></div>
@@ -137,7 +140,7 @@
                 </ul>
                 <p>Em resumo, a lógica de programação é a prática de aplicar raciocínios e técnicas sistemáticas para desenvolver soluções eficazes e funcionais por meio da programação. A lógica de programação é a base para começar como programador e ser um bom profissional na área.</p>
 
-                <a href="https://rachacuca.com.br/logica/problemas/">Clique aqui para abrir atividades para treinar a lógica.<a>
+                <a href="https://rachacuca.com.br/logica/problemas/">Clique aqui para abrir atividades para treinar a lógica.</a>
             </main>
         </div>
 
@@ -721,6 +724,7 @@
             <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
             <div></div>
             <main>
+                <div id="info-tempo"></div>
                 <form id="formulario_fase_10" class="prevent-select" action="" >
 
                         <div class="questao-container">
@@ -809,7 +813,7 @@
 
     <script src="{% static 'scripts/map_script.js' %}"></script> <!-- A lógica de exibição -->
     <script src="{% static 'scripts/logica_conteudo.js' %}"> </script> <!-- A lógica por tras de requests e restricoes --> 
-
+    <script src="{% static 'scripts/modo_escuro_toggle.js' %}"></script>
 
 </body>
 </html>

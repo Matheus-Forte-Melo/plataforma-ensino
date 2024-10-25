@@ -52,7 +52,12 @@ section a::after {
 section {
     justify-items: center;
     justify-self: center;
-    padding: 20px;
+    padding: 0px 35px 0px 60px;
+}
+
+ul {
+    padding-left: 0; 
+    margin-left: 0; 
 }
 
 iframe {

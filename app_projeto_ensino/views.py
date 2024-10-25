@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from . import models
 from . import utils
+import json
 
 # Create your views here.
 def signup(request):
@@ -90,17 +91,32 @@ def world1(request):
     return render(request, 'world1.html')
 
 @require_POST
-def incrementar_fase(request):
-    user = request.user
-    user.fase = user.fase + 1
-    
-    user.save()
-    user.refresh_from_db()
+def atualizar_fase_e_pontuacao(request):
+    try: 
+        user = request.user 
+        dados = json.loads(request.body) # Pega os dados do body do JSON enviado do JS
 
-    print(user)
-    print(user.fase)    
+        user.fase += 1
+
+        pontos = dados.get('pontuacao_adicional') # Pegando a pontuacao a adicionar
+        if pontos is None:
+            return JsonResponse({'error': "Pontuacao não foi enviada"})
+        
+        pontos = int(pontos)
+        user.pontuacao += pontos
+
+        user.save()
+
+        return JsonResponse({
+            'fase_atual': user.fase,
+            'pontuacao_atual': user.pontuacao,
+            'pontuacao_adicionada': pontos
+        }) # Retorna informacoes importantes para debug e retomação de progresso
     
-    return JsonResponse({'fase_atual': user.fase})
+    except ValueError:
+        return JsonResponse({'error': 'Erro de valor'})
+    except Exception as e:
+        return JsonResponse({'error': f'Debug: {e}'}, status = 500)
 
 def settings(request):
     return render(request, 'settings.html')

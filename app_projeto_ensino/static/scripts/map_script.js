@@ -1,5 +1,39 @@
+let segundos = 0;
+let minutos = 0;
+let timer;
+
 let header = document.getElementsByTagName('header')[0]
 let aba_lateral = document.getElementById('abaLateral')
+
+function iniciarTimer(id) { 
+    // A variavel timer guarda uma funcao que ativa a cada um segundo
+    timer = setInterval(() => {
+        segundos++
+
+        if (segundos >= 60) {
+            minutos++; segundos = 0;
+        }
+
+        if (id !== undefined) {
+            document.getElementById(id).innerHTML = `${minutos}:${segundos}`
+        }
+
+        console.log(`${minutos}:${segundos}`);
+    }, 500); // Cada minuto é na verdade 30 segundos.
+}
+
+function pararTimer() {
+    clearInterval(timer)
+    console.log("Timer parado")
+}
+
+function resetarTimer() {
+    clearInterval(timer)
+    segundos = 0;
+    minutos = 0;
+    console.log("Timer resetado")
+}
+
 
 function sumirHeader() {
     header.classList.add('header-shift-out')
@@ -11,17 +45,31 @@ function surgirHeader() {
 }
 
 function abrirAba(fase) {
+    let conteudoFase = document.getElementById('conteudo' + fase)
     aba_lateral.classList.add('ativa');
     
     // Exibe o conteúdo correspondente
     document.querySelectorAll('.conteudo').forEach(el => el.classList.remove('ativo'));
-    document.getElementById('conteudo' + fase).classList.add('ativo');
+    conteudoFase.classList.add('ativo');
+
+   
+    const tipoFase = conteudoFase.classList[1];
+    
+
+    if (pegarEstadoFase(fase, fase_atual) == "Atual" && tipoFase != 'ativo') {
+        iniciarTimer('info-tempo')
+    }
 
     sumirHeader()
 }
 
 function retornarAba() {
     aba_lateral.classList.remove('ativa')
+    
+    pararTimer()
+    
+    //resetarTimer() Ainda nao sei se devo resetar ou devo resetar só quando entregar
+    
     surgirHeader()
 }
 
@@ -78,7 +126,7 @@ mapaContainer.style.cursor = 'grab';
 // Centralizar o mapa no carregamento da página
 window.onload = () => {
     setTimeout(() => {
-        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 350; // Ajuste temporário
+        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 350; 
         const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
         mapaContainer.scrollTo(scrollX, scrollY);
     }, 25); // Pequeno atraso para garantir que o conteúdo esteja carregado

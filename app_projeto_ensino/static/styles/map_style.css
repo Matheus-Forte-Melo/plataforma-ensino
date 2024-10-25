@@ -204,6 +204,14 @@ header > nav {
     overflow: scroll;
 }
 
+.feedback-fase {
+    color: green;
+}
+
+.aba-lateral a {
+    color: var(--vermelho_secundario);
+}
+
 .aba-lateral.ativa {
     transform: translateX(-100%);
 }
@@ -238,6 +246,11 @@ header > nav {
 }
 
 /* Controles Conteudo */
+
+.ui-icon-container {
+    position: sticky;
+    background-color: #84D260;
+}
 
 .ui-icon {
     cursor: pointer;
