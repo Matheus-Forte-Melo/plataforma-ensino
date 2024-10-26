@@ -129,6 +129,7 @@ function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
     }
 }
 
+/* Funcão central da lógica de fases e mapa. Futuramente será dividida em outras funções e organizadas em seus respectivos lugares */
 function atualizarFases() { // Atualiza TODAS as fases, quando chamado, ITERA SOBRE TODAS
     Array.from(fases).forEach(fase => {
         let num_fase = Number(fase.getAttribute('data-fase'));
