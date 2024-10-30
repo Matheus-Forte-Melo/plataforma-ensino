@@ -32,7 +32,7 @@ main {
     width: 85%;
     margin-top: 50px;
     background-color: var(--background_conteudo);
-    height: 82.1vh;
+    /* height: 82.1vh; */
     /* overflow: scroll;  */
 }
 

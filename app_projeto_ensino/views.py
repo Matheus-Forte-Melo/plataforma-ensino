@@ -64,7 +64,7 @@ def signin(request):
 def home(request):
     return render(request, 'homepage.html')
 
-@login_required(login_url="signin")
+
 def profile(request, pk): 
     user = models.CustomUser.objects.get(pk=pk)
 
