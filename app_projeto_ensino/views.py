@@ -1,4 +1,4 @@
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.contrib import messages
@@ -75,6 +75,10 @@ def profile(request, pk):
 def profileEdit(request, pk):
     user = models.CustomUser.objects.get(pk=pk)
 
+    if (user.id != request.user.id):
+        return HttpResponseForbidden("<p>Perai irmão, nerá pra você estar aqui não</p>")
+    
+
     if request.method == 'POST':
         user.avatar = request.POST.get('selected_avatar')
         user.cor_perfil = request.POST.get('rgba_color')
@@ -84,6 +88,22 @@ def profileEdit(request, pk):
 
     context = {'user': user}
     return render(request, 'profile_edit.html', context)
+
+def ranking(request):
+    users = models.CustomUser.objects.all().order_by('-pontuacao', '-fase').values('id', 'username', 'pontuacao', 'fase', 'avatar')
+
+    first_place = users[0]
+    second_place = users[1]
+    third_place = users[2]
+    leaderboard = users[3:]
+
+    context = {
+        'first_place': first_place,
+        'second_place': second_place, 
+        'third_place': third_place, 
+        'leaderboard': leaderboard, 
+        'contador_inicial' : 3 }
+    return render(request, 'ranking.html', context)
 
 @login_required(login_url="signin") # Usar parada de permission e acesso do django para restringir acesso aos niveis superiores
 def world1(request):

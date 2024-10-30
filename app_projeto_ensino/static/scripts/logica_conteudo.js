@@ -79,15 +79,15 @@ function corrigirEnvioFormularioProva(respostas, respostas_corretas, botao, form
             pontos++;
         }
     }
-    
     nota = pontos * valor_ponto;
     nota >= 7 ? aprovar(form, nota, botao) : reprovar(form, pontos, nota, botao);
+    botao.scrollIntoView({behavior: 'smooth'})
 }
 
 
 function aprovar(form, nota, botao) {
     let feedback = form.getElementsByClassName('feedback')[0];
-    atualizarFaseEPontuacao(botao, calcularPontuacao(40, minutos, 1))
+    pararTimer()
     resetarTimer()
     
     form.classList.add('mostrar-corretas')
@@ -95,7 +95,8 @@ function aprovar(form, nota, botao) {
     feedback.innerHTML = `Parabéns! <b>foste aprovado com nota: ${nota.toFixed(1)}</b>. Destacamos as questões que você acertou. Clique no botão abaixo para concluir e avançar.`
 
     botao.innerHTML = "Concluir"
-    botao.setAttribute('onclick', 'incrementarFase(this)')
+    botao.setAttribute('onclick', `atualizarFaseEPontuacao(this, calcularPontuacao(40, ${minutos}, 1)), unsetarAmbienteProva(this), location.reload()`);
+
 }
 
 function reprovar(form, pontos, nota, botao) {
@@ -103,11 +104,21 @@ function reprovar(form, pontos, nota, botao) {
     let feedback = form.getElementsByClassName('feedback')[0];
     pararTimer()
 
+    console.log(botao)
     botao.innerHTML = "Voltar"
     botao.setAttribute('onclick', 'location.reload()')
 
     feedback.innerHTML = `Infelizmente sua tentativa foi anulada, pois, <b>foste reprovado com nota: ${nota.toFixed(1)}</b>. Mas não se preocupe! Você pode tentar novamente. Estude um pouco os níveis anteriores, depois tente novamente aqui. <br><br> <b>Você acertou ${pontos} questões!</b>`
+}
 
+function entregarPorTempo(conteudoFase, intervalo_verificacao) {
+    clearInterval(intervalo_verificacao)
+    
+    botao = conteudoFase.querySelector('.btn-container').querySelector('button')
+
+    console.log(botao)
+    botao.click()
+    
 }
 
 function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
@@ -137,7 +148,7 @@ function atualizarFases() { // Atualiza TODAS as fases, quando chamado, ITERA SO
         const tipoFase = conteudoFase.classList[1]; // Mudei isso de lugar, ele tava no "Ativo" antes
         let estadoFase = pegarEstadoFase(num_fase, fase_atual);
         let conteudo_fase_main = conteudoFase.querySelector('main')
-        let conteudo_fase_feedback = conteudoFase.querySelector('div')
+        let conteudo_fase_feedback = conteudoFase.querySelector('div')  
 
         if (estadoFase === "Desbloqueada") {
             atualizarCor(fase);
@@ -169,7 +180,6 @@ function atualizarFases() { // Atualiza TODAS as fases, quando chamado, ITERA SO
             // const tipoFAse
             conteudo_fase_main.classList.remove('conteudo-bloqueado');
             conteudo_fase_feedback.classList.remove("feedback-estado")
-            
             
             atualizarCor(fase);
 
@@ -204,7 +214,14 @@ function pegarElementosProva(botao) {
 
 function setarProva(botao) {
     let [conteudoFase, conteudo_fase_main, icones] = pegarElementosProva(botao) // Igual python, interessante
+    let timer_feedback = document.getElementById(`info-tempo`)
     // se fosse desempactor como argumentos usario funcao(...pegarElementos(botao))
+
+    var intervalo_verificacao = setInterval( function() {
+        if (minutos >= 2) {
+            entregarPorTempo(conteudoFase, intervalo_verificacao)
+        }
+    }, 500)
     
     Array.from(icones).forEach(icon => {
         icon.setAttribute('style', 'display: none !important;');
@@ -228,8 +245,9 @@ function unsetarAmbienteProva(botao) {
     // Array.from(icones).forEach(icon => {
     //     icon.setAttribute('style', 'display: inline !important;');
     // })
-
+    
     conteudo_fase_main.classList.remove("conteudo-bloqueado")
+    
 }
 
 function pegarEstadoFase(num_fase, fase_atual) {

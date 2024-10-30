@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking</title>
+    <link rel="stylesheet" href="{% static 'styles/geral.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/ranking.css' %}">
+</head>
+<body>
+    
+    {% include 'header.html' %}
+
+    <main>
+        <h1>RANKING</h1>
+        <section class="podio-container">
+            <a href="{% url 'profile' second_place.id %}">
+                <div class="podio" id="segundo_lugar">
+                    <p>{{ second_place.username }}</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#9C9C9C" viewBox="0 0 256 256"><path d="M239.75,90.81c0,.11,0,.21-.07.32L217,195a16,16,0,0,1-15.72,13H54.71A16,16,0,0,1,39,195L16.32,91.13c0-.11-.05-.21-.07-.32A16,16,0,0,1,44,77.39l33.67,36.29,35.8-80.29a1,1,0,0,0,0-.1,16,16,0,0,1,29.06,0,1,1,0,0,0,0,.1l35.8,80.29L212,77.39a16,16,0,0,1,27.71,13.42Z"></path></svg>
+                    <img src="{% static 'img/avatar/' %}{{ second_place.avatar }}.jpeg" alt="imagem_user">
+                    <div class="podio-info">
+                        <p>{{ second_place.pontuacao }} pontos<br> fase {{ second_place.fase }}</p>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'profile' first_place.id %}">
+                <div class="podio" id="primeiro_lugar">
+                    <p>{{ first_place.username }}</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#d4cf25" viewBox="0 0 256 256"><path d="M239.75,90.81c0,.11,0,.21-.07.32L217,195a16,16,0,0,1-15.72,13H54.71A16,16,0,0,1,39,195L16.32,91.13c0-.11-.05-.21-.07-.32A16,16,0,0,1,44,77.39l33.67,36.29,35.8-80.29a1,1,0,0,0,0-.1,16,16,0,0,1,29.06,0,1,1,0,0,0,0,.1l35.8,80.29L212,77.39a16,16,0,0,1,27.71,13.42Z"></path></svg>
+                    <img src="{% static 'img/avatar/' %}{{ first_place.avatar }}.jpeg" alt="imagem_user">
+                    <div class="podio-info">
+                        <p>{{ first_place.pontuacao }} pontos <br> fase {{ first_place.fase }}</p>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'profile' third_place.id %}">
+                <div class="podio" id="terceiro_lugar">
+                    <p>{{ third_place.username }}</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#CC6742" viewBox="0 0 256 256"><path d="M239.75,90.81c0,.11,0,.21-.07.32L217,195a16,16,0,0,1-15.72,13H54.71A16,16,0,0,1,39,195L16.32,91.13c0-.11-.05-.21-.07-.32A16,16,0,0,1,44,77.39l33.67,36.29,35.8-80.29a1,1,0,0,0,0-.1,16,16,0,0,1,29.06,0,1,1,0,0,0,0,.1l35.8,80.29L212,77.39a16,16,0,0,1,27.71,13.42Z"></path></svg>
+                    <img src="{% static 'img/avatar/' %}{{ third_place.avatar }}.jpeg" alt="imagem_user">
+                    <div class="podio-info">
+                        <p>{{ third_place.pontuacao }} pontos <br> fase {{ third_place.fase }}</p>
+                    </div>
+                </div>
+            </a>
+        </section>
+
+        <section class="leaderboard">
+
+            {% for user in leaderboard %}
+
+                <a href="{% url 'profile' user.id %}">
+                    <div class="ranking">
+                        <div class="ranking-pos-avatar">
+                            <div>{{ forloop.counter|add:contador_inicial }}° </div>
+                            <img class="ranking-avatar" src="{% static 'img/avatar/' %}{{ user.avatar }}.jpeg" alt="">
+                        </div>
+                        <div class="ranking-info">
+                            <p>{{user.username}}</p>
+                            <p>fase {{user.fase}}</p>
+                            <p>{{user.pontuacao}} pontos</p>
+                        </div>
+                    </div>
+                </a>
+
+            {% endfor %}
+            
+        </section>
+    </main>
+    <script src="{% static 'scripts/modo_escuro_toggle.js' %}"></script>
+</body>
+</html>

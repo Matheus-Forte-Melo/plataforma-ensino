@@ -259,6 +259,12 @@ header > nav {
     display: inline !important;
 }
 
+#info-tempo {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
 .mostrar-corretas > .questao-container > .c {
     accent-color: green !important;
 }

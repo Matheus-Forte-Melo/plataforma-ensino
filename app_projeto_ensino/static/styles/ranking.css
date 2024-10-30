@@ -1,0 +1,157 @@
+body {
+    background-color: var(--vermelho_primario);
+}
+
+#ranking-a {
+    color: var(--vermelho_primario);
+}
+
+/* barrinha vermelha   */ 
+#ranking-a::before {
+    content: '';
+    position: absolute; /* Usa como base o container se pa */
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 4px;
+    background-color: var(--vermelho_primario);
+    cursor: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+main {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.357);
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    margin: auto;
+    padding: 10px 45px 20px 45px;
+    width: 85%;
+    margin-top: 50px;
+    background-color: var(--background_conteudo);
+    height: 82.1vh;
+    /* overflow: scroll;  */
+}
+
+.podio-container {
+    height: 525px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    overflow: hidden;
+}
+
+#segundo_lugar {
+    margin-top: 80px;
+}
+
+#terceiro_lugar  {
+    margin-top: 135px;
+}
+
+.podio-info {
+    text-align: center;
+    color: white;
+    background-color: #2b4473;
+    height: 275px
+}
+
+.podio-info p {
+    transform: translateY(15px);
+    display: block;
+    margin-top: 15px;
+}
+
+.podio > p {
+    text-align: center;
+    margin: 0
+}
+
+.podio > svg {
+    width: 175px;
+    transform: translateY(5px);
+}
+
+.podio > img {
+    border-radius: 100%;
+    display: block;
+    width: 175px;
+    height: 175px;
+}
+
+.leaderboard {
+    margin-top: 35px;
+}
+
+.ranking {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-top: solid 1px black;
+}
+
+.ranking-pos-avatar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+
+    padding: 5px;
+    font-size: 1.75em;
+}
+
+.ranking-pos-avatar p {
+    margin: 0;
+}
+
+.ranking p {
+    width: 350px;
+}
+
+.leaderboard a {
+    text-decoration: none;
+    color: var(--cor_texto);
+}
+
+.leaderboard a:hover > .ranking{
+    background-color: #1a67f62a;
+}
+
+.podio-container > a {
+    text-decoration: none;
+}
+
+.podio   {
+    color: var(--cor_texto);
+}
+
+.podio-info {
+    color: white;
+}
+
+.podio-container > a:hover > .podio > .podio-info{
+    background-color: #204ea2;
+}
+
+.ranking-pos-avatar img {
+    border-radius: 100%;
+    width: 65px;
+    display: block;
+}
+
+.ranking-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 1.5em;
+
+    width: 100%;
+    padding: 5px;
+}
+
+.ranking-info p {
+    display: block;
+}

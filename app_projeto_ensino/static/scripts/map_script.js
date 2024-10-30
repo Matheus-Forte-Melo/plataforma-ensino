@@ -15,11 +15,19 @@ function iniciarTimer(id) {
         }
 
         if (id !== undefined) {
-            document.getElementById(id).innerHTML = `${minutos}:${segundos}`
+            if (minutos == 2) {
+                document.getElementById(id).innerHTML = `PROVA ENTREGUE AUTOMÁTICAMENTE, TEMPO ESGOTADO`
+            } else if (minutos >= 1) {
+                document.getElementById(id).style.color = 'red'
+                document.getElementById(id).innerHTML = `<small>ATENÇÃO, TEMPO ESGOTANDO</small> <br> ${minutos}:${segundos}`
+            } else {
+                document.getElementById(id).innerHTML = `${minutos}:${segundos}`
+            }
+            
         }
 
         console.log(`${minutos}:${segundos}`);
-    }, 500); // Cada minuto é na verdade 30 segundos.
+    }, 100); // Cada minuto é na verdade 30 segundos. So por questoes de debug por enquanto
 }
 
 function pararTimer() {
@@ -33,7 +41,6 @@ function resetarTimer() {
     minutos = 0;
     console.log("Timer resetado")
 }
-
 
 function sumirHeader() {
     header.classList.add('header-shift-out')
@@ -100,11 +107,36 @@ mapaContainer.addEventListener('mousedown', (e) => {
     scrollTop = mapaContainer.scrollTop;
 });
 
+function pegarPosicaoArraste() {
+    return {'top': mapaContainer.scrollTop, 'left': mapaContainer.scrollLeft}
+}
+
+function salvarPosicaoArraste() {
+    let pos = pegarPosicaoArraste()    
+    localStorage.setItem('pos_top', pos['top'])
+    localStorage.setItem('pos_left', pos['left'])   
+}
+
+function ajustarTela() {
+    if (localStorage.getItem('pos_top') === null || localStorage.getItem('pos_left') === null) {
+        var scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 350; 
+        var scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
+        console.log('oii')
+    } else {
+        var scrollY = localStorage.getItem('pos_top')
+        var scrollX = localStorage.getItem('pos_left')
+    }
+    
+    mapaContainer.scrollTo(scrollX, scrollY);
+}
+
 // Parar o arraste
 const stopDragging = () => {
+    salvarPosicaoArraste()
     isDragging = false;
     mapaContainer.style.cursor = 'grab';
 };
+
 mapaContainer.addEventListener('mouseup', stopDragging);
 mapaContainer.addEventListener('mouseleave', stopDragging); // Corrige o bug
 
@@ -120,14 +152,20 @@ mapaContainer.addEventListener('mousemove', (e) => {
     mapaContainer.scrollTop = scrollTop - walkY;
 });
 
+document.addEventListener('keydown', function(event) {
+    if (event.code == "Space") {
+        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 350; 
+        const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
+        mapaContainer.scrollTo(scrollX, scrollY);
+    }
+})
+
 // Cursor inicial
 mapaContainer.style.cursor = 'grab';
 
 // Centralizar o mapa no carregamento da página
 window.onload = () => {
     setTimeout(() => {
-        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 350; 
-        const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
-        mapaContainer.scrollTo(scrollX, scrollY);
+        ajustarTela()
     }, 25); // Pequeno atraso para garantir que o conteúdo esteja carregado
 };
