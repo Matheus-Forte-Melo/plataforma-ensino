@@ -20,16 +20,17 @@
         {% include 'header.html' %}
         
         <div class="mapa" id="mapa">
-            <div class="fase conteudo-icon" id="um" data-fase="1"></div>
-            <div class="fase exercicio-icon" id="dois" data-fase="2"></div>
-            <div class="fase conteudo-icon" id="tres" data-fase="3"></div>
-            <div class="fase conteudo-icon" id="quatro" data-fase="4"></div>
-            <div class="fase exercicio-icon" id="cinco" data-fase="5"></div>
-            <div class="fase conteudo-icon" id="seis" data-fase="6"></div>
-            <div class="fase conteudo-icon" id="sete" data-fase="7"></div>
-            <div class="fase desafio-icon" id="oito" data-fase="8"></div>
-            <div class="fase conteudo-icon" id="nove" data-fase="9"> </div>
-            <div class="fase prova-icon" id="dez" data-fase="10"> </div>
+            <div class="fase conteudo-icon" id="um" data-fase="1" title="Tutorial"></div>
+            <div class="fase exercicio-icon" id="dois" data-fase="2" title="Exercicio referente ao tutorial"></div>
+            <div class="fase conteudo-icon" id="tres" data-fase="3" title="Lógica de Programação"></div>
+            <div class="fase conteudo-icon" id="quatro" data-fase="4" title="Fluxogramas"></div>
+            <div class="fase exercicio-icon" id="cinco" data-fase="5" title="Exercicios referentes à logica de programação e fluxogramas"></div>
+            <div class="fase conteudo-icon" id="seis" data-fase="6" title="Estrura de Código em C"></div>
+            <div class="fase conteudo-icon" id="sete" data-fase="7" title="Declaração de variáveis e comandos de entrada e saída"></div>
+            <div class="fase desafio-icon" id="oito" data-fase="8" title="Desafio Opcional"></div>
+            <div class="fase conteudo-icon" id="nove" data-fase="9" title="Estruturas de controle"> </div>
+            <div class="fase prova-icon" id="dez" data-fase="10" title="Prova revisando todos os conhecimentos até aqui"></div>
+            <canvas id="canvas"></canvas>
         </div>
     </div>
     
@@ -44,6 +45,7 @@
                 <h1>Seja bem vindo!</h1>
                 <p>Aqui, introduziremos você a nosso sistema de níveis e pontuação.</p>
                 <h2>Fases</h2>
+                <p>DICA: Fique com o mouse por cima do icone das fases para saber do que se tratam!</p>
                 <ul>
                     <li><b>Conteúdo</b>: Esta fase é uma fase de conteúdo! Aqui, apresentaremos a parte mais teórica do assunto. No mapa, é representado por circulo verde.</li>
                     <li><b>Exercicio</b>: São fases que possuem um exercício com n numeros de questões. Você precisa acertar tudo para avançar, pois, precisamos ter certeza de que você realmente aprendeu tudo que tinha para aprender para que você consiga prosseguir. No mapa, é representado por um quadrado vermelho.</li>

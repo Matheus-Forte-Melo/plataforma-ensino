@@ -141,14 +141,50 @@ function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
 }
 
 /* Funcão central da lógica de fases e mapa. Futuramente será dividida em outras funções e organizadas em seus respectivos lugares */
-function atualizarFases() { // Atualiza TODAS as fases, quando chamado, ITERA SOBRE TODAS
-    Array.from(fases).forEach(fase => {
+function atualizarFases() { 
+    Array.from(fases).forEach(fase => { // trocar isso pelo outro método de iteracao, parace ser melhor, ja que nao uso o index aqui também
         let num_fase = Number(fase.getAttribute('data-fase'));
         let conteudoFase = document.getElementById("conteudo" + num_fase);
         const tipoFase = conteudoFase.classList[1]; // Mudei isso de lugar, ele tava no "Ativo" antes
         let estadoFase = pegarEstadoFase(num_fase, fase_atual);
         let conteudo_fase_main = conteudoFase.querySelector('main')
         let conteudo_fase_feedback = conteudoFase.querySelector('div')  
+
+        let fases_pos = []
+        let mapa = document.getElementById('mapa')
+        const canvas = document.getElementById('canvas')
+        const context = canvas.getContext("2d")
+        canvas.width =  mapa.clientWidth
+        canvas.height =  mapa.clientHeight
+
+        // Talvez TIRAR isso daqui de dentro, porque a complexidade fica ALTA DEMAIS, mas isso é pra quando eu migrar essa bomba de funcao pra outro lugar
+
+        for (let fase of fases) {
+            const x = window.getComputedStyle(fase).left
+            const y = window.getComputedStyle(fase).top
+
+            fases_pos.push({
+                'id': fase.id,
+                'x': Number(x.slice(0, x.indexOf('px'))) + 37.5,
+                'y': Number(y.slice(0, y.indexOf('px'))) + 38       
+            })
+            // "+ 50 " se refere ao ajuste para que o canva risque sua linha até o centro do elemento. Precisa de ajuste se o elemento tiver tamanho diferente
+        }
+
+        fases_pos.forEach((fase, index, array) => {
+            if (index + 2 <= fase_atual) {
+
+                if (array[index+1] !== undefined) {
+                    context.beginPath()
+                    context.moveTo(fase.x, fase.y)
+                    context.lineTo(array[index+1].x, array[index+1].y)
+                    context.strokeStyle = "#6d6d6d"
+                    context.lineWidth = 1;
+                    context.stroke()
+
+                }   
+            }
+        })
 
         if (estadoFase === "Desbloqueada") {
             atualizarCor(fase);
@@ -218,7 +254,7 @@ function setarProva(botao) {
     // se fosse desempactor como argumentos usario funcao(...pegarElementos(botao))
 
     var intervalo_verificacao = setInterval( function() {
-        if (minutos >= 2) {
+        if (minutos >= 30) {
             entregarPorTempo(conteudoFase, intervalo_verificacao)
         }
     }, 500)

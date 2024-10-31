@@ -15,19 +15,19 @@ function iniciarTimer(id) {
         }
 
         if (id !== undefined) {
-            if (minutos == 2) {
+            if (minutos == 30) {
                 document.getElementById(id).innerHTML = `PROVA ENTREGUE AUTOMÁTICAMENTE, TEMPO ESGOTADO`
-            } else if (minutos >= 1) {
+            } else if (minutos >= 25) {
                 document.getElementById(id).style.color = 'red'
-                document.getElementById(id).innerHTML = `<small>ATENÇÃO, TEMPO ESGOTANDO</small> <br> ${minutos}:${segundos}`
+                document.getElementById(id).innerHTML = `<small>ATENÇÃO, TEMPO ESGOTANDO</small> <br> ${minutos}:${('0' + segundos).slice(-2)}`
             } else {
-                document.getElementById(id).innerHTML = `${minutos}:${segundos}`
+                document.getElementById(id).innerHTML = `${minutos}:${('0' + segundos).slice(-2)}`
             }
             
         }
 
-        console.log(`${minutos}:${segundos}`);
-    }, 100); // Cada minuto é na verdade 30 segundos. So por questoes de debug por enquanto
+        console.log(`${minutos}:${('0' + segundos).slice(-2)}`);
+    }, 1000); // Cada minuto é na verdade 30 segundos. So por questoes de debug por enquanto
 }
 
 function pararTimer() {
@@ -52,33 +52,28 @@ function surgirHeader() {
 }
 
 function abrirAba(fase) {
-    let conteudoFase = document.getElementById('conteudo' + fase)
+    let conteudoFase = document.getElementById('conteudo' + fase);
     aba_lateral.classList.add('ativa');
     
-    // Exibe o conteúdo correspondente
     document.querySelectorAll('.conteudo').forEach(el => el.classList.remove('ativo'));
     conteudoFase.classList.add('ativo');
-
-   
-    const tipoFase = conteudoFase.classList[1];
     
-
+    const tipoFase = conteudoFase.classList[1];
     if (pegarEstadoFase(fase, fase_atual) == "Atual" && tipoFase != 'ativo') {
-        iniciarTimer('info-tempo')
+        iniciarTimer('info-tempo');
     }
 
-    sumirHeader()
+    sumirHeader();
 }
 
 function retornarAba() {
-    aba_lateral.classList.remove('ativa')
+    aba_lateral.classList.remove('ativa');
     
-    pararTimer()
+    pararTimer();
     
-    //resetarTimer() Ainda nao sei se devo resetar ou devo resetar só quando entregar
-    
-    surgirHeader()
+    surgirHeader();
 }
+
 
 function maximizarAba() {
     aba_lateral.classList.toggle('maximizado'); 
@@ -88,7 +83,7 @@ function maximizarAba() {
 document.querySelectorAll('.fase').forEach(fase => {
     fase.addEventListener('click', () => {
         const faseSelecionada = fase.getAttribute('data-fase');
-        abrirAba(faseSelecionada);
+        abrirAba(faseSelecionada);        
     });
 });
 
@@ -154,7 +149,7 @@ mapaContainer.addEventListener('mousemove', (e) => {
 
 document.addEventListener('keydown', function(event) {
     if (event.code == "Space") {
-        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 350; 
+        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 2800; 
         const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
         mapaContainer.scrollTo(scrollX, scrollY);
     }
