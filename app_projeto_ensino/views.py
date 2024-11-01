@@ -95,7 +95,7 @@ def ranking(request):
     first_place = users[0]
     second_place = users[1]
     third_place = users[2]
-    leaderboard = users[3:]
+    leaderboard = users[3:10]
 
     context = {
         'first_place': first_place,
@@ -103,7 +103,28 @@ def ranking(request):
         'third_place': third_place, 
         'leaderboard': leaderboard, 
         'contador_inicial' : 3 }
+    
     return render(request, 'local/ranking.html', context)
+
+
+def leaderboard_carregar_mais(request):
+
+    if request.method == "GET":
+        offset = int(request.GET.get("offset"))
+        limit = offset + 10
+    else: 
+        offset = 0
+
+    
+    print("Salve fiote")
+
+    users = models.CustomUser.objects.all().order_by('-pontuacao', '-fase')[offset:limit].values('id', 'username', 'pontuacao', 'fase', 'avatar')
+    users = list(users)
+    
+    print(users)
+
+    return JsonResponse({'data': users})
+    
 
 @login_required(login_url="signin") # Usar parada de permission e acesso do django para restringir acesso aos niveis superiores
 def world1(request):
@@ -114,7 +135,7 @@ def world1(request):
 def atualizar_fase_e_pontuacao(request):
     try: 
         user = request.user 
-        dados = json.loads(request.body) # Pega os dados do body do JSON enviado do JS
+        dados = json.loads(request.body) # Pega os dados do body do JSON enviado do JS (pelo request)
 
         user.fase += 1
 

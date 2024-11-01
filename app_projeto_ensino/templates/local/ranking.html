@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ranking</title>
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'styles/avatars.css' %}"> <!-- Enquanto eu não achar um jeito que realmente funcione, esse será o jeito, tendeu? -->
     <link rel="stylesheet" href="{% static 'styles/geral.css' %}">
     <link rel="stylesheet" href="{% static 'styles/ranking.css' %}">
 </head>
@@ -49,7 +50,7 @@
             </a>
         </section>
 
-        <section class="leaderboard">
+        <section class="leaderboard" id="leaderboard">
 
             {% for user in leaderboard %}
 
@@ -70,7 +71,12 @@
             {% endfor %}
             
         </section>
+
+        <button class="btn-mostrar-mais" type="button" onclick="carregarMais(this)">Mostrar mais</button>
+        
     </main>
     <script src="{% static 'scripts/modo_escuro_toggle.js' %}"></script>
+    <script src="{% static 'scripts/ranking_load.js' %}"></script>
+
 </body>
 </html>

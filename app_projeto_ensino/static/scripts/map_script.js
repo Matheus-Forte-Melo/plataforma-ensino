@@ -1,12 +1,140 @@
-let segundos = 0;
-let minutos = 0;
-let timer;
+// Declaração de variáveis
+// Nota: Algumas variáveis utilizadas neste bloco de código são criadas no arquivo "lógica_conteudo.js", e vice versa.
 
 let header = document.getElementsByTagName('header')[0]
 let aba_lateral = document.getElementById('abaLateral')
 
+let fase
+let fases = document.getElementsByClassName("fase");
+let fases_pos = []
+
+// Declaração de variáveis do canvas.
+
+let mapa = document.getElementById('mapa')
+const canvas = document.getElementById('canvas')
+const context = canvas.getContext("2d")
+canvas.width =  mapa.clientWidth
+canvas.height =  mapa.clientHeight
+
+// Loop para pegar a posição absoluta de todas as fases, transformando cada set de informação e um objeto e atribuindo-os a uma lista.
+for (let fase of fases) {
+    const x = window.getComputedStyle(fase).left
+    const y = window.getComputedStyle(fase).top
+
+    fases_pos.push({
+        'id': fase.id,
+        'x': Number(x.slice(0, x.indexOf('px'))) + 37.5,
+        'y': Number(y.slice(0, y.indexOf('px'))) + 38       
+    })
+}
+
+// Definição de variáveis para o timer
+let segundos = 0;
+let minutos = 0;
+let timer;
+
+// ============================================ Fim da definição de variáveis ============================================ 
+
+// Módulos de tratamento de conteúdo das fases
+
+function tratarFaseBloqueada(fase, conteudoFase) {
+    fase.style.backgroundColor = "var(--nao-selecionado)";
+    fase.style.outlineColor = "var(--nao-selecionado)";
+    document.querySelector('.prova-icon').classList.add('bloqueado');
+    conteudoFase.querySelector('div').classList.add("feedback-estado");
+    conteudoFase.querySelector('main').classList.add('conteudo-bloqueado');
+}
+
+function tratarFaseAtual(fase, tipoFase, conteudoFase ,conteudo_fase_main, conteudo_fase_feedback) {
+    conteudo_fase_main.classList.remove('conteudo-bloqueado');
+    conteudo_fase_feedback.classList.remove("feedback-estado")
+     
+    atualizarCor(fase);
+
+    if (tipoFase == "exercicio") {
+        conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button></div>`;
+    } else if (tipoFase == "prova") { 
+        conteudoFase.querySelector('main').classList.add('conteudo-bloqueado')
+        conteudoFase.querySelector('div').innerHTML = `<p><b>ATENÇÃO:</b> Este nível é uma prova, assim que você clicar em iniciar, você terá um determinado tempo para responder todas as questões corretamente. A aba irá se maximizar e não poderá ser minimizada nem fechada, a unica forma de sair dessa tela é entregando. Além disso, você consegue entregar apenas uma vez antes de obter sua nota. Você precisa de pelo menos SETE para passar adiante. Você pode repetir a prova quantas vezes quiser. Fechar a prova/página/aba no meio de sua execução cancelará sua tentativa e não irá salvar seus resultados, ou seja, terá que tentar novamente. </p> <button type="button" onclick="setarProva(this); resetarTimer(); iniciarTimer('info-tempo')">Começar prova</button> <hr>`
+         
+     } else if (tipoFase === "desafio") {
+        conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button><button ondblclick="this.parentElement.querySelectorAll('button').forEach(btn => btn.style.display='none'); atualizarFaseEPontuacao(this, 0);">Pular</button></div>`;
+     } else {
+        conteudoFase.innerHTML += '<div class="btn-container"><button onclick="atualizarFaseEPontuacao(this, 125)">Desbloquear próxima fase</button></div>'; // Se tiver algum erro com incrementacao de fase, tava aqui, por conta da falta de dois pontos aparantemente
+     }
+}
+
+function tratarFaseDesbloqueada(fase, num_fase, tipoFase, conteudoFase, conteudo_fase_feedback) {
+    atualizarCor(fase);
+    if (!conteudoFase.innerHTML.includes('Você concluiu essa fase!')) {
+        if (tipoFase === 'desafio' || tipoFase === 'exercicio' || tipoFase === 'prova') {
+            conteudo_fase_feedback.innerHTML += '<p class="feedback-fase">Você concluiu essa fase! Mostrando resultados corretos. <br> <small style="color: green;">- Pontos foram adicionados na sua conta de acordo com seu desempenho.</small></p>';
+        } else {
+            conteudo_fase_feedback.innerHTML += '<p class="feedback-fase">Você concluiu essa fase!</p>';
+        }
+    }
+
+    if (conteudoFase.innerHTML.includes('/form')) {
+        let formulario = document.getElementById("formulario_fase_" + num_fase); // Pega o formulario 
+        let inputs = formulario.querySelectorAll("input"); // Pega os inputs de dentro do formulario
+    
+        inputs.forEach(input => {
+            if (input.classList[0] == 'c') {
+                input.style.accentColor = "green"
+                input.checked = 'true';
+                
+                input.type == 'text' ? input.value = input.value = input.getAttribute('data-c') : ""
+            }
+        });
+    }
+}
+
+// Função que conecta as fases com base na pontuacao e nível atual.
+
+function conectarFases() {
+    fases_pos.forEach((fase, index, array) => {
+        if (index + 2 <= fase_atual && array[index+1] !== undefined) {
+           
+            context.beginPath()
+            context.moveTo(fase.x, fase.y)
+            context.lineTo(array[index+1].x, array[index+1].y)
+            context.strokeStyle = "#6d6d6d"
+            context.lineWidth = 1;
+            context.stroke()
+            
+        }
+    })
+}
+
+/* Funcão central da disposição de estado de fases e mapa. */
+
+function atualizarFases() { 
+
+    conectarFases()
+
+    for (fase of fases) { 
+        let num_fase = Number(fase.getAttribute('data-fase'));
+        let conteudoFase = document.getElementById("conteudo" + num_fase);
+        const tipoFase = conteudoFase.classList[1]; // Mudei isso de lugar, ele tava no "Ativo" antes
+        let estadoFase = pegarEstadoFase(num_fase, fase_atual);
+        let conteudo_fase_main = conteudoFase.querySelector('main')
+        let conteudo_fase_feedback = conteudoFase.querySelector('div')  
+
+        // Talvez TIRAR isso daqui de dentro, porque a complexidade fica ALTA DEMAIS, mas isso é pra quando eu migrar essa bomba de funcao pra outro lugar
+
+        if (estadoFase === "Desbloqueada") {
+            tratarFaseDesbloqueada(fase, num_fase, tipoFase, conteudoFase, conteudo_fase_feedback)
+        } else if (estadoFase === "Atual") {
+           tratarFaseAtual(fase, tipoFase, conteudoFase, conteudo_fase_main, conteudo_fase_feedback)
+        } else if (estadoFase === "Bloqueada") {
+            tratarFaseBloqueada(fase, conteudoFase)
+        }
+    };
+}
+
+/* =================  Timer, Navegação é disposição de conteúdo ==================== */ 
+
 function iniciarTimer(id) { 
-    // A variavel timer guarda uma funcao que ativa a cada um segundo
     timer = setInterval(() => {
         segundos++
 
@@ -27,7 +155,7 @@ function iniciarTimer(id) {
         }
 
         console.log(`${minutos}:${('0' + segundos).slice(-2)}`);
-    }, 1000); // Cada minuto é na verdade 30 segundos. So por questoes de debug por enquanto
+    }, 1000); 
 }
 
 function pararTimer() {
@@ -114,9 +242,8 @@ function salvarPosicaoArraste() {
 
 function ajustarTela() {
     if (localStorage.getItem('pos_top') === null || localStorage.getItem('pos_left') === null) {
-        var scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 350; 
-        var scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
-        console.log('oii')
+        var scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 300;
+        var scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540
     } else {
         var scrollY = localStorage.getItem('pos_top')
         var scrollX = localStorage.getItem('pos_left')

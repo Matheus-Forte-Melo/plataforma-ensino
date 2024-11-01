@@ -1,7 +1,7 @@
 /* Declaração de variáveis globais */
 const fase_inicial = Number(document.getElementById("info-fase").getAttribute('data-inicio'));
 let fase_atual = fase_inicial;
-fases = document.getElementsByClassName("fase");
+
 
 let tentativas = 1;
 /* Fim das declarações*/ 
@@ -140,105 +140,6 @@ function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
     }
 }
 
-/* Funcão central da lógica de fases e mapa. Futuramente será dividida em outras funções e organizadas em seus respectivos lugares */
-function atualizarFases() { 
-    Array.from(fases).forEach(fase => { // trocar isso pelo outro método de iteracao, parace ser melhor, ja que nao uso o index aqui também
-        let num_fase = Number(fase.getAttribute('data-fase'));
-        let conteudoFase = document.getElementById("conteudo" + num_fase);
-        const tipoFase = conteudoFase.classList[1]; // Mudei isso de lugar, ele tava no "Ativo" antes
-        let estadoFase = pegarEstadoFase(num_fase, fase_atual);
-        let conteudo_fase_main = conteudoFase.querySelector('main')
-        let conteudo_fase_feedback = conteudoFase.querySelector('div')  
-
-        let fases_pos = []
-        let mapa = document.getElementById('mapa')
-        const canvas = document.getElementById('canvas')
-        const context = canvas.getContext("2d")
-        canvas.width =  mapa.clientWidth
-        canvas.height =  mapa.clientHeight
-
-        // Talvez TIRAR isso daqui de dentro, porque a complexidade fica ALTA DEMAIS, mas isso é pra quando eu migrar essa bomba de funcao pra outro lugar
-
-        for (let fase of fases) {
-            const x = window.getComputedStyle(fase).left
-            const y = window.getComputedStyle(fase).top
-
-            fases_pos.push({
-                'id': fase.id,
-                'x': Number(x.slice(0, x.indexOf('px'))) + 37.5,
-                'y': Number(y.slice(0, y.indexOf('px'))) + 38       
-            })
-            // "+ 50 " se refere ao ajuste para que o canva risque sua linha até o centro do elemento. Precisa de ajuste se o elemento tiver tamanho diferente
-        }
-
-        fases_pos.forEach((fase, index, array) => {
-            if (index + 2 <= fase_atual) {
-
-                if (array[index+1] !== undefined) {
-                    context.beginPath()
-                    context.moveTo(fase.x, fase.y)
-                    context.lineTo(array[index+1].x, array[index+1].y)
-                    context.strokeStyle = "#6d6d6d"
-                    context.lineWidth = 1;
-                    context.stroke()
-
-                }   
-            }
-        })
-
-        if (estadoFase === "Desbloqueada") {
-            atualizarCor(fase);
-
-            if (!conteudoFase.innerHTML.includes('Você concluiu essa fase!')) {
-                if (tipoFase === 'desafio' || tipoFase === 'exercicio' || tipoFase === 'prova') {
-                    conteudo_fase_feedback.innerHTML += '<p class="feedback-fase">Você concluiu essa fase! Mostrando resultados corretos. <br> <small style="color: green;">- Pontos foram adicionados na sua conta de acordo com seu desempenho.</small></p>';
-                } else {
-                    conteudo_fase_feedback.innerHTML += '<p class="feedback-fase">Você concluiu essa fase!</p>';
-                }
-            }
-
-
-            if (conteudoFase.innerHTML.includes('/form')) {
-                let formulario = document.getElementById("formulario_fase_" + num_fase); // Pega o formulario 
-                let inputs = formulario.querySelectorAll("input"); // Pega os inputs de dentro do formulario
-            
-                inputs.forEach(input => {
-                    if (input.classList[0] == 'c') {
-                        input.style.accentColor = "green"
-                        input.checked = 'true';
-                        
-                        input.type == 'text' ? input.value = input.value = input.getAttribute('data-c') : ""
-                    }
-                });
-            }
-
-        } else if (estadoFase === "Atual") {
-            // const tipoFAse
-            conteudo_fase_main.classList.remove('conteudo-bloqueado');
-            conteudo_fase_feedback.classList.remove("feedback-estado")
-            
-            atualizarCor(fase);
-
-            if (tipoFase == "exercicio") {
-                conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button></div>`;
-            } else if (tipoFase == "prova") { 
-                conteudoFase.querySelector('main').classList.add('conteudo-bloqueado')
-                conteudoFase.querySelector('div').innerHTML = `<p><b>ATENÇÃO:</b> Este nível é uma prova, assim que você clicar em iniciar, você terá um determinado tempo para responder todas as questões corretamente. A aba irá se maximizar e não poderá ser minimizada nem fechada, a unica forma de sair dessa tela é entregando. Além disso, você consegue entregar apenas uma vez antes de obter sua nota. Você precisa de pelo menos SETE para passar adiante. Você pode repetir a prova quantas vezes quiser. Fechar a prova/página/aba no meio de sua execução cancelará sua tentativa e não irá salvar seus resultados, ou seja, terá que tentar novamente. </p> <button type="button" onclick="setarProva(this); resetarTimer(); iniciarTimer('info-tempo')">Começar prova</button> <hr>`
-                
-            } else if (tipoFase === "desafio") {
-                conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button><button ondblclick="this.parentElement.querySelectorAll('button').forEach(btn => btn.style.display='none'); atualizarFaseEPontuacao(this, 0);">Pular</button></div>`;
-            } else {
-                conteudoFase.innerHTML += '<div class="btn-container"><button onclick="atualizarFaseEPontuacao(this, 125)">Desbloquear próxima fase</button></div>'; // Se tiver algum erro com incrementacao de fase, tava aqui, por conta da falta de dois pontos aparantemente
-            }
-        } else if (estadoFase === "Bloqueada") {
-            fase.style.backgroundColor = "var(--nao-selecionado)";
-            fase.style.outlineColor = "var(--nao-selecionado)";
-            document.querySelector('.prova-icon').classList.add('bloqueado');
-            conteudoFase.querySelector('div').classList.add("feedback-estado");
-            conteudoFase.querySelector('main').classList.add('conteudo-bloqueado');
-        }
-    });
-}
 
 function pegarElementosProva(botao) {
     let conteudoFase = botao.parentElement.parentElement
@@ -344,11 +245,11 @@ function atualizarFaseEPontuacao(botao, pontuacao_add) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            'pontuacao_adicional': pontuacao_add
+            'pontuacao_adicional': pontuacao_add // Post pq to enviando a posicao adicional pro back
         })
     })
     .then(response => response.json())
-    .then(data => {
+    .then(data => { // Aqui está a resposta para debug que o back envia pro front como resposta
         console.log("Resposta recebida; Fase atual:", data.fase_atual);
         console.log("Pontuação atual do usuário após envio:", data.pontuacao_atual, "Pontuação adicionada:", data.pontuacao_adicionada);
         

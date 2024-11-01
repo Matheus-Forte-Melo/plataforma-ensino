@@ -13,8 +13,9 @@ urlpatterns = [
     path("settings/", views.settings, name='settings'),
     path("logout/", views.user_logout, name='logout'),
     path("about_us/", views.about_us, name="about-us"),
-
     path("worlds/1", views.world1, name='world1'),
 
-    path('worlds/atualizar_fase_e_pontuacao', views.atualizar_fase_e_pontuacao , name='atualizar_fase_e_pontuacao'),
+
+    path('worlds/atualizar_fase_e_pontuacao', views.atualizar_fase_e_pontuacao , name='atualizar_fase_e_pontuacao'), # Aqui não tem a / no final pq nunca colocamos algo na url, abaixo, como é um GET, e colocamos algo, então precisa
+    path('ranking/mostrar_mais_leaderboard/', views.leaderboard_carregar_mais, name='leaderboard_carregar_mais')
 ]

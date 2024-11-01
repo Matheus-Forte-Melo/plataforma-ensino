@@ -137,6 +137,7 @@ main {
 .ranking-pos-avatar img {
     border-radius: 100%;
     width: 65px;
+    height: 65px;
     display: block;
 }
 
@@ -152,4 +153,31 @@ main {
 
 .ranking-info p {
     display: block;
+}
+
+.loaded-avatars {
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-mostrar-mais {
+    border-radius: 35px;
+    border: none;
+    background-color: var(--vermelho_primario);
+    color: white;
+    margin: 15px auto 0 auto;
+    padding: 20px 45px 20px 45px;
+    display: block;
+}
+
+.btn-mostrar-mais:hover {
+    cursor: pointer;
+    background-color: var(--vermelho_secundario);
+}
+
+.btn-mostrar-mais:active {
+    background-color: var(--vermelho_primario);
 }
