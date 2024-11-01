@@ -1,0 +1,150 @@
+.fase {
+    /* outline-offset: 3px; */
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 10px;
+}
+
+
+/* canvas {
+    z-index: 100000;
+} */
+
+.conteudo-icon {
+    background-color: #84d260;
+    border: 3px solid var(--background_conteudo);
+    outline: 3px solid #84D260;
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+.conteudo-icon:hover {
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: scale(130%) rotate(45deg);
+}
+
+.desafio-icon {
+    background-color: #ECA72C;
+    border: 3px solid var(--background_conteudo);
+    outline: 3px solid #ECA72C;
+    border-radius: 0px;
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: rotate(45deg);
+}
+
+.desafio-icon:hover {
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: scale(130%) rotate(-5deg);
+}
+
+.exercicio-icon {
+    background-color: #C02666;
+    border: 3px solid var(--background_conteudo);
+    outline: 3px solid #C02666;
+    border-radius: 0px;
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.exercicio-icon:hover {
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: scale(130%) rotate(45deg);
+}
+
+.prova-icon {
+    background-color: #EE5622; /* Outline */
+    width: 78px;
+    height: 71px;
+    border-radius: 0px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    transform: translateX(-25px);
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.prova-icon:hover {
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: scale(115%) translateX(-15px) rotate(90deg);
+}
+
+.prova-icon::before {
+    content: '';
+    position: absolute;
+    background-color: var(--background_conteudo); /* Offset */
+    width: 68px;
+    height: 65px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); /* Mesma forma */
+}
+
+.prova-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #EE5622; /* Body */
+    width: 62px;
+    height: 59px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); /* Mesma forma */
+}
+
+.prova-icon.bloqueado::after {
+    background-color: var(--nao-selecionado); 
+}
+
+/* Posição das fases */
+
+#um {
+    left: 1260px;
+    top: 650px;
+}
+
+#dois {
+    left: 1525px;
+    top: 820px;
+}
+
+#tres {
+    left: 1790px;
+    top: 650px;
+}
+
+#quatro {
+    left: 2055px;
+    top: 820px;
+}
+
+#cinco {
+    left: 2280px;
+    top: 1020px;
+}
+
+#seis {
+    left: 2505px;
+    top: 1220px;
+}
+
+#sete {
+    left: 2730px;
+    top: 1220px;
+}
+
+#oito {
+    left: 2955px;
+    top: 1120px;
+}
+
+
+#nove {
+    left: 3120px;
+    top: 1000px;
+}
+
+
+#dez {
+    left: 3195px;
+    top: 820px;
+}
+

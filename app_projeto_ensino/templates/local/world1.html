@@ -6,18 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa de Fases</title>
-    
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'styles/geral.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/map_style.css' %}">
-    
+    <link rel="stylesheet" href="{% static 'styles/world/map_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/world/levels.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/world/contents.css' %}">
 </head>
 <body>
     <div id="info-fase" data-inicio="{{ request.user.fase }}"></div>
 
     <div class="mapa-container" id="mapaContainer">
         <!-- Mapa de Fases -->
-        {% include 'header.html' %}
+        {% include 'global/header.html' %}
         
         <div class="mapa" id="mapa">
             <div class="fase conteudo-icon" id="um" data-fase="1" title="Tutorial"></div>

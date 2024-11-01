@@ -149,7 +149,7 @@ mapaContainer.addEventListener('mousemove', (e) => {
 
 document.addEventListener('keydown', function(event) {
     if (event.code == "Space") {
-        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 2800; 
+        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 300; // Se isso varia dnv tem algum erro
         const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
         mapaContainer.scrollTo(scrollX, scrollY);
     }
