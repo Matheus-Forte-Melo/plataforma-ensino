@@ -180,4 +180,5 @@ main {
 
 .btn-mostrar-mais:active {
     background-color: var(--vermelho_primario);
+    /*background-color: var(--vermelho_secundario);*/
 }
