@@ -41,7 +41,7 @@ def signup(request):
                 messages.add_message(request, messages.ERROR, str(erro))
                 print(erro) 
     
-    return render(request, 'local/signup.html')
+    return render(request, 'global/signup.html')
 
 def signin(request):
     if request.method == "POST":
@@ -59,17 +59,17 @@ def signin(request):
             messages.add_message(request, messages.ERROR, str(erro))
             print(erro) 
 
-    return render(request, 'local/signin.html')
+    return render(request, 'global/signin.html')
 
 def home(request):
-    return render(request, 'local/homepage.html')
+    return render(request, 'global/homepage.html')
 
 
 def profile(request, pk): 
     user = models.CustomUser.objects.get(pk=pk)
 
     context = {'user': user}
-    return render(request, 'local/profile.html', context)
+    return render(request, 'global/profile.html', context)
 
 @login_required
 def profileEdit(request, pk):
@@ -87,7 +87,7 @@ def profileEdit(request, pk):
         return redirect(reverse('profile', kwargs={'pk': user.pk}))
 
     context = {'user': user}
-    return render(request, 'local/profile_edit.html', context)
+    return render(request, 'global/profile_edit.html', context)
 
 def ranking(request):
     users = models.CustomUser.objects.all().order_by('-pontuacao', '-fase').values('id', 'username', 'pontuacao', 'fase', 'avatar')
@@ -104,7 +104,7 @@ def ranking(request):
         'leaderboard': leaderboard, 
         'contador_inicial' : 3 }
     
-    return render(request, 'local/ranking.html', context)
+    return render(request, 'global/ranking.html', context)
 
 
 def leaderboard_carregar_mais(request):
@@ -129,7 +129,7 @@ def leaderboard_carregar_mais(request):
 @login_required(login_url="signin") # Usar parada de permission e acesso do django para restringir acesso aos niveis superiores
 def world1(request):
     print(request.user, request.user.fase)
-    return render(request, 'local/world1.html')
+    return render(request, 'global/world1.html')
 
 @require_POST
 def atualizar_fase_e_pontuacao(request):
@@ -160,7 +160,7 @@ def atualizar_fase_e_pontuacao(request):
         return JsonResponse({'error': f'Debug: {e}'}, status = 500)
 
 def settings(request):
-    return render(request, 'local/settings.html')
+    return render(request, 'global/settings.html')
 
 @login_required(login_url="signin")
 def user_logout(request):
@@ -168,7 +168,7 @@ def user_logout(request):
     return redirect('signin')
 
 def about_us(request):
-    return render(request, "local/about_us.html")
+    return render(request, "global/about_us.html")
 
 
 

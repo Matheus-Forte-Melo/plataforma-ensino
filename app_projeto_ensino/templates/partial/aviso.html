@@ -1,0 +1,17 @@
+{% load static %}
+
+<p class="aviso-{{ tipo }}">
+
+{% if tipo == 'verde' %}
+     <img src="{% static 'img/check-circle.svg' %}" alt="">
+{% elif tipo == 'laranja' %}
+     <img src="{% static 'img/warning-circle.svg' %}" alt="">
+{% else %}
+     <img src="{% static 'img/warning.svg' %}" alt="">
+{% endif %}
+
+{{ mensagem }}
+</p>
+
+
+

@@ -1,0 +1,41 @@
+{% load static %}
+
+<div class="conteudo exercicio" id="conteudo2">
+    <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
+    <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
+    <div></div>
+    <main>
+        <form id="formulario_fase_2" action="" >
+            <div class="questao-container">
+                <p>A fase do tipo <b>conteúdo</b> é representado pela forma e cor, respectivamente:</p>
+                <input type="radio" name="1"> Losango e verde <br>
+                <input type="radio" name="1"> Hexagono e vermelho <br>
+                <input type="radio" name="1"> Quadrado e amarelo <br>
+                <input type="radio" name="1"  value="c" class="c"> Circulo e verde <br>
+                <input type="radio" name="1"> Quadrado e     verde <br>
+            </div>
+            <div class="questao-container">
+                <p>A fase do tipo <b>prova</b> é representado pela forma e cor, respectivamente:</p>
+                <input type="radio" name="2"> Losango e verde <br>
+                <input type="radio" name="2" value="c" class="c"> Hexagono e laranja <br>
+                <input type="radio" name="2"> Quadrado e amarelo <br>
+                <input type="radio" name="2"> Hexagono e vermelho <br>
+                <input type="radio" name="2"> Quadrado e laranja <br>
+            </div>
+        
+            <div class="questao-container">
+                <p>Marque as alternativas corretas sobre o sistema de pontuação:</p>
+                <input type="checkbox" name="3" class="c"> Serve para personalizar seu perfil <br>
+                <input type="checkbox" name="4" class="c"> Serve para lhe garantir uma posição no ranking <br>
+                <input type="checkbox" name="5"> Serve para trocar por dinheiro real <br>
+                <input type="checkbox" name="6"> Serve para matar quem tiver a menor pontuação <br>
+            </div>
+        
+            <div class="questao-container">
+                <p>Digite "123123" e clique no botão ENTREGAR para enviar essa questão.</p>
+                <input type="text" name="10" data-c="123123" class="c">
+            </div>
+            <p class="feedback"></p>
+        </form>
+    </main>
+</div>

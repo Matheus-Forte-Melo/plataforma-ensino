@@ -78,5 +78,50 @@ th, td {
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: transparent;
+}
+
+.aviso-verde {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    color: #2b5b2b ;
+    background-color: #a8e6a2;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.aviso-verde img {
+    display: block;
+}
+
+.aviso-laranja {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    color: #735c0f ;
+    background-color: #ffe084;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.aviso-laranja img {
+    display: block;
+}
+
+.aviso-vermelho {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    color: #a40000;
+    background-color: #ff9999;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.aviso-vermelho img {
+    display: block;
 }

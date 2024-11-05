@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto extensionista</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="../static/styles/geral.css">
+    <link rel="stylesheet" href="../static/styles/login_signup.css">
+
+</head>
+<body>
+    <main>
+        <section class="background">
+
+        </section>
+
+        <section class="conteudo">
+            {% if messages %}
+            
+                {% for message in messages %}
+                    <li> 
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            
+            {% endif %}
+            <div class="container-conteudo">
+                <h1>Crie sua conta!</h1>
+                <p>Precisamos que você crie uma conta para salvarmos o seu progresso no curso.</p>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <label for="email"></label>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#8d99ae" viewBox="0 0 256 256"><path d="M104,152a8,8,0,0,1-8,8H56a8,8,0,0,1,0-16H96A8,8,0,0,1,104,152Zm136-36v60a16,16,0,0,1-16,16H136v32a8,8,0,0,1-16,0V192H32a16,16,0,0,1-16-16V116A60.07,60.07,0,0,1,76,56h76V24a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H168V56h12A60.07,60.07,0,0,1,240,116ZM120,176V116a44,44,0,0,0-88,0v60Zm104-60a44.05,44.05,0,0,0-44-44H168v72a8,8,0,0,1-16,0V72H116.75A59.86,59.86,0,0,1,136,116v60h88Z"></path></svg>
+                        <input required maxlength="150" placeholder="Insira seu email" type="text" id="email" name="email">
+                    </label>
+
+                    <label for="usuario">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#8d99ae" viewBox="0 0 256 256"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path></svg>
+                        <input required maxlength="150" placeholder="Crie seu nome de usuário" type="text" id="usuario" name="usuario">
+                    </label>
+
+                    <label for="senha">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#8d99ae" viewBox="0 0 256 256"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-68-56a12,12,0,1,1-12-12A12,12,0,0,1,140,152Z"></path></svg>
+                        <input required minlength="8" maxlength="21" placeholder="Crie sua senha (oito caracteres e pelo menos um numero)" type="password" pattern="(?=.*\d).+" id="senha" name="senha">
+                    </label>
+
+                    <label for="confirma_senha">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#8d99ae" viewBox="0 0 256 256"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-68-56a12,12,0,1,1-12-12A12,12,0,0,1,140,152Z"></path></svg>
+                        <input required minlength="8" maxlength="21" placeholder="Confirme sua senha" type="password" pattern="(?=.*\d).+" id="confirma_senha" name="confirma_senha">
+                    </label>
+                    <input type="submit" value="CRIAR">
+                </form>
+                <a href="{% url 'signin' %}">Já tem uma conta? Faça Login</a>
+            </div>
+        </section>
+    </main>
+    <script src="{% static 'scripts/modo_escuro_toggle.js' %}"></script>
+</body>
+</html>

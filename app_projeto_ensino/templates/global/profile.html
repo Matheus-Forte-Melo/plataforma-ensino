@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto extensionista</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'styles/geral.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/profile.css' %}">
+</head>
+<body onload="toggleTema()">
+    <div class="red-section" id="banner" style='background-color: {{ user.cor_perfil }};'>
+        {% include 'partial/header.html' %}
+    </div>
+
+    <div class="white-section">
+
+        {% if request.user.id == user.id %} <!-- Faz a comparação do usuário do perfil contra o usuário da sessão atual-->
+        <a class="edit" href="{% url 'profile-edit' user.pk %}">
+            <svg id="edit-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M227.32,73.37,182.63,28.69a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H216a8,8,0,0,0,0-16H115.32l112-112A16,16,0,0,0,227.32,73.37ZM136,75.31,152.69,92,68,176.69,51.31,160ZM48,208V179.31L76.69,208Zm48-3.31L79.32,188,164,103.31,180.69,120Zm96-96L147.32,64l24-24L216,84.69Z"></path></svg>
+            Editar
+        </a>
+        {% else %}
+
+        <div style="height: 42px;" class="edit"></div>
+
+        {% endif %}
+        
+        
+        <h1>{{ user.username }}</h1>
+        
+        <section>
+            <div class="details">
+                <p>FASE ATUAL</p>
+                {{ user.fase }}
+            </div>
+            
+            <div class="details">
+                <p>PONTUAÇÃO</p>
+                {{ user.pontuacao }}
+            </div>
+        </section>
+    </div>
+
+    <div class="circle-container">
+        <div class="circle">
+            <img src="{% static 'img/avatar/' %}{{ user.avatar }}.jpeg" id="avatar" class="avatar-image" alt="Avatar">
+            <!-- Gambiarra fudida pra não precisar usar imagefield; pensando agora, seria muito melhor, mas tamo sem tempo-->
+        </div>
+    </div>
+    
+      <!-- script temporario para alternar entre gifs de perfil temporarios. -->
+      <script src="{% static 'scripts/modo_escuro_toggle.js' %}"></script>
+      <script src="{% static 'scripts/perfil.js' %}"></script>
+
+</body>
+</html>

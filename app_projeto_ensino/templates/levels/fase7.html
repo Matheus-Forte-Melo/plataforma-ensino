@@ -1,0 +1,128 @@
+{% load static %}
+
+<div class="conteudo" id="conteudo7"> 
+    <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
+    <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="maximizarAba()"> 
+    <div></div>
+    <main>
+        <h1>Atente-se gafanhoto.</h1>
+        <p><i>shhhhhhh</i>, a próxima fase é um desafio, decida-se, se você quiser ganhar pontos extras, faça-a, se não se importar com isso, clique no botão de pular. Mas saiba, uma vez pulado, não há como voltar. Não chore pelo leite derramado.</p>
+        
+        <h1>Declaração de Variáveis</h1>
+        <p>
+            Imagine uma caixa que você pode armazenar coisas dentro dela, você tem a caixa e quer guardar algo dentro dela, como um brinquedo. 
+            Essa caixa pode ter um rótulo, assim você sabe o que tem lá dentro. Na programação, uma variável é como essa caixa: você pode 
+            guardar informações dentro dela e dar um nome para saber o que está lá.
+        </p>
+        
+        <h2>Como funciona?</h2>
+        <ul>
+            <li><strong>Nome da variável:</strong> É como o rótulo da caixa. Você escolhe um nome que faz sentido. Por exemplo, se você vai 
+            guardar a idade de uma pessoa, pode chamar a variável de idade.</li>
+            <li><strong>Valor da variável:</strong> É o que você coloca dentro da caixa. Continuando com o exemplo, se a pessoa tem 25 anos, 
+            você coloca o número 25 na variável idade.</li>
+            <li><strong>Declaração:</strong> Para criar a variável, você usa uma instrução que informa ao computador que está criando essa 
+            "caixa". Por exemplo, em muitas linguagens de programação, você escreveria algo como: <code class="language-c">idade = 25</code> (idade é o nome da 
+            variável e 25 é o valor que estamos guardando).</li>
+        </ul>
+
+        <p><strong>Resumindo:</strong></p>
+        <ul>
+            <li><strong>Variável:</strong> Caixa para armazenar informações.</li>
+            <li><strong>Nome:</strong> Rótulo da caixa.</li>
+            <li><strong>Valor:</strong> O que está dentro da caixa.</li>
+            <li><strong>Declaração:</strong> Ação de criar a caixa.</li>
+        </ul>
+
+        <p>
+            Assim, quando você precisa usar essa informação depois, basta referenciar a variável pelo nome. Se você quiser saber a idade, 
+            pode simplesmente usar <code class="language-c">idade</code> e o computador vai lembrar que é 25.
+        </p>
+
+        <h1>Comandos de Entrada e Saída</h1>
+        <h2>Entrada</h2>
+        <p>
+            É quando você quer que o computador receba informações do usuário. Por exemplo, você pode querer saber o nome ou a idade de 
+            alguém.
+        </p>
+        
+        <h2>Saída</h2>
+        <p>
+            É quando o computador mostra informações para o usuário. Por exemplo, pode mostrar uma mensagem de saudação ou a idade que foi 
+            informada.
+        </p>
+        
+        <h2>Como isso funciona em C?</h2>
+        <h3>Saída com printf</h3>
+        <p>
+            <code class="language-c">printf</code> é um comando usado para mostrar informações na tela. Imagine que você quer cumprimentar alguém. Você pode 
+            escrever:
+        </p>
+        
+        <code class="language-c">printf("Olá, mundo!\n");</code>
+
+        <p>
+            Aqui, o computador vai mostrar na tela "Olá, mundo!". O <code class="language-c">\n</code> é uma maneira de dizer ao computador para pular para a linha 
+            de baixo depois de mostrar a mensagem.
+        </p>
+
+        <h3>Entrada com scanf</h3>
+        <p>
+            <code class="language-c">scanf</code> é um comando usado para receber informações do usuário. Por exemplo, se você quer saber a idade de alguém, pode 
+            fazer assim:
+        </p>
+        
+        <code class="language-c">
+            int idade;
+            printf("Digite sua idade: ");
+            scanf("%d", &idade);
+        </code>
+
+        <p>
+            Aqui, o que acontece é:
+        </p>
+        
+        <ul>
+            <li><code class="language-c">printf</code> mostra a mensagem "Digite sua idade:" na tela.</li>
+            <li><code class="language-c">scanf</code> espera que o usuário digite um número. O <code class="language-c">%d</code> indica que estamos esperando um número inteiro, e 
+            o <code class="language-c">&idade</code> diz ao computador onde guardar esse número (na variável <code class="language-c">idade</code>).</li>
+        </ul>
+
+        <h3>Resumindo</h3>
+        <ul>
+            <li><strong>Entrada:</strong> Use <code class="language-c">scanf</code> para receber (ler) informações do usuário.</li>
+            <li><strong>Saída:</strong> Use <code class="language-c">printf</code> para mostrar informações na tela.</li>
+        </ul>
+
+        <h2>Exemplo Completo</h2>
+        <p>
+            Aqui está um pequeno exemplo que combina tudo isso:
+        </p>
+        
+        <pre>
+            <code class="language-c">
+#include &lt;stdio.h&gt;
+int main() {
+int idade;
+
+printf("Digite sua idade: ");      // Saída
+scanf("%d", &idade);               // Entrada
+
+printf("Você tem %d anos.\n", idade); // Saída
+return 0;
+}
+            </code>
+        </pre>
+
+        <p>
+            Nesse exemplo:
+        </p>
+        
+        <ul>
+            <li>O programa pede a idade do usuário.</li>
+            <li>O usuário digita a idade.</li>
+            <li>O programa mostra quantos anos a pessoa tem.</li>
+        </ul>
+
+    </main>
+</div>

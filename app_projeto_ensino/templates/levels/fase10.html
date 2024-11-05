@@ -1,0 +1,94 @@
+{% load static %}
+
+<div class="conteudo prova" id="conteudo10">
+    <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
+    <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon" onclick=" maximizarAba()">
+    <div></div>
+    <main>
+        <div id="info-tempo"></div>
+        <form id="formulario_fase_10" class="prevent-select" action="" >
+
+                <div class="questao-container">
+                    <p>1. Qual das seguintes opções melhor descreve a função de uma estrutura <code>if</code>?</p>
+                    <input type="radio" name="q1"> Executa código repetidamente até que a condição seja falsa <br>
+                    <input type="radio" name="q1" class="c" value="c"> Executa código se a condição for verdadeira <br>
+                    <input type="radio" name="q1"> Executa código com base no valor de uma variável <br>
+                    <input type="radio" name="q1"> Interrompe o fluxo do programa <br>
+                </div>
+        
+
+                <div class="questao-container">
+                    <p>2. Considere o seguinte código em C:</p>
+                    <pre>
+                        <code class="language-c">
+int idade = 20;
+
+if (idade >= 18) {
+printf("Você é maior de idade.\n");
+} else {
+printf("Você é menor de idade.\n");
+}
+                        </code>
+                    </pre>
+                    <p>Qual será a saída desse programa?</p>
+                    <input type="radio" name="q2"> Você é menor de idade. <br>
+                    <input type="radio" name="q2" class="c" value="c"> Você é maior de idade. <br>
+                    <input type="radio" name="q2"> Nenhuma das opções <br>
+                </div>
+        
+
+                <div class="questao-container">
+                    <p>3. O que o comando <code>else if</code> permite que o programador faça?</p>
+                    <input type="radio" name="q3"> Repetir código até que uma condição seja verdadeira <br>
+                    <input type="radio" name="q3" class="c" value="c"> Verificar múltiplas condições em sequência <br>
+                    <input type="radio" name="q3"> Interromper a execução de um programa <br>
+                    <input type="radio" name="q3"> Alterar o valor de uma variável automaticamente <br>
+                </div>
+        
+
+                <div class="questao-container">
+                    <p>4. Qual das seguintes sentenças sobre a estrutura <code>switch</code> é <strong>correta</strong>?</p>
+                    <input type="radio" name="q4" class="c" value="c"> <code>switch</code> é usado para selecionar um bloco de código com base no valor de uma expressão <br>
+                    <input type="radio" name="q4"> <code>switch</code> permite testar múltiplas condições lógicas <br>
+                    <input type="radio" name="q4"> <code>switch</code> é sempre mais eficiente que <code>if</code> <br>
+                    <input type="radio" name="q4"> <code>switch</code> deve ser usado apenas para comparar strings <br>
+                </div>
+        
+
+                <div class="questao-container">
+                    <p>5. Qual é a função do comando <code>break</code> dentro de um <code>switch</code>?</p>
+                    <input type="radio" name="q5" class="c" value="c"> Encerra a execução do bloco de código <br>
+                    <input type="radio" name="q5"> Continua executando o próximo bloco <br>
+                    <input type="radio" name="q5"> Interrompe o programa inteiro <br>
+                    <input type="radio" name="q5"> Apenas altera o valor da variável usada no <code>switch</code> <br>
+                </div>
+
+                <div class="questao-container">
+                    <p>6. Em um teste condicional, qual operador lógico deve ser usado para verificar se duas condições são verdadeiras ao mesmo tempo?</p>
+                    <input type="radio" name="q7"> <code>||</code> (OU) <br>
+                    <input type="radio" name="q7"> <code>!</code> (NÃO) <br>
+                    <input type="radio" name="q7" class="c" value="c"> <code>&&</code> (E) <br>
+                    <input type="radio" name="q7"> Nenhuma das opções <br>
+                </div>
+        
+
+                <div class="questao-container">
+                    <p>7. Considere o código abaixo. Qual será a saída se <code>idade</code> for igual a 17 e <code>carteira</code> for 0?</p>
+                    <pre><code class="language-c">
+int idade = 17;
+int carteira = 0;
+
+if (idade >= 18 && carteira == 1) {
+printf("Você pode dirigir.\n");
+} else {
+printf("Você não pode dirigir.\n");
+}
+                    </code></pre>
+                    <input type="radio" name="q8"> Você pode dirigir. <br>
+                    <input type="radio" name="q8" class="c" value="c"> Você não pode dirigir. <br>
+                </div>
+            <p class="feedback"></p>
+        </form>
+    </main>
+    
+</div>

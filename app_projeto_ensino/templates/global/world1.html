@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Fases</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+
+    <!-- Locais -->
+    <link rel="stylesheet" href="{% static 'styles/geral.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/world/map_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/world/levels.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/world/contents.css' %}">
+
+    <!-- Exterior -->
+    <link href="{% static 'styles/prism.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div id="info-fase" data-inicio="{{ request.user.fase }}"></div>
+
+    <div class="mapa-container" id="mapaContainer">
+        <!-- Mapa de Fases -->
+        {% include 'partial/header.html' %}
+        
+        <div class="mapa" id="mapa">
+            <div class="fase conteudo-icon" id="um" data-fase="1" title="Tutorial"></div>
+            <div class="fase exercicio-icon" id="dois" data-fase="2" title="Exercicio referente ao tutorial"></div>
+            <div class="fase conteudo-icon" id="tres" data-fase="3" title="Lógica de Programação"></div>
+            <div class="fase conteudo-icon" id="quatro" data-fase="4" title="Fluxogramas"></div>
+            <div class="fase exercicio-icon" id="cinco" data-fase="5" title="Exercicios referentes à logica de programação e fluxogramas"></div>
+            <div class="fase conteudo-icon" id="seis" data-fase="6" title="Estrura de Código em C"></div>
+            <div class="fase conteudo-icon" id="sete" data-fase="7" title="Declaração de variáveis e comandos de entrada e saída"></div>
+            <div class="fase desafio-icon" id="oito" data-fase="8" title="Desafio Opcional"></div>
+            <div class="fase conteudo-icon" id="nove" data-fase="9" title="Estruturas de controle"> </div>
+            <div class="fase prova-icon" id="dez" data-fase="10" title="Prova revisando todos os conhecimentos até aqui"></div>
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+    
+    <!-- Aba Lateral -->
+    <div class="aba-lateral" id="abaLateral">
+        
+        {% include 'levels/fase1.html' %}
+        
+        {% include 'levels/fase2.html' %}
+
+        {% include 'levels/fase3.html' %}
+
+        {% include 'levels/fase4.html' %}
+
+        {% include 'levels/fase5.html' %}
+
+        {% include 'levels/fase6.html' %}
+
+        {% include 'levels/fase7.html' %}
+        
+        {% include 'levels/fase8.html' %}
+
+        {% include 'levels/fase9.html' %}
+
+        {% include 'levels/fase10.html' %}
+    </div>
+
+    <script src="{% static 'scripts/map_script.js' %}"></script> <!-- A lógica de exibição -->
+    <script src="{% static 'scripts/logica_conteudo.js' %}"> </script> <!-- A lógica por tras de requests e restricoes --> 
+    <script src="{% static 'scripts/modo_escuro_toggle.js' %}"></script>
+    <script src="{% static 'scripts/prism.js' %}"></script> <!-- Pra deixar o codigo bunitinho -->
+
+</body>
+</html>

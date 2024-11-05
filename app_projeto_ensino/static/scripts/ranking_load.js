@@ -3,8 +3,14 @@ var offset = 10;
 
 async function carregarMais(botao) {
     
-    botao.textContent = "Aguarde...";
+    botao.innerHTML = `<div class="dot-falling"></div>`;
 
+    // const pausar = (tempo) => {
+    //     return new Promise(resolve => setTimeout(resolve, tempo));
+    // };
+
+    // await pausar(10000); 
+    
     try {
         const response = await fetch(`mostrar_mais_leaderboard/?offset=${offset}`);
         offset += 10; 
