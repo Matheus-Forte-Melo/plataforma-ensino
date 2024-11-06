@@ -1,5 +1,4 @@
 body {
-    height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(../img/background.jpg);
@@ -22,18 +21,17 @@ body {
     cursor: auto;
 }
 
-
 main {
     margin-top: 22px;
     display: flex;
 }
 
 section {
-    width: 50%;;
+    width: 50%;
 }
 
 .content {
-    padding: 0px 0px 20px 110px;
+    padding: 0px 0px 20px 5%;
     margin-top: 75px;
 }
 
@@ -60,7 +58,7 @@ h1, h2 {
 p {
     margin-top: 35px;
     font-size: 1.35em;
-    width: 78%;
+    /* width: 78%; */
 }
 
 button {
@@ -85,4 +83,127 @@ button:hover {
     background-image: url(../img/bg3_s.png);
     background-repeat: no-repeat;
     height: 795px;
+    overflow: hidden;
+}
+
+/* ============= Media Queries ============= */
+
+@media screen and (max-height: 950px) {
+    body {
+        height: 100vh;
+    }
+
+    .bg {
+        height: 650px;
+    }
+}
+
+@media screen and (max-width: 1700px) {
+    .content {
+        width: 60%;
+    }
+
+    .title1 {
+        font-size: 4em;
+        height: 60px;
+    }
+
+    .title2 {
+        font-size: 5.15em;
+        height: 85px;
+    }
+
+    .sub-title {
+        font-size: 2.15em;
+        color: var(--vermelho_primario);
+    }
+
+    .bg {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    body {
+        height: 100vh;
+    }
+
+    .bg {
+        display: none;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    p {
+        width: 75%;
+        font-size: 0.8em;
+    }
+
+    .title1 {
+        font-size: 3.2em;
+        height: 50px;
+    }
+
+    .title2 {
+        font-size: 4em;
+        height: 60px;
+    }
+
+    .sub-title {
+        font-size: 2.60em;
+        color: var(--vermelho_primario);
+    }
+
+    p {
+        margin-top: 35px;
+        font-size: 1.35em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    p, h1, h2 {
+        text-align: center;
+    }
+
+    p {
+        font-size: 1em;
+        display: block;
+        margin: auto;
+        width: 90%;
+    }
+
+    .content {
+        padding: 0;
+    }
+
+    .title2 {
+        display: none;
+    }
+
+    .title1 {
+        height: 30px;
+        font-size: 1.9em;
+    }
+
+    .title1::after {
+        content: " extensionista";
+    }
+
+    .title {
+        display: none;
+    }
+
+    .sub-title {
+        margin-bottom: 20px;
+        font-size: 1.55em;
+        color: var(--vermelho_primario);
+    }
+
+    .button-a {
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
 }

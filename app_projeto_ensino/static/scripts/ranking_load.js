@@ -35,7 +35,7 @@ function mostrarDadosLeaderBoard(data, botao) {
         for (user of data) {
             pos_leaderboard++;
 
-            leaderboard.innerHTML += `<a href="/profile/${user.id}"><div class="ranking"><div class="ranking-pos-avatar"><div> ${pos_leaderboard}° </div><div class="loaded-avatars" id="${user.avatar}"></div></div><div class="ranking-info"><p>${user.username}</p><p>fase ${user.fase}</p><p>${user.pontuacao} pontos</p></div></div></a>`;
+            leaderboard.innerHTML += `<a href="/profile/${user.id}"><div class="ranking"><div class="ranking-pos-avatar"><div> ${pos_leaderboard}° </div><div class="loaded-avatars" id="${user.avatar}"></div></div><div class="ranking-info"><p class="table-first-data">${user.username}</p><p class="table-middle-data">fase ${user.fase}</p><p class="table-last-data">${user.pontuacao} pontos</p></div></div></a>`;
         }
     } else {
         let main = botao.parentElement;

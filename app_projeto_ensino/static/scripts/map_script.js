@@ -92,13 +92,22 @@ function tratarFaseDesbloqueada(fase, num_fase, tipoFase, conteudoFase, conteudo
 // Função que conecta as fases com base na pontuacao e nível atual.
 
 function conectarFases() {
+    const tema = localStorage.getItem('theme');
+
     fases_pos.forEach((fase, index, array) => {
         if (index + 2 <= fase_atual && array[index+1] !== undefined) {
            
             context.beginPath()
             context.moveTo(fase.x, fase.y)
             context.lineTo(array[index+1].x, array[index+1].y)
-            context.strokeStyle = "#6d6d6d"
+            
+            if (tema === "dark") {
+                context.strokeStyle = "#344d69"
+            } else {
+                context.strokeStyle = "#808080"  
+            }
+            
+
             context.lineWidth = 1;
             context.stroke()
             

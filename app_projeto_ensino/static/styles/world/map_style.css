@@ -45,7 +45,6 @@ header > nav {
     cursor: auto;
 }
 
-
 .header-shift-out {
     transform: translateX(100%);
 }
@@ -126,6 +125,8 @@ header > nav {
     height: 100vh; 
     right: -104%; /* Alterar esse valor com media queries */
 }
+
+
 
 
 

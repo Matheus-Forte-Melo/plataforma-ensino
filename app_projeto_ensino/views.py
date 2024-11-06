@@ -77,12 +77,22 @@ def profileEdit(request, pk):
 
     if (user.id != request.user.id):
         return HttpResponseForbidden("<p>Perai irmão, nerá pra você estar aqui não</p>")
-    
 
     if request.method == 'POST':
-        user.avatar = request.POST.get('selected_avatar')
-        user.cor_perfil = request.POST.get('rgba_color')
-        user.save()
+        updated = False
+        selected_avatar = request.POST.get('selected_avatar')
+        rgba_color = request.POST.get('rgba_color')
+
+        if selected_avatar != "":
+            user.avatar = selected_avatar
+            updated = True
+        
+        if rgba_color != "":
+            user.cor_perfil = rgba_color
+            updated = True
+
+        if updated:
+            user.save()
 
         return redirect(reverse('profile', kwargs={'pk': user.pk}))
 

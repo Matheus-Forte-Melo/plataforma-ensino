@@ -14,8 +14,27 @@
     <link rel="stylesheet" href="{% static 'styles/world/levels.css' %}">
     <link rel="stylesheet" href="{% static 'styles/world/contents.css' %}">
 
-    <!-- Exterior -->
-    <link href="{% static 'styles/prism.css' %}" rel="stylesheet" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tema = localStorage.getItem('theme');
+            let link = document.createElement('link')
+            link.rel = 'stylesheet'
+
+            if (tema == 'dark') {
+                link.href = '{% static "styles/prism-dark.css" %}'
+            } else {
+                link.href = '{% static "styles/prism.css" %}'
+            }
+
+            document.head.appendChild(link);
+
+            })
+
+    </script>
+
+    
+
+
 </head>
 <body>
     <div id="info-fase" data-inicio="{{ request.user.fase }}"></div>

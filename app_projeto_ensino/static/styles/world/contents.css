@@ -1,3 +1,5 @@
+
+
 .ui-icon-container {
     position: sticky;
     background-color: #84D260;
@@ -86,14 +88,15 @@ th {
     align-items: center;
     gap: 5px;
     position: relative;
-    color: #2b5b2b ;
-    background-color: #a8e6a2;
+    color: var(--aviso-verde-color);
+    background-color: var(--aviso-verde-background-color);
     padding: 15px;
     border-radius: 10px;
 }
 
-.aviso-verde img {
+.aviso-verde svg {
     display: block;
+    fill: var(--aviso-icon-verde-fill);
 }
 
 .aviso-laranja {
@@ -101,14 +104,15 @@ th {
     align-items: center;
     gap: 5px;
     position: relative;
-    color: #735c0f ;
-    background-color: #ffe084;
+    color: var(--aviso-laranja-color);
+    background-color: var(--aviso-laranja-background-color);
     padding: 15px;
     border-radius: 10px;
 }
 
-.aviso-laranja img {
+.aviso-laranja svg {
     display: block;
+    fill: var(--aviso-icon-laranja-fill);
 }
 
 .aviso-vermelho {
@@ -116,12 +120,13 @@ th {
     align-items: center;
     gap: 5px;
     position: relative;
-    color: #a40000;
-    background-color: #ff9999;
+    color: var(--aviso-vermelho-color);
+    background-color: var(--aviso-vermelho-background-color);
     padding: 15px;
     border-radius: 10px;
 }
 
-.aviso-vermelho img {
+.aviso-vermelho svg {
     display: block;
+    fill: var(--aviso-icon-vermelho-fill);
 }

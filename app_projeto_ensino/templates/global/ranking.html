@@ -61,9 +61,9 @@
                             <img class="ranking-avatar" src="{% static 'img/avatar/' %}{{ user.avatar }}.jpeg" alt="">
                         </div>
                         <div class="ranking-info">
-                            <p>{{user.username}}</p>
-                            <p>fase {{user.fase}}</p>
-                            <p>{{user.pontuacao}} pontos</p>
+                            <p class="table-first-data">{{user.username}}</p>
+                            <p class="table-middle-data">fase {{user.fase}}</p>
+                            <p class="table-last-data">{{user.pontuacao}} pontos</p>
                         </div>
                     </div>
                 </a>
