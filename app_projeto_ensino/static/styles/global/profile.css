@@ -88,6 +88,12 @@ a:hover > svg#edit-icon {
 }
 
 h1 {
+    margin: auto;
+    white-space: nowrap;
+    width: 400px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
     font-size: 2.5em;
     margin-top: 85px;
     text-align: center;
@@ -120,11 +126,16 @@ section {
 
 @media screen and (max-width: 500px) {
     section {
+        margin-top: 70px;
         gap: 10px ;
     }
 }
 
 @media screen and (max-width: 400px) {
+    h1 {
+        width: 300px;
+    }
+
     .white-section {
         height: 275px;
     }
