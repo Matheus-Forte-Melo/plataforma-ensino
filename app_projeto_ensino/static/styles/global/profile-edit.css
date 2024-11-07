@@ -1,6 +1,11 @@
+html {
+  height: 100vh;
+}
+
 body {
     height: 100vh;
     display: flex;
+    background-color: var(--vermelho_secundario)
 }
 
 #color-input {
@@ -34,7 +39,7 @@ canvas:hover {
     background-color: var(--vermelho_secundario);
     
     width: 55%;
-    height: 100%;
+    height: 100vh;
 
     align-items: center;
     justify-content: center;
@@ -44,13 +49,13 @@ canvas:hover {
 .avatar-container {
     display: flex;
     flex-wrap: wrap;
-    flex-shrink: none;
+    flex-shrink: 0;
 
     padding: 5px;
     border: 2px solid var(--background_geral);
     background-color: var(--background_geral);
     height: 285px;
-    overflow: scroll;
+    overflow-y: scroll;
     gap: 10px;
     justify-content: space-evenly;
 }
@@ -74,9 +79,8 @@ canvas:hover {
 
 .controls {
     background-color: var(--background_conteudo);
-    
     width: 75%;
-    height: 85%;
+    height: auto;
     padding: 20px;
     border-radius: 30px;
     box-shadow: -4px 3px 5px rgba(0, 0, 0, 0.281);
@@ -89,7 +93,6 @@ canvas:hover {
     margin: 0;
 }
 
-
 .control h2 {
     font-size: 2.15em;
     margin: 0;
@@ -100,7 +103,7 @@ canvas:hover {
 .profile-preview {
     background-color: var(--background_geral);
     width: 45%;
-    height: 100%;
+    height: 100vh;
 
     box-shadow: -6px 0px 5px rgba(0, 0, 0, 0.235);
 }
@@ -148,7 +151,13 @@ a {
 }
 
 .buttons {
-    display: flex; gap: 15px; margin-top: 20px;
+    display: flex;
+    gap: 15px; 
+    margin-top: 10px;
+}
+
+.buttons button {
+  width: 125px;
 }
 
 /* Definições de avatar */ 
@@ -161,116 +170,183 @@ a {
   background-size: cover;
 }
 
+/* Media Queries */
+
+@media screen and (max-width: 1024px) {
+
+  p {
+    font-size: 0.9em;
+  }
+
+  .avatar-container {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 145px;
+    overflow-x: scroll;
+    overflow-y: unset;
+  }
+
+  .avatar-container div {
+    flex-shrink: 0;
+  }
+
+  .profile-edit {
+    width: 65%;
+  }
+
+  .profile-preview {
+    width: 35%;
+  }
+
+  .controls {
+    height: 650px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+
+  .controls {
+    height: auto;
+  }
+
+  .profile-edit {
+    width: 100%;
+  }
+
+  .profile-preview {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 300px) {
+
+  p {
+    text-align: center;
+    margin: 15px;
+  }
+
+  .profile-edit {
+    border-radius: 0;
+  }
+  
+  .controls {
+    border-radius: 0;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
   /* Backgrounds específicos para cada ID */
   #avt1 {
-    background-image: url('../img/avatar/avt1.jpeg');
+    background-image: url('../../img/avatar/avt1.jpeg');
   }
   
   #avt2 {
-    background-image: url('../img/avatar/avt2.jpeg');
+    background-image: url('../../img/avatar/avt2.jpeg');
   }
   
   #avt3 {
-    background-image: url('../img/avatar/avt3.jpeg');
+    background-image: url('../../img/avatar/avt3.jpeg');
   }
   
   #avt4 {
-    background-image: url('../img/avatar/avt4.jpeg');
+    background-image: url('../../img/avatar/avt4.jpeg');
   }
   
   #avt5 {
-    background-image: url('../img/avatar/avt5.jpeg');
+    background-image: url('../../img/avatar/avt5.jpeg');
   }
   
   #avt6 {
-    background-image: url('../img/avatar/avt6.jpeg');
+    background-image: url('../../img/avatar/avt6.jpeg');
   }
   
   #avt7 {
-    background-image: url('../img/avatar/avt7.jpeg');
+    background-image: url('../../img/avatar/avt7.jpeg');
   }
   
   #avt8 {
-    background-image: url('../img/avatar/avt8.jpeg');
+    background-image: url('../../img/avatar/avt8.jpeg');
   }
   
   #avt9 {
-    background-image: url('../img/avatar/avt9.jpeg');
+    background-image: url('../../img/avatar/avt9.jpeg');
   }
   
   #avt10 {
-    background-image: url('../img/avatar/avt10.jpeg');
+    background-image: url('../../img/avatar/avt10.jpeg');
   }
   
   #avt11 {
-    background-image: url('../img/avatar/avt11.jpeg');
+    background-image: url('../../img/avatar/avt11.jpeg');
   }
   
   #avt12 {
-    background-image: url('../img/avatar/avt12.jpeg');
+    background-image: url('../../img/avatar/avt12.jpeg');
   }
   
   #avt13 {
-    background-image: url('../img/avatar/avt13.jpeg');
+    background-image: url('../../img/avatar/avt13.jpeg');
   }
   
   #avt14 {
-    background-image: url('../img/avatar/avt14.jpeg');
+    background-image: url('../../img/avatar/avt14.jpeg');
   }
   
   #avt15 {
-    background-image: url('../img/avatar/avt15.jpeg');
+    background-image: url('../../img/avatar/avt15.jpeg');
   }
   
   #avt16 {
-    background-image: url('../img/avatar/avt16.jpeg');
+    background-image: url('../../img/avatar/avt16.jpeg');
   }
   
   #avt17 {
-    background-image: url('../img/avatar/avt17.jpeg');
+    background-image: url('../../img/avatar/avt17.jpeg');
   }
   
   #avt18 {
-    background-image: url('../img/avatar/avt18.jpeg');
+    background-image: url('../../img/avatar/avt18.jpeg');
   }
   
   #avt19 {
-    background-image: url('../img/avatar/avt19.jpeg');
+    background-image: url('../../img/avatar/avt19.jpeg');
   }
   
   #avt20 {
-    background-image: url('../img/avatar/avt20.jpeg');
+    background-image: url('../../img/avatar/avt20.jpeg');
   }
   
   #avt21 {
-    background-image: url('../img/avatar/avt21.jpeg');
+    background-image: url('../../img/avatar/avt21.jpeg');
   }
   
   #avt22 {
-    background-image: url('../img/avatar/avt22.jpeg');
+    background-image: url('../../img/avatar/avt22.jpeg');
   }
   
   #avt23 {
-    background-image: url('../img/avatar/avt23.jpeg');
+    background-image: url('../../img/avatar/avt23.jpeg');
   }
   
   #avt24 {
-    background-image: url('../img/avatar/avt24.jpeg');
+    background-image: url('../../img/avatar/avt24.jpeg');
   }
   
   #avt25 {
-    background-image: url('../img/avatar/avt25.jpeg');
+    background-image: url('../../img/avatar/avt25.jpeg');
   }
   
   #avt26 {
-    background-image: url('../img/avatar/avt26.jpeg');
+    background-image: url('../../img/avatar/avt26.jpeg');
   }
   
   #avt27 {
-    background-image: url('../img/avatar/avt27.jpeg');
+    background-image: url('../../img/avatar/avt27.jpeg');
   }
   
   #avt28 {
-    background-image: url('../img/avatar/avt28.jfif');
+    background-image: url('../../img/avatar/avt28.jfif');
   }
   

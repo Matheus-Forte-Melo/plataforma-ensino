@@ -1,7 +1,7 @@
 body {
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(../img/background.jpg);
+    background-image: url(../../img/background.jpg);
 }
 
 #homepage-a {
@@ -80,7 +80,7 @@ button:hover {
 .bg {   
     width: 60%;
     background-size: contain;
-    background-image: url(../img/bg3_s.png);
+    background-image: url(../../img/bg3_s.png);
     background-repeat: no-repeat;
     height: 795px;
     overflow: hidden;
@@ -125,8 +125,8 @@ button:hover {
 
 @media screen and (max-width: 1080px) {
     body {
-        height: 100vh;
-    }
+        background-image: none;
+    } 
 
     .bg {
         display: none;
@@ -162,7 +162,9 @@ button:hover {
     }
 }
 
+
 @media screen and (max-width: 768px) {
+
     p, h1, h2 {
         text-align: center;
     }

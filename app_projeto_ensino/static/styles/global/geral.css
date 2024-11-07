@@ -44,7 +44,7 @@
 
 @font-face {
     font-family: "Inter";
-    src: url(../font/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
+    src: url(../../font/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
 }
 
 .first_a {
