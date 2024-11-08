@@ -326,6 +326,17 @@ main {
 
 
 }
+
+@media screen and (max-width: 800px) {
+        body {
+            position: relative;
+        }
+
+        main {
+            margin-top: 0px;
+            transform: translateY(2%);
+        }
+    }
  
 @media screen and (max-width: 578px) {
     .leaderboard p {

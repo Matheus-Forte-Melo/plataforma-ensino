@@ -42,7 +42,8 @@ body {
     left: 50%;
     transform: translate(-50%, 50px);
     width: 200px;
-    height: 200px;    
+    height: 200px;   
+    z-index: 0; 
     /* Certifique-se de que o círculo esteja acima das seções */
 }
 

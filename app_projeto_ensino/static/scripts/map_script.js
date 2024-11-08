@@ -300,3 +300,15 @@ window.onload = () => {
         ajustarTela()
     }, 25); // Pequeno atraso para garantir que o conteúdo esteja carregado
 };
+
+/*Controles do header*/
+
+let botao = document.getElementById('hamburguinho')
+let nav = document.querySelector('nav')
+let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+
+function toggleHeader() {
+    header.classList.toggle('hidden_header')
+}
+
+botao.addEventListener('click', toggleHeader) 

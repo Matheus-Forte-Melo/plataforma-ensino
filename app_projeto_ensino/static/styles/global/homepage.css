@@ -98,6 +98,12 @@ button:hover {
     }
 }
 
+/* @media screen and (max-height: 630px) {
+    section.content {
+        margin-top: 30px;
+    }
+} */
+
 @media screen and (max-width: 1700px) {
     .content {
         width: 60%;
@@ -162,6 +168,11 @@ button:hover {
     }
 }
 
+@media screen and (max-width: 800px) {
+    .content {
+        margin: 0;
+    }
+}
 
 @media screen and (max-width: 768px) {
 

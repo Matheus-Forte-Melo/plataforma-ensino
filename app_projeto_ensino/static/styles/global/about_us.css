@@ -107,6 +107,21 @@ section p {
     }
 }
 
+@media screen and (max-width: 800px) {
+
+        body {
+            position: relative;
+        }
+
+        header {
+            position: absolute;
+        }
+
+        main {
+            transform: translateY(5%);
+        }
+    }
+
 @media screen and (max-width: 768px) {
     header {
         height: 100px;
@@ -155,3 +170,5 @@ section p {
         font-size: 0.85em;
     }
 }
+
+
