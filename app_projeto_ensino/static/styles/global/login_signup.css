@@ -115,4 +115,138 @@ input[type="submit"]:hover {
     background-color: var(--vermelho_primario);
 }
 
+@media screen and (max-width: 1680px) {
+    input#email {
+        font-size: 0.8em;
+    }
+
+    input#usuario {
+        font-size: 0.8em;
+    }
+
+    input#confirma_senha {
+        font-size: 0.8em;
+    }
+
+    input#senha {
+        font-size: 0.8em;
+    }
+}
+
+
+@media screen and (max-width: 1440px) {
+    .conteudo {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    main {
+        position: relative;
+        align-items: center;
+    }
+
+    .background {
+        width: 100vw;
+        background-position: top left;
+        background-size: 250%;
+    }
+
+    .conteudo { 
+        padding: 35px;
+        position: absolute;
+        right: 20%;
+        height: 650px;
+        border-radius: 20px;
+    }
+
+    input {
+        width: 100% !important; 
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .conteudo {
+        height: 550px;
+        width: 60%;
+        right: 15%;
+
+        min-width: 400px;
+    }
+
+    .background {
+        background-size: 270%;
+    }
+    
+
+    h1 {
+        font-size: 3em
+    }
+
+    p {
+        font-size: 1.15em;
+    }
+
+    input#email {
+        font-size: 0.7em;
+    }
+
+    input#usuario {
+        font-size: 0.7em;
+    }
+
+    input#confirma_senha {
+        font-size: 0.7em;
+    }
+
+    input#senha {
+        font-size: 0.7em;
+    }
+
+}
+
+@media screen and (max-width: 680px) {
+    body {
+        height: 100vh;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    p {
+        font-size: 0.95em;
+    }
+
+    .background {
+        display: none;
+    }
+
+    .conteudo {
+        padding: 10px;
+        width: 100%;
+        height: 100vh ;
+        position: static;
+        right: 0;
+
+        min-width: 100px;
+    }
+
+    input {
+        width: 85% !important;
+    }
+
+    svg {
+        width: 25px;
+        height: 25px;
+    }
+
+}
+
+@media screen and (max-width: 440px) {
+    #temp svg {
+        display: none;
+    }
+}
+
 
