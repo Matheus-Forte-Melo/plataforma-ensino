@@ -81,6 +81,7 @@ header > nav {
     top: 0;
     padding: 20px;
     box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
     transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
     z-index: 100;
     overflow: scroll;
@@ -105,7 +106,6 @@ header > nav {
 .conteudo.ativo {
     display: block;
     text-align: justify;
-
 }
 
 .conteudo-bloqueado {
@@ -126,7 +126,55 @@ header > nav {
     right: -104%; /* Alterar esse valor com media queries */
 }
 
+@media screen and (max-width: 1150px) {
+    .aba-lateral {
+        width: 45%;
+        right: -52%;
+        top: 0;
+        padding: 25px;
+    }
 
+    .maximizado {
+        padding: 15px 0px 0px 0px;
+        transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
+        width: 104%; 
+        height: 100vh; 
+        right: -104%; /* Alterar esse valor com media queries */
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .aba-lateral {
+        opacity: 0%;
+    }
+
+    .aba-lateral.ativa {
+        opacity: 100%;
+    }
+
+    .maximizado > .conteudo {
+        width: 65% !important;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .header-shift-out {
+        transform: translateY(-200%);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .ui-icon.maximizar-btn {
+        display: none !important;
+    }
+
+    .maximizado > .conteudo {
+        width: 75% !important;
+        text-align: left;
+    }
+
+}
 
 
 

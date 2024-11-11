@@ -1,6 +1,18 @@
 // Declaração de variáveis
 // Nota: Algumas variáveis utilizadas neste bloco de código são criadas no arquivo "lógica_conteudo.js", e vice versa.
 
+let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+let mobile = vw <= 700
+
+checarTela()
+window.addEventListener('resize', checarTela)
+
+function checarTela() {
+    let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+    vw <= 700 ? mobile = true : mobile = false
+
+}
+
 let header = document.getElementsByTagName('header')[0]
 let aba_lateral = document.getElementById('abaLateral')
 
@@ -129,8 +141,6 @@ function atualizarFases() {
         let conteudo_fase_main = conteudoFase.querySelector('main')
         let conteudo_fase_feedback = conteudoFase.querySelector('div')  
 
-        // Talvez TIRAR isso daqui de dentro, porque a complexidade fica ALTA DEMAIS, mas isso é pra quando eu migrar essa bomba de funcao pra outro lugar
-
         if (estadoFase === "Desbloqueada") {
             tratarFaseDesbloqueada(fase, num_fase, tipoFase, conteudoFase, conteudo_fase_feedback)
         } else if (estadoFase === "Atual") {
@@ -191,6 +201,10 @@ function surgirHeader() {
 function abrirAba(fase) {
     let conteudoFase = document.getElementById('conteudo' + fase);
     aba_lateral.classList.add('ativa');
+
+    mobile == true ? aba_lateral.classList.add('maximizado') : null
+
+    console.log(mobile)
     
     document.querySelectorAll('.conteudo').forEach(el => el.classList.remove('ativo'));
     conteudoFase.classList.add('ativo');
@@ -205,12 +219,10 @@ function abrirAba(fase) {
 
 function retornarAba() {
     aba_lateral.classList.remove('ativa');
-    
+    aba_lateral.classList.remove('maximizado')
     pararTimer();
-    
     surgirHeader();
 }
-
 
 function maximizarAba() {
     aba_lateral.classList.toggle('maximizado'); 
@@ -225,90 +237,114 @@ document.querySelectorAll('.fase').forEach(fase => {
 });
 
 // ==============================  Comportamento de arraste  ====================================== 
-const mapaContainer = document.getElementById('mapaContainer');
 let isDragging = false;
 let startX, startY, scrollLeft, scrollTop;
 
-// Iniciar o arraste
-mapaContainer.addEventListener('mousedown', (e) => {
+mapaContainer.addEventListener('mousedown', iniciarArraste);
+mapaContainer.addEventListener('touchstart', iniciarArraste);
+
+function iniciarArraste(e) {
     isDragging = true;
     mapaContainer.style.cursor = 'grabbing';
-    startX = e.pageX - mapaContainer.offsetLeft;
-    startY = e.pageY - mapaContainer.offsetTop;
+
+    // Verifica se o evento é de touch screen. Caso contrário, usa eveno de arraste, e não de toque.
+    const event = e.type === 'touchstart' ? e.touches[0] : e;
+    startX = event.pageX - mapaContainer.offsetLeft;
+    startY = event.pageY - mapaContainer.offsetTop;
     scrollLeft = mapaContainer.scrollLeft;
     scrollTop = mapaContainer.scrollTop;
-});
-
-function pegarPosicaoArraste() {
-    return {'top': mapaContainer.scrollTop, 'left': mapaContainer.scrollLeft}
 }
 
-function salvarPosicaoArraste() {
-    let pos = pegarPosicaoArraste()    
-    localStorage.setItem('pos_top', pos['top'])
-    localStorage.setItem('pos_left', pos['left'])   
-}
-
-function ajustarTela() {
-    if (localStorage.getItem('pos_top') === null || localStorage.getItem('pos_left') === null) {
-        var scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 300;
-        var scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540
-    } else {
-        var scrollY = localStorage.getItem('pos_top')
-        var scrollX = localStorage.getItem('pos_left')
-    }
-    
-    mapaContainer.scrollTo(scrollX, scrollY);
-}
-
-// Parar o arraste
 const stopDragging = () => {
-    salvarPosicaoArraste()
-    isDragging = false;
-    mapaContainer.style.cursor = 'grab';
+    if (isDragging) {
+        salvarPosicaoArraste();
+        isDragging = false;
+        mapaContainer.style.cursor = 'grab';
+    }
 };
 
+// // Event listeners ara dispotivos com clique
 mapaContainer.addEventListener('mouseup', stopDragging);
-mapaContainer.addEventListener('mouseleave', stopDragging); // Corrige o bug
+mapaContainer.addEventListener('mouseleave', stopDragging);
+mapaContainer.addEventListener('touchend', stopDragging);
+// Event listeners ara dispotivos touch-screen
+mapaContainer.addEventListener('mousemove', moverArraste);
+mapaContainer.addEventListener('touchmove', moverArraste);
 
-// Continuar o arraste enquanto o mouse se move
-mapaContainer.addEventListener('mousemove', (e) => {
+function moverArraste(e) {
     if (!isDragging) return;
     e.preventDefault();
-    const x = e.pageX - mapaContainer.offsetLeft;
-    const y = e.pageY - mapaContainer.offsetTop;
+
+    const event = e.type === 'touchmove' ? e.touches[0] : e;
+    const x = event.pageX - mapaContainer.offsetLeft;
+    const y = event.pageY - mapaContainer.offsetTop;
     const walkX = x - startX;
     const walkY = y - startY;
     mapaContainer.scrollLeft = scrollLeft - walkX;
     mapaContainer.scrollTop = scrollTop - walkY;
-});
+}
+
+function pegarPosicaoArraste() {
+    return { 'top': mapaContainer.scrollTop, 'left': mapaContainer.scrollLeft };
+}
+
+function salvarPosicaoArraste() {
+    let pos = pegarPosicaoArraste();
+    localStorage.setItem('pos_top', pos['top']);
+    localStorage.setItem('pos_left', pos['left']);
+}
+
+function ajustarTela() {
+    let scrollX, scrollY;
+    if (localStorage.getItem('pos_top') === null || localStorage.getItem('pos_left') === null) {
+        if (mobile) {
+            scrollX = 1137;
+            scrollY = 408;
+        } else {
+            scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 300;
+            scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
+        }
+    } else {
+        scrollY = parseInt(localStorage.getItem('pos_top'));
+        scrollX = parseInt(localStorage.getItem('pos_left'));
+    }
+    mapaContainer.scrollTo(scrollX, scrollY);
+}
+
+window.onload = () => {
+    setTimeout(() => ajustarTela(), 25);
+};
 
 document.addEventListener('keydown', function(event) {
     if (event.code == "Space") {
-        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 300; // Se isso varia dnv tem algum erro
+        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 300;
         const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
         mapaContainer.scrollTo(scrollX, scrollY);
     }
-})
+});
 
-// Cursor inicial
 mapaContainer.style.cursor = 'grab';
 
-// Centralizar o mapa no carregamento da página
-window.onload = () => {
-    setTimeout(() => {
-        ajustarTela()
-    }, 25); // Pequeno atraso para garantir que o conteúdo esteja carregado
-};
 
 /*Controles do header*/
 
-let botao = document.getElementById('hamburguinho')
-let nav = document.querySelector('nav')
-let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+let botao = document.getElementById('hamburguinho');
+let estado_header = sessionStorage.getItem('header-state');
 
 function toggleHeader() {
-    header.classList.toggle('hidden_header')
+    header.classList.toggle('hidden_header');
+
+    if (header.classList.contains('hidden_header')) {
+        sessionStorage.setItem('header-state', 'closed'); 
+    } else {
+        sessionStorage.setItem('header-state', 'open'); 
+    }
 }
 
-botao.addEventListener('click', toggleHeader) 
+botao.addEventListener('click', toggleHeader);
+
+if (estado_header === 'open') {
+    header.classList.remove('hidden_header'); 
+} else {
+    header.classList.add('hidden_header'); 
+}

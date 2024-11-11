@@ -1,12 +1,21 @@
-let botao = document.getElementById('hamburguinho')
-
-let header = document.querySelector('header')
-
-let nav = document.querySelector('nav')
-let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+let botao = document.getElementById('hamburguinho');
+let header = document.querySelector('header');
+let estado_header = sessionStorage.getItem('header-state');
 
 function toggleHeader() {
-    header.classList.toggle('hidden_header')
+    header.classList.toggle('hidden_header');
+
+    if (header.classList.contains('hidden_header')) {
+        sessionStorage.setItem('header-state', 'closed'); 
+    } else {
+        sessionStorage.setItem('header-state', 'open'); 
+    }
 }
 
-botao.addEventListener('click', toggleHeader) 
+botao.addEventListener('click', toggleHeader);
+
+if (estado_header === 'open') {
+    header.classList.remove('hidden_header'); 
+} else {
+    header.classList.add('hidden_header'); 
+}

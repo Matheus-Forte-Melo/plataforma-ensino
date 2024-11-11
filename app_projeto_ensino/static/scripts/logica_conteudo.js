@@ -1,8 +1,6 @@
 /* Declaração de variáveis globais */
 const fase_inicial = Number(document.getElementById("info-fase").getAttribute('data-inicio'));
 let fase_atual = fase_inicial;
-
-
 let tentativas = 1;
 /* Fim das declarações*/ 
 

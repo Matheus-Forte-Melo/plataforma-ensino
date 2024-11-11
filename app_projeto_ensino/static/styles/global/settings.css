@@ -161,6 +161,10 @@ a {
 }
 
 @media screen and (max-width: 800px) {
+    /* body {
+        position: relative;
+    } */
+
    #caixa {
     transform: translateY(-40%);
     z-index: -10000;
