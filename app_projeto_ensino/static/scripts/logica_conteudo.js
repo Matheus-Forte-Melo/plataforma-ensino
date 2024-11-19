@@ -261,10 +261,14 @@ function atualizarFaseEPontuacao(botao, pontuacao_add) {
     .catch(error => console.error('Erro:', error));
 }
 
-document.querySelectorAll('input[type="text"]').forEach(form => {
-    form.addEventListener('keypress', function(e) {
-        if (e.keycode == 13) {
-            e.preventDefault();
-        }
-    });
-});
+function desativarComportamento(event) {
+    if (event.key == "Enter") {
+        event.preventDefault()
+    }
+}
+
+const inputsText = Array.from(document.querySelectorAll('input[type="text"]'))
+for (const input of inputsText) {
+    input.addEventListener('keydown', desativarComportamento)
+}
+

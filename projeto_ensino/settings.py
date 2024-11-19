@@ -71,23 +71,23 @@ WSGI_APPLICATION = 'projeto_ensino.wsgi.application'
 
 
 # ====================== DATABASE LOCAL
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'lHlcxdfcJOGxwTIYzYMkpkUJnrGEHGhk',
-        'HOST': 'junction.proxy.rlwy.net',
-        'PORT': '36949',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'lHlcxdfcJOGxwTIYzYMkpkUJnrGEHGhk',
+#         'HOST': 'junction.proxy.rlwy.net',
+#         'PORT': '36949',
+#     }
+# }
 
 
 # Password validation

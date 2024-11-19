@@ -43,9 +43,9 @@ body {
     transform: translate(-50%, 50px);
     width: 200px;
     height: 200px;   
-    z-index: 0; 
     /* Certifique-se de que o círculo esteja acima das seções */
 }
+
 
 .circle {
     background-color: var(--background_geral);
@@ -125,6 +125,14 @@ section {
     margin-bottom: 15px;
 }
 
+@media screen and (max-width: 800px) {
+    .circle {
+        transform: translate(10%, 25px);
+        width: 162px;
+        height: 162px;
+    }
+}
+
 @media screen and (max-width: 500px) {
     section {
         margin-top: 70px;
@@ -139,6 +147,7 @@ section {
 
     .white-section {
         height: 275px;
+
     }
 
     section {
