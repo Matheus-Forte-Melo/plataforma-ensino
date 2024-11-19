@@ -261,6 +261,8 @@ function atualizarFaseEPontuacao(botao, pontuacao_add) {
     .catch(error => console.error('Erro:', error));
 }
 
+/* Configurações de comportamento de input e form  */
+
 function desativarComportamento(event) {
     if (event.key == "Enter") {
         event.preventDefault()
@@ -271,4 +273,16 @@ const inputsText = Array.from(document.querySelectorAll('input[type="text"]'))
 for (const input of inputsText) {
     input.addEventListener('keydown', desativarComportamento)
 }
+
+const formularios = document.querySelectorAll('form');
+
+formularios.forEach((formulario) => {
+    formulario.addEventListener('submit', (event) => {
+        const activeElement = document.activeElement; 
+        if (activeElement.tagName === "INPUT" && activeElement.type === "text") {
+            event.preventDefault();
+            console.log(`Envio bloqueado para o formulário com ID: ${formulario.id}`);
+        }
+    });
+});
 

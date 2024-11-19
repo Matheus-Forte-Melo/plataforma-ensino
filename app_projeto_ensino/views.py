@@ -32,11 +32,11 @@ def signup(request):
 
         except Exception as erro:
             if "UNIQUE constraint" in str(erro) and "email" in str(erro):
-                print(f"O email {email} já esta sendo utilizado outro usuário.")
                 messages.add_message(request, messages.ERROR, f"O email {email} já esta sendo por utilizado outro usuário.")
             elif "UNIQUE constraint" in str(erro) and "username" in str(erro):
-                print(f"O nome de usuário {username} já esta sendo utilizado outro usuário.")
                 messages.add_message(request, messages.ERROR, f"O nome de usuário {username} já esta sendo utilizado outro usuário.")
+            elif "UNIQUE constraint" in str(erro) and "email" in str(erro):
+                messages.add_message(request, messages.ERROR, f"O email inserido já esta sendo utilizado em outra conta.")
             else:
                 messages.add_message(request, messages.ERROR, str(erro))
                 print(erro) 
