@@ -323,6 +323,25 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+let lastTouchTime = 0;
+
+document.addEventListener('touchstart', function () {
+    // Estou usando o tempo reak mesmo, mas um timer fario o mesmo truque. 
+    // Nesta funcão estou comparando o horario atual com o horario do ultimo toque, se o intervalo entre os dois horarios for maior que certos 
+    // milisegundos, então ele irá centralizar
+    const currentTime = new Date().getTime();
+    const tapInterval = currentTime - lastTouchTime;
+
+    if (tapInterval < 150 && tapInterval > 0) { 
+        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 300;
+        const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
+        mapaContainer.scrollTo(scrollX, scrollY);
+
+    }
+
+    lastTouchTime = currentTime; 
+});
+
 mapaContainer.style.cursor = 'grab';
 
 

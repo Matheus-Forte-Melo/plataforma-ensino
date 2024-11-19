@@ -38,8 +38,8 @@ def signup(request):
             elif "UNIQUE constraint" in str(erro) and "email" in str(erro):
                 messages.add_message(request, messages.ERROR, f"O email inserido já esta sendo utilizado em outra conta.")
             else:
-                messages.add_message(request, messages.ERROR, str(erro))
-                print(erro) 
+                print(erro)
+                messages.add_message(request, messages.ERROR, "Erro inesperado, tente novamente mais tarde.")
     
     return render(request, 'global/signup.html')
 

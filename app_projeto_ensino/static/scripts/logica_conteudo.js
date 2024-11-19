@@ -135,6 +135,7 @@ function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
     } else {
         tentativas++
         feedback.innerHTML = "Ops, uma ou mais questões estão incorretas e/ou não foram preenchidas, tente novamente.";
+        botao.scrollIntoView({behavior: 'smooth'})
     }
 }
 
