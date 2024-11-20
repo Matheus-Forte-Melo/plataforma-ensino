@@ -1,0 +1,113 @@
+{% load static %}
+
+<div class="conteudo" id="conteudo6">
+    <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
+    <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
+    <div></div>
+
+    <main>
+        <h1>Estrutura do código em C</h1>
+        <h2>Variáveis</h2>
+        <table>
+            <tr>
+                <th>Tipo</th>
+                <th>Descrição</th>
+                <th>Exemplo</th>
+            </tr>
+            <tr>
+                <td>%i</td>
+                <td>int</td>
+                <td>Nº inteiros</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>-1, 0, 6, 43...</td>
+            </tr>
+            <tr>
+                <td>%f</td>
+                <td>float</td>
+                <td>Nº reais</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>2.3, 8.1, 9.01...</td>
+            </tr>
+            <tr>
+                <td>%c</td>
+                <td>char</td>
+                <td>Letras</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>a, b, f, m, *</td>
+            </tr>
+        </table>
+
+        <h2>1. Início do programa e inclusão de bibliotecas:</h2>
+        <p>As bibliotecas que utilizamos geralmente são a <code class="language-c">stdio.h</code> e <code class="language-c">stdlib.h</code>.</p>
+        <ul>
+            <li><code class="language-c">stdio.h</code>: Focada em operações de entrada e saída, incluindo leitura/escrita de dados no console e manipulação de arquivos.</li>
+            <li><code class="language-c">stdlib.h</code>: Fornece funções para manipulação de memória, conversão de tipos de dados, controle de processo, ordenação, busca, e geração de números aleatórios.</li>
+        </ul>
+        <p>Essas bibliotecas são fundamentais e amplamente utilizadas na programação em C.</p>
+        <p>Sua inclusão no programa C ficará:</p>
+        <code class="language-c">
+            #include &lt;stdio.h&gt;
+            #include &lt;stdlib.h&gt;
+        </code>
+
+        <h2>2. Declaração da função principal:</h2>
+        <code class="language-c">
+            int main() {
+        </code>
+        <p>Objetivo: Definir a função principal do programa onde a execução começa. Todo programa deve ter uma função <code class="language-c">main</code>.</p>
+
+        <h2>3. Declaração de variáveis:</h2>
+        <code class="language-c">
+            float fahrenheit, celsius;
+        </code>
+        <p>Objetivo: Declarar duas variáveis do tipo <code class="language-c">float</code> para armazenar a temperatura em fahrenheit e a temperatura convertida em celsius.</p>
+
+        <h2>4. Solicitação da temperatura em fahrenheit:</h2>
+        <code class="language-c">
+            printf("DIGITE A TEMPERATURA EM GRAUS FAHRENHEIT (°F): ");
+        </code>
+        <p>Objetivo: Exibir uma mensagem para o usuário, pedindo que insira a temperatura em fahrenheit.</p>
+        <code class="language-c">
+            scanf("%f", &fahrenheit);
+        </code>
+        <p>Objetivo: Ler o valor inserido pelo usuário e armazená-lo na variável <code class="language-c">fahrenheit</code>, <code class="language-c">%f</code> é o especificador de formato para números de ponto flutuante.</p>
+
+        <code class="language-c">
+            fflush(stdin);
+        </code>
+        <p>Objetivo: Limpar o buffer de saída.</p>
+
+        <h2>5. Conversão da temperatura:</h2>
+        <p>Sabendo que a fórmula para converter celsius para fahrenheit é:</p>
+        <code class="language-c">
+            Celsius = 5 * (fahrenheit - 32) / 9;
+        </code>
+        <p>Objetivo: Aplicar a fórmula de conversão de fahrenheit para celsius.</p>
+        <p>Explicação:</p>
+        <ul>
+            <li>Subtrair 32: Ajusta a base da escala fahrenheit para a base celsius.</li>
+            <li>Multiplicar por 5: Escala a diferença para o sistema celsius.</li>
+            <li>Dividir por 9: Ajuda a proporção correta entre duas escalas de temperatura.</li>
+        </ul>
+
+        <h2>6. Exibição do resultado:</h2>
+        <code class="language-c">
+            printf("A temperatura em graus Celsius (°C) é: %.2f\n", celsius);
+        </code>
+        <p>Objetivo: Exibir a temperatura convertida em celsius na tela, <code class="language-c">%.2f</code> limita o valor a duas casas decimais.</p>
+
+        <h2>7. Retorno de valor para indicar o término do programa:</h2>
+        <code class="language-c">
+            return 0;
+        </code>
+    </main>
+</div>
