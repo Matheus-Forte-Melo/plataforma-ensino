@@ -1,59 +1,106 @@
 {% load static %}
 
-<div class="conteudo exercicio" id="conteudo5">
+<div class="conteudo" id="conteudo5">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
 
     <main>
-        <form id="formulario_fase_5" action="">
-            <div class="questao-container">
-                <p>Por que a lógica de programação é crucial para resolução de problemas? (Marque todas as opções corretas)</p>
-                <input type="checkbox" name="1" class="c"> Ajuda a decompor problemas complexos em etapas menores <br>
-                <input type="checkbox" name="2"> É apenas uma técnica para programar <br>
-                <input type="checkbox" name="3"> Aumenta a quantidade de código a ser escrito <br>
-                <input type="checkbox" name="4" class="c"> Melhora a eficiência e clareza do código <br>
-                <input type="checkbox" name="5"> Não tem impacto no desenvolvimento <br>
-            </div>
-    
-            <div class="questao-container">
-                <p>Qual é uma das bases para escrever código em qualquer linguagem de programação?</p>
-                <input type="radio" name="6" value="c" class="c"> A lógica de programação <br>
-                <input type="radio" name="6"> O uso de variáveis <br>
-                <input type="radio" name="6"> O conhecimento de frameworks <br>
-                <input type="radio" name="6"> A sintaxe da linguagem <br>
-                <input type="radio" name="6"> O design do software <br>
-            </div>
-    
-            <div class="questao-container">
-                <p>Qual dos seguintes é um exemplo de pensamento condicional?</p>
-                <input type="radio" name="7" value="c" class="c"> Executar uma ação se uma condição for verdadeira <br>
-                <input type="radio" name="7"> Repetir um bloco de código várias vezes <br>
-                <input type="radio" name="7"> Atribuir um valor a uma variável <br>
-                <input type="radio" name="7"> Declarar uma função <br>
-                <input type="radio" name="7"> Criar uma lista de elementos <br>
-            </div>
-    
-            <div class="questao-container">
-                <p>Qual forma é usada para representar uma decisão em um fluxograma?</p>
-                <input type="radio" name="8" value="c" class="c"> Losango <br>
-                <input type="radio" name="8"> Retângulo com bordas arredondadas <br>
-                <input type="radio" name="8"> Paralelogramo <br>
-                <input type="radio" name="8"> Retângulo normal <br>
-                <input type="radio" name="8"> Círculo <br>
-            </div>
-    
-            <div class="questao-container">
-                <p>O que as setas representam em um fluxograma?</p>
-                <input type="radio" name="9" value="c" class="c"> O fluxo do processo <br>
-                <input type="radio" name="9"> A entrada de dados <br>
-                <input type="radio" name="9"> Um ponto de decisão <br>
-                <input type="radio" name="9"> O início do programa <br>
-                <input type="radio" name="9"> A saída do programa <br>
-            </div>
-    
-            <p class="feedback"></p>
-        </form>
+        <h1>Introdução à Programação e Primeiro Programa</h1>
+        <section>
+            <h2>Conceitos Básicos</h2>
+            <p><strong>O que é programação?</strong> Programação é o processo de criar instruções para que um computador realize tarefas. Essas instruções são escritas em linguagens específicas que o computador pode interpretar e executar.</p>
+            {% include 'partial/aviso.html' with tipo="laranja" mensagem="Programas são resultado da programação. TODO Aplicativo que você usa no seu dia-a-dia é programado. O que muda entre eles são suas tecnologias, que pouco importam para o usuário final." %}                
+        </section>
+
+        <section>
+            <h2>Linguagens de Programação</h2>
+                <p>As linguagens de programação permitem que os desenvolvedores criem instruções que os computadores entendam. Elas podem ser divididas em:</p>
+                <ul>
+                    <li><strong>Alto nível:</strong> Mais próximas da linguagem humana, como Python e Java. Mais fáceis de entender e usar.</li>
+                    <li><strong>Baixo nível:</strong> Mais próximas da linguagem de máquina, como Assembly. São mais difíceis, mas oferecem maior controle sobre o hardware.</li>
+                </ul>
+            
+                <p>A linguagem C é uma das mais importantes no mundo da programação. É eficiente, flexível e amplamente usada para sistemas operacionais, desenvolvimento embarcado e principalmente <b>no aprendizado de conceitos fundamentais</b>, e é por isso que iremos utilizá-lo.</p>
+        </section>
+
+        <section>
+            <h2>Compiladores e Linguagem de Máquina</h2>
+            <ul>
+                <li>
+                    <strong>O que é um compilador?</strong> 
+                    Um compilador é um programa que converte o código escrito pelo programador em linguagem de máquina (binário), que é a única linguagem que o computador pode entender diretamente.
+                </li>
+                <li>
+                    <strong>Por que é importante?</strong> 
+                    Ele garante que o código seja traduzido corretamente, permitindo que os programas funcionem em diferentes plataformas e sistemas operacionais.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Configuração do Ambiente</h2>
+            
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/00cTn4-xxrY?si=rhJEfmDXAXsACoeo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <p>Para começar a programar em C, é necessário configurar o ambiente de desenvolvimento. Use os links abaixo para baixar e instalar o <strong>DEV-C++</strong>, um IDE simples e eficiente para iniciantes:</p>
+            <ul>
+                <li><a href="https://sourceforge.net/projects/orwelldevcpp/" target="_blank">Download do DEV-C++</a></li>
+                <li>Após a instalação, configure o compilador e verifique se ele está funcionando corretamente executando um programa básico, como "Olá mundo!". O vídeo acima aborda rapidamente como fazer essa questão.</li>
+
+                {% include 'partial/aviso.html' with tipo="verde" mensagem="Não se preocupe se você não entender o que está acontencendo! Todos os conteúdos que você precisa saber sobre a estrutura de um programa utilizando a linguagem C estarão nas proximas fases" %}
+                
+            </ul>
+        </section>
     </main>
     
 </div>
+
+<!-- <form id="formulario_fase_5" action="">
+    <div class="questao-container">
+        <p>Por que a lógica de programação é crucial para resolução de problemas? (Marque todas as opções corretas)</p>
+        <input type="checkbox" name="1" class="c"> Ajuda a decompor problemas complexos em etapas menores <br>
+        <input type="checkbox" name="2"> É apenas uma técnica para programar <br>
+        <input type="checkbox" name="3"> Aumenta a quantidade de código a ser escrito <br>
+        <input type="checkbox" name="4" class="c"> Melhora a eficiência e clareza do código <br>
+        <input type="checkbox" name="5"> Não tem impacto no desenvolvimento <br>
+    </div>
+
+    <div class="questao-container">
+        <p>Qual é uma das bases para escrever código em qualquer linguagem de programação?</p>
+        <input type="radio" name="6" value="c" class="c"> A lógica de programação <br>
+        <input type="radio" name="6"> O uso de variáveis <br>
+        <input type="radio" name="6"> O conhecimento de frameworks <br>
+        <input type="radio" name="6"> A sintaxe da linguagem <br>
+        <input type="radio" name="6"> O design do software <br>
+    </div>
+
+    <div class="questao-container">
+        <p>Qual dos seguintes é um exemplo de pensamento condicional?</p>
+        <input type="radio" name="7" value="c" class="c"> Executar uma ação se uma condição for verdadeira <br>
+        <input type="radio" name="7"> Repetir um bloco de código várias vezes <br>
+        <input type="radio" name="7"> Atribuir um valor a uma variável <br>
+        <input type="radio" name="7"> Declarar uma função <br>
+        <input type="radio" name="7"> Criar uma lista de elementos <br>
+    </div>
+
+    <div class="questao-container">
+        <p>Qual forma é usada para representar uma decisão em um fluxograma?</p>
+        <input type="radio" name="8" value="c" class="c"> Losango <br>
+        <input type="radio" name="8"> Retângulo com bordas arredondadas <br>
+        <input type="radio" name="8"> Paralelogramo <br>
+        <input type="radio" name="8"> Retângulo normal <br>
+        <input type="radio" name="8"> Círculo <br>
+    </div>
+
+    <div class="questao-container">
+        <p>O que as setas representam em um fluxograma?</p>
+        <input type="radio" name="9" value="c" class="c"> O fluxo do processo <br>
+        <input type="radio" name="9"> A entrada de dados <br>
+        <input type="radio" name="9"> Um ponto de decisão <br>
+        <input type="radio" name="9"> O início do programa <br>
+        <input type="radio" name="9"> A saída do programa <br>
+    </div>
+
+    <p class="feedback"></p>
+</form> -->

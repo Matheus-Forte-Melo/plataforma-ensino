@@ -186,15 +186,6 @@ function unsetarAmbienteProva(botao) {
     
 }
 
-function pegarEstadoFase(num_fase, fase_atual) {
-    if (num_fase < fase_atual) {
-        return 'Desbloqueada';
-    } else if (num_fase == fase_atual) { // Mudei para == invez de ===, se der merda a partir de agr sei que é daqui.
-        return 'Atual';
-    } else {
-        return 'Bloqueada';
-    }
-}
 function atualizarCor(fase) {
     const cores = {
         "conteudo-icon": "#84D260",

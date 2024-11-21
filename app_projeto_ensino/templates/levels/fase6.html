@@ -1,12 +1,56 @@
 {% load static %}
 
-<div class="conteudo" id="conteudo6">
+<div class="conteudo prova" id="conteudo6">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
-
+    
     <main>
-        <h1>Estrutura do código em C</h1>
+        <div id="info-tempo"></div>
+        {% include 'partial/aviso.html' with tipo="verde" mensagem="Essa é sua primeira avaliação. Boa sorte!" %}
+        <form id="formulario_fase_6" class="prevent-select" action="">
+            
+            <div class="questao-container">
+                <p>Qual é o principal objetivo da lógica de programação?</p>
+                <input type="radio" name="1"> Criar interfaces bonitas. <br>
+                <input type="radio" name="1"> Substituir a matemática na programação. <br>
+                <input type="radio" name="1"> Executar tarefas manuais de forma automática. <br>
+                <input type="radio" name="1" class="c" value="c"> Resolver problemas de forma sistemática. <br>
+            </div>
+        
+            <div class="questao-container">
+                <p>Quais são as características de uma linguagem de programação de alto nível?</p>
+                <input type="radio" name="2"> É mais próxima da linguagem de máquina e difícil de usar. <br>
+                <input type="radio" name="2" class="c" value="c"> É mais próxima da linguagem humana e fácil de entender. <br>
+                <input type="radio" name="2"> Oferece maior controle sobre o hardware. <br>
+                <input type="radio" name="2"> É específica para sistemas operacionais. <br>
+                <input type="radio" name="2"> É usada exclusivamente para jogos. <br>
+            </div>
+        
+            <div class="questao-container">
+                <p>Sobre a linguagem C, quais afirmações são <strong>verdadeiras</strong>?</p>
+                <input type="checkbox" name="3"> É conhecida por ser apenas uma linguagem de baixo nível. <br>
+                <input type="checkbox" name="4" class="c"> É amplamente utilizada para aprender conceitos fundamentais de programação. <br>
+                <input type="checkbox" name="5" class="c"> É eficiente e flexível para diversos tipos de desenvolvimento. <br>
+                <input type="checkbox" name="6"> Foi criada exclusivamente para sistemas embarcados. <br>
+                <input type="checkbox" name="7" class="c"> É base para muitas outras linguagens de programação modernas. <br>
+            </div>
+        
+            <div class="questao-container">
+                <p>Qual é o papel de um compilador?</p>
+                <input type="radio" name="8" class="c" value="c"> Traduzir o código-fonte em linguagem de máquina. <br>
+                <input type="radio" name="8"> Executar diretamente o código sem tradução. <br>
+                <input type="radio" name="8"> Facilitar o design de interfaces gráficas. <br>
+                <input type="radio" name="8"> Permitir a comunicação entre diferentes computadores. <br>
+                <input type="radio" name="8"> Criar ambientes gráficos interativos. <br>
+            </div>
+        
+            <p class="feedback"></p>
+        </form>
+    </main>
+</div>
+
+<!-- <h1>Estrutura do código em C</h1>
         <h2>Variáveis</h2>
         <table>
             <tr>
@@ -108,6 +152,4 @@
         <h2>7. Retorno de valor para indicar o término do programa:</h2>
         <code class="language-c">
             return 0;
-        </code>
-    </main>
-</div>
+        </code> -->

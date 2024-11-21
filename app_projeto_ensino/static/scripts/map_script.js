@@ -6,6 +6,7 @@ let mobile = vw <= 700
 
 checarTela()
 window.addEventListener('resize', checarTela)
+ajustarTela()
 
 function checarTela() {
     let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
@@ -52,12 +53,13 @@ let timer;
 function tratarFaseBloqueada(fase, conteudoFase) {
     fase.style.backgroundColor = "var(--nao-selecionado)";
     fase.style.outlineColor = "var(--nao-selecionado)";
-    document.querySelector('.prova-icon').classList.add('bloqueado');
+    // document.querySelector('.prova-icon').classList.add('bloqueado');
     conteudoFase.querySelector('div').classList.add("feedback-estado");
     conteudoFase.querySelector('main').classList.add('conteudo-bloqueado');
 }
 
 function tratarFaseAtual(fase, tipoFase, conteudoFase ,conteudo_fase_main, conteudo_fase_feedback) {
+    // fase.classList.remove("bloqueado")
     conteudo_fase_main.classList.remove('conteudo-bloqueado');
     conteudo_fase_feedback.classList.remove("feedback-estado")
      
@@ -127,6 +129,17 @@ function conectarFases() {
     })
 }
 
+function pegarEstadoFase(num_fase, fase_atual) {
+    if (num_fase < fase_atual) {
+        return 'Desbloqueada';
+    } else if (num_fase == fase_atual) { // Mudei para == invez de ===, se der merda a partir de agr sei que é daqui.
+        return 'Atual';
+    } else {
+        return 'Bloqueada';
+    }
+    
+}
+
 /* Funcão central da disposição de estado de fases e mapa. */
 
 function atualizarFases() { 
@@ -136,6 +149,7 @@ function atualizarFases() {
     for (fase of fases) { 
         let num_fase = Number(fase.getAttribute('data-fase'));
         let conteudoFase = document.getElementById("conteudo" + num_fase);
+        console.log(conteudoFase)
         const tipoFase = conteudoFase.classList[1]; // Mudei isso de lugar, ele tava no "Ativo" antes
         let estadoFase = pegarEstadoFase(num_fase, fase_atual);
         let conteudo_fase_main = conteudoFase.querySelector('main')
@@ -294,6 +308,7 @@ function salvarPosicaoArraste() {
     localStorage.setItem('pos_left', pos['left']);
 }
 
+
 function ajustarTela() {
     let scrollX, scrollY;
     if (localStorage.getItem('pos_top') === null || localStorage.getItem('pos_left') === null) {
@@ -310,10 +325,6 @@ function ajustarTela() {
     }
     mapaContainer.scrollTo(scrollX, scrollY);
 }
-
-window.onload = () => {
-    setTimeout(() => ajustarTela(), 25);
-};
 
 document.addEventListener('keydown', function(event) {
     if (event.code == "Space") {

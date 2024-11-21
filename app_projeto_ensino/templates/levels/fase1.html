@@ -1,27 +1,98 @@
 {% load static %} 
 
 <div class="conteudo" id="conteudo1">
-    <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
-    <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar"  class="ui-icon maximizar-btn" onclick=" maximizarAba()">
-    <div></div>
-    <main>  
-        <h1>Seja bem vindo!</h1>
-        <p>Aqui, introduziremos você a nosso sistema de níveis e pontuação.</p>
-        <h2>Fases</h2>
-        {% include 'partial/aviso.html' with tipo="verde" mensagem="Fique com o mouse por cima do icone das fases para saber do que se tratam!" %}
-        {% include 'partial/aviso.html' with tipo="laranja" mensagem="Fique com o mouse por cima do icone das fases para saber do que se tratam!" %}
-        {% include 'partial/aviso.html' with tipo="vermelho" mensagem="Fique com o mouse por cima do icone das fases para saber do que se tratam!" %}
-        <ul>
-            <li><b>Conteúdo</b>: Esta fase é uma fase de conteúdo! Aqui, apresentaremos a parte mais teórica do assunto. No mapa, é representado por circulo verde.</li>
-            <li><b>Exercicio</b>: São fases que possuem um exercício com n numeros de questões. Você precisa acertar tudo para avançar, pois, precisamos ter certeza de que você realmente aprendeu tudo que tinha para aprender para que você consiga prosseguir. No mapa, é representado por um quadrado vermelho.</li>
-            <li><b>Desafio</b>: São fases opcionais, que são geralmente mais desafiadoras, exigem um pensamento fora da caixa, porém, são totalmente realizáveis com o conhecimento que você já adquiriu até o determinado momento que você decide clicar na fase. "Tá, se são opcionais, porque devo fazé-las? posso simplesmente pular nerrr". Escute aqui meu jovem gafanhoto, essas fases além de te darem pontos extras (que lhe dão o poder de costumizar seu perfil) também fazem você evoluir como desenvolvedor, já que pensar fora da caixa é comum nesse trabalho; lembre-se, estamos te preparando para o futuro. Essas fases são representadas por losangos amarelos.</li>
-            <li><b>Prova</b>: São o "Boss Final" do mundo. Aqui, você precisará responder e acertar, sem consulta, todas as questões. Mas não se preocupe, você pode ficar tentando até conseguir acertar, mas até lá, não te falaremos o que você fez de errado. Representados por hexagonos laranjas.</li>
-        </ul>
-        <img class="conteudo-img" src="{% static 'img/world1/exemplo_niveis.png' %}" alt="">
-        <h2>Pontuação</h2>
-        <h3>Formas de ganhar pontos</h3>
-        <p>Não revelaremos como o sistema de pontuação funciona; porém, saiba que, quanto mais complecionista, veloz e certeiro você for, com mais pontos você será recompensado.</p>
-        <h3>O que fazer com seus pontos</h3>
-        <p>Você irá conseguir alocar um lugar no ranking e além disso ganhará costumizações para seu perfil.</p>
-    </main>
+    <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()" />
+    <img src="{% static 'img/resize-fill.svg' %}" alt="Maximizar" class="ui-icon maximizar-btn" onclick="maximizarAba()" />
+    <div></div> <!-- Essa DIV vazia é necessária -->
+    <main>
+        <h1>Bem-vindo ao Nosso Curso de Introdução a Programação!</h1>
+        <p>Prepare-se para embarcar em uma jornada de aprendizado que vai desafiar sua lógica, sua criatividade e seu conhecimento. Antes de começar, vamos explicar como nosso sistema de navegação e de pontução funciona. Ao final, vamos te dar um vislumbre do que você será capaz de produzir SOZINHO ao final do curso (Não se assuste!).</p>
+        
+        <section>
+            <h2>Fases</h2>
+            {% include 'partial/aviso.html' with tipo="verde" mensagem="Passe o mouse sobre os ícones das fases para saber mais sobre elas!" %}
+            <ul>
+                <li>
+                    <b>Conteúdo</b>: Esta é uma fase dedicada à teoria. Aqui, você aprenderá conceitos importantes que servirão de base para os próximos desafios, tal qual sugestões de Exercicios Opcionais para você práticar. Essas fases são representadas por um círculo verde.
+                </li><br>
+                <li>
+                    <b>Exercício</b>: Teste seu aprendizado com questões objetivas! Para avançar, você precisa acertar todas as questões, mas não se preocupe! você tem tentativas infinitas (Cuidado para não falhar TANTAS vezes, você vai ganhar menos pontos). Essas fases são representadas por um quadrado vermelho.
+                </li><br>
+                <li>
+                    <b>Desafio</b>: Fases opcionais, mas altamente recomendadas! Elas são mais desafiadoras e exigem pensamento criativo, muitos pontos. Essas fases são representadas por um losango amarelo.
+                </li><br>
+                <li>
+                    <b>Prova</b>: São como chefões de um jogo. Você precisará responder corretamente a todas as questões para avançar, sem consultas, com um temporizador e valendo NOTA. Você poderá tentar várias vezes, mas só verá o resultado final quando conseguir acertar o determinado número de questões para concluir a prova. Essas fases são representadas por um hexágono laranja.
+                </li><br>
+                <small>- Veja abaixo uma representação visual dessas fases:</small><br>
+            </ul>
+            <img class="conteudo-img" src="{% static 'img/world1/exemplo_niveis.png' %}" alt="Exemplo de níveis">
+        </section>
+    
+        <section>
+            <h2>Pontuação</h2>
+            <h3>Como ganhar pontos?</h3>
+            <p>O sistema de pontuação é baseado em sua performance. Quanto mais rápido, certeiro e dedicado você for, mais pontos irá acumular.</p>
+            {% include 'partial/aviso.html' with tipo="laranja" mensagem="Use seus pontos para subir no ranking e personalizar seu perfil. Quanto mais pontos, mais opções exclusivas estarão disponíveis para você." %}
+            <p></p>
+        </section>
+    
+        <section>
+            <h2>Como navegar pelo mapa</h2>
+            <ul>
+                <li><b>Para fechar ou minimizar:</b> Use os botões no topo da página (<img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon"> para fechar e <img src="{% static 'img/resize-fill.svg' %}" alt="Maximizar" class="ui-icon"> para minimizar).</li>
+                <li><b>No PC:</b> Clique e arraste para navegar pelo mapa. Para recentralizar, pressione a barra de espaço.</li>
+                <li><b>No celular:</b> Navegue arrastando a tela com um dedo. Para recentralizar o mapa, dê um duplo toque na tela.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>O que você vai conseguir fazer de olhos fechados até o fim do curso:</h2>
+<pre><code class="language-c">
+    #include &lt;stdio.h&gt;
+
+    int main() {
+        char operador;
+        double num1, num2, resultado;
+    
+        printf("Calculadora simples em C\n");
+        printf("Escolha uma operação (+, -, *, /): ");
+        scanf(" %c", &operador);
+    
+        printf("Digite o primeiro número: ");
+        scanf("%lf", &num1);
+    
+        printf("Digite o segundo número: ");
+        scanf("%lf", &num2);
+    
+        switch (operador) {
+            case '+':
+                resultado = num1 + num2;
+                printf("Resultado: %.2lf\n", resultado);
+                break;
+            case '-':
+                resultado = num1 - num2;
+                printf("Resultado: %.2lf\n", resultado);
+                break;
+            case '*':
+                resultado = num1 * num2;
+                printf("Resultado: %.2lf\n", resultado);
+                break;
+            case '/':
+                if (num2 != 0) {
+                    resultado = num1 / num2;
+                    printf("Resultado: %.2lf\n", resultado);
+                } else {
+                    printf("Erro: Divisão por zero não é permitida.\n");
+                }
+                break;
+            default:
+                printf("Erro: Operação inválida.\n");
+        }
+    
+        return 0;
+    }
+    </code></pre>
+        </section>
+    </main>    
 </div>

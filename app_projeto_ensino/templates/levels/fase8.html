@@ -1,27 +1,88 @@
 {% load static %}
 
-<div class="conteudo desafio" id="conteudo8">
+<div class="conteudo exercicio" id="conteudo8">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
     <main>
-        <form id="formulario_fase_8" action="">
-            {% include 'partial/aviso.html' with tipo="laranja" mensagem="Para pular clique DUAS vezes no botão. Boa sorte!" %}
-            <div>
-                <p>O que é uma variável em programação?</p>
-                <input type="radio" name="1"> Um número aleatório escolhido pelo computador <br>
-                <input type="radio" name="1" value="c" class="c"> Um espaço na memória para armazenar dados <br>
-                <input type="radio" name="1"> Uma operação matemática <br>
-                <input type="radio" name="1"> Um comando que imprime texto na tela <br>
+        <section>
+            <h2>Quebra de Linha em C</h2>
+            <p>
+                Em C, usamos o caractere especial <code class="language-c">\n</code> para inserir uma quebra de linha, permitindo que o texto seja exibido em múltiplas linhas na saída do console.
+            </p>
+            <h3>Exemplo Prático:</h3>
+            <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+int main() {
+    // Exemplo de uso da quebra de linha
+    printf("Linha 1\n");
+    printf("Linha 2\n");
+    printf("Linha 3\n");
+
+    return 0;
+}
+            </code></pre>
+        
+            <p><strong>Saída no console:</strong></p>
+            <pre>
+        Linha 1
+        Linha 2
+        Linha 3
+            </pre>
+        
+            <p><strong>Nota:</strong> Você pode usar múltiplos <code>\n</code> no mesmo texto para criar espaçamentos adicionais. Exemplo:</p>
+            <pre><code class="language-c">
+        printf("Linha 1\n\nLinha 3\n");
+            </code></pre>
+            <p>
+                Nesse caso, haverá uma linha em branco entre "Linha 1" e "Linha 3".
+            </p>
+        
+            {% include 'partial/aviso.html' with tipo="verde" mensagem="DICA: Use as quebras de linha com sabedoria para deixar a saída do seu programa mais organizada!" %}
+            <hr>
+        </section>
+        
+        <form id="formulario_fase_8" action="">     
+            <div class="questao-container">
+                <p>Qual é a função principal em um programa em C?</p>
+                <input type="radio" name="1"> printf <br>
+                <input type="radio" name="1"> scanf <br>
+                <input type="radio" name="1" value="c" class="c"> main <br>
+                <input type="radio" name="1"> return <br>
             </div>
         
             <div class="questao-container">
-                <p>Qual dos itens abaixo são comandos de saída em C? Assinale as opções <strong>corretas</strong>:</p>
-                <input type="checkbox" name="2" class="c"> printf <br>
-                <input type="checkbox" name="3"> scanf <br>
-                <input type="checkbox" name="4" class="c"> puts <br>
-                <input type="checkbox" name="5"> return <br>
+                <p>Para que serve o comando <code class="language-c">#include</code> no início de um programa em C?</p>
+                <input type="radio" name="2"> Para declarar variáveis globais <br>
+                <input type="radio" name="2"> Para definir a estrutura do programa <br>
+                <input type="radio" name="2" value="c" class="c"> Para incluir bibliotecas que contêm funções prontas <br>
+                <input type="radio" name="2"> Para finalizar a execução do programa <br>
             </div>
+
+            <div class="questao-container">
+                <p>Sobre o ponto e vírgula (<code>;</code>) no final de linhas de código em C, qual das afirmações abaixo é <strong>verdadeira</strong>?</p>
+                <input type="radio" name="3" value="c" class="c"> É obrigatório no final de declarações e comandos, como <code>printf</code> ou <code>return</code>. <br>
+                <input type="radio" name="3"> É opcional e usado apenas para organização do código. <br>
+                <input type="radio" name="3"> Serve para iniciar um novo bloco de código. <br>
+                <input type="radio" name="3"> Nunca deve ser usado com comandos como <code>#include</code>. <br>
+            </div>
+            
+            <div class="questao-container">
+                <p>Quais destas linhas de código representam comentários válidos em C? Assinale as opções <strong>corretas</strong>:</p>
+                <input type="checkbox" name="4" class="c"> <code class="language-c">// Este é um comentário de uma linha</code> <br>
+                <input type="checkbox" name="4"> <code class="language-c"># Este é um comentário</code> <br>
+                <input type="checkbox" name="4" class="c"> <code class="language-c">/* Este é um comentário de múltiplas linhas */</code> <br>
+                <input type="checkbox" name="4"> <code class="language-c">-- Este é um comentário</code> <br>
+            </div>
+
+            <div class="questao-container">
+                <p>Escreva uma linha de código que mostre na tela "O dia está lindo hoje(Quebra de Linha)Não é?" <br> Lembre-se do ponto e vírgula final</p>
+                <input style="width: 100%;" type="text" name="6" data-c='printf("O dia está lindo hoje/nNão é?");' class="c">
+            </div>
+
+            {% include 'partial/aviso.html' with tipo="verde" mensagem="DICA: Você não precisa colocar espaços entre a quebra de linha e o restante da frase! Boa Sorte!/nAluno!" %}
+
             <p class="feedback"></p>
         </form>
     </main>

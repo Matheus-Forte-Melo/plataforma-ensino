@@ -5,140 +5,138 @@
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick="maximizarAba()">
     <div></div>
     <main>
-        <h1>Estruturas de Controle</h1>
+        <h1>Tipos de Dados e Saída de Dados</h1>
 
-        <h2>Condicionais</h2>
-        <p>Permitem que o programa tome decisões com base em condições. Exemplos: <code>if</code>, <code>else</code>, <code>switch</code>.</p>
+        <section>
+            <h2>Tipos Primitivos</h2>
+            <p>
+                Em C, os tipos de dados primitivos representam as unidades básicas para o armazenamento de informações. Eles definem tanto o tipo de dado que uma variável pode conter quanto o espaço de memória necessário para armazená-lo. A seguir, detalhamos os principais tipos primitivos disponíveis em C:
+            </p>
 
-        <h3>If (Se)</h3>
-        <p>A estrutura <code>if</code> é usada para executar um bloco de código apenas se uma condição especificada for verdadeira.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Tamanho (aproximado)</th>
+                        <th>Descrição</th>
+                        <th>Exemplo de Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>int</code></td>
+                        <td>4 bytes</td>
+                        <td>Utilizado para armazenar números inteiros, como idades, contagens ou qualquer valor numérico sem parte decimal.</td>
+                        <td>10, -50, 0</td>
+                    </tr>
+                    <tr>
+                        <td><code>float</code></td>
+                        <td>4 bytes</td>
+                        <td>Usado para armazenar números com casas decimais, sendo ideal para variáveis como altura, peso e outras medições que exigem precisão limitada.</td>
+                        <td>3.14, -7.5</td>
+                    </tr>
+                    <tr>
+                        <td><code>double</code></td>
+                        <td>8 bytes</td>
+                        <td>Semelhante ao <code>float</code>, mas com maior precisão, utilizado para cálculos mais complexos e que demandam maior exatidão, como cálculos científicos ou financeiros.</td>
+                        <td>3.141592, -0.0001</td>
+                    </tr>
+                    <tr>
+                        <td><code>char</code></td>
+                        <td>1 byte</td>
+                        <td>Armazena um único caractere, como letras, símbolos ou números que serão tratados como texto.</td>
+                        <td>'A', 'z', '1'</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                Cada tipo de dado foi projetado para atender a necessidades específicas e otimizar o uso da memória. Por isso, é fundamental escolher o tipo adequado conforme o tipo de dado que você está manipulando, a fim de evitar desperdícios de espaço e garantir a precisão das operações.
+            </p>
+        </section>
 
-        <pre><code class="language-c">if (condição) {
-    // código a ser executado se a condição for verdadeira
-}</code></pre>
+        <section>
+            <h2>Declaração de Variáveis</h2>
+            <p>
+                Para armazenar dados, é necessário declarar variáveis. Uma variável é uma área reservada na memória do computador, associada a um tipo de dado, onde um valor pode ser armazenado e posteriormente manipulado. Vamos ver como declarar variáveis e atribuir valores iniciais:
+            </p>
 
-        <h4>Exemplo em C:</h4>
-        <pre><code class="language-c">int idade = 18;
-
-if (idade >= 18) {
-    printf("Você é maior de idade.\n");
-}</code></pre>
-
-        <h3>Else (Senão)</h3>
-        <p>Usada em conjunto com <code>if</code> para executar um bloco de código quando a condição do <code>if</code> não é verdadeira.</p>
-
-        <pre><code class="language-c">if (condição) {
-    // código se a condição for verdadeira
-} else {
-    // código se a condição for falsa
-}</code></pre>
-
-        <h4>Exemplo em C:</h4>
-        <pre><code class="language-c">int idade = 16;
-
-if (idade >= 18) {
-    printf("Você é maior de idade.\n");
-} else {
-    printf("Você é menor de idade.\n");
-}</code></pre>
-
-        <h3>Else if (Senão se)</h3>
-        <p>Usado quando você tem várias condições diferentes de respostas, permitindo testar várias condições em sequência.</p>
-
-        <pre><code class="language-c">if (condição1) {
-    // código se a condição1 for verdadeira
-} else if (condição2) {
-    // código se a condição2 for verdadeira
-} else {
-    // código se nenhuma das condições anteriores for verdadeira
-}</code></pre>
-
-        <h4>Exemplo em C:</h4>
-        <pre><code class="language-c">int nota = 85;
-
-if (nota >= 90) {
-    printf("Nota excelente.\n");
-} else if (nota >= 70) {
-    printf("Nota boa.\n");
-} else {
-    printf("Nota insuficiente.\n");
-}</code></pre>
-
-        <h3>Switch</h3>
-        <p>A estrutura <code>switch</code> é usada para selecionar um bloco de código com base no valor de uma expressão. É uma alternativa ao uso de múltiplos <code>if</code> e <code>else</code> quando há várias condições baseadas em um único valor.</p>
-
-        <pre><code class="language-c">switch (variável) {
-    case valor1:
-        // Código a ser executado se variável == valor1
-        break;
-    case valor2:
-        // Código a ser executado se variável == valor2
-        break;
-    // Mais casos...
-    default:
-        // Código a ser executado se nenhum dos valores corresponder
-}</code></pre>
-
-        <h4>Exemplo Prático:</h4>
-        <pre><code class="language-c">#include &lt;stdio.h&gt;
+            <pre>
+<code class="language-c">
+#include &lt;stdio.h&gt;
 
 int main() {
-    int dia = 3;
+    int idade = 25;         // Declara uma variável inteira e a inicializa com o valor 25
+    float altura = 1.75;    // Declara uma variável float e a inicializa com 1.75
+    char inicial = 'M';     // Declara uma variável char e a inicializa com 'M'
+    double tamanho_cabelo;  // Declara uma variável double e não a inicializa. (Está definida, mas sem um valor)
 
-    switch (dia) {
-        case 1:
-            printf("Segunda-feira\n");
-            break;
-        case 2:
-            printf("Terça-feira\n");
-            break;
-        case 3:
-            printf("Quarta-feira\n");
-            break;
-        case 4:
-            printf("Quinta-feira\n");
-            break;
-        case 5:
-            printf("Sexta-feira\n");
-            break;
-        case 6:
-            printf("Sábado\n");
-            break;
-        case 7:
-            printf("Domingo\n");
-            break;
-        default:
-            printf("Número do dia inválido\n");
-            break;
-    }
+    double tamanho_cabelo = 5.5213 // Atribui um valor à essa variável.
+
     return 0;
-}</code></pre>
+}
+</code>
+            </pre>
+            <p>
+                Neste exemplo, temos três variáveis sendo declaradas:
+                <ul>
+                    <li><code class="language-c">int idade = 25;</code>: Aqui, a variável <code>idade</code> é declarada como do tipo <code>int</code> e recebe o valor 25.</li>
+                    <li><code class="language-c">float altura = 1.75;</code>: A variável <code>altura</code> é do tipo <code>float</code> e é inicializada com o valor 1.75, que é um número decimal.</li>
+                    <li><code class="language-c">char inicial = 'M';</code>: A variável <code>inicial</code> armazena um caractere único, neste caso, a letra 'M'.</li>
+                    <li><code class="language-c">double tamanho_cabelo;</code> Essa variável é declarada, mas só posteriormente atribuímos um valor à ela.</li>
+                </ul>
 
-        <h2>Operadores Lógicos</h2>
-        <p>Permitem combinar várias condições usando operadores como <code>&&</code> (E), <code>||</code> (OU) e <code>!</code> (NÃO).</p>
+                <p>Na programação, é extremamente comum a declaração de variáveis nulas, sem nenhua atribuição de dados. Então, fique ligado.</p>
 
-        <h4>Exemplo:</h4>
-        <pre><code class="language-c">if (condição1 && condição2) {
-    // código se ambas as condições forem verdadeiras
-}</code></pre>
+                {% include 'partial/aviso.html' with tipo="laranja" mensagem="Assim que você executar o programa, os dados serão guardados em memória. Mas só o computador sabe disso. Por enquanto!" %}
+            </p>
+        </section>
 
-        <h4>Exemplo em C:</h4>
-        <pre><code class="language-c">int idade = 20;
-int carteira = 1; // 1 significa que tem carteira de motorista
+        <section>
+            <h2>Saída básica de dados</h2>
+            <p>Okay, os dados estão na memória, mas como fazemos para acessá-los? É simples. Mas antes, saiba que chamamos o processo de retorno de dados da memória de <b>saída de dados</b></p>
+            <h3>Função <code>printf</code></h3>
+            <p>A função <code>printf</code> é essencial para a saída de dados em C (ou seja, o acesso de dados). Ela permite imprimir textos e valores armazenados nas variáveis na tela. A grande vantagem dessa função é a possibilidade de formatar a saída, ajustando a forma como os dados são exibidos.</p>
+            <p>Observe abaixo o retorno dos dados guardados em memória anteriormente.</p>
+            <pre>
+        <code class="language-c">
+#include &lt;stdio.h&gt;
 
-if (idade >= 18 && carteira == 1) {
-    printf("Você pode dirigir.\n");
-} else {
-    printf("Você não pode dirigir.\n");
-}</code></pre>
+int main() {
+    int idade = 25;        
+    float altura = 1.75;   
+    char inicial = 'M';   
+    
+    printf("A sua idade é: %i", idade); // Saída no console: A sua idade é 25. 
+    printf("Você tem %f metros de altura", altura); // Saída no console: Você tem 1.75000 metros de altura
+    printf("%c é sua incial", inicial); // Saída no console: M é sua inicial
 
-        <h2>Resumindo</h2>
+    return 0;
+}
+        </code>
+            </pre>
+            <p>
+                O <code>printf</code> permite a formatação dos valores de forma simples.
+                No exemplo acima:
+                <ul>
+                    <li><code class="language-c">printf("A sua idade é: %i", idade);</code> <code>%i ou %d</code>  representa o TIPO INT.</li>
+                    <li><code class="language-c">printf("Você tem %f metros de altura", altura);</code> <code>%f</code> representa o TIPO FLOAT. Se você quiser cortar as casas decimais, troque f por .1f, .2f, .3f e assim por diante</li>
+                    <li><code class="language-c">printf("%c é sua incial", inicial);</code> <code>%c</code> representa o TIPO CHAR</li>
+                </ul>
+                Note que no lugar onde estaria a varíavel, no printf, temos uma porcentagem seguida por um caractere, em todas as ocasiões. Estas representações se chamam especificadores da dados, e são importantíssimos para avisar ao computador ONDE o dado deve estar, e qual o seu tipo na saída.
+            </p>
+        </section>
+        <h3>Sabemos que é muita coisa para digerir. Então assista esse video de reforço, e tente fazer alguns programas básicos à seguir</h3>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/n68tJh2mIx4?si=p8npjXGms2TK-FRQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <small>Esse canal é ótimo para o aprendizado, se você estiver com dificuldades, recomendamos que assista sua série de Programação em Linguagem C</small>
+
+        {% include 'partial/aviso.html' with tipo="verde" mensagem="Agora é sua vez! Tente fazer os programas abaixo:" %}
+        
+        
         <ul>
-            <li>Condicionais permitem que o programa escolha entre diferentes ações com base em condições.</li>
-            <li><strong>if:</strong> Executa código se a condição for verdadeira.</li>
-            <li><strong>else:</strong> Executa código se a condição do <code>if</code> for falsa.</li>
-            <li><strong>else if:</strong> Permite testar várias condições.</li>
-            <li><strong>Operadores lógicos:</strong> Combinam várias condições para testes mais complexos.</li>
+            <li>Faça um programa que disponha na sua tela todas as suas informaçoes pessoais. (Ninguém além de você terá acesso a este programa)</li>
+            <li>Faça um programa com três variáveis. Uma que guarde a inicial do seu nome, outra que guarde o número da sua casa e outra que guarde seu peso. Depois, disponha as informações na tela</li>
         </ul>
+
     </main>
 </div>
+

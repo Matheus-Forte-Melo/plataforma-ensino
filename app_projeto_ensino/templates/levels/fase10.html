@@ -1,26 +1,178 @@
 {% load static %}
 
-<div class="conteudo prova" id="conteudo10">
+<div class="conteudo" id="conteudo10">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
     <main>
-        <div id="info-tempo"></div>
-        <form id="formulario_fase_10" class="prevent-select" action="" >
-
-                <div class="questao-container">
-                    <p>1. Qual das seguintes opções melhor descreve a função de uma estrutura <code>if</code>?</p>
-                    <input type="radio" name="q1"> Executa código repetidamente até que a condição seja falsa <br>
-                    <input type="radio" name="q1" class="c" value="c"> Executa código se a condição for verdadeira <br>
-                    <input type="radio" name="q1"> Executa código com base no valor de uma variável <br>
-                    <input type="radio" name="q1"> Interrompe o fluxo do programa <br>
-                </div>
+        <h2>Constantes e Entrada de Dados</h2>
+        <p>Antes de continuarmos, veja este incrível e didático vídeo por "Eu TI Ensino". Onde vamos revisar os assuntos passados na fase passada, tal como a introdução da entrada de dados.</p>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/Ka4dnwd5vJk?si=jVu-re4WG_VrhGmQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         
+        <h2>Entrada de Dados</h2>
+        <p>A entrada de dados em C é realizada por meio da função <code>scanf</code>. Essa função permite capturar dados fornecidos pelo usuário e armazená-los em variáveis, tornando o programa interativo.</p>
+    
+        <h3>Como usar <code>scanf</code></h3>
+        <p>O scanf é a principal função para conseguirmos enviar dados para o computador de forma dinâmica. Podemos enviar Números, Datas, Nomes (Apesar de ser um pouco mais avançado), e muito mais. Só precisamos especificar o tipo e a variável na qual queremos atribuir o valor digitado.</p>
 
-                <div class="questao-container">
-                    <p>2. Considere o seguinte código em C:</p>
-                    <pre>
-                        <code class="language-c">
+        <p><code class="language-c">scanf("%{especificador de tipo}", &{variável})</code></p>
+
+        {% include 'partial/aviso.html' with tipo="vermelho" mensagem="ATENÇÃO: É muito fácil esquecer o '&' no scanf, então se seu programa estiver com algum comportamento estranho, ou é isso, ou é algum especificador de tipo errado. Pode até mesmo ser alguma varíavel declarada de forma errada. Então sempre cheque!" %}
+
+    
+        <p><strong>Exemplo simples:</strong></p>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+    
+            int main() {
+                int idade;
+            
+                // Solicitar a entrada do usuário
+                printf("Digite sua idade: ");
+                scanf("%d", &idade);
+            
+                // Exibir a saída
+                printf("Sua idade é %d anos.\n", idade);
+            
+                return 0;
+            }</code></pre>
+            
+                <h3>Linha por Linha</h3>
+                <ul>
+                    <li><strong><code class="language-c">#include &lt;stdio.h&gt;</code></strong>: Inclui a biblioteca padrão de entrada e saída. Essa biblioteca fornece funções como <code class="language-c">printf</code> e <code class="language-c">scanf</code>.</li> <br>
+                    <li><strong><code class="language-c">int main()</code></strong>: Define a função principal, onde o programa começa sua execução. O tipo <code class="language-c">int</code> indica que a função retornará um valor inteiro.</li> <br>
+                    <li><strong><code class="language-c">int idade;</code></strong>: Declara uma variável inteira chamada <code>idade</code> para armazenar a idade inserida pelo usuário.</li> <br>
+                    <li><strong><code class="language-c">printf("Digite sua idade: ");</code></strong>: Exibe no terminal a mensagem "Digite sua idade: ", solicitando que o usuário insira um número.</li> <br>
+                    <li><strong><code class="language-c">scanf("%d", &amp;idade);</code></strong>: Captura o valor digitado pelo usuário e o armazena na variável <code class="language-c">idade</code>.
+                        <ul>
+                            <li><code class="language-c">"%d"</code>: Especificador de formato para números inteiros.</li>
+                            <li><code class="language-c">&amp;idade</code>: Passa o endereço da variável <code>idade</code>, permitindo que o <code>scanf</code> armazene diretamente o valor nela.</li>
+                        </ul> <br>
+                    </li>
+                    <li><strong><code class="language-c">printf("Sua idade é %d anos.\\n", idade);</code></strong>: Exibe a idade armazenada na variável <code class="language-c">idade</code>. O <code>%d</code> é substituído pelo valor da variável.</li> <br>
+                    <li><strong><code class="language-c">return 0;</code></strong>: Retorna <code>0</code>, indicando que o programa foi executado com sucesso.</li>
+                </ul>
+            
+                <h3>Fluxo do Programa</h3>
+                <ol>
+                    <li>O programa exibe a mensagem <em>"Digite sua idade: "</em> no terminal.</li>
+                    <li>O usuário digita um número (ex.: <code>25</code>) e pressiona Enter.</li>
+                    <li>A função <code>scanf</code> lê o valor digitado e o armazena na variável <code>idade</code>.</li>
+                    <li>O programa exibe a mensagem <em>"Sua idade é 25 anos."</em>, substituindo <code>%d</code> pelo valor de <code>idade</code>.</li>
+                    <li>O programa retorna <code>0</code> e é finalizado com sucesso.</li>
+                </ol>
+            </section>
+    
+        <h3>Especificadores de Formato</h3>
+        <p>A tabela abaixo mostra os principais especificadores usados com o <code>scanf</code>:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Especificador</th>
+                    <th>Tipo de Dado</th>
+                    <th>Exemplo de Declaração</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>%d</td>
+                    <td>Inteiros (base decimal)</td>
+                    <td><code>int idade;</code></td>
+                </tr>
+                <tr>
+                    <td>%i</td>
+                    <td>Inteiros (base automática)</td>
+                    <td><code>int numero;</code></td>
+                </tr>
+                <tr>
+                    <td>%f</td>
+                    <td>Números de ponto flutuante</td>
+                    <td><code>float altura;</code></td>
+                </tr>
+                <tr>
+                    <td>%c</td>
+                    <td>Caractere</td>
+                    <td><code>char inicial;</code></td>
+                </tr>
+                <tr>
+                    <td>%s</td>
+                    <td>Strings</td>
+                    <td><code>char nome[20];</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        {% include 'partial/aviso.html' with tipo="verde" mensagem="PERCEBA: Os especificadores de tipo SEMPRE começam com '%' seguidos do especificador em si. Geralmente, o especificador é a inicial do tipo da variável. Exemplo: 'char' possui o especificador 'c'"%}
+        
+    
+        <h2>Constantes em C</h2>
+        <p>Constantes são valores que permanecem fixos durante toda a execução do programa. Diferente das variáveis comuns, que podem ser redeclaradas e reatribuidas.  <br><br> As constantes são declaradas com a palavra-chave <code>const</code> ou podem ser definidas com <code>#define</code>. </p>
+    
+        <h3>Declaramos uma constante da seguinte forma</h3>
+        <p>Adendo: Apesar de não ser necessário, geralmente constantes devem ser declaradas em letra maiúscula. Para que possamos à distinguir de uma variável comum.</p>
+        
+        <p>-<code class="language-c">#define</code>:</strong></p>
+        <pre><code class="language-c">#define LIMITE_MAXIMO 100</code></pre>
+    
+        <h2>Exemplo Completo</h2>
+        <p>O programa a seguir demonstra o uso de entrada de dados, constantes, declaração de variáveis e saída de dados, ou seja, tudo que vimos até agora. Pode parecer desafiador, mas eu te convido a estudar esse código e tentar replicá-lo.</p>
+        <pre><code class="language-c">
+    
+// Inclusão da biblioteca padrão       
+#include &lt;stdio.h&gt;
+
+// Definição de constante
+#define float ALTURA_MINIMA = 1.50;
+
+int main() {
+    char inicial;
+    float altura;
+
+    // Entrada de dados
+    printf("Digite a inicial do seu nome: ");
+    scanf(" %c", &inicial); // O espaço antes de %c evita problemas ao capturar o caractere.
+
+    printf("Digite a sua altura em metros (ex: 1.75): ");
+    scanf("%f", &altura);
+
+    // Saída de dados
+    printf("\nOlá, %c! Sua altura é %.2f metros.\n", inicial, altura);
+    printf("A altura mínima definida no programa é %.2f metros.\n", ALTURA_MINIMA);
+
+    return 0;
+            
+}</code></pre>
+
+        <h2>Vamos exercitar?</h2>
+        <ol>
+            <li>Modifique o programa para incluir a entrada e saída de mais uma variável da sua escolha.</li>
+            <li>Adicione ao programa uma mensagem final que usa mais de uma variável. Exemplo: "Obrigado por participar, inicial]. Sua altura foi registrada como [altura] metros."</li>
+            <li>Combine os dois exercícios acima. Colocando mais uma variável no programa e exibindo-a na mensagem final.</li>
+        </ol>
+
+        {% include 'partial/aviso.html' with tipo="verde" mensagem="DICA 1: Respire, que tal dar uma revisada nas fases anteriores?" %}
+        {% include 'partial/aviso.html' with tipo="verde" mensagem="DICA 2: printf('altura: %f inicial: %c', altura, inicial) - Troque as aspas simples por aspas duplas." %}
+
+    </main>
+
+</div>
+
+<!-- <main>
+    <div id="info-tempo"></div>
+    <form id="formulario_fase_10" class="prevent-select" action="" >
+
+            <div class="questao-container">
+                <p>1. Qual das seguintes opções melhor descreve a função de uma estrutura <code>if</code>?</p>
+                <input type="radio" name="q1"> Executa código repetidamente até que a condição seja falsa <br>
+                <input type="radio" name="q1" class="c" value="c"> Executa código se a condição for verdadeira <br>
+                <input type="radio" name="q1"> Executa código com base no valor de uma variável <br>
+                <input type="radio" name="q1"> Interrompe o fluxo do programa <br>
+            </div>
+    
+
+            <div class="questao-container">
+                <p>2. Considere o seguinte código em C:</p>
+                <pre>
+                    <code class="language-c">
 int idade = 20;
 
 if (idade >= 18) {
@@ -28,53 +180,53 @@ printf("Você é maior de idade.\n");
 } else {
 printf("Você é menor de idade.\n");
 }
-                        </code>
-                    </pre>
-                    <p>Qual será a saída desse programa?</p>
-                    <input type="radio" name="q2"> Você é menor de idade. <br>
-                    <input type="radio" name="q2" class="c" value="c"> Você é maior de idade. <br>
-                    <input type="radio" name="q2"> Nenhuma das opções <br>
-                </div>
-        
+                    </code>
+                </pre>
+                <p>Qual será a saída desse programa?</p>
+                <input type="radio" name="q2"> Você é menor de idade. <br>
+                <input type="radio" name="q2" class="c" value="c"> Você é maior de idade. <br>
+                <input type="radio" name="q2"> Nenhuma das opções <br>
+            </div>
+    
 
-                <div class="questao-container">
-                    <p>3. O que o comando <code>else if</code> permite que o programador faça?</p>
-                    <input type="radio" name="q3"> Repetir código até que uma condição seja verdadeira <br>
-                    <input type="radio" name="q3" class="c" value="c"> Verificar múltiplas condições em sequência <br>
-                    <input type="radio" name="q3"> Interromper a execução de um programa <br>
-                    <input type="radio" name="q3"> Alterar o valor de uma variável automaticamente <br>
-                </div>
-        
+            <div class="questao-container">
+                <p>3. O que o comando <code>else if</code> permite que o programador faça?</p>
+                <input type="radio" name="q3"> Repetir código até que uma condição seja verdadeira <br>
+                <input type="radio" name="q3" class="c" value="c"> Verificar múltiplas condições em sequência <br>
+                <input type="radio" name="q3"> Interromper a execução de um programa <br>
+                <input type="radio" name="q3"> Alterar o valor de uma variável automaticamente <br>
+            </div>
+    
 
-                <div class="questao-container">
-                    <p>4. Qual das seguintes sentenças sobre a estrutura <code>switch</code> é <strong>correta</strong>?</p>
-                    <input type="radio" name="q4" class="c" value="c"> <code>switch</code> é usado para selecionar um bloco de código com base no valor de uma expressão <br>
-                    <input type="radio" name="q4"> <code>switch</code> permite testar múltiplas condições lógicas <br>
-                    <input type="radio" name="q4"> <code>switch</code> é sempre mais eficiente que <code>if</code> <br>
-                    <input type="radio" name="q4"> <code>switch</code> deve ser usado apenas para comparar strings <br>
-                </div>
-        
+            <div class="questao-container">
+                <p>4. Qual das seguintes sentenças sobre a estrutura <code>switch</code> é <strong>correta</strong>?</p>
+                <input type="radio" name="q4" class="c" value="c"> <code>switch</code> é usado para selecionar um bloco de código com base no valor de uma expressão <br>
+                <input type="radio" name="q4"> <code>switch</code> permite testar múltiplas condições lógicas <br>
+                <input type="radio" name="q4"> <code>switch</code> é sempre mais eficiente que <code>if</code> <br>
+                <input type="radio" name="q4"> <code>switch</code> deve ser usado apenas para comparar strings <br>
+            </div>
+    
 
-                <div class="questao-container">
-                    <p>5. Qual é a função do comando <code>break</code> dentro de um <code>switch</code>?</p>
-                    <input type="radio" name="q5" class="c" value="c"> Encerra a execução do bloco de código <br>
-                    <input type="radio" name="q5"> Continua executando o próximo bloco <br>
-                    <input type="radio" name="q5"> Interrompe o programa inteiro <br>
-                    <input type="radio" name="q5"> Apenas altera o valor da variável usada no <code>switch</code> <br>
-                </div>
+            <div class="questao-container">
+                <p>5. Qual é a função do comando <code>break</code> dentro de um <code>switch</code>?</p>
+                <input type="radio" name="q5" class="c" value="c"> Encerra a execução do bloco de código <br>
+                <input type="radio" name="q5"> Continua executando o próximo bloco <br>
+                <input type="radio" name="q5"> Interrompe o programa inteiro <br>
+                <input type="radio" name="q5"> Apenas altera o valor da variável usada no <code>switch</code> <br>
+            </div>
 
-                <div class="questao-container">
-                    <p>6. Em um teste condicional, qual operador lógico deve ser usado para verificar se duas condições são verdadeiras ao mesmo tempo?</p>
-                    <input type="radio" name="q7"> <code>||</code> (OU) <br>
-                    <input type="radio" name="q7"> <code>!</code> (NÃO) <br>
-                    <input type="radio" name="q7" class="c" value="c"> <code>&&</code> (E) <br>
-                    <input type="radio" name="q7"> Nenhuma das opções <br>
-                </div>
-        
+            <div class="questao-container">
+                <p>6. Em um teste condicional, qual operador lógico deve ser usado para verificar se duas condições são verdadeiras ao mesmo tempo?</p>
+                <input type="radio" name="q7"> <code>||</code> (OU) <br>
+                <input type="radio" name="q7"> <code>!</code> (NÃO) <br>
+                <input type="radio" name="q7" class="c" value="c"> <code>&&</code> (E) <br>
+                <input type="radio" name="q7"> Nenhuma das opções <br>
+            </div>
+    
 
-                <div class="questao-container">
-                    <p>7. Considere o código abaixo. Qual será a saída se <code>idade</code> for igual a 17 e <code>carteira</code> for 0?</p>
-                    <pre><code class="language-c">
+            <div class="questao-container">
+                <p>7. Considere o código abaixo. Qual será a saída se <code>idade</code> for igual a 17 e <code>carteira</code> for 0?</p>
+                <pre><code class="language-c">
 int idade = 17;
 int carteira = 0;
 
@@ -83,12 +235,10 @@ printf("Você pode dirigir.\n");
 } else {
 printf("Você não pode dirigir.\n");
 }
-                    </code></pre>
-                    <input type="radio" name="q8"> Você pode dirigir. <br>
-                    <input type="radio" name="q8" class="c" value="c"> Você não pode dirigir. <br>
-                </div>
-            <p class="feedback"></p>
-        </form>
-    </main>
-    
-</div>
+                </code></pre>
+                <input type="radio" name="q8"> Você pode dirigir. <br>
+                <input type="radio" name="q8" class="c" value="c"> Você não pode dirigir. <br>
+            </div>
+        <p class="feedback"></p>
+    </form>
+</main> -->

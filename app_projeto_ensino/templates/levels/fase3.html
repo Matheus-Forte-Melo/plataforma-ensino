@@ -1,25 +1,50 @@
 {% load static %}
 
-<div class="conteudo" id="conteudo3">
+<div class="conteudo desafio" id="conteudo3">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
 
     <main>
-        <h2>A Lógica de Programação é Crucial Porque:</h2>
-        <ul>
-            <li><strong>Resolução de Problemas:</strong> Ajuda a decompor problemas complexos em etapas menores e mais manejáveis.</li>
-            <li><strong>Eficiência:</strong> Melhora a eficiência e a clareza do código, evitando erros e redundâncias.</li>
-            <li><strong>Base para Linguagens de Programação:</strong> Fornece a base para escrever código em qualquer linguagem de programação.</li>
-        </ul>
-        <h2>Raciocínio Lógico</h2>
-        <ul>
-            <li><strong>Pensamento Sequencial:</strong> Organizar e executar instruções em uma ordem específica.</li>
-            <li><strong>Pensamento Condicional:</strong> Fazer escolhas baseadas em condições.</li>
-            <li><strong>Pensamento Iterativo:</strong> Repetir tarefas até que uma condição seja satisfeita.</li>
-        </ul>
-        <p>Em resumo, a lógica de programação é a prática de aplicar raciocínios e técnicas sistemáticas para desenvolver soluções eficazes e funcionais por meio da programação. A lógica de programação é a base para começar como programador e ser um bom profissional na área.</p>
+        <p>A lógica é um dos pilares mais importantes da programação. Não importa o quão vasto seja o seu conhecimento técnico, saber cada comando, estrutura condicional ou linguagem de programação, sem uma boa base lógica, você não conseguirá tirar o melhor proveito dessas ferramentas.</p>
 
-        <a href="https://rachacuca.com.br/logica/problemas/">Clique aqui para abrir atividades para treinar a lógica.</a>
+        <p>Antes de responder, acesse e resolva o seguinte problema de lógica: <a target="_blank" rel="external" href="https://rachacuca.com.br/logica/problemas/teste-de-einstein/">Clique Aqui!</a></p>
+
+        {% include 'partial/aviso.html' with tipo="verde" mensagem="DICA: Finalize o teste e anote suas respostas ou tire uma foto para usá-las como referência." %}
+        {% include 'partial/aviso.html' with tipo="laranja" mensagem="Por mais que nós não recomendemos, para pular clique DUAS vezes no botão 'Pular'. Boa sorte, o controle é todo seu!" %}
+
+        <hr>
+
+        <form id="formulario_fase_3" action="">
+            <div class="questao-container">
+                <p>Qual a cor da casa do suéco?</p>
+                <input type="radio" name="1"> Amerela <br>
+                <input type="radio" name="1"> Azul <br>
+                <input type="radio" name="1"> Vermelha <br>
+                <input type="radio" name="1" class="c" value="c"> Branca <br>
+                <input type="radio" name="1"> Verde <br>          
+            </div>
+
+            <div class="questao-container">
+                <p>Qual bebida o homem que fuma Pall Mall bebe?</p>
+                <input type="radio" name="2"> Água <br>
+                <input type="radio" name="2"> Chá <br>
+                <input type="radio" name="2" class="c" value="c"> Leite  <br>
+                <input type="radio" name="2"> Café <br>
+                <input type="radio" name="2"> Cerveja <br>
+            </div>
+
+            <div class="questao-container">
+                <p>Assinale as questoes <b>VERDADEIRAS</b> sobre o homem que vive na casa vermelha:</p>
+                <input type="checkbox" name="3"> Fuma Dunhill <br>
+                <input type="checkbox" name="4" class="c"> Cria passáros <br>
+                <input type="checkbox" name="5"> Fuma Prince <br>
+                <input type="checkbox" name="6"> Cria peixes <br>
+                <input type="checkbox" name="7" class="c"> Fuma Pall Mall <br>
+            </div>
+            <p class="feedback"></p>
+        </form>
+
     </main>
 </div>
+
