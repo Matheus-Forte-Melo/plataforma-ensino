@@ -102,54 +102,79 @@
 /* Posição das fases */
 
 #um {
-    left: 1260px;
+    left: 1060px;
     top: 650px;
 }
 
 #dois {
-    left: 1525px;
+    left: 1325px;
     top: 820px;
 }
 
 #tres {
-    left: 1790px;
+    left: 1590px;
     top: 650px;
 }
 
 #quatro {
-    left: 2055px;
+    left: 1855px;
     top: 820px;
 }
 
 #cinco {
-    left: 2280px;
+    left: 2080px;
     top: 1020px;
 }
 
 #seis {
-    left: 2505px;
+    left: 2305px;
     top: 1220px;
 }
 
 #sete {
-    left: 2730px;
+    left: 2530px;
     top: 1220px;
 }
 
 #oito {
-    left: 2955px;
+    left: 2755px;
     top: 1120px;
 }
 
 
 #nove {
-    left: 3120px;
+    left: 2920px;
     top: 1000px;
 }
 
 
 #dez {
-    left: 3195px;
+    left: 2995px;
     top: 820px;
+}
+
+#onze {
+    left: 3200px;
+    top: 695px;
+}
+
+#doze {
+    left: 3405px;
+    top: 820px;
+}
+
+#treze {
+    left: 3480px;
+    top: 1000px;
+}
+
+#quatorze {
+    left: 3685px;
+    top: 1150px;
+}
+
+#quinze {
+    left: 3920px;
+    top: 1150px;
 }
 

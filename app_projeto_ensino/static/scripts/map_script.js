@@ -313,11 +313,11 @@ function ajustarTela() {
     let scrollX, scrollY;
     if (localStorage.getItem('pos_top') === null || localStorage.getItem('pos_left') === null) {
         if (mobile) {
-            scrollX = 1137;
-            scrollY = 408;
+            scrollX = 900;
+            scrollY = 280;
         } else {
-            scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 300;
-            scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
+            scrollX = 900;
+            scrollY = 280;
         }
     } else {
         scrollY = parseInt(localStorage.getItem('pos_top'));
@@ -328,8 +328,8 @@ function ajustarTela() {
 
 document.addEventListener('keydown', function(event) {
     if (event.code == "Space") {
-        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 300;
-        const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
+        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2;
+        const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2;
         mapaContainer.scrollTo(scrollX, scrollY);
     }
 });
@@ -343,9 +343,9 @@ document.addEventListener('touchstart', function () {
     const currentTime = new Date().getTime();
     const tapInterval = currentTime - lastTouchTime;
 
-    if (tapInterval < 150 && tapInterval > 0) { 
-        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2 - 300;
-        const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2 - 1540;
+    if (tapInterval < 300 && tapInterval > 0) { 
+        const scrollX = (mapaContainer.scrollWidth - window.innerWidth) / 2;
+        const scrollY = (mapaContainer.scrollHeight - window.innerHeight) / 2;
         mapaContainer.scrollTo(scrollX, scrollY);
 
     }

@@ -1,27 +1,61 @@
 {% load static %} 
 
-<div class="conteudo" id="conteudo1">
+<div class="conteudo desafio" id="conteudo11">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar"  class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
     <main>  
-        <h1>Seja bem vindo!</h1>
-        <p>Aqui, introduziremos você a nosso sistema de níveis e pontuação.</p>
-        <h2>Fases</h2>
-        {% include 'partial/aviso.html' with tipo="verde" mensagem="Fique com o mouse por cima do icone das fases para saber do que se tratam!" %}
-        {% include 'partial/aviso.html' with tipo="laranja" mensagem="Fique com o mouse por cima do icone das fases para saber do que se tratam!" %}
-        {% include 'partial/aviso.html' with tipo="vermelho" mensagem="Fique com o mouse por cima do icone das fases para saber do que se tratam!" %}
-        <ul>
-            <li><b>Conteúdo</b>: Esta fase é uma fase de conteúdo! Aqui, apresentaremos a parte mais teórica do assunto. No mapa, é representado por circulo verde.</li>
-            <li><b>Exercicio</b>: São fases que possuem um exercício com n numeros de questões. Você precisa acertar tudo para avançar, pois, precisamos ter certeza de que você realmente aprendeu tudo que tinha para aprender para que você consiga prosseguir. No mapa, é representado por um quadrado vermelho.</li>
-            <li><b>Desafio</b>: São fases opcionais, que são geralmente mais desafiadoras, exigem um pensamento fora da caixa, porém, são totalmente realizáveis com o conhecimento que você já adquiriu até o determinado momento que você decide clicar na fase. "Tá, se são opcionais, porque devo fazé-las? posso simplesmente pular nerrr". Escute aqui meu jovem gafanhoto, essas fases além de te darem pontos extras (que lhe dão o poder de costumizar seu perfil) também fazem você evoluir como desenvolvedor, já que pensar fora da caixa é comum nesse trabalho; lembre-se, estamos te preparando para o futuro. Essas fases são representadas por losangos amarelos.</li>
-            <li><b>Prova</b>: São o "Boss Final" do mundo. Aqui, você precisará responder e acertar, sem consulta, todas as questões. Mas não se preocupe, você pode ficar tentando até conseguir acertar, mas até lá, não te falaremos o que você fez de errado. Representados por hexagonos laranjas.</li>
-        </ul>
-        <img class="conteudo-img" src="{% static 'img/world1/exemplo_niveis.png' %}" alt="">
-        <h2>Pontuação</h2>
-        <h3>Formas de ganhar pontos</h3>
-        <p>Não revelaremos como o sistema de pontuação funciona; porém, saiba que, quanto mais complecionista, veloz e certeiro você for, com mais pontos você será recompensado.</p>
-        <h3>O que fazer com seus pontos</h3>
-        <p>Você irá conseguir alocar um lugar no ranking e além disso ganhará costumizações para seu perfil.</p>
+        {% include 'partial/aviso.html' with tipo="laranja" mensagem="DICA: Olhe cuidadosamente, sem pressa!" %}
+        {% include 'partial/aviso.html' with tipo="verde" mensagem="OUTRA DICA: Hmmmmmm, variáveis? Deve ser porque variam, né?" %}
+        <form id="formulario_fase_11" action="">
+            <div class="questao-container">
+                <p>Conforme os comandos que já vimos até aqui. Quais são os comandos que <b>ESTÃO</b> presentes no código abaixo.</p>
+                <pre>
+                    <code class="language-c">
+#include &lt;stdio.h&gt;
+#define ANO_ATUAL 2024 // Ano em que estou desenvolvendo esse site, não sei se isso vai atualizar :P
+
+    int main() {
+        int idade;
+
+        scanf("%i", &idade);
+        printf("a sua idade é %i", ANO_ATUAL - idade);
+        // Não se preocupe, o próximo assunto que iremos ver, irá cobrir os cálculos
+    
+        return 0;
+    }
+                    </code>
+                </pre>
+                
+                <input type="checkbox" name="1" class="c"> Saída de dados. <br>
+                <input type="checkbox" name="2" class="c"> Entrada de dados. <br>
+                <input type="checkbox" name="3" class="c"> Declaração de variáveis. <br>
+                <input type="checkbox" name="4" class="c"> Declaração de constantes. <br>
+                <input type="checkbox" name="5" class="c"> Comentários.
+            </div>
+            <div class="questao-container">
+                <p>Conforme os comandos que já vimos até aqui. Quais são os comandos que <b>NÃO</b> estão presentes no código abaixo.</p>
+                <pre>
+                    <code class="language-c">
+#include  &lt;stdio.h &gt;
+
+    int main() {
+        char sexo = 'F';
+    
+        printf("Olá, seu sexo é %c! Seja bem-vindo!\n", sexo);
+    
+        return 0;
+    }                         
+                    </code>
+                </pre>
+                <input type="checkbox" name="6"> Saída de dados. <br>
+                <input type="checkbox" name="7" class="c"> Entrada de dados. <br>
+                <input type="checkbox" name="8"> Declaração de variáveis. <br>
+                <input type="checkbox" name="9" class="c"> Declaração de constantes. <br>
+                <input type="checkbox" name="10" class="c"> Comentários.
+            </div>
+            <br>
+            <div class="feedback"></div>
+        </form>
     </main>
 </div>

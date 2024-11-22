@@ -1,41 +1,131 @@
 {% load static %}
 
-<div class="conteudo exercicio" id="conteudo2">
+<div class="conteudo exercicio" id="conteudo12">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
     <main>
-        <form id="formulario_fase_2" action="" >
+        <form id="formulario_fase_12" action="">
+            <!-- Questão 1 -->
             <div class="questao-container">
-                <p>A fase do tipo <b>conteúdo</b> é representado pela forma e cor, respectivamente:</p>
-                <input type="radio" name="1"> Losango e verde <br>
-                <input type="radio" name="1"> Hexagono e vermelho <br>
-                <input type="radio" name="1"> Quadrado e amarelo <br>
-                <input type="radio" name="1"  value="c" class="c"> Circulo e verde <br>
-                <input type="radio" name="1"> Quadrado e     verde <br>
-            </div>
-            <div class="questao-container">
-                <p>A fase do tipo <b>prova</b> é representado pela forma e cor, respectivamente:</p>
-                <input type="radio" name="2"> Losango e verde <br>
-                <input type="radio" name="2" value="c" class="c"> Hexagono e laranja <br>
-                <input type="radio" name="2"> Quadrado e amarelo <br>
-                <input type="radio" name="2"> Hexagono e vermelho <br>
-                <input type="radio" name="2"> Quadrado e laranja <br>
+                <p>Assinale as informações verdadeiras</p>
+                <input type="checkbox" name="1" class="c"> O tipo <b>FLOAT</b> representa números decimáis. <br>
+                <input type="checkbox" name="2"> O tipo <b>INT</b> representa APENAS números negativos <br>
+                <input type="checkbox" name="3"> O tipo <b>DOUBLE</b> representa números não decimais. <br>
+                <input type="checkbox" name="4" class="c"> O tipo <b>INT</b> representa números não decimais. <br>
+                <input type="checkbox" name="5"> O tipo <b>CHAR</b> representa números APENAS. <br>
+                <input type="checkbox" name="6" class="c"> O tipo <b>CHAR</b> representa caracteres individuais. <br>
+                <input type="checkbox" name="7" class="c"> O tipo <b>DOUBLE</b> representa números decimáis com maior precisão. <br>
+                <input type="checkbox" name="8"> O tipo <b>INT</b> representa números decimais. <br>
             </div>
         
+            <!-- Questão 2 -->
             <div class="questao-container">
-                <p>Marque as alternativas corretas sobre o sistema de pontuação:</p>
-                <input type="checkbox" name="3" class="c"> Serve para personalizar seu perfil <br>
-                <input type="checkbox" name="4" class="c"> Serve para lhe garantir uma posição no ranking <br>
-                <input type="checkbox" name="5"> Serve para trocar por dinheiro real <br>
-                <input type="checkbox" name="6"> Serve para matar quem tiver a menor pontuação <br>
+                <p>Relacione o especificador com o tipo de dado</p>
+                <code class="language-c">%lf %i %d %f %c </code>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Especificador</th>
+                            <th>Tipo de Dado</th>
+                            <th>Exemplo de Declaração</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>%<input type="text" name="8" data-c="d" class="c"></td>
+                            <td>Inteiros (base decimal)</td>
+                            <td><code>int idade;</code></td>
+                        </tr>
+                        <tr>
+                            <td>%<input type="text" name="9" data-c="i" class="c"></td>
+                            <td>Inteiros (base automática)</td>
+                            <td><code>int numero;</code></td>
+                        </tr>
+                        <tr>
+                            <td>%<input type="text" name="10" data-c="f" class="c"></td>
+                            <td>Números de ponto simples (float)</td>
+                            <td><code>float altura;</code></td>
+                        </tr>
+                        <tr>
+                            <td>%<input type="text" name="11" data-c="lf" class="c"></td>
+                            <td>Números de ponto complexo (double)</td>
+                            <td><code>double nanometro;</code></td>
+                        </tr>
+                        <tr>
+                            <td>%<input type="text" name="12" data-c="c" class="c"></td>
+                            <td>Caractere</td>
+                            <td><code>char inicial;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+            
+            {% include 'partial/aviso.html' with tipo="laranja" mensagem="CUIDADO: Coloque APENAS a letra que representa o tipo no especificador, repare que o simbolo de porcentagem '%' já está lá. Não coloque nenhum espaço, antes ou depois, também." %}
+            <div class="questao-container">
+                <p>O que acontece se você tentar modificar o valor de uma constante definida com #define?</p>
+                <input type="radio" name="13"> O programa compila e executa normalmente. <br>
+                <input type="radio" name="13"> O compilador emite um aviso, mas o código ainda funciona. <br>
+                <input type="radio" name="13" value="c" class="c"> O compilador gera um erro porque constantes não podem ser alteradas. <br>
+                <input type="radio" name="13"> O código entra em loop infinito. <br>
             </div>
         
+        
+            <!-- Questão 8 -->
             <div class="questao-container">
-                <p>Digite "123123" e clique no botão ENTREGAR para enviar essa questão.</p>
-                <input type="text" name="10" data-c="123123" class="c">
+                <p>Identifique o erro no código abaixo:</p>
+                <pre><code class="language-c">// Código
+#include &lt;stdio.h&gt;
+
+int main() {
+    int x;
+    printf("Valor de x: %d\n", x);
+    return 0;
+}</code></pre>
+                <input type="radio" name="14"> Não há erro, o código imprime corretamente. <br>
+                <input type="radio" name="14" value="c" class="c"> Não foi atribuido valor à variável X antes de ser usada. <br>
+                <input type="radio" name="14"> O código não compila porque a variável x é do tipo errado. <br>
+                <input type="radio" name="14"> O código tenta acessar uma variável fora do escopo. <br>
             </div>
+
+            <div class="questao-container">
+                <p>Identifique o erro no código abaixo:</p>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    float num;
+    printf("Digite um número: ");
+    scanf("%d", &num);  // ERRO: Deve ser %f para float
+    printf("Número digitado: %f\n", num);
+    return 0;
+}</code></pre>
+                <input type="radio" name="15"> O código compila e executa corretamente. <br>
+                <input type="radio" name="15" class="c" value="c"> O formato especificador em <code>scanf</code> está incorreto para o tipo <code>float</code>. <br>
+                <input type="radio" name="15"> A variável <code>num</code> não foi declarada corretamente. <br>
+                <input type="radio" name="15"> O código não imprime nada porque <code>printf</code> está fora do escopo da variável. <br>
+            </div>
+        
+            <!-- Questão 2 -->
+            <div class="questao-container">
+                <p>Identifique o erro no código abaixo:</p>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    char letra;
+    printf("Digite uma letra: ");
+    scanf("%c", &letra);
+    printf("Letra digitada: %s\n", letra);  // ERRO: Deve ser %c para char
+    return 0;
+}</code></pre>
+                <input type="radio" name="16"> O código compila e lê corretamente a letra. <br> 
+                <input type="radio" name="16"> A variável <code>letra</code> foi declarada com o tipo errado. <br>
+                <input type="radio" name="16" class="c" value="c"> O especificador de formato usado em <code>printf</code> está incorreto para a saída de um caractere. <br>
+                <input type="radio" name="16"> O programa falha porque não há retorno na função <code>main()</code>. <br>
+            </div>
+
             <p class="feedback"></p>
-        </form>
+        </form>        
     </main>
 </div>

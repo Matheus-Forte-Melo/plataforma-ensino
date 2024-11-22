@@ -1,32 +1,50 @@
 {% load static %}
 
-<div class="conteudo" id="conteudo4">
+<div class="conteudo desafio" id="conteudo14">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
+    <main>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/SXAxAlGNcqE?si=srJsUy4bOzrIsQmH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        {% include 'partial/aviso.html' with tipo="vermelho" mensagem="O desafio a seguir é BEM desafiador, se você não pegou bem todos os conceitos anteriores. Porfavor, revise. Boa sorte!" %}
 
-     <main>
-        <h1>Fluxograma</h1>
-        <p>Recomendado usar o Visio ou draw.io.</p>
-        <ul>
-            <li>Serve para simplificar a visualização do projeto, mostrando seu processo como um passo a passo. Pode ser uma preparação para o projeto, ou para apresentar o processo dele sem precisar mostrar código complexo.</li>
-            <li>As formas do fluxograma:</li>
-                <ul>
-                    <li>Início ou Fim: Retângulo com bordas arredondadas.</li>
-                    <li>Entrada ou saída de dados: Paralelogramo.</li>
-                    <li>Processamento de dados: Retângulo normal.</li>
-                    <li>Decisão: Losango.</li>
-                </ul>
-            <li>São conectados por setas para indicar o fluxo</li>
-            <img src="https://blogdaqualidade.com.br/wp-content/uploads/2012/06/imagem-meire-Fluxograma-610x416.jpg" alt="exemplo">
-        </ul>
-        <p>Exemplos:</p>
-        <ul>
-            <li><a href="https://catolicasc-my.sharepoint.com/:u:/g/personal/matheus_kuchenbecker_catolicasc_edu_br/EQeto1WDlxJHgbBnAiSUKlMB3WhjrW7uDsvYZWxvo3BDVQ?e=h129VS">Oi, tudo bem</a></li>
-            <li><a href="https://catolicasc-my.sharepoint.com/:u:/g/personal/matheus_kuchenbecker_catolicasc_edu_br/Efi0HXGAQSNEosm0IwImTPkB-QwQ1IKiz4_5czI1YN8OBg?e=kvV3Fh">Sua idade</a></li>
-            <li><a href="https://catolicasc-my.sharepoint.com/:u:/r/personal/matheus_kuchenbecker_catolicasc_edu_br/_layouts/15/Doc.aspx?sourcedoc=%7B2bf7e539-8fef-429d-a52b-a422e002e65c%7D&action=edit&wdIsModeSwitch=1&or=PrevEdit">Conta</a></li>
-            <li><a href="https://catolicasc-my.sharepoint.com/:u:/g/personal/matheus_kuchenbecker_catolicasc_edu_br/EWA4tBulsoFLrpATg4qAIeMBj_lRUuYiymb5X3uAEO7OQg?e=GdAELn">Passou de ano</a></li>
-        </ul>
+        <hr>
+
+        <form id="formulario_fase_14" class="prevent-select" action="">
+            <div class="questao-container">
+                <p>Preste muito atenção no código, leia linha-a-linha, e marque a opção que reflete os valores FINAIS de A, B e C.</p>
+
+                <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+    int main() {
+        int A = 10, B = 5, C = 3;
+        
+        A = (A * B) - (C + 2 * 4);   
+        B = (B - C) + A / 2;              
+        A = A + (C * C) - 300;   
+        B = B + (A - C);         
+        C = C * C + 10;      
+       
+        
+        // Qual serão os valores finais de A, B e C? Boa sorte :3
+        
+        return 0;
+    }    
+                </code></pre>
+                <input type="radio" name="1"><code style="font-size: 1em;">A = 12; B = 105; C = 35</code> <br>
+                <input type="radio" name="1"><code style="font-size: 1em;">A = -2; B = 125; C = 25</code> <br>
+                <input type="radio" name="1"><code style="font-size: 1em;">A = 12; B = 115; C = 32</code> <br>
+                <input type="radio" name="1"><code style="font-size: 1em;">A = 32; B = 825; C = 35</code> <br>
+                <input type="radio" name="1"><code style="font-size: 1em;">A = 12; B = 555; C = 35</code> <br>
+                <input type="radio" name="1" class="c" value="c"><code style="font-size: 1em;">A = 12; B = 155; C = 35</code>
+            </div>
+            <div class="feedback"></div>
+
+            {% include 'partial/aviso.html' with tipo="verde" mensagem="Mesmo num mundo tão tecnológico, um bom papel e caneta não fariam mal nesse situação, fariam?" %}
+
+        </form>
+
     </main>
 
 </div>

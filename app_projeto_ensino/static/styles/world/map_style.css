@@ -59,8 +59,8 @@ header > nav {
 
 /* Mapa que é maior que o contêiner para permitir o arraste */
 .mapa {
-    width: 5000px; /* Exemplo, faça maior que a tela */
-    height: 5000px; /* Exemplo, faça maior que a tela */
+    width: 6500px; /* Exemplo, faça maior que a tela */
+    height: 2000px; /* Exemplo, faça maior que a tela */
     background-color: var(--background_conteudo);
     display: flex;
     position: relative;

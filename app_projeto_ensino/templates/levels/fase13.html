@@ -1,25 +1,138 @@
 {% load static %}
 
-<div class="conteudo" id="conteudo3">
+<div class="conteudo" id="conteudo13">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
 
     <main>
-        <h2>A Lógica de Programação é Crucial Porque:</h2>
-        <ul>
-            <li><strong>Resolução de Problemas:</strong> Ajuda a decompor problemas complexos em etapas menores e mais manejáveis.</li>
-            <li><strong>Eficiência:</strong> Melhora a eficiência e a clareza do código, evitando erros e redundâncias.</li>
-            <li><strong>Base para Linguagens de Programação:</strong> Fornece a base para escrever código em qualquer linguagem de programação.</li>
-        </ul>
-        <h2>Raciocínio Lógico</h2>
-        <ul>
-            <li><strong>Pensamento Sequencial:</strong> Organizar e executar instruções em uma ordem específica.</li>
-            <li><strong>Pensamento Condicional:</strong> Fazer escolhas baseadas em condições.</li>
-            <li><strong>Pensamento Iterativo:</strong> Repetir tarefas até que uma condição seja satisfeita.</li>
-        </ul>
-        <p>Em resumo, a lógica de programação é a prática de aplicar raciocínios e técnicas sistemáticas para desenvolver soluções eficazes e funcionais por meio da programação. A lógica de programação é a base para começar como programador e ser um bom profissional na área.</p>
+        <h1>Aula Didática: Operadores Aritméticos em C</h1>
+        <p>Os operadores aritméticos são fundamentais em qualquer linguagem de programação, incluindo C. Eles são usados para realizar operações matemáticas básicas, como soma, subtração, multiplicação e divisão.</p>
 
-        <a href="https://rachacuca.com.br/logica/problemas/">Clique aqui para abrir atividades para treinar a lógica.</a>
+        {% include 'partial/aviso.html' with tipo="verde" mensagem="Prepare-se, pois é a partir de agora que nossos programas vão começar a se tornar realmente úteis." %}
+    
+        <h2>Operadores Aritméticos Básicos</h2>
+        <table border="1" cellpadding="8" cellspacing="0">
+            <tr>
+                <th>Operador</th>
+                <th>Descrição</th>
+                <th>Exemplo</th>
+            </tr>
+            <tr><td>+</td><td>Soma</td><td>a + b</td></tr>
+            <tr><td>-</td><td>Subtração</td><td>a - b</td></tr>
+            <tr><td>*</td><td>Multiplicação</td><td>a * b</td></tr>
+            <tr><td>/</td><td>Divisão</td><td>a / b</td></tr>
+            <tr><td>%</td><td>Módulo (resto da divisão)</td><td>a % b</td></tr>
+        </table>
+    
+        <h2>Operações Básicas</h2>
+    <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 10, b = 3;
+    int soma, subtracao, multiplicacao, modulo;
+    float divisao;
+
+    // Realizando operações
+    soma = a + b;
+    subtracao = a - b;
+    multiplicacao = a * b;
+    divisao = (float)a / b;  // (float)a faz a variável A parar de ser INT e começar a ser FLOAT
+    modulo = a % b;
+
+    // Exibindo resultados
+    printf("Soma: %d + %d = %d\n", a, b, soma);
+    printf("Subtração: %d - %d = %d\n", a, b, subtracao);
+    printf("Multiplicação: %d * %d = %d\n", a, b, multiplicacao);
+    printf("Divisão: %d / %d = %.2f\n", a, b, divisao);
+    printf("Módulo: %d %% %d = %d\n", a, b, modulo);
+
+    return 0;
+}
+    </code></pre>
+
+        <section>
+            <h3>Explicação do código acima.</h3>
+            <p><code class="language-c">int a = 10, b = 3;</code><br>
+                Declara duas variáveis inteiras, <code class="language-c">a</code> e <code class="language-c">b</code>, com valores 10 e 3, respectivamente.</p>
+    
+            <p><code class="language-c">int soma, subtracao, multiplicacao, modulo;</code><br>
+            Declara quatro variáveis inteiras para armazenar os resultados das operações de soma, subtração, multiplicação e módulo.</p>
+            <p><code class="language-c">float divisao;</code><br>
+            Declara uma variável do tipo <code class="language-c">float</code> para armazenar o resultado da divisão. Utilizamos <code class="language-c">float</code> para obter resultados com casas decimais.</p>
+
+            <p><code class="language-c">soma = a + b;</code><br>
+            Calcula a soma de <code class="language-c">a</code> e <code class="language-c">b</code> (10 + 3) e armazena o resultado (13) na variável <code>soma</code>.</p>
+
+            <p><code class="language-c">subtracao = a - b;</code><br>
+            Calcula a subtração de <code class="language-c">b</code> de <code class="language-c">a</code> (10 - 3) e armazena o resultado (7) na variável <code class="language-c">subtracao</code>.</p>
+
+            <p><code class="language-c">multiplicacao = a * b;</code><br>
+            Calcula a multiplicação de <code class="language-c">a</code> por <code class="language-c">b</code> (10 * 3) e armazena o resultado (30) na variável <code class="language-c">multiplicacao</code>.</p>
+
+            <p><code class="language-c">divisao = (float)a / b;</code><br>
+            Converte <code class="language-c">a</code> para <code>float</code> para garantir uma divisão real. O resultado da divisão (10.0 / 3) é aproximadamente 3.33 e é armazenado na variável <code class="language-c">divisao</code>.</p>
+            
+            <p><code class="language-c">modulo = a % b;</code><br>
+            Calcula o resto da divisão de <code class="language-c">a</code> por <code class="language-c">b</code> (10 % 3) e armazena o resultado (1) na variável <code class="language-c">modulo</code>. O operador de módulo retorna o resto de uma divisão inteira.</p>
+        </section>
+    
+        <h2>Ordem de Precedência</h2>
+        <p>Assim como na matemática, em C, a ordem das operações importa. A precedência dos operadores determina a ordem em que as operações são realizadas.</p>
+        <ul>
+            <li><strong>Parênteses:</strong> <code>()</code></li>
+            <li><strong>Multiplicação, Divisão e Módulo:</strong> <code>*</code>, <code>/</code>, <code>%</code> (da esquerda para a direita)</li>
+            <li><strong>Soma e Subtração:</strong> <code>+</code>, <code>-</code> (da esquerda para a direita)</li>
+        </ul>
+    
+    <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+int main() {
+    int resultado;
+
+    resultado = 10 + 5 * 2;    // Multiplicação é feita primeiro
+    printf("Resultado: %d\n", resultado);  // 10 + (5 * 2) = 20
+
+    resultado = (10 + 5) * 2;  // Parênteses alteram a ordem
+    printf("Resultado com parênteses: %d\n", resultado);  // (10 + 5) * 2 = 30
+
+    return 0;
+}
+    </code></pre>
+    
+        <h2>Incremento (++) e Decremento (--)</h2>
+        <p>Estes operadores aumentam ou diminuem o valor de uma variável em uma unidade:</p>
+        <ul>
+            <li><strong>Incremento (++):</strong> Adiciona 1.</li>
+            <li><strong>Decremento (--):</strong> Subtrai 1.</li>
+        </ul>
+    
+    <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+int main() {
+    int x = 5;
+    printf("Valor inicial: %d\n", x);
+
+    printf("Pré-incremento: %d\n", ++x);  // x torna-se 6 antes da impressão
+    printf("Pós-incremento: %d\n", x++);  // Imprime 6, depois x torna-se 7
+
+    return 0;
+}
+    </code></pre>
+    
+        <h2>Agora é sua vez!</h2>
+        <p>Tente resolver os seguintes problemas:</p>
+        <ol>
+            <li>Escreva um programa que calcule a soma de três números inseridos pelo usuário.</li>
+            <li>Escreva um programa que subtraia o primeiro número pelo segundo número (inseridos pelo usuário).</li>
+            <li>Escreva um programa que divida o primeiro número pelo segundo número (inseridos pelo usuário).</li>
+            <li>Escreva um programa que multiplique o primeiro número pelo segundo número (inseridos pelo usuário).</li>
+            <li>Escreva um programa para calcular a média de um aluno. O usuário deve inserir três notas.</li>
+        </ol>
+
+        {% include 'partial/aviso.html' with tipo="verde" mensagem="Faz alguma tarefa muito repetitiva no seu dia-a-dia que envolve algum tipo simples de cálculo? Te convido a tentar automatizar esse processo. O céu é o limite na programação!" %}
     </main>
 </div>
