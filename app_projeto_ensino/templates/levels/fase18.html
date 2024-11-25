@@ -1,29 +1,11 @@
 {% load static %}
 
-<div class="conteudo desafio" id="conteudo8">
+<div class="conteudo desafio" id="conteudo18">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
     <main>
-        <form id="formulario_fase_8" action="">
-            {% include 'partial/aviso.html' with tipo="laranja" mensagem="Para pular clique DUAS vezes no botão. Boa sorte!" %}
-            <div>
-                <p>O que é uma variável em programação?</p>
-                <input type="radio" name="1"> Um número aleatório escolhido pelo computador <br>
-                <input type="radio" name="1" value="c" class="c"> Um espaço na memória para armazenar dados <br>
-                <input type="radio" name="1"> Uma operação matemática <br>
-                <input type="radio" name="1"> Um comando que imprime texto na tela <br>
-            </div>
         
-            <div class="questao-container">
-                <p>Qual dos itens abaixo são comandos de saída em C? Assinale as opções <strong>corretas</strong>:</p>
-                <input type="checkbox" name="2" class="c"> printf <br>
-                <input type="checkbox" name="3"> scanf <br>
-                <input type="checkbox" name="4" class="c"> puts <br>
-                <input type="checkbox" name="5"> return <br>
-            </div>
-            <p class="feedback"></p>
-        </form>
     </main>
     
 </div>

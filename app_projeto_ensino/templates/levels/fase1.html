@@ -5,6 +5,7 @@
     <img src="{% static 'img/resize-fill.svg' %}" alt="Maximizar" class="ui-icon maximizar-btn" onclick="maximizarAba()" />
     <div></div> <!-- Essa DIV vazia é necessária -->
     <main>
+        {% include 'partial/aviso.html' with tipo="laranja" mensagem="Use seus pontos para subir no ranking e personalizar seu perfil. Quanto mais pontos, mais opções exclusivas estarão disponíveis para você." %}
         <h1>Bem-vindo ao Nosso Curso de Introdução a Programação!</h1>
         <p>Prepare-se para embarcar em uma jornada de aprendizado que vai desafiar sua lógica, sua criatividade e seu conhecimento. Antes de começar, vamos explicar como nosso sistema de navegação e de pontução funciona. Ao final, vamos te dar um vislumbre do que você será capaz de produzir SOZINHO ao final do curso (Não se assuste!).</p>
         

@@ -1,128 +1,139 @@
 {% load static %}
 
-<div class="conteudo" id="conteudo7"> 
+<div class="conteudo" id="conteudo17"> 
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick="maximizarAba()"> 
     <div></div>
     <main>
-        <h1>Atente-se gafanhoto.</h1>
-        <p><i>shhhhhhh</i>, a próxima fase é um desafio, decida-se, se você quiser ganhar pontos extras, faça-a, se não se importar com isso, clique no botão de pular. Mas saiba, uma vez pulado, não há como voltar. Não chore pelo leite derramado.</p>
-        
-        <h1>Declaração de Variáveis</h1>
-        <p>
-            Imagine uma caixa que você pode armazenar coisas dentro dela, você tem a caixa e quer guardar algo dentro dela, como um brinquedo. 
-            Essa caixa pode ter um rótulo, assim você sabe o que tem lá dentro. Na programação, uma variável é como essa caixa: você pode 
-            guardar informações dentro dela e dar um nome para saber o que está lá.
-        </p>
-        
-        <h2>Como funciona?</h2>
+        <h1>Estruturas Condicionais: <code class="language-c">if</code>, <code class="language-c">else if</code> e <code class="language-c">else</code></h1>
+        <p>As estruturas condicionais são fundamentais para tomar decisões na programação. Elas utilizam as condições formadas por <strong>operadores relacionais</strong> e <strong>lógicos</strong> (podendo até mesmo serem combinados com operadores aritiméticos, variáveis e constantes) para determinar qual bloco de código será executado.</p>
+    
+        <h2>Estruturas Básicas</h2>
+        <p>A estrutura condicional permite verificar uma ou mais condições e executar diferentes blocos de código com base nos resultados:</p>
         <ul>
-            <li><strong>Nome da variável:</strong> É como o rótulo da caixa. Você escolhe um nome que faz sentido. Por exemplo, se você vai 
-            guardar a idade de uma pessoa, pode chamar a variável de idade.</li>
-            <li><strong>Valor da variável:</strong> É o que você coloca dentro da caixa. Continuando com o exemplo, se a pessoa tem 25 anos, 
-            você coloca o número 25 na variável idade.</li>
-            <li><strong>Declaração:</strong> Para criar a variável, você usa uma instrução que informa ao computador que está criando essa 
-            "caixa". Por exemplo, em muitas linguagens de programação, você escreveria algo como: <code class="language-c">idade = 25</code> (idade é o nome da 
-            variável e 25 é o valor que estamos guardando).</li>
+            <li><code class="language-c">if</code>: Usado para avaliar uma condição específica. Se a condição for <code class="language-c">true</code>, o código associado ao <code class="language-c">if</code> será executado.</li>
+            <li><code class="language-c">else if</code>: Usado para verificar condições adicionais caso a primeira (ou outras) não seja verdadeira.</li>
+            <li><code class="language-c">else</code>: Define um bloco de código que será executado se nenhuma das condições anteriores for verdadeira.</li>
         </ul>
-
-        <p><strong>Resumindo:</strong></p>
+    
+        <div class="highlight">
+            <h3>Exemplo Simples</h3>
+            <p>Verificar se um número é positivo, negativo ou zero:</p>
+            <pre><code class="language-c">
+    int numero = -5;
+    
+    if (numero > 0) {
+        printf("O número é positivo.");
+    } else if (numero < 0) {
+        printf("O número é negativo.");
+    } else {
+        printf("O número é zero.");
+    }
+            </code></pre>
+        </div>
+    
+        <h2>Como funciona</h2>
+        <p>O <code class="language-c">if</code> avalia a primeira condição:</p>
         <ul>
-            <li><strong>Variável:</strong> Caixa para armazenar informações.</li>
-            <li><strong>Nome:</strong> Rótulo da caixa.</li>
-            <li><strong>Valor:</strong> O que está dentro da caixa.</li>
-            <li><strong>Declaração:</strong> Ação de criar a caixa.</li>
+            <li><code class="language-c">numero > 0</code>: Usamos o operador relacional <code class="language-c">&gt;</code> para verificar se o número é maior que zero. Se for verdadeiro, a mensagem "O número é positivo." será exibida.</li>
         </ul>
-
-        <p>
-            Assim, quando você precisa usar essa informação depois, basta referenciar a variável pelo nome. Se você quiser saber a idade, 
-            pode simplesmente usar <code class="language-c">idade</code> e o computador vai lembrar que é 25.
-        </p>
-
-        <h1>Comandos de Entrada e Saída</h1>
-        <h2>Entrada</h2>
-        <p>
-            É quando você quer que o computador receba informações do usuário. Por exemplo, você pode querer saber o nome ou a idade de 
-            alguém.
-        </p>
-        
-        <h2>Saída</h2>
-        <p>
-            É quando o computador mostra informações para o usuário. Por exemplo, pode mostrar uma mensagem de saudação ou a idade que foi 
-            informada.
-        </p>
-        
-        <h2>Como isso funciona em C?</h2>
-        <h3>Saída com printf</h3>
-        <p>
-            <code class="language-c">printf</code> é um comando usado para mostrar informações na tela. Imagine que você quer cumprimentar alguém. Você pode 
-            escrever:
-        </p>
-        
-        <code class="language-c">printf("Olá, mundo!\n");</code>
-
-        <p>
-            Aqui, o computador vai mostrar na tela "Olá, mundo!". O <code class="language-c">\n</code> é uma maneira de dizer ao computador para pular para a linha 
-            de baixo depois de mostrar a mensagem.
-        </p>
-
-        <h3>Entrada com scanf</h3>
-        <p>
-            <code class="language-c">scanf</code> é um comando usado para receber informações do usuário. Por exemplo, se você quer saber a idade de alguém, pode 
-            fazer assim:
-        </p>
-        
-        <code class="language-c">
-            int idade;
-            printf("Digite sua idade: ");
-            scanf("%d", &idade);
-        </code>
-
-        <p>
-            Aqui, o que acontece é:
-        </p>
-        
+        <p>Se a primeira condição for falsa, o <code class="language-c">else if</code> será avaliado:</p>
         <ul>
-            <li><code class="language-c">printf</code> mostra a mensagem "Digite sua idade:" na tela.</li>
-            <li><code class="language-c">scanf</code> espera que o usuário digite um número. O <code class="language-c">%d</code> indica que estamos esperando um número inteiro, e 
-            o <code class="language-c">&idade</code> diz ao computador onde guardar esse número (na variável <code class="language-c">idade</code>).</li>
+            <li><code class="language-c">numero < 0</code>: Aqui usamos o operador relacional <code class="language-c">&lt;</code> para verificar se o número é menor que zero. Se for verdadeiro, a mensagem "O número é negativo." será exibida.</li>
         </ul>
-
-        <h3>Resumindo</h3>
+        <p>Se nenhuma das condições anteriores for verdadeira, o <code class="language-c">else</code> será executado, exibindo a mensagem "O número é zero."</p>
+    
+        <h2>Referência aos Operadores</h2>
+        <p>Este exemplo utiliza os operadores relacionais para criar as condições:</p>
         <ul>
-            <li><strong>Entrada:</strong> Use <code class="language-c">scanf</code> para receber (ler) informações do usuário.</li>
-            <li><strong>Saída:</strong> Use <code class="language-c">printf</code> para mostrar informações na tela.</li>
+            <li><code class="language-c">&gt;</code>: Maior que, para verificar números positivos.</li>
+            <li><code class="language-c">&lt;</code>: Menor que, para verificar números negativos.</li>
         </ul>
-
-        <h2>Exemplo Completo</h2>
-        <p>
-            Aqui está um pequeno exemplo que combina tudo isso:
-        </p>
-        
-        <pre>
-            <code class="language-c">
-#include &lt;stdio.h&gt;
-int main() {
-int idade;
-
-printf("Digite sua idade: ");      // Saída
-scanf("%d", &idade);               // Entrada
-
-printf("Você tem %d anos.\n", idade); // Saída
-return 0;
-}
-            </code>
-        </pre>
-
-        <p>
-            Nesse exemplo:
-        </p>
-        
+        <p>Note que essas condições resultam em valores booleanos (<code class="language-c">true</code> ou <code class="language-c">false</code>), os mesmos que podem ser combinados com operadores lógicos, se necessário.</p>
+    
+        <h2>Exemplo Ampliado</h2>
+        <p>Imagine que você também quer verificar se o número está entre 1 e 10:</p>
+        <div class="highlight">
+            <pre><code class="language-c">
+    int numero = 5;
+    
+    if (numero > 0 && numero <= 10) {
+        printf("O número está entre 1 e 10.");
+    } else if (numero < 0) {
+        printf("O número é negativo.");
+    } else {
+        printf("O número é maior que 10 ou igual a zero.");
+    }
+            </code></pre>
+        </div>
+        <p>Aqui usamos o operador lógico <code class="language-c">&amp;&amp;</code> (AND) para combinar duas condições:
+            <code class="language-c">numero > 0</code> e <code class="language-c">numero &lt;= 10</code>. Ambas devem ser <code class="language-c">true</code> para que o bloco seja executado.</p>
+    
+        <h2>Resumo</h2>
+        <p>As estruturas condicionais em conjunto com operadores relacionais e lógicos permitem:</p>
         <ul>
-            <li>O programa pede a idade do usuário.</li>
-            <li>O usuário digita a idade.</li>
-            <li>O programa mostra quantos anos a pessoa tem.</li>
+            <li>Tomar decisões com base em condições simples ou complexas.</li>
+            <li>Organizar o fluxo do programa de forma clara e lógica.</li>
+            <li>Executar diferentes blocos de código dependendo do estado das variáveis.</li>
         </ul>
+        <p>Essa é a base para qualquer aplicação que precise de lógica condicional, desde sistemas básicos até algoritmos complexos.</p>
 
+        <h2>Agora é sua vez! (Exercícios)</h2>
+        {% include 'partial/aviso.html' with tipo="verde" mensagem="Mas antes: Revise o assunto abaixo. A partir de agora, seus programas poderão começar a tomar decisões, alavancando sua utilidade em muitas vezes! Boa sorte." %}
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/MGUpDTEc3SM?si=IfQMWod3o8GIhyKP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <ol>
+            <li>
+                <strong>Verificação de Idade:</strong>
+                <p>Escreva um programa que solicite a idade de uma pessoa e exiba se ela é criança (0-12 anos), adolescente (13-17 anos), adulta (18-59 anos) ou idosa (60 anos ou mais).</p>
+            </li>
+            <li>
+                <strong>Classificação de Notas:</strong>
+                <p>Solicite a nota de um aluno (0 a 10). Mostre a classificação conforme:</p>
+                <ul>
+                    <li>Nota &gt;= 9: Excelente</li>
+                    <li>Nota &gt;= 7: Bom</li>
+                    <li>Nota &gt;= 5: Regular</li>
+                    <li>Nota &lt; 5: Insuficiente</li> <br>
+                </ul>
+            </li>
+            <li>
+                <strong>Verificação de Número Par ou Ímpar:</strong>
+                <p>Peça ao usuário para inserir um número e determine se ele é <strong>par</strong> ou <strong>ímpar</strong>.</p>
+            </li>
+            <li>
+                <strong>Calculadora Simples:</strong>
+                <p>Desenvolva um programa que solicite dois números e uma operação (+, -, *, /). Use condicionais para realizar a operação indicada e exiba o resultado.</p>
+            </li>
+            <li>
+                <strong>Verificador de Maior Número:</strong>
+                <p>Peça três números ao usuário e exiba o maior entre eles.</p>
+            </li>
+            <li>
+                <strong>Determinação de Triângulo:</strong>
+                <p>Solicite ao usuário três lados de um triângulo. Verifique se é equilátero (todos os lados iguais), isósceles (dois lados iguais) ou escaleno (todos diferentes).</p>
+            </li>
+            <li>
+                <strong>Classificação de Temperatura:</strong>
+                <p>Peça ao usuário para inserir a temperatura em graus Celsius. Exiba:</p>
+                <ul>
+                    <li>Menor que 0°C: Muito frio</li>
+                    <li>0°C a 15°C: Frio</li>
+                    <li>16°C a 25°C: Agradável</li>
+                    <li>26°C a 35°C: Quente</li>
+                    <li>Acima de 35°C: Muito quente</li> <br>
+                </ul>
+            </li>
+            <li>
+                <strong>Calculadora de IMC:</strong>
+                <p>Solicite o peso (kg) e a altura (m) do usuário e calcule o IMC. Classifique o resultado:</p>
+                <ul>
+                    <li>IMC &lt; 18.5: Abaixo do peso</li>
+                    <li>18.5 &lt;= IMC &lt; 25: Peso normal</li>
+                    <li>25 &lt;= IMC &lt; 30: Sobrepeso</li>
+                    <li>IMC &gt;= 30: Obesidade</li>
+                </ul>
+            </li>
+        </ol>        
     </main>
+    
 </div>

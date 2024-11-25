@@ -1,11 +1,147 @@
 {% load static %}
 
-<div class="conteudo exercicio" id="conteudo15">
+<div class="conteudo" id="conteudo15">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
 
-    <main>
+        <main>
+        <h1>Operadores Relacionais e Lógicos</h1>
+        {% include 'partial/aviso.html' with tipo="laranja" mensagem="Preste atenção! Esses coinceitos são importantíssimos na programação. Mais tarde, serão usados como nunca!" %}
+        <p>Os <strong>operadores relacionais e lógicos</strong> são ferramentas essenciais para <strong>comparar valores</strong> e <strong>avaliar expressões</strong>. Eles permitem realizar verificações e tomar decisões com base em condições.</p>
+        <h2>Operadores Relacionais</h2>
+        <p>Os operadores relacionais são usados para comparar dois valores e retornam um <strong>resultado booleano</strong>: verdadeiro (<code class="language-c">true</code>) ou falso (<code class="language-c">false</code>).</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Operador</th>
+                    <th>Significado</th>
+                    <th>Exemplo</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code class="language-c">&gt;</code></td>
+                    <td>Maior que</td>
+                    <td><code class="language-c">5 &gt; 3</code></td>
+                    <td><code class="language-c">true</code></td>
+                </tr>
+                <tr>
+                    <td><code class="language-c">&lt;</code></td>
+                    <td>Menor que</td>
+                    <td><code class="language-c">2 &lt; 7</code></td>
+                    <td><code class="language-c">true</code></td>
+                </tr>
+                <tr>
+                    <td><code class="language-c">&gt;=</code></td>
+                    <td>Maior ou igual</td>
+                    <td><code class="language-c">4 &gt;= 4</code></td>
+                    <td><code class="language-c">true</code></td>
+                </tr>
+                <tr>
+                    <td><code class="language-c">&lt;=</code></td>
+                    <td>Menor ou igual</td>
+                    <td><code class="language-c">3 &lt;= 2</code></td>
+                    <td><code class="language-c">false</code></td>
+                </tr>
+                <tr>
+                    <td><code class="language-c">==</code></td>
+                    <td>Igual a</td>
+                    <td><code class="language-c">10 == 10</code></td>
+                    <td><code class="language-c">true</code></td>
+                </tr>
+                <tr>
+                    <td><code class="language-c">!=</code></td>
+                    <td>Diferente de</td>
+                    <td><code class="language-c">8 != 5</code></td>
+                    <td><code class="language-c">true</code></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>Operadores Lógicos</h2>
+        <p>Os operadores lógicos combinam <strong>expressões booleanas</strong> (ou condições) e retornam um resultado booleano. Eles são úteis para verificar múltiplas condições ao mesmo tempo.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Operador</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Exemplo</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code class="language-c">&amp;&amp;</code></td>
+                    <td>AND</td>
+                    <td>Retorna <code class="language-c">true</code> <strong>apenas</strong> se <strong>todas</strong> as condições forem <code>true</code></td>
+                    <td><code class="language-c">(5 &gt; 3) &amp;&amp; (2 &lt; 7)</code></td>
+                    <td><code class="language-c">true</code></td>
+                </tr>
+                <tr>
+                    <td><code class="language-c">||</code></td>
+                    <td>OR</td>
+                    <td>Retorna <code class="language-c">true</code> se <strong>pelo menos uma</strong> condição for <code class="language-c">true</code></td>
+                    <td><code class="language-c">(5 &gt; 3) || (2 &gt; 7)</code></td>
+                    <td><code class="language-c">true</code></td>
+                </tr>
+                <tr>
+                    <td><code class="language-c">!</code></td>
+                    <td>NOT</td>
+                    <td>Inverte o valor lógico: <code class="language-c">true</code> vira <code class="language-c">false</code> e vice-versa</td>
+                    <td><code class="language-c">!(5 &gt; 3)</code></td>
+                    <td><code class="language-c">false</code></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>Exemplos Didáticos</h2>
+        <ol>
+            <li>
+                <p><strong>Comparação simples (Operadores Relacionais):</strong></p>
+                <p>Imagine que você quer verificar se um número <code class="language-c">A</code> é maior que um número <code class="language-c">B</code>.</p>
+                <ul>
+                    <li>Se <code class="language-c">A = 10</code> e <code class="language-c">B = 5</code>, então: <code class="language-c">A &gt; B</code> → <code class="language-c">10 &gt; 5</code> resulta em <strong>true</strong>.</li>
+                    <li>Se <code class="language-c">A = 3</code> e <code class="language-c">B = 7</code>, então: <code class="language-c">A &lt; B</code> → <code class="language-c">3 &lt; 7</code> resulta em <strong>true</strong>.</li>
+                </ul>
+            </li>
+            <li>
+                <p><strong>Combinação de condições (Operadores Lógicos):</strong></p>
+                <p>Suponha que você quer validar duas condições ao mesmo tempo:</p>
+                <ul>
+                    <li>Um número é maior que 0 <strong>e</strong> menor que 10.</li>
+                    <li>Para <code>X = 5</code>: <code>(X &gt; 0) &amp;&amp; (X &lt; 10)</code> → <code>(5 &gt; 0) &amp;&amp; (5 &lt; 10)</code> resulta em <strong>true</strong>.</li>
+                    <li>Para <code>X = 15</code>: <code>(X &gt; 0) &amp;&amp; (X &lt; 10)</code> → <code>(15 &gt; 0) &amp;&amp; (15 &lt; 10)</code> resulta em <strong>false</strong>.</li>
+                </ul>
+            </li>
+            <li>
+                <p><strong>Negação de uma condição (NOT):</strong></p>
+                <p>Se quisermos verificar se um número <strong>não</strong> é igual a 10:</p>
+                <ul>
+                    <li>Para <code class="language-c">Y = 10</code>: <code class="language-c">!(Y == 10)</code> → <code class="language-c">!(true)</code> resulta em <strong>false</strong>.</li>
+                    <li>Para <code class="language-c">Y = 5</code>: <code class="language-c">!(Y == 10)</code> → <code class="language-c">!(false)</code> resulta em <strong>true</strong>.</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h2>Como esses operadores se conectam</h2>
+        <p>Os operadores <strong>relacionais</strong> criam condições básicas que retornam valores booleanos. Esses valores booleanos podem ser combinados com os operadores <strong>lógicos</strong> para construir condições mais complexas.</p>
+        <p>Exemplo:</p>
+        <p><code class="language-c">(A &gt; B) &amp;&amp; (C != D)</code>: Aqui, estamos verificando duas condições:</p>
+        <ol>
+            <li>Se <code class="language-c">A</code> é maior que <code class="language-c">B</code>.</li>
+            <li>Se <code class="language-c">C</code> é diferente de <code class="language-c">D</code>.</li>
+        </ol>
+        <p>O resultado final será <strong>true</strong> apenas se <strong>ambas</strong> as condições forem verdadeiras.</p>
     </main>
+
+    <h2>Vá com calma gafanhoto!</h2>
+    {% include 'partial/aviso.html' with tipo="verde" mensagem="Esses conceitos podem estar um pouco confusos em sua cabeça ainda, mas não se preocupe. Veja a seguir os vídeos do belíssimo Eduardo Casavella sobre os assuntos comentados:" %}
+    <h3>Operadores Relacionais</h3>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/mLw16Urz-sY?si=ynRfWlM3v-2_C3Q9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <h3>Operadores Lógicos</h3>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/CCc2zdqEIVo?si=lpA20CidarK5IO79" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     
 </div>
