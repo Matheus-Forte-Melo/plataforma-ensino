@@ -5,6 +5,83 @@
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
     <main>
-        
+        <main>
+            <form id="formulario_fase_16" action="">
+    
+                <div class="questao-container">
+                    <p>Operadores Relacionais servem para:</p>
+                    <input type="radio" name="1"> a. Atribuir valores às variáveis.<br>
+                    <input type="radio" name="1"> b. Realizar cálculos matemáticos básicos.<br>
+                    <input type="radio" name="1" value="c" class="c"> c. Comparar valores e determinar relações entre eles.<br>
+                    <input type="radio" name="1"> d. Armazenar dados em memória.
+                </div>
+    
+                <div class="questao-container">
+                    <p>Operadores Lógicos servem para:</p>
+                    <input type="radio" name="2"> a. Executar loops no código.<br>
+                    <input type="radio" name="2" value="b" class="c"> b. Combinar expressões booleanas para decisões lógicas.<br>
+                    <input type="radio" name="2"> c. Declarar variáveis constantes.<br>
+                    <input type="radio" name="2"> d. Ordenar listas em ordem alfabética.
+                </div>
+    
+                <div class="questao-container">
+                    <p>Escreva o operador lógico ou relacional mais adequado para cada situação (DE ACORDO COM AS PALAVRAS EM CAIXA ALTA):</p>
+                   <b>Exemplo:</b> Marco é MAIS  (<code class="language-c">></code>) velho que Matheus</code>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Questões</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Igor tem MAIS ou a MESMA/IGUAL (<input style="width: 30px;" type="text" name="3" class="c" data-c=">=">) idade que Bruno</td>
+                            </tr>
+                            <tr>
+                                <td>Marco tem a idade IGUAL (<input style="width: 30px;" type="text" name="4" class="c" data-c="==">) à do Josué!</td>
+                            </tr>
+                            <tr>
+                                <td>Marco tem MENOS (<input style="width: 30px;" type="text" name="5" class="c" data-c="<">) hábilidade nos jogos do que Matheus</td>
+                            </tr>
+                            <tr>
+                                <td>Willian tem MENOS ou a MESMA idade (<input style="width: 30px;" type="text" name="6" class="c" data-c="<=">) que Gustavo.</td>
+                            </tr>
+                            <tr>
+                                <td>Igor E (<input style="width: 30px;" type="text" name="7" class="c" data-c="&&">) Bruno E (<code class="language-c">&&</code>) Gustavo são piores/MENOS bons (<input style="width: 30px;" type="text" name="8" class="c" data-c="<">) do que Matheus, Willian, Josué e Marco</td>
+                            </tr>
+                            <tr>
+                                <td>Willian OU (<input style="width: 30px;" type="text" name="9" class="c" data-c="||">) Kazumi tem a idade IGUAL (<input style="width: 30px;" type="text" name="10" class="c" data-c="==">) a 18 anos.</td>
+                            </tr>
+                            <tr>
+                                <td>Matheus E (<input style="width: 30px;" type="text" name="11" class="c" data-c="&&">) Bruno E (<input style="width: 30px;" type="text" name="12" class="c" data-c="&&">) Igor NÃO (<input style="width: 30px;" type="text" name="13" class="c" data-c="!">) trabalham </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                {% include 'partial/aviso.html' with tipo="laranja" mensagem="Se você estiver com certeza que suas respostas estão corretas mas não consegue entregar, certifique-se que não há nenhum espaço ou outro caractere indesejado nos INPUTS de texto acima. TODOS devem permancer na esquerda, sem espaçamentos." %}
+    
+                <div class="questao-container">
+                    <p>Essa expressão teria que resultado?<br><code class="language-c">50 > 20:</code></p>
+                    <input type="radio" name="14" value="c" class="c"> a. true<br>
+                    <input type="radio" name="14"> b. false
+                </div>
+             
+                <div class="questao-container">
+                    <p>Essa expressão teria que resultado?<br><code class="language-c">20 > 10 && 50 < 20:</code></p>
+                    <input type="radio" name="15"> a. true<br>
+                    <input type="radio" name="15" value="c" class="c"> b. false
+                </div>
+    
+                <!-- Questão 6 -->
+                <div class="questao-container">
+                    <p>6. Essa expressão teria que resultado?<br><code class="language-c">18 == 18 || 17 == 18:</code></p>
+                    <input type="radio" name="16" value="c" class="c"> a. true<br>
+                    <input type="radio" name="16"> b. false
+                </div>
+    
+                <p class="feedback"></p>
+            </form>
+        </main>
     </main>
 </div>
