@@ -278,3 +278,27 @@ formularios.forEach((formulario) => {
     });
 });
 
+/* Lógica PopUps */
+
+function setarPopup(popup) {
+    popup.setAttribute('style', 'display: block !important;'); // Gambiarra, mas vai ficar aqui porque preciso terminar logo
+    const button_popup = popup.querySelector('button');
+    const bg = document.getElementsByClassName('mapa-container')[0];
+    bg.classList.toggle('escurecedor')
+
+    button_popup.addEventListener('click', function () { 
+        popup.style.display = 'none'
+        bg.classList.toggle('escurecedor')
+    }) 
+}
+
+if (fase_atual == 1){
+    const popup = document.getElementById('p1'); 
+    setarPopup(popup)  
+} 
+
+if (fase_atual == 21){
+    const popup = document.getElementById('p2');
+    const video = popup.querySelector('video')
+    setarPopup(popup)
+} 

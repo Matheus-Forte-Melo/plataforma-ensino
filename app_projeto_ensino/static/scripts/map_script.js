@@ -149,7 +149,6 @@ function atualizarFases() {
     for (fase of fases) { 
         let num_fase = Number(fase.getAttribute('data-fase'));
         let conteudoFase = document.getElementById("conteudo" + num_fase);
-        console.log(conteudoFase)
         const tipoFase = conteudoFase.classList[1]; // Mudei isso de lugar, ele tava no "Ativo" antes
         let estadoFase = pegarEstadoFase(num_fase, fase_atual);
         let conteudo_fase_main = conteudoFase.querySelector('main')
@@ -378,3 +377,4 @@ if (estado_header === 'open') {
 } else {
     header.classList.add('hidden_header'); 
 }
+
