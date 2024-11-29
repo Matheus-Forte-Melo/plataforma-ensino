@@ -1,10 +1,63 @@
 {% load static %}
 
-<div class="conteudo" id="conteudo19">
+<div class="conteudo desafio" id="conteudo19">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick="maximizarAba()">
     <div></div>
     <main>
-    
+        <form id="formulario_fase_19" class="prevent-select" action="">
+            {% include 'partial/aviso.html' with tipo="verde" mensagem="Boa sorte! Você ja fez isso antes, mas agora, vamos dar uma apimentada!" %}
+            <div class="questao-container">
+                <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+int main() {
+    int a = 7, b = 3, c = 10;
+
+    a = a + b * 2;
+    b = a - c;
+    c = a % 5;
+
+    if (a > 10 && b < 5) {
+        b = b * 2;
+        a = a - 3;
+    } else {
+        c = c + 5;
+    }
+
+    if (b == 6) {
+        a = a / 2;
+        c = c * 3;
+    } else {
+        a = a + c;
+    }
+
+    if (c > 5 || b < 4) {
+        c = c - 4;
+        b = b + 2;
+    } else {
+        a = a + 1;
+    }
+
+    printf("Valores finais: a = %d, b = %d, c = %d\n", a, b, c);
+    return 0;
+}
+                    </code></pre>
+                
+                
+                    <input type="radio" name="1"> <code class="language-c">a = 5</code>, <code class="language-c">b = 8</code>, <code class="language-c">c = 3</code> <br>
+
+                    <input type="radio" name="1"> <code class="language-c">a = 10</code>, <code class="language-c">b = 7</code>, <code class="language-c">c = 9</code> <br>
+
+                    <input type="radio" name="1"> <code class="language-c">a = 5</code>, <code class="language-c">b = 6</code>, <code class="language-c">c = 15</code> <br>
+
+                    <input type="radio" name="1" value="c" class="c"> <code class="language-c">a = 5</code>, <code class="language-c">b = 8</code>, <code class="language-c">c = 5</code> <br>
+
+                    <input type="radio" name="1"> <code class="language-c">a = 7</code>, <code class="language-c">b = 6</code>, <code class="language-c">c = 9</code> <br>
+
+                    <input type="radio" name="1"> <code class="language-c">a = 5</code>, <code class="language-c">b = 7</code>, <code class="language-c">c = 5</code>
+
+            </div>
+            <p class="feedback"></p>
+        </form>
     </main>
 </div>

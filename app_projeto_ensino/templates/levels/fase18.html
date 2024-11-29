@@ -1,11 +1,113 @@
 {% load static %}
 
-<div class="conteudo desafio" id="conteudo18">
+<div class="conteudo exercicio" id="conteudo18">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
     <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
     <div></div>
     <main>
-        
+        <form id="formulario_fase_18" action="">
+
+            <div class="questao-container">
+                <p>O que são condicionais?</p>
+                <input type="radio" name="1"> São laços de repetição usados para executar um código várias vezes.<br>
+                <input type="radio" name="1"> São instruções para realizar operações matemáticas no programa.<br>
+                <input type="radio" name="1"> São funções reservadas para manipular strings no C. <br>
+                <input type="radio" name="1" value="c" class="c"> São estruturas que permitem a execução de diferentes blocos de código com base em condições avaliadas como verdadeiras ou falsas.<br>
+                <input type="radio" name="1"> São funções reservadas para manipular strings no C. <br>
+            </div>
+
+            <div class="questao-container">
+                <p>Selecione as afirmações <b>FALSAS</b> sobre as condicionais:</p>
+                <input type="checkbox" name="2" class="c"> Condicionais raramente aparecem na programação. <br>
+                <input type="checkbox" name="3" class="c"> A instrução <code class="language-c">if</code> é obrigatória em todos os programas em C.<br>
+                <input type="checkbox" name="4"> Podemos usar operadores lógicos (<code class="language-c">&&</code>, <code class="language-c">||</code>, <code class="language-c">!</code>) dentro das condicionais.<br>
+                <input type="checkbox" name="5" class="c"> A instrução <code class="language-c">else</code> é obrigatória quando usamos um <code class="language-c">if</code>.<br>
+                <input type="checkbox" name="8"> Podemos usar operadores aritiméticos (<code class="language-c">/</code>, <code class="language-c">-</code>, <code class="language-c">++</code>, [...]) dentro das condicionais.<br>
+                <input type="checkbox" name="7"> As condicionais são úteis para implementar estruturas de decisão em programas. <br>
+                <input type="checkbox" name="8"> Podemos usar operadores relacionais (<code class="language-c">></code>, <code class="language-c"><</code>, <code class="language-c">>=</code>, [...]) dentro das condicionais.<br>
+            </div>
+
+            <div class="questao-container">
+                <p>Qual será a saída do programa abaixo?</p>
+                
+                {% include 'partial/aviso.html' with tipo="verde" mensagem="Lembre-se que true e false são representados por números em C. E que o inverso de true é false. A lógica segue a mesma para quando isso é representado via número.." %}
+    <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int idade = 20;
+    int carteiraValida = 0; 
+    int temCarteira = 1; 
+
+    if (idade >= 18 && temCarteira == 1 && carteiraValida == 1) {  
+        printf("Pode dirigir\n");
+    } else if (idade < 18) {  
+        printf("Não pode dirigir: menor de idade\n");
+    } else if (!temCarteira) {  
+        printf("Não pode dirigir: não possui carteira\n");
+    } else if (!carteiraValida) {  
+        printf("Não pode dirigir: carteira vencida\n");
+    }
+
+    return 0;
+}
+</code></pre>
+                <input type="radio" name="9"> Pode dirigir<br>
+                <input type="radio" name="9"> Não pode dirigir: menor de idade<br>
+                <input type="radio" name="9"> Não pode dirigir: não possui carteira<br>
+                <input type="radio" name="9" value="c" class="c"> Não pode dirigir: carteira vencida
+            </div>
+            
+
+            <div class="questao-container">
+                <p>Qual será a saída do programa abaixo?</p>
+                <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+int main() {
+    int num = 7;
+
+    if (num % 2 == 0) {
+        printf("Número par\n");
+    } 
+    
+    if (!(num % 2 == 0)) {
+        printf("Número ímpar\n");
+    }
+
+    return 0;
+}
+                </code></pre>
+                <input type="radio" name="10"> Número par<br>
+                <input type="radio" name="10"> Múltiplo de 3<br>
+                <input type="radio" name="10" value="c" class="c"> Número ímpar<br>
+                <input type="radio" name="10"> Nenhuma das opções
+            </div>
+
+            <div class="questao-container">
+                <p>Encontre o erro lógico desse programa que tem o objetivo de dizer se uma pessoa é adulta ou idosa baseada em sua idade.</p>
+                <pre><code class="language-c">
+                #include &lt;stdio.h&gt;
+                
+                int main() {
+                    int idade = 20;
+                
+                    if (idade >= 18 && idade <= 65) { // Condicao 1
+                        printf("Adulto\n");
+                    } else if (idade < 18 || idade > 65) { // Condicao 2
+                        printf("Idoso\n");
+                    }
+                
+                    return 0;
+                }
+                </code></pre>
+                <p>O programa não está funcionando corretamente. O que pode ser ajustado?</p>
+                <input type="radio" name="11" value="c" class="c"> A segunda condição está incorreta.<br>
+                <input type="radio" name="11"> A primeira condição deve ser <code class="c">idade &gt; 18 && idade &lt; 65</code>.<br>
+                <input type="radio" name="11"> O <code class="c">else if</code> é desnecessário, pois cobre todas as possibilidades da primeira condição.<br>
+                <input type="radio" name="11"> O programa na verdade está correto.
+            </div>
+            <p class="feedback"></p>
+        </form>
     </main>
     
 </div>
