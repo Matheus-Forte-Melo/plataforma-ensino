@@ -95,12 +95,14 @@ th {
     position: relative;
     color: var(--aviso-verde-color);
     background-color: var(--aviso-verde-background-color);
-    padding: 15px;
+    padding: 15px 15px 15px 65px;
     border-radius: 10px;
 }
 
 .aviso-verde svg {
     display: block;
+    position: absolute;
+    left: 18.5px;
     fill: var(--aviso-icon-verde-fill);
 }
 
@@ -111,12 +113,14 @@ th {
     position: relative;
     color: var(--aviso-laranja-color);
     background-color: var(--aviso-laranja-background-color);
-    padding: 15px;
+    padding: 15px 15px 15px 65px;
     border-radius: 10px;
 }
 
 .aviso-laranja svg {
     display: block;
+    position: absolute;
+    left: 18.5px;
     fill: var(--aviso-icon-laranja-fill);
 }
 
@@ -127,11 +131,23 @@ th {
     position: relative;
     color: var(--aviso-vermelho-color);
     background-color: var(--aviso-vermelho-background-color);
-    padding: 15px;
+    padding: 15px 15px 15px 65px;
     border-radius: 10px;
 }
 
 .aviso-vermelho svg {
     display: block;
+    position: absolute;
+    left: 18.5px;
     fill: var(--aviso-icon-vermelho-fill);
+}
+
+input[type="text"] {
+    height: 20px;
+    border-radius: 4px;
+    margin: 5px;
+    border: 1px solid rgba(51, 50, 50, 0.793);
+    outline: 1px solid rgba(13, 105, 145, 0.647);
+    font-family: monospace;
+    font-size: 1.1em;
 }

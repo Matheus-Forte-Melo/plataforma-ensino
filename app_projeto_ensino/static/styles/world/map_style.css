@@ -44,7 +44,7 @@ header > nav {
     justify-content: flex-end;
     transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
     background-color: var(--background_geral);
-
+    color: var(--cor_texto);
     filter: brightness(1) !important;
 }
 
