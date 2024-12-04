@@ -53,13 +53,14 @@ let timer;
 function tratarFaseBloqueada(fase, conteudoFase) {
     fase.style.backgroundColor = "var(--nao-selecionado)";
     fase.style.outlineColor = "var(--nao-selecionado)";
-    // document.querySelector('.prova-icon').classList.add('bloqueado');
+
+    fase.classList.add('bloqueado')
+
     conteudoFase.querySelector('div').classList.add("feedback-estado");
     conteudoFase.querySelector('main').classList.add('conteudo-bloqueado');
 }
 
 function tratarFaseAtual(fase, tipoFase, conteudoFase ,conteudo_fase_main, conteudo_fase_feedback) {
-    // fase.classList.remove("bloqueado")
     conteudo_fase_main.classList.remove('conteudo-bloqueado');
     conteudo_fase_feedback.classList.remove("feedback-estado")
      

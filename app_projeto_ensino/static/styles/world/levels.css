@@ -91,13 +91,13 @@
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); /* Mesma forma */
 }
 
-/* .prova-icon.bloqueado::after {
+.bloqueado::after {
     background-color: var(--nao-selecionado); 
 }
 
-.prova-icon.bloqueado {
+.bloqueado {
     background-color: var(--nao-selecionado);
-} */
+}
 
 
 /* Posição das fases */

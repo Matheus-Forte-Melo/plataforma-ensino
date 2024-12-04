@@ -30,15 +30,34 @@ function calcularPontuacao(pontos, tempo, tentativas) {
 function pegarInfoFormulario(form, botao, is_prova) {
     const formData = new FormData(form);
     const formEntries = {};
+   
 
     formData.forEach((value, key) => {
+        
+        const input = form.elements.namedItem(key) 
+        // form.elements retorna TODOS os elementos filhos do form, depois pega APENAS o elemento com name definido, ou seja
+        // os inputs selecionados. Com isso, consegumimos achar especificamente os inputs de texto.
+
+        try {
+            if (input.getAttribute("type") == "text") {
+                value = input.value.trim()
+                // Assim, podemos tratar APENAS os inputs de tipo texto.
+            }
+        } catch(err) {
+            
+        // Gambiarra nova acaba aqui. 
+
+        }
+        
         if (formEntries[key]) {
             formEntries[key] = Array.isArray(formEntries[key]) ? [...formEntries[key], value] : [formEntries[key], value];
         } else {
             formEntries[key] = value;
         }
     });
+
     
+
     if (is_prova === undefined) {
         corrigirEnvioFormulario(formEntries, pegarRespostasCorretas(form), botao, form);
     }   
@@ -51,7 +70,7 @@ function pegarRespostasCorretas(form) { // retorna objeto
     const respostas_corretas = form.getElementsByClassName("c");
     const respostas_corretas_formatadas = {};
 
-    Array.from(respostas_corretas).forEach(input => {
+    Array.from(respostas_corretas).forEach(input => { // Alterar pode dar mt merda
         respostas_corretas_formatadas[input.name] = input.getAttribute("type") !== "text" ? input.value : input.getAttribute('data-c');
     });
 
@@ -134,6 +153,13 @@ function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
         resetarTimer()
     } else {
         tentativas++
+
+        feedback.classList.add("feedback-blink")
+
+        setTimeout(() => {
+            feedback.classList.remove("feedback-blink")
+        }, 800)
+
         feedback.innerHTML = "Ops, uma ou mais questões estão incorretas e/ou não foram preenchidas, tente novamente.";
         botao.scrollIntoView({behavior: 'smooth'})
     }
@@ -195,10 +221,12 @@ function atualizarCor(fase) {
     };
 
     const cor = cores[fase.classList[1]];
+
     if (cor) {
         fase.style.backgroundColor = cor;
         fase.style.outlineColor = cor;
         if (fase.classList[1] === "prova-icon") {
+            console.log("oi1")     
             fase.classList.remove('bloqueado');
         }
     }

@@ -42,6 +42,7 @@
     margin: auto;
 }
 
+
 form > input {
     display: block;
 }
@@ -150,4 +151,22 @@ input[type="text"] {
     outline: 1px solid rgba(13, 105, 145, 0.647);
     font-family: monospace;
     font-size: 1.1em;
+}
+
+.feedback-blink {
+    animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+    0% {
+        color: var(--cor-texto)
+    }
+
+    50% {
+        color: red;
+    }
+
+    100% {
+        color: var(--cor-texto)
+    }
 }
