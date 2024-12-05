@@ -143,6 +143,9 @@ function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
     respostas_corretas = JSON.stringify(respostas_corretas);
     let feedback = form.getElementsByClassName('feedback')[0];
 
+    console.log(respostas_corretas)
+    console.log(respostas)
+
     if (respostas === respostas_corretas) {
         atualizarFaseEPontuacao(botao, calcularPontuacao(20, minutos, tentativas))
         
@@ -226,7 +229,7 @@ function atualizarCor(fase) {
         fase.style.backgroundColor = cor;
         fase.style.outlineColor = cor;
         if (fase.classList[1] === "prova-icon") {
-            console.log("oi1")     
+
             fase.classList.remove('bloqueado');
         }
     }

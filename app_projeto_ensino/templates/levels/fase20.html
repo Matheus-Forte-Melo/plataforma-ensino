@@ -1,11 +1,127 @@
-    {% load static %}
+{% load static %}
 
 <div class="conteudo prova" id="conteudo20">
     <img src="{% static 'img/x-circle-fill.svg' %}" alt="Fechar" class="ui-icon" onclick="retornarAba()">
-    <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick=" maximizarAba()">
+    <img src="{% static 'img/resize-fill.svg' %}" alt="Fechar" class="ui-icon maximizar-btn" onclick="maximizarAba()">
     <div></div>
     <main>
-        
+        <div id="info-tempo"></div>
+        <form id="formulario_fase_20" class="prevent-select" action="">
+            
+            <div class="questao-container">
+                <p>Usamos o <code class="language-c">#</code> para duas coisas principais em C.</p>
+                <input type="checkbox" name="1" class="c"> Para incluir bibliotecas. EX: <code class="language-c">#include</code> <br>
+                <input type="checkbox" name="2"> Para definir variáveis. EX: <code class="language-c">#definevar</code> <br>
+                <input type="checkbox" name="3"> Para definir funções. EX: <code class="language-c">#function</code> <br>
+                <input type="checkbox" name="4" class="c"> Para definir constantes. EX: <code class="language-c">#define</code> <br>
+            </div>
+            
+            <div class="questao-container">
+                <p>Qual das opções abaixo possui uma condicional que verifica corretamente se um número inteiro armazenado na variável <code class="language-c">x</code> é positivo e múltiplo de 3?</p>
+<pre>
+    <code class="language-c">
+    int x = 9; // Valor de exemplo
+    if (/* condicional aqui */) {
+        printf("Condição verdadeira");
+    } else {
+        printf("Condição falsa");
+    }
+    </code>
+</pre>
+                <input type="radio" name="5"> <code class="language-c">x > 0 && x / 3 == 0</code> <br>
+                <input type="radio" name="5" class="c" value="c" > <code class="language-c">x >= 0 && x % 3 == 0</code> <br>
+                <input type="radio" name="5"> <code class="language-c">x >= 0 || x % 3 == 0</code> <br>
+                <input type="radio" name="5"> <code class="language-c">x < 0 && x % 3 == 1</code> <br>
+            </div>
+
+            <div class="questao-container">
+                <p>Qual será a saída do código abaixo?</p>
+            <pre>
+                <code class="language-c">
+                #include &lt;stdio.h&gt;
+                int main() {
+                    int n = 4;
+                    int soma = n + (n - 1) + (n - 2) + (n - 3);
+                    printf("%d", soma);
+                    return 0;
+                }
+                </code>
+            </pre>
+                <input type="radio" name="6"> 4 <br>
+                <input type="radio" name="6" class="c" value="c"> 10 <br>
+                <input type="radio" name="6"> 15 <br>
+                <input type="radio" name="6"> 0 <br>
+            </div>
+
+            <div class="questao-container">
+                <p>Dado o seguinte código, qual será a saída?</p>
+<pre>
+    <code class="language-c">
+    #include &lt;stdio.h&gt;
+    int main() {
+        char c = 'A' + 3;
+        printf("%c", c);
+        return 0;
+    }
+    </code>
+</pre>
+                <input type="radio" name="7"> D <br>
+                <input type="radio" name="7"> C <br>
+                <input type="radio" name="7" class="c" value="c"> Erro de compilação <br>
+                <input type="radio" name="7"> Nenhuma das anteriores <br>
+            </div>
+
+            <div class="questao-container">
+                <p>Qual é o operador usado em C para calcular o módulo de uma divisão?</p>
+                <input type="radio" name="8"> + <br>
+                <input type="radio" name="8"> - <br>
+                <input type="radio" name="8"> / <br>
+                <input type="radio" name="8" class="c" value="c"> % <br>
+            </div>
+
+            <div class="questao-container">
+                <p>Qual será a saída do código abaixo?</p>
+<pre>
+    <code class="language-c">
+    #include &lt;stdio.h&gt;
+    int main() {
+        int base = 3, expoente = 4, resultado = 1;
+        while (expoente > 0) {
+            resultado *= base;
+            expoente--;
+        }
+        printf("%d", resultado);
+        return 0;
+    }
+    </code>
+</pre>
+                <input type="radio" name="9"> 12 <br>
+                <input type="radio" name="9"> 27 <br>
+                <input type="radio" name="9" class="c" value="c"> 81 <br>
+                <input type="radio" name="9"> 64 <br>
+            </div>
+
+            <div class="questao-container">
+                <p>O código abaixo calcula a quantidade de latas de tinta necessárias para pintar uma parede. Qual será a saída ao informar uma área de 100 m²?</p>
+<pre>
+    <code class="language-c">
+    #include &lt;stdio.h&gt;
+    int main() {
+        float area, rendimento_lata = 20.0;
+        printf("Digite a área em m²: ");
+        scanf("%f", &area);
+        int latas = (int)(area / rendimento_lata + 0.999);
+        printf("Quantidade de latas necessárias: %d", latas);
+        return 0;
+    }
+    </code>
+</pre>
+                <input type="radio" name="10"> 4 <br>
+                <input type="radio" name="10" class="c" value="c"> 5 <br>
+                <input type="radio" name="10"> 6 <br>
+                <input type="radio" name="10"> 3 <br>
+            </div>
+            <div class="feedback"></div>
+        </form>
     </main>
-    
 </div>
