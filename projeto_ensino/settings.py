@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path="variables.local")
+load_dotenv(dotenv_path=".env.local")
 SECRET_DB = os.getenv("SECRET_DB")
 SECRET_DJANGO_KEY = os.getenv("SECRET_DJANGO_KEY")
 
@@ -21,8 +21,6 @@ DEBUG = True
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh"]
-
-
 
 # Application definition
 
