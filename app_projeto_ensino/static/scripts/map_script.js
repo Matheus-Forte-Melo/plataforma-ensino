@@ -187,20 +187,17 @@ function iniciarTimer(id) {
             
         }
 
-        console.log(`${minutos}:${('0' + segundos).slice(-2)}`);
     }, 1000); 
 }
 
 function pararTimer() {
     clearInterval(timer)
-    console.log("Timer parado")
 }
 
 function resetarTimer() {
     clearInterval(timer)
     segundos = 0;
     minutos = 0;
-    console.log("Timer resetado")
 }
 
 function sumirHeader() {
@@ -217,8 +214,6 @@ function abrirAba(fase) {
     aba_lateral.classList.add('ativa');
 
     mobile == true ? aba_lateral.classList.add('maximizado') : null
-
-    console.log(mobile)
     
     document.querySelectorAll('.conteudo').forEach(el => el.classList.remove('ativo'));
     conteudoFase.classList.add('ativo');

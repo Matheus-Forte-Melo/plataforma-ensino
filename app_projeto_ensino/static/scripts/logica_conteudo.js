@@ -83,9 +83,6 @@ function corrigirEnvioFormularioProva(respostas, respostas_corretas, botao, form
     let nota; let pontos = 0; let valor_ponto = 10 / qnt_respostas_form;
     // pacoca == true : faz isso ? senao isso
 
-    console.log(respostas_corretas)
-    console.log(respostas)
-
     for (let chave in respostas_corretas) {
         if (respostas[chave] === undefined) {
             console.log("Resposta inexistente");
@@ -121,7 +118,6 @@ function reprovar(form, pontos, nota, botao) {
     let feedback = form.getElementsByClassName('feedback')[0];
     pararTimer()
 
-    console.log(botao)
     botao.innerHTML = "Voltar"
     botao.setAttribute('onclick', 'location.reload()')
 
@@ -143,8 +139,6 @@ function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
     respostas_corretas = JSON.stringify(respostas_corretas);
     let feedback = form.getElementsByClassName('feedback')[0];
 
-    console.log(respostas_corretas)
-    console.log(respostas)
 
     if (respostas === respostas_corretas) {
         atualizarFaseEPontuacao(botao, calcularPontuacao(20, minutos, tentativas))
@@ -254,7 +248,7 @@ function atualizarFaseEPontuacao(botao, pontuacao_add) {
     conteudo_fase_feedback.innerHTML = `<p class='feedback-fase'><small>+ ${pontuacao_add} pontos</small></p>`
     conteudoFase.querySelector(".ui-icon").scrollIntoView({ behavior: 'smooth'});
 
-    console.log("Iniciando incremento de fase e pontuação");
+
 
     botao.disabled = true;
     botao.style.display = 'none';
