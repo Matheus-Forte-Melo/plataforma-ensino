@@ -1,5 +1,10 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv(dotenv_path="variables.local")
+SECRET_DB = os.getenv("SECRET_DB")
+SECRET_DJANGO_KEY = os.getenv("SECRET_DJANGO_KEY")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-r9t6cchd+nc0^&76jnvwfm$z6=%fgqdm0a+0x((88f@k4hu+wf'
+SECRET_KEY = SECRET_DJANGO_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,12 +88,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'lHlcxdfcJOGxwTIYzYMkpkUJnrGEHGhk',
+        'PASSWORD': SECRET_DB,
         'HOST': 'junction.proxy.rlwy.net',
         'PORT': '36949',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
