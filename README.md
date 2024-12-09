@@ -19,9 +19,13 @@ Assuntos abordados:
 
 <hr>
 
+
 <b>Acesse:</b>
+
+
 Acesse aqui: https://plataforma-ensino-v1.vercel.app
 Observação: O projeto está hospedado em um plano gratuito, assim como o banco de dados PostgreSQL na Railway. Portanto, a velocidade pode ser um pouco limitada.
+
 
 <hr>
 
