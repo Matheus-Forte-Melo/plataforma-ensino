@@ -74,23 +74,23 @@ WSGI_APPLICATION = 'projeto_ensino.wsgi.application'
 
 
 # ====================== DATABASE LOCAL
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': SECRET_DB,
-#         'HOST': 'junction.proxy.rlwy.net',
-#         'PORT': '36949',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': SECRET_DB,
+        'HOST': 'junction.proxy.rlwy.net',
+        'PORT': '36949',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
