@@ -1,0 +1,222 @@
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../../img/background.jpg);
+}
+
+#homepage-a {
+    color: var(--vermelho_primario);
+}
+
+/* barrinha vermelha   */ 
+#homepage-a::before {
+    content: '';
+    position: absolute; /* Usa como base o container se pa */
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95px;
+    height: 4px;
+    background-color: var(--vermelho_primario);
+    cursor: auto;
+}
+
+main {
+    margin-top: 22px;
+    display: flex;
+}
+
+section {
+    width: 50%;
+}
+
+.content {
+    padding: 0px 0px 20px 5%;
+    margin-top: 75px;
+}
+
+h1, h2 {
+    margin: 0px;
+    color: var(--cor_texto);
+}
+
+.title1 {
+    font-size: 4.5em;
+    height: 70px;
+}
+
+.title2 {
+    font-size: 7em;
+    height: 120px;
+}
+
+.sub-title {
+    font-size: 3.60em;
+    color: var(--vermelho_primario);
+}
+
+p {
+    margin-top: 35px;
+    font-size: 1.35em;
+    /* width: 78%; */
+}
+
+button {
+    font-weight: bold;
+    margin-top: 20px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 200px;
+    height: 50px;
+    background-color: var(--vermelho_secundario);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--vermelho_primario);
+}
+
+.bg {   
+    width: 60%;
+    background-size: contain;
+    background-image: url(../../img/bg3_s.png);
+    background-repeat: no-repeat;
+    height: 795px;
+    overflow: hidden;
+}
+
+/* ============= Media Queries ============= */
+
+@media screen and (max-height: 950px) {
+    body {
+        height: 100vh;
+    }
+
+    .bg {
+        height: 650px;
+    }
+}
+
+/* @media screen and (max-height: 630px) {
+    section.content {
+        margin-top: 30px;
+    }
+} */
+
+@media screen and (max-width: 1700px) {
+    .content {
+        width: 60%;
+    }
+
+    .title1 {
+        font-size: 4em;
+        height: 60px;
+    }
+
+    .title2 {
+        font-size: 5.15em;
+        height: 85px;
+    }
+
+    .sub-title {
+        font-size: 2.15em;
+        color: var(--vermelho_primario);
+    }
+
+    .bg {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    body {
+        background-image: none;
+    } 
+
+    .bg {
+        display: none;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    p {
+        width: 75%;
+        font-size: 0.8em;
+    }
+
+    .title1 {
+        font-size: 3.2em;
+        height: 50px;
+    }
+
+    .title2 {
+        font-size: 4em;
+        height: 60px;
+    }
+
+    .sub-title {
+        font-size: 2.60em;
+        color: var(--vermelho_primario);
+    }
+
+    p {
+        margin-top: 35px;
+        font-size: 1.35em;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .content {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    p, h1, h2 {
+        text-align: center;
+    }
+
+    p {
+        font-size: 1em;
+        display: block;
+        margin: auto;
+        width: 90%;
+    }
+
+    .content {
+        padding: 0;
+    }
+
+    .title2 {
+        display: none;
+    }
+
+    .title1 {
+        height: 30px;
+        font-size: 1.9em;
+    }
+
+    .title1::after {
+        content: " extensionista";
+    }
+
+    .title {
+        display: none;
+    }
+
+    .sub-title {
+        margin-bottom: 20px;
+        font-size: 1.55em;
+        color: var(--vermelho_primario);
+    }
+
+    .button-a {
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
+}

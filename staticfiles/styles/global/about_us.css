@@ -1,0 +1,174 @@
+body {
+    height: 98vh;
+}
+
+header {
+    background-color: var(--vermelho_secundario);
+    height: 125px;
+}
+
+#about_us-a {
+    color: var(--vermelho_primario);
+}
+
+/* barrinha vermelha */
+#about_us-a::before {
+    content: '';
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 4px;
+    background-color: var(--vermelho_primario);
+    cursor: auto;
+}
+
+main {
+    margin-top: 15px;
+    height: 78%;
+    background-color: var(--background_conteudo);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+section a {
+    text-decoration: none;
+    color: var(--vermelho_secundario);
+}
+
+section a:visited {
+    color: var(--vermelho_secundario);
+}
+
+section a:hover {
+    color: var(--vermelho_primario);
+}
+
+section a::after {
+    content: '↗';
+}
+
+section {
+    justify-items: center;
+    justify-self: center;
+    padding: 0px 35px 0px 60px;
+}
+
+ul {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+iframe {
+    display: block;
+    margin-bottom: 25px;
+}
+
+section h1 {
+    font-size: 2.5em;
+}
+
+section p {
+    font-size: 1.15em;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1500px) {
+    main {
+        margin: auto;
+        grid-template-columns: 1fr;
+        width: 75%;
+    }
+}
+
+
+@media screen and (max-width: 1080px) {
+    main {
+        height: auto;
+    }
+
+    section {
+        padding: 0 20px;
+    }
+
+    section h1 {
+        font-size: 2em;
+    }
+
+    section p {
+        font-size: 1em;
+    }
+
+    iframe {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+        body {
+            position: relative;
+        }
+
+        header {
+            position: absolute;
+        }
+
+        main {
+            transform: translateY(5%);
+        }
+    }
+
+@media screen and (max-width: 768px) {
+    header {
+        height: 100px;
+    }
+
+    #about_us-a::before {
+        width: 150px;
+    }
+
+    section {
+        padding: 0 10px;
+    }
+
+    section h1 {
+        font-size: 1.5em;
+    }
+
+    section p {
+        font-size: 0.9em;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        height: 80px;
+    }
+
+    #about_us-a::before {
+        width: 100px;
+    }
+
+    section {
+        padding: 0 5px;
+    }
+
+    section h1 {
+        font-size: 1.3em;
+    }
+
+    section p {
+        font-size: 0.85em;
+    }
+}
+
+

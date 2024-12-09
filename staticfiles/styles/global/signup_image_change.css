@@ -1,0 +1,21 @@
+.background {
+    background-image: url(../../img/bg2_s.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 58vw;
+    height: 100vh;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .background {
+        background-image: none;
+        background-color: var(--vermelho_secundario);
+        width: 100vw;
+        background-position: top left;
+        background-size: 250%;
+    }
+
+    
+}
+

@@ -1,0 +1,208 @@
+@font-face {
+    font-family: "Inter";
+    src: url(../../font/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
+}
+
+.prevent-select {
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+ }
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    right: 0;
+    width: 100%;
+    z-index: 1000; /* Aparentemente precisa disso pq se não as bola passa por cima, e garante que o stick funcione */
+    background-color: transparent; 
+    justify-content: flex-end;
+    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+header > nav {
+    height: 40px;
+}
+
+.popup {
+    padding: 20px;
+    display: none !important;
+    border: solid 1px black ;
+    display: block;
+    position: fixed;
+    top: 20%;
+    width: 35%;
+    height: 555px;
+    overflow-y: scroll;
+    z-index: 1001; /* Aparentemente precisa disso pq se não as bola passa por cima e garante que o stick funcione  */
+    background-color: transparent; 
+    justify-content: flex-end;
+    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+    background-color: var(--background_geral);
+    color: var(--cor_texto);
+    filter: brightness(1) !important;
+}
+
+.escurecedor > * {
+    filter: brightness(0.55);
+}
+
+#conteudo-a {
+    color: var(--vermelho_primario);
+}
+
+#conteudo-a::before {
+    content: '';
+    position: absolute; /* Usa como base o container se pa */
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 185px;
+    height: 4px;
+    background-color: var(--vermelho_primario);
+    cursor: auto;
+}
+
+.header-shift-out {
+    transform: translateX(100%);
+}
+
+/* Contêiner do mapa que vai controlar o scroll */
+.mapa-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Esconde o overflow e vamos controlar com JS */
+    position: relative;
+}
+
+/* Mapa que é maior que o contêiner para permitir o arraste */
+.mapa {
+    width: 6500px; /* Exemplo, faça maior que a tela */
+    height: 2000px; /* Exemplo, faça maior que a tela */
+    background-color: var(--background_conteudo);
+    display: flex;
+    position: relative;
+    
+}
+
+.mapa-container:active {
+    cursor: grabbing;       
+}
+
+/* Aba lateral */
+.aba-lateral {
+    width: 47%;
+    height: 100vh;
+    background-color: var(--background_geral);
+    position: fixed; /* Isso aqui é o que permite essa gororoba toda ficar certinha. Está sempre no mesmo lugar da tela e nao se auto ajusta, foda. */
+    right: -50%;
+    top: 0;
+    padding: 20px;
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 100;
+    overflow: scroll;
+}
+
+.feedback-fase {
+    color: green;
+}
+
+.aba-lateral a {
+    color: var(--vermelho_secundario);
+}
+
+.aba-lateral.ativa {
+    transform: translateX(-100%);
+}
+
+.conteudo {
+    display: none;
+}
+
+.conteudo.ativo {
+    display: block;
+    text-align: justify;
+}
+
+.conteudo-bloqueado {
+    display: none !important;
+}
+
+.feedback-estado::after {
+    content: 'Essa fase está bloqueada.';
+    display: block; /* ou inline, dependendo do layout desejado */
+    color: red; /* estilo opcional */
+    margin-top: 5px; /* espaço opcional */
+}
+
+.maximizado {
+    transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
+    width: 100%; 
+    height: 100vh; 
+    right: -104%; /* Alterar esse valor com media queries */
+}
+
+@media screen and (max-width: 1150px) {
+    .aba-lateral {
+        width: 45%;
+        right: -52%;
+        top: 0;
+        padding: 25px;
+    }
+
+    .maximizado {
+        padding: 15px 0px 0px 0px;
+        transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
+        width: 104%; 
+        height: 100vh; 
+        right: -104%; /* Alterar esse valor com media queries */
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .aba-lateral {
+        opacity: 0%;
+    }
+
+    .aba-lateral.ativa {
+        opacity: 100%;
+    }
+
+    .maximizado > .conteudo {
+        width: 65% !important;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .header-shift-out {
+        transform: translateY(-200%);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .ui-icon.maximizar-btn {
+        display: none !important;
+    }
+
+    .maximizado > .conteudo {
+        width: 75% !important;
+        text-align: left;
+    }
+
+    .popup {
+        width: 300px;
+        top: 7.5%;
+    }
+
+}
+
+
+
