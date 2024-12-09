@@ -1,20 +1,20 @@
 <h1>Plataforma de Ensino - Introdução à Programação</h1>
 
 Descrição do Projeto:
-Esta é uma plataforma educacional dedicada ao ensino da matéria "Introdução à Programação". A plataforma é totalmente gratuíta e aborda os temas básicos de programação, utilizando a linguagem C.
+Esta é uma plataforma educacional dedicada ao ensino da matéria "Introdução à Programação". A plataforma é totalmente gratuíta e aborda os temas básicos de programação, utilizando a linguagem C. <br>
 A plataforma surgiu como uma iniciativa de extensão da faculdade católica de Santa Catarina, ou seja, <b>esse website foi utilizado por uma turma real de estudantes leigos como material didático para a instrução da matéria "Introdução a Programação".</b>
 
 Assuntos abordados:
 
 
-Tipos Primitivos
-Constantes
-Entrada de Dados
-Saída de dados
-Operadores Relacionais
-Operadores Lógicos
-Operadores Aritiméticos
-Condicional If e Else
+* Tipos Primitivos
+* Constantes
+* Entrada de Dados
+* Saída de dados
+* Operadores Relacionais
+* Operadores Lógicos
+* Operadores Aritiméticos
+* Condicional If e Else
 
 <hr>
 
