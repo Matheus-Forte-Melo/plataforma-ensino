@@ -2,7 +2,7 @@
 
 Descrição do Projeto:
 Esta é uma plataforma educacional dedicada ao ensino da matéria "Introdução à Programação". A plataforma é totalmente gratuíta e aborda os temas básicos de programação, utilizando a linguagem C.
-A plataforma surgiu como uma iniciativa de extensão da faculdade católica de Santa Catarina, ou seja, esse website foi utilizado por uma turma real de estudantes leigos como material didático para a instrução da matéria "Introdução a Programação"
+A plataforma surgiu como uma iniciativa de extensão da faculdade católica de Santa Catarina, ou seja, <b>esse website foi utilizado por uma turma real de estudantes leigos como material didático para a instrução da matéria "Introdução a Programação".</b>
 
 Assuntos abordados:
 
