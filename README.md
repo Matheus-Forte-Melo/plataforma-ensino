@@ -1,38 +1,26 @@
 <h1>Plataforma de Ensino - Introdução à Programação</h1>
 
 Descrição do Projeto:
-Esta é uma plataforma educacional dedicada ao ensino da matéria "Introdução à Programação". O projeto ainda está em desenvolvimento e será atualizado com mais conteúdo ao longo do tempo.
+Esta é uma plataforma educacional dedicada ao ensino da matéria "Introdução à Programação". A plataforma é totalmente gratuíta e aborda os temas básicos de programação, utilizando a linguagem C.
+A plataforma surgiu como uma iniciativa de extensão da faculdade católica de Santa Catarina, ou seja, esse website foi utilizado por uma turma real de estudantes leigos como material didático para a instrução da matéria "Introdução a Programação"
+
+Assuntos abordados:
+
+
+Tipos Primitivos
+Constantes
+Entrada de Dados
+Saída de dados
+Operadores Relacionais
+Operadores Lógicos
+Operadores Aritiméticos
+Condicional If e Else
 
 <hr>
 
-Você pode acessar a plataforma de duas maneiras:
-
-<b>Online:</b>
+<b>Acesse:</b>
 Acesse aqui: https://plataforma-ensino-v1.vercel.app
-Observação: O projeto está hospedado em um plano gratuito, assim como o banco de dados PostgreSQL na Railway. Portanto, a velocidade pode ser limitada.
-
-<b>Localmente:</b>
-Para rodar a plataforma em sua máquina, siga os passos abaixo:
-
-Baixe ou clone o repositório do projeto.
-Extraia o arquivo, se necessário.
-Abra a pasta do projeto usando o terminal do VS Code ou o terminal do Windows.
-Certifique-se de que você tem o Python 3.12.6 ou superior instalado em sua máquina.
-Inicie o ambiente virtual:
-No terminal, digite:
-venv/scripts/activate
-
-
-Depois, inicie o servidor:
-Digite o seguinte comando no terminal:
-python manage.py runserver
-Em seguida, siga o link exibido no terminal para acessar a plataforma localmente.
-
-<h2>Melhorando a Velocidade:</h2>
-
-Descomente o bloco de cima e comente o de baixo. Localizado em 'projeto-ensino/settings.py'; assim você trocará o banco de dados na nuvem para um banco de dados local.
-
-![image](https://github.com/user-attachments/assets/1e17d5da-c495-484d-a35d-dccc7473d9e0)
+Observação: O projeto está hospedado em um plano gratuito, assim como o banco de dados PostgreSQL na Railway. Portanto, a velocidade pode ser um pouco limitada.
 
 
 
