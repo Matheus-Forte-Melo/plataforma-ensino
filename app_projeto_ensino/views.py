@@ -43,6 +43,8 @@ def signup(request):
     
     return render(request, 'global/signup.html')
 
+
+
 def signin(request):
     if request.method == "POST":
         try:
