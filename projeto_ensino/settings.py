@@ -18,6 +18,7 @@ SECRET_KEY = SECRET_DJANGO_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+# Só tive que dar um python mange.py buildstatic algo assim e setar umas parada
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh"]
