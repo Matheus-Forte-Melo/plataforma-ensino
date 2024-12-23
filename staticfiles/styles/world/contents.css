@@ -89,6 +89,10 @@ th {
     background-color: transparent;
 }
 
+.white-space {
+    height: 40px;
+}
+
 .aviso-verde {
     display: flex;
     align-items: center;
