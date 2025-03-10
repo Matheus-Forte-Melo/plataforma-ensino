@@ -5,27 +5,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'styles/global/geral.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/global/homepage.css' %}">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'styles/global/new_home.css' %} ">
 </head>
 <body>
-    
-    {% include 'partial/header.html' %}
-
+    <header>
+        <div class="header-content">
+            <div class="icon"></div>
+            <p>Projeto de Extensão</p>
+        </div>
+    </header>
     <main>
         <section class="content">
-            <h2 class="title1">Projeto</h2>
-            <h1 class="title2">Extensionista</h1>
-            <h2 class="sub-title">Introdução à programação</h2>
-            <p>O curso oferece aos participantes a oportunidade de aprender os fundamentos da lógica de programação e a linguagem C. Ministradas por alunos do curso de Engenharia de Software da primeira fase, as aulas abordarão conceitos como variáveis, estruturas condicionais e loops, com exercícios práticos. O curso visa introduzir a programação de forma acessível e dinâmica.</p>
-            <a class="button-a" href="{% url 'world1' %}"><button>COMECE JÁ!</button></a>
-        </section>
-        <section class="bg">
+            <article class="intro">
+                <h1>Projeto Extensionista</h1>
+                <h2>Introdução a Programação</h2>
+                <p>Aprenda os conceitos fundamentais da programação neste curso gratuíto, criado por alunos e oferecido à integrantes da comunidade do projeto extensionista da Universidade Católica de Santa Catarina.</p>
+                <a href="{% url 'world1' %}"><button class="intro-btn">Clique Aqui</button></a>
+            </article>
+    
+            <article class="faq">
+                <h3>Perguntas frequentes</h3>
+                <div class="sep-line"></div>
+                
+                <div class="faq-item">
+                    <p class="q">Preciso saber algo antes de começar o curso?</p>
+                    <p class="a">- Não! O curso abordará tudo que você precisa saber. O curso cobre todo o básico da programação em C.</p>
+                </div>
+    
+                <div class="faq-item">
+                    <p class="q">O curso é oficial da universidade católica de santa catarina?</p>
+                    <p class="a">- Sim e não. O curso é um oferecimento do programa de extensão da universidade, e é administrado por alunos.</p>
+                </div>
+    
+                <div class="faq-item">
+                    <p class="q">O que é o programa de extensão?</p>
+                    <p class="a">- Um programa que incentiva os alunos da universidade católica à repassar o conhecimento recebido no semestre à comunidade, ou seja, a voce que está lendo isso. Como alunos, devemos participar desse programa e fazer um projeto (como este) para podermos nos formar. </p>
+                </div>
+    
+                <div class="faq-item">
+                    <p class="q">O curso é realmente 100% gratuito?</p>
+                    <p class="a">- Sim, sem truques para na metade fazer você comprar um “curso completo”. Como alunos no programa de extensão não podemos cobrar nada de você, nosso objetivo é proliferar conhecimento à todos, e uma barreira monetária vai contra esse princípio.</p>
+                </div>
+            </article>
+            
+            <!-- <section class="education-cards-sect">
+                <h3>Nesse curso introdutório você vai aprender:</h3>
+                <div class="education-cards-container">
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                </div>
+            </section> -->
 
         </section>
+
+        <section class="bg">
+            <div class="bg-image"></div>
+        </section>
+
     </main>
-    <script src="{% static 'scripts/header_res.js' %}"></script>
+    <footer></footer>
 </body>
 </html>
