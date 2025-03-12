@@ -150,6 +150,7 @@ function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
         resetarTimer()
     } else {
         tentativas++
+
         feedback.classList.add("feedback-blink")
 
         setTimeout(() => {
@@ -246,8 +247,6 @@ function atualizarFaseEPontuacao(botao, pontuacao_add) {
     let conteudo_fase_feedback = conteudoFase.querySelector('div')
     conteudo_fase_feedback.innerHTML = `<p class='feedback-fase'><small>+ ${pontuacao_add} pontos</small></p>`
     conteudoFase.querySelector(".ui-icon").scrollIntoView({ behavior: 'smooth'});
-
-
 
     botao.disabled = true;
     botao.style.display = 'none';

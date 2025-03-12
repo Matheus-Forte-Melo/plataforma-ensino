@@ -22,7 +22,7 @@ header {
     z-index: 1000; /* Aparentemente precisa disso pq se não as bola passa por cima, e garante que o stick funcione */
     background-color: transparent; 
     justify-content: flex-end;
-    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: 1s cubic-bezier(0.19, 1, 0.22, 1) !important;   
 }
 
 header > nav {
@@ -32,13 +32,15 @@ header > nav {
 .popup {
     padding: 20px;
     display: none !important;
-    border: solid 1px black ;
+    border: none;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.38);
+    border-radius: 25px;
     display: block;
     position: fixed;
     top: 20%;
     width: 450px;
     height: 475px;
-    overflow-y: scroll;
+    overflow-y: auto;
     z-index: 1001; /* Aparentemente precisa disso pq se não as bola passa por cima e garante que o stick funcione  */
     background-color: transparent; 
     justify-content: flex-end;
@@ -46,6 +48,11 @@ header > nav {
     background-color: var(--background_geral);
     color: var(--cor_texto);
     filter: brightness(1) !important;
+}
+
+.popup-btn {
+    position: absolute;
+    bottom: 20px;
 }
 
 .escurecedor > * {
@@ -87,7 +94,7 @@ header > nav {
     background-color: var(--background_conteudo);
     display: flex;
     position: relative;
-    
+    transition: 1s cubic-bezier(0.19, 1, 0.22, 1);  /* Se der alguma parada estranha, tirar */
 }
 
 .mapa-container:active {
