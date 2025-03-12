@@ -26,7 +26,7 @@ def signup(request):
                 # Salva o usuario e faz na conta criada
                 user.save()
                 login(request, user)
-                return redirect('home')  # Redireciona para a página principal
+                return redirect('world1')  # Redireciona para a página principal
             else:
                 raise ValueError("Erro na autenticação do usuario.")           
 
@@ -53,7 +53,7 @@ def signin(request):
 
             if user is not None:
                 login(request, user)
-                return redirect('profile', pk=user.pk) # Redireciona para o perfil por enquanto.
+                return redirect('world1') # Redireciona para o perfil por enquanto.
             else:
                 raise ValueError("Username ou senha inválidos, tente novamente.")
             
@@ -78,7 +78,7 @@ def profileEdit(request, pk):
     user = models.CustomUser.objects.get(pk=pk)
 
     if (user.id != request.user.id):
-        return HttpResponseForbidden("<p>Perai irmão, nerá pra você estar aqui não</p>")
+        return HttpResponseForbidden("<p>Perai irmão, nera pra você estar aqui não</p>")
 
     if request.method == 'POST':
         updated = False
@@ -138,9 +138,8 @@ def leaderboard_carregar_mais(request):
     return JsonResponse({'data': users})
     
 
-@login_required(login_url="signin") # Usar parada de permission e acesso do django para restringir acesso aos niveis superiores
+# @login_required(login_url="signin") # Usar parada de permission e acesso do django para restringir acesso aos niveis superiores
 def world1(request):
-    print(request.user, request.user.fase)
     return render(request, 'global/world1.html')
 
 @require_POST

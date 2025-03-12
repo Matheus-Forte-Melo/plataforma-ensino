@@ -1,8 +1,10 @@
 // Declaração de variáveis
 // Nota: Algumas variáveis utilizadas neste bloco de código são criadas no arquivo "lógica_conteudo.js", e vice versa.
 
+const auth_anon = document.getElementById("info-auth").getAttribute('data-anon')
 let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 let mobile = vw <= 700
+
 
 checarTela()
 window.addEventListener('resize', checarTela)
@@ -71,12 +73,14 @@ function tratarFaseAtual(fase, tipoFase, conteudoFase ,conteudo_fase_main, conte
     } else if (tipoFase == "prova") { 
         conteudoFase.querySelector('main').classList.add('conteudo-bloqueado')
         conteudoFase.querySelector('div').innerHTML = `<p><b>ATENÇÃO:</b> Este nível é uma prova, assim que você clicar em iniciar, você terá um determinado tempo para responder todas as questões corretamente. A aba irá se maximizar e não poderá ser minimizada nem fechada, a unica forma de sair dessa tela é entregando. Além disso, você consegue entregar apenas uma vez antes de obter sua nota. Você precisa de pelo menos SETE para passar adiante. Você pode repetir a prova quantas vezes quiser. Fechar a prova/página/aba no meio de sua execução cancelará sua tentativa e não irá salvar seus resultados, ou seja, terá que tentar novamente. </p> <button type="button" onclick="setarProva(this); resetarTimer(); iniciarTimer('info-tempo')">Começar prova</button> <hr>`
-         
      } else if (tipoFase === "desafio") {
         conteudoFase.innerHTML += `<div class="btn-container"><button onclick="pegarInfoFormulario(formulario_fase_${fase_atual}, this)">Entregar</button><button ondblclick="this.parentElement.querySelectorAll('button').forEach(btn => btn.style.display='none'); atualizarFaseEPontuacao(this, 0);">Pular</button></div>`;
-     } else {
-        conteudoFase.innerHTML += '<div class="btn-container"><button onclick="atualizarFaseEPontuacao(this, 125)">Desbloquear próxima fase</button></div>'; // Se tiver algum erro com incrementacao de fase, tava aqui, por conta da falta de dois pontos aparantemente
-     }
+    } else if (tipoFase == undefined && auth_anon == "true") {
+        conteudoFase.innerHTML += '<div class="btn-container"><a href="/signin/"><button>Desbloquear próxima fase</button></a></div>';
+    } else if (tipoFase == undefined) {
+        conteudoFase.innerHTML += '<div class="btn-container"><button onclick="atualizarFaseEPontuacao(this, 125)">Desbloquear próxima fase</button></div>';
+    } // Se tiver algum erro com incrementacao de fase, tava aqui, por conta da falta de dois pontos aparantemente
+     
 }
 
 function tratarFaseDesbloqueada(fase, num_fase, tipoFase, conteudoFase, conteudo_fase_feedback) {
@@ -122,7 +126,6 @@ function conectarFases() {
                 context.strokeStyle = "#808080"  
             }
             
-
             context.lineWidth = 1;
             context.stroke()
             
@@ -151,6 +154,7 @@ function atualizarFases() {
         let num_fase = Number(fase.getAttribute('data-fase'));
         let conteudoFase = document.getElementById("conteudo" + num_fase);
         const tipoFase = conteudoFase.classList[1]; // Mudei isso de lugar, ele tava no "Ativo" antes
+        // Os tipo de fase "conteúdo" são especificados por undefined. Faz um tempo que programei, não sei pq fiz isso.
         let estadoFase = pegarEstadoFase(num_fase, fase_atual);
         let conteudo_fase_main = conteudoFase.querySelector('main')
         let conteudo_fase_feedback = conteudoFase.querySelector('div')  

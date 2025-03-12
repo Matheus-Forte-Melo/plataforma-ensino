@@ -32,11 +32,8 @@
 
     </script>
 </head>
-<body>
-    <div id="info-fase" data-inicio="{{ request.user.fase }}"></div>
-
+<body>    
     <!--PopUps-->
-
     <div class="mapa-container" id="mapaContainer">
         <!-- Mapa de Fases -->
         {% include 'partial/header.html' %}
@@ -46,7 +43,7 @@
             <p>Este projeto se trata de um curso introdutório, então conceitos complicados não serão aplicados. Se você quer começar na programação, aqui é um bom lugar.</p>
             <p>Recomendo que você busque os conhecimentos por conta própria quando estiver travado em uma fase, ou caso não entenda algum conceito. Até recomendaria você a utilizar inteligência artificial, como um professor, onde você poderá fazer perguntas a ele, e ele irá responder (só não abuse, você não aprenderá nada se deixar a I.A fazer tudo por você).</p>
             <p>Enfim, boa sorte! meu contato está <a target="_blank" href="{% url 'about-us' %}">aqui</a>.</p>
-            <button type="button">Continuar</button>
+            <button class="popup-btn" type="button">Continuar</button>
         </dialog>
 
         <dialog id="p2" class="popup prevent-select">
@@ -125,6 +122,14 @@
 
         {% include 'levels/fase20.html' %}
     </div>
+
+    {% if request.user.is_authenticated and request.user.fase %}
+        <div id="info-fase" data-inicio="{{ request.user.fase }}"></div>
+        <div id="info-auth" data-anon="false"></div>
+    {% else %}
+        <div id="info-fase" data-inicio="1"></div>
+        <div id="info-auth" data-anon="true"></div>
+    {% endif %}
 
     <script src="{% static 'scripts/map_script.js' %}"></script> <!-- A lógica de exibição -->
     <script src="{% static 'scripts/logica_conteudo.js' %}"> </script> <!-- A lógica por tras de requests e restricoes --> 

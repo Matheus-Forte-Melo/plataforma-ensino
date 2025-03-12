@@ -150,7 +150,6 @@ function corrigirEnvioFormulario(respostas, respostas_corretas, botao, form) {
         resetarTimer()
     } else {
         tentativas++
-
         feedback.classList.add("feedback-blink")
 
         setTimeout(() => {

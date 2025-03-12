@@ -80,7 +80,7 @@ header {
     padding: 25px 0px 0px 25px;
     display: flex;
     justify-content: flex-end;
-    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1); /* Mudei, qualquer comportamento estranho do header pode ser transform */
 }
 
 .logo {
